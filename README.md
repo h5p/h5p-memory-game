@@ -1,7 +1,7 @@
 H5P Memory Game
 ==========
 
-Test your users with memory games.
+Create your own memory games and test the memory of your site users with this simple yet beautiful HTML5 game.
 
 ## License
 

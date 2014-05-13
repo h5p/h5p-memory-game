@@ -116,6 +116,7 @@ html .h5p-memory-game > ul {
   clear: both;
   float: right;
   line-height: 1.5em;
+  margin-right: 1em;
   font-size: 2em;
   visibility: hidden;
   -webkit-transform: scale(0,0) rotate(90deg);
@@ -136,6 +137,7 @@ html .h5p-memory-game > ul {
 
 .h5p-memory-game .h5p-status {
   clear: left;
+  padding: 0 1em;
 }
 .h5p-memory-game .h5p-status > dt {
   float: left;
