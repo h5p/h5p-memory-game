@@ -2,7 +2,7 @@
   "title": "Memory Game",
   "description": "See how many cards you can remember!",
   "majorVersion": 1,
-  "minorVersion": 0,
+  "minorVersion": 1,
   "patchVersion": 0,
   "runnable": 1,
   "author": "Amendor AS",

@@ -7,9 +7,23 @@
     "min": 1,
     "max": 100,
     "field": {
-      "name": "card",
-      "type": "image",
-      "label": "Card"
+      "type": "group",
+      "label": "Card",
+      "fields": [
+        {
+          "name": "image",
+          "type": "image",
+          "label": "Image"
+        },
+        {
+          "name": "description",
+          "type": "text",
+          "label": "Description",
+          "maxLength": 150,
+          "optional": true,
+          "description": "A short text that is displayed once the two equal cards are found."
+        }
+      ]
     }
   },
   {

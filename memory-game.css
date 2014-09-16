@@ -16,7 +16,7 @@ html .h5p-memory-game > ul {
   -ms-user-select: none;      
   user-select: none;
 }
-.h5p-memory-game .h5p-memory-card .h5p-back > img {
+.h5p-memory-game img {
   -webkit-user-drag: none;
 }
 .h5p-memory-game .h5p-memory-card {
@@ -149,4 +149,30 @@ html .h5p-memory-game > ul {
 }
 .h5p-memory-game .h5p-status > dd {
   margin: 0;
+}
+
+.h5p-memory-game .h5p-memory-pop {
+  display: none;
+  background: #fff;
+  padding: 1em;
+  width: 20em;
+  position: absolute;
+  top: 4em;
+  left: 50%;
+  margin-left: -10em;
+  box-shadow: 0 0 1em #666;
+  -webkit-transform: translateZ(24px);
+  -moz-transform: translateZ(24px);
+  transform: translateZ(24px);
+}
+.h5p-memory-game .h5p-memory-image {
+  float: left;
+  margin: 0 1em 1em 0;
+  border: 2px solid #d0d0d0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border-radius: 4px;
+  background: #f0f0f0;
+  width: 100px;
+  height: 100px;
 }
