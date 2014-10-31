@@ -13,19 +13,19 @@ H5P.MemoryGame = (function ($) {
    */
   function MemoryCard(parameters, id) {
     var self = this;
-    var path = H5P.getPath(parameters.path, id);
+    var path = H5P.getPath(parameters.image.path, id);
     var width, height, margin, $card;
     
     var a = 96;
-    if (parameters.width !== undefined && parameters.height !== undefined) {
-      if (parameters.width > parameters.height) {
+    if (parameters.image.width !== undefined && parameters.image.height !== undefined) {
+      if (parameters.image.width > parameters.image.height) {
         width = a;
-        height = parameters.height * (width / parameters.width);
+        height = parameters.image.height * (width / parameters.image.width);
         margin = '' + ((a - height) / 2) + 'px 0 0 0';
       }
       else {
         height = a;
-        width = parameters.width * (height / parameters.height);
+        width = parameters.image.width * (height / parameters.image.height);
         margin = '0 0 0 ' + ((a - width) / 2) + 'px';
       }
     }
@@ -48,14 +48,28 @@ H5P.MemoryGame = (function ($) {
      */    
     this.flipBack = function () {
       $card.removeClass('h5p-flipped');
-    }
+    };
     
     /**
      * Public. Remove.
      */
     this.remove = function () {
       $card.addClass('h5p-matched');
-    }
+    };
+    
+    /**
+     * Public. Get card description.
+     */
+    this.getDescription = function () {
+      return parameters.description;
+    };
+    
+    /**
+     * Public. Get image clone.
+     */
+    this.getImage = function () {
+      return $card.find('img').clone();
+    };
     
     /**
      * Public. Append card to the given container.
@@ -79,7 +93,7 @@ H5P.MemoryGame = (function ($) {
   };
   
   function MemoryTimer($container) {
-    var interval, started;
+    var interval, started, totalTime = 0;
     
     /**
      * Private. Make timer more readable for humans.
@@ -118,20 +132,31 @@ H5P.MemoryGame = (function ($) {
     /**
      * Private. Update the timer element.
      */
-    var update = function () {
-      $container.text(humanizeTime(Math.floor(((new Date()).getTime() - started) / 1000)));
+    var update = function (last) {
+      var currentTime = (new Date().getTime() - started);
+      $container.text(humanizeTime(Math.floor((totalTime + currentTime) / 1000)));
+      
+      if (last === true) {
+        // This is the last update, stop timing interval.
+        clearTimeout(interval);
+      }
+      else {
+        // Use setTimeout since setInterval isn't safe.
+        interval = setTimeout(function () {
+          update();
+        }, 1000);
+      }
+      
+      return currentTime;
     };
     
     /**
      * Public. Starts the counter.
      */
     this.start = function () {
-      if (interval === undefined) {
+      if (started === undefined) {
         started = new Date();
-        
-        interval = setInterval(function () {
-          update();
-        }, 1000);
+        update();
       }
     };
     
@@ -139,9 +164,9 @@ H5P.MemoryGame = (function ($) {
      * Public. Stops the counter.
      */
     this.stop = function () {
-      if (interval !== undefined) {
-        clearInterval(interval);
-        update();
+      if (started !== undefined) {
+        totalTime += update(true);
+        started = undefined;
       }
     };
   };
@@ -161,13 +186,53 @@ H5P.MemoryGame = (function ($) {
   }
 
   /**
+   * Memory Popup Dialog Constructor
+   *
+   * @param {jQuery} $container
+   */
+  function MemoryPop($container) {
+    var closed;
+        
+    var $popup = $('<div class="h5p-memory-pop"><div class="h5p-memory-image"></div><div class="h5p-memory-desc"></div></div>').appendTo($container);
+    var $desc = $popup.find('.h5p-memory-desc');
+    var $image = $popup.find('.h5p-memory-image');
+    
+    /**
+     * Public. Show the popup.
+     * 
+     * @param {String} desc
+     * @param {jQuery} $img
+     * @param {Function} done
+     * @returns {undefined}
+     */
+    this.show = function (desc, $img, done) {
+      $desc.text(desc);
+      $img.appendTo($image.html(''));
+      $popup.show();
+      closed = done;
+    };
+    
+    /**
+     * Public. Close the popup.
+     * @returns {undefined}
+     */
+    this.close = function () {
+      if (closed !== undefined) {
+        $popup.hide();
+        closed();
+        closed = undefined;
+      }
+    };
+  }
+
+  /**
    * Memory Game Constructor
    *
    * @param {Object} parameters
    * @param {Number} id
    */
   function MemoryGame(parameters, id) {
-    var flipped, timer, counter, $feedback, cards = [], removed = 0;
+    var flipped, timer, counter, popup, $feedback, cards = [], removed = 0;
     
     /**
      * Private. Check if these two cards belongs together.
@@ -184,7 +249,25 @@ H5P.MemoryGame = (function ($) {
         
         removed += 2;
         
-        if (removed === cards.length) {
+        var finished = (removed === cards.length);
+        var desc = card.getDescription();
+        
+        if (desc !== undefined) {
+          // Pause timer and show desciption.
+          timer.stop();
+          popup.show(desc, card.getImage(), function () {
+            if (finished) {
+              // Game has finished
+              $feedback.addClass('h5p-show');
+            }
+            else {
+              // Popup is closed, continue.
+              timer.start();
+            }
+          });
+        }
+        else if (finished) {
+          // Game has finished
           timer.stop();
           $feedback.addClass('h5p-show');
         }
@@ -194,7 +277,7 @@ H5P.MemoryGame = (function ($) {
         card.flipBack();
         mate.flipBack();
       }
-    }
+    };
     
     /**
      * Private. Adds card to card list and set up a flip listener.
@@ -259,14 +342,19 @@ H5P.MemoryGame = (function ($) {
         
         // Add status bar
         var $status = $('<dl class="h5p-status">\
-             <dt>' + parameters.l10n.timeSpent + '</dt>\
-             <dd class="h5p-time-spent">0:00</dd>\
-             <dt>' + parameters.l10n.cardTurns + '</dt>\
-             <dd class="h5p-card-turns">0</dd>\
-           </dl>').appendTo($container);
+            <dt>' + parameters.l10n.timeSpent + '</dt>\
+            <dd class="h5p-time-spent">0:00</dd>\
+            <dt>' + parameters.l10n.cardTurns + '</dt>\
+            <dd class="h5p-card-turns">0</dd>\
+          </dl>').appendTo($container);
         
         timer = new MemoryTimer($status.find('.h5p-time-spent'));
         counter = new MemoryCounter($status.find('.h5p-card-turns'));
+        popup = new MemoryPop($container);
+        
+        $container.click(function () {
+          popup.close();
+        });
       }
     };
   };
