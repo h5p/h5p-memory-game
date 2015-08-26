@@ -255,7 +255,7 @@ H5P.MemoryGame = (function ($) {
         if (desc !== undefined) {
           // Pause timer and show desciption.
           timer.stop();
-          popup.show(desc, card.getImage(), function () {
+          popup.show(desc, card.getImage(), function () {
             if (finished) {
               // Game has finished
               $feedback.addClass('h5p-show');
