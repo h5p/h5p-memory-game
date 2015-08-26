@@ -2,7 +2,7 @@
   "semantics": [
     {
       "label": "Cartes",
-      "entity": "card",
+      "entity": "une carte",
       "field": {
         "label": "Carte",
         "fields": [
@@ -20,7 +20,7 @@
       "label": "Localisation",
       "fields": [
         {
-          "label": "Texte pour une carte retournée",
+          "label": "Texte pour une carte à retourner",
           "default": "Retourner"
         },
         {
