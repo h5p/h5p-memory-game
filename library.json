@@ -16,6 +16,18 @@
   "preloadedJs": [
     {
       "path": "memory-game.js"
+    },
+    {
+      "path": "card.js"
+    },
+    {
+      "path": "timer.js"
+    },
+    {
+      "path": "counter.js"
+    },
+    {
+      "path": "popup.js"
     }
   ]
 }
