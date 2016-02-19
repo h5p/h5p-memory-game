@@ -39,8 +39,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         if (desc !== undefined) {
           // Pause timer and show desciption.
           timer.stop();
-          popup.show(desc, card.getImage(), function () {
+          popup.show(desc, card.getImage(), function () {
             if (finished) {
+              self.triggerXAPIScored(1, 1, 'completed');
               // Game has finished
               $feedback.addClass('h5p-show');
             }
@@ -51,6 +52,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           });
         }
         else if (finished) {
+          self.triggerXAPIScored(1, 1, 'completed');
           // Game has finished
           timer.stop();
           $feedback.addClass('h5p-show');
@@ -72,6 +74,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      */
     var addCard = function (card, mate) {
       card.on('flip', function () {
+        self.triggerXAPI('interacted');
         // Keep track of time spent
         timer.start();
 
@@ -112,6 +115,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @param {H5P.jQuery} $container
      */
     self.attach = function ($container) {
+      this.triggerXAPI('attempted');
       // TODO: Only create on first!
       $container.addClass('h5p-memory-game').html('');
 
