@@ -23,7 +23,7 @@
      * @param {function} done
      */
     self.show = function (desc, $img, done) {
-      $desc.text(desc);
+      $desc.html(desc);
       $img.appendTo($image.html(''));
       $popup.show();
       closed = done;
