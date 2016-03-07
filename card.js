@@ -37,8 +37,10 @@
      * Flip card.
      */
     self.flip = function () {
-      $card.addClass('h5p-flipped');
-      self.trigger('flip');
+      if (jQuery('.h5p-flipped').length < 2) {
+        $card.addClass('h5p-flipped');
+        self.trigger('flip');
+      }
     };
 
     /**
