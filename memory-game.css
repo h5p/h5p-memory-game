@@ -5,15 +5,16 @@ html .h5p-memory-game > ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 .h5p-memory-game .h5p-memory-card,
 .h5p-memory-game .h5p-memory-card .h5p-back,
 .h5p-memory-game .h5p-memory-card .h5p-front {
   width: 100px;
   height: 100px;
-  -webkit-user-select: none;  
-  -moz-user-select: none;    
-  -ms-user-select: none;      
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 .h5p-memory-game img {
@@ -76,7 +77,7 @@ html .h5p-memory-game > ul {
   left: 35px;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front:after {
-  content: ""; 
+  content: "";
   display: block;
   position: absolute;
   top: 85%;
@@ -140,10 +141,11 @@ html .h5p-memory-game > ul {
 .h5p-memory-game .h5p-status {
   clear: left;
   padding: 0 1em;
+  margin: 0.25em 0 1em 0;
 }
 .h5p-memory-game .h5p-status > dt {
   float: left;
-  margin-right: 1em;
+  margin: 0 1em 0 0;
   font-weight: bold;
 }
 .h5p-memory-game .h5p-status > dt:after {
@@ -159,7 +161,7 @@ html .h5p-memory-game > ul {
   padding: 1em;
   width: 20em;
   position: absolute;
-  top: 4em;
+  top: 2em;
   left: 50%;
   margin-left: -10em;
   box-shadow: 0 0 1em #666;
