@@ -1,0 +1,43 @@
+{
+  "semantics": [
+    {
+
+
+      "field": {
+
+        "label": "Karte",
+        "fields": [
+          {
+
+            "label": "Bild"
+          },
+          {
+
+            "label": "Beschreibung",
+
+            "description": "Ein kurzer Text, der angezeigt wird, sobald die beiden gleichen Karten gefunden wurden."
+          }
+        ]
+      }
+    },
+    {
+      "label": "Lokalisation",
+      "fields": [
+        {
+          "label": "Text zum Aufdecken der Karte",
+
+          "default": "Karte aufdecken"
+        },
+        {
+          "label": "Text über die benötigte Zeit",
+
+          "default": "Benötigte Zeit"
+        },
+        {
+          "label": "Feedbacktext",
+
+          "default": "Gute Arbeit!"
+        }
+      ]
+    }
+  ]
