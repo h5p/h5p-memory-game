@@ -103,11 +103,13 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     // Initialize cards.
     for (var i = 0; i < parameters.cards.length; i++) {
-      // Add two of each card
-      var cardOne = new MemoryGame.Card(parameters.cards[i], id);
-      var cardTwo = new MemoryGame.Card(parameters.cards[i], id);
-      addCard(cardOne, cardTwo);
-      addCard(cardTwo, cardOne);
+      if (MemoryGame.Card.isValid(parameters.cards[i])) {
+        // Add two of each card
+        var cardOne = new MemoryGame.Card(parameters.cards[i], id);
+        var cardTwo = new MemoryGame.Card(parameters.cards[i], id);
+        addCard(cardOne, cardTwo);
+        addCard(cardTwo, cardOne);
+      }
     }
     H5P.shuffleArray(cards);
 
