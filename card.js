@@ -99,4 +99,17 @@
   MemoryGame.Card.prototype = Object.create(EventDispatcher.prototype);
   MemoryGame.Card.prototype.constructor = MemoryGame.Card;
 
+  /**
+   * Check to see if the given object corresponds with the semantics for
+   * a memory game card.
+   *
+   * @param {object} params
+   * @returns {boolean}
+   */
+  MemoryGame.Card.isValid = function (params) {
+    return (params !== undefined &&
+            params.image !== undefined &&
+            params.image.path !== undefined);
+  };
+
 })(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery);
