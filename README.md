@@ -3,6 +3,8 @@ H5P Memory Game
 
 Create your own memory games and test the memory of your site users with this simple yet beautiful HTML5 game.
 
+[See it in action on H5P.org](https://h5p.org/memory-game)
+
 ## License
 
 (The MIT License)
