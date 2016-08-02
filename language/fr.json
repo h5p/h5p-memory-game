@@ -2,7 +2,7 @@
   "semantics": [
     {
       "label": "Cartes",
-      "entity": "une carte",
+      "entity": "carte",
       "field": {
         "label": "Carte",
         "fields": [
@@ -17,19 +17,19 @@
       }
     },
     {
-      "label": "Localisation",
+      "label": "Interface",
       "fields": [
         {
-          "label": "Texte pour une carte à retourner",
-          "default": "Retourner"
+          "label": "Texte pour le nombre de cartes retournées",
+          "default": "Cartes retournées :"
         },
         {
           "label": "Texte pour le temps passé",
-          "default": "Durée écoulée"
+          "default": "Temps écoulé :"
         },
         {
-          "label": "Texte de feedback",
-          "default": "Bon travail!"
+          "label": "Texte de l'appréciation finale",
+          "default": "Bien joué !"
         }
       ]
     }
