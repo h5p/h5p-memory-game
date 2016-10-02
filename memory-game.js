@@ -18,6 +18,23 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     var removed = 0;
 
     /**
+     * Update the time on the screen
+     *
+     * @private
+     * @param {H5P.jQuery} $container - element to be updated
+     * @param {H5P.Timer} timer - the timer containing the time
+     */
+    var updateDisplayTime = function($container, timer) {
+      var time = timer.getTime();
+      var minutes = H5P.Timer.extractTimeElement(time, 'minutes');
+      var seconds = H5P.Timer.extractTimeElement(time, 'seconds');
+      if (seconds < 10) {
+        seconds = '0' + seconds;
+      }
+      $container.text(minutes + ':' + seconds);
+    }
+
+    /**
      * Check if these two cards belongs together.
      *
      * @private
@@ -42,7 +59,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         if (desc !== undefined) {
           // Pause timer and show desciption.
-          timer.stop();
+          timer.pause();
           popup.show(desc, card.getImage(), function () {
             if (finished) {
               // Game has finished
@@ -50,7 +67,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
             }
             else {
               // Popup is closed, continue.
-              timer.start();
+              timer.play();
             }
           });
         }
@@ -78,7 +95,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       card.on('flip', function () {
         self.triggerXAPI('interacted');
         // Keep track of time spent
-        timer.start();
+        timer.play();
 
         if (flipped !== undefined) {
           var matie = flipped;
@@ -142,7 +159,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
                         '<dd class="h5p-card-turns">0</dd>' +
                         '</dl>').appendTo($container);
 
-        timer = new MemoryGame.Timer($status.find('.h5p-time-spent'));
+        timer = new H5P.Timer(100);
+        timer.notifyEvery(H5P.Timer.TYPE_CLOCK, 0, 1000, updateDisplayTime, [$status.find('.h5p-time-spent'), timer]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
         popup = new MemoryGame.Popup($container);
 
