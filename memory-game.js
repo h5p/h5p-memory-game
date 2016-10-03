@@ -18,11 +18,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     var removed = 0;
 
     /**
-     * Update the time on the screen
+     * Update the time on the screen.
      *
      * @private
-     * @param {H5P.jQuery} $container - element to be updated
-     * @param {H5P.Timer} timer - the timer containing the time
+     * @param {H5P.jQuery} $container - element to be updated.
+     * @param {H5P.Timer} timer - the timer containing the time.
      */
     var updateDisplayTime = function($container, timer) {
       var time = timer.getTime();
@@ -160,7 +160,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
                         '</dl>').appendTo($container);
 
         timer = new H5P.Timer(100);
-        timer.notifyEvery(H5P.Timer.TYPE_CLOCK, 0, 1000, updateDisplayTime, [$status.find('.h5p-time-spent'), timer]);
+        timer.notifyEvery(H5P.Timer.TYPE_CLOCK, 0, 500, updateDisplayTime, [$status.find('.h5p-time-spent'), timer]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
         popup = new MemoryGame.Popup($container);
 
