@@ -18,23 +18,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     var removed = 0;
 
     /**
-     * Update the time on the screen.
-     *
-     * @private
-     * @param {H5P.jQuery} $container - element to be updated.
-     * @param {H5P.Timer} timer - the timer containing the time.
-     */
-    var updateDisplayTime = function($container, timer) {
-      var time = timer.getTime();
-      var minutes = H5P.Timer.extractTimeElement(time, 'minutes');
-      var seconds = H5P.Timer.extractTimeElement(time, 'seconds');
-      if (seconds < 10) {
-        seconds = '0' + seconds;
-      }
-      $container.text(minutes + ':' + seconds);
-    }
-
-    /**
      * Check if these two cards belongs together.
      *
      * @private
@@ -160,7 +143,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
                         '</dl>').appendTo($container);
 
         timer = new H5P.Timer(100);
-        timer.notifyEvery(H5P.Timer.TYPE_CLOCK, 0, 500, updateDisplayTime, [$status.find('.h5p-time-spent'), timer]);
+        timer.notify('every_tenth_second', function () {
+          var time = timer.getTime();
+          var minutes = H5P.Timer.extractTimeElement(time, 'minutes');
+          var seconds = H5P.Timer.extractTimeElement(time, 'seconds');
+          if (seconds < 10) {
+            seconds = '0' + seconds;
+          }
+          $status.find('.h5p-time-spent').text(minutes + ':' + seconds);
+        });
+
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
         popup = new MemoryGame.Popup($container);
 
