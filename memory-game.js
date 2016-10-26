@@ -36,12 +36,15 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         var finished = (removed === cards.length);
         var desc = card.getDescription();
 
+        if (finished) {
+           self.triggerXAPIScored(1, 1, 'completed');
+        }
+
         if (desc !== undefined) {
           // Pause timer and show desciption.
           timer.stop();
           popup.show(desc, card.getImage(), function () {
             if (finished) {
-              self.triggerXAPIScored(1, 1, 'completed');
               // Game has finished
               $feedback.addClass('h5p-show');
             }
@@ -52,7 +55,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           });
         }
         else if (finished) {
-          self.triggerXAPIScored(1, 1, 'completed');
           // Game has finished
           timer.stop();
           $feedback.addClass('h5p-show');
@@ -101,11 +103,13 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     // Initialize cards.
     for (var i = 0; i < parameters.cards.length; i++) {
-      // Add two of each card
-      var cardOne = new MemoryGame.Card(parameters.cards[i], id);
-      var cardTwo = new MemoryGame.Card(parameters.cards[i], id);
-      addCard(cardOne, cardTwo);
-      addCard(cardTwo, cardOne);
+      if (MemoryGame.Card.isValid(parameters.cards[i])) {
+        // Add two of each card
+        var cardOne = new MemoryGame.Card(parameters.cards[i], id);
+        var cardTwo = new MemoryGame.Card(parameters.cards[i], id);
+        addCard(cardOne, cardTwo);
+        addCard(cardTwo, cardOne);
+      }
     }
     H5P.shuffleArray(cards);
 
