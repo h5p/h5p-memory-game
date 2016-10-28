@@ -1,0 +1,50 @@
+{
+  "semantics": [
+    {
+      "englishLabel": "Cards",
+      "label": "Kort",
+      "englishEntity": "card",
+      "entity": "kort",
+      "field": {
+        "englishLabel": "Card",
+        "label": "Kort",
+        "fields": [
+          {
+            "englishLabel": "Image",
+            "label": "Bilde"
+          },
+          {
+            "englishLabel": "Description",
+            "label": "Beskrivelse",
+            "englishDescription": "A short text that is displayed once the two equal cards are found.",
+            "description": "En kort tekst som vises hver gang et kort-par er funnet."
+          }
+        ]
+      }
+    },
+    {
+      "englishLabel": "Localization",
+      "label": "Oversettelser",
+      "fields": [
+        {
+          "englishLabel": "Card turns text",
+          "label": "Etikett for antall vendte kort",
+          "englishDefault": "Card turns",
+          "default": "Kort vendt"
+        },
+        {
+          "englishLabel": "Time spent text",
+          "label": "Etikett for tid brukt",
+          "englishDefault": "Time spent",
+          "default": "Tid brukt"
+        },
+        {
+          "englishLabel": "Feedback text",
+          "label": "Tilbakemeldingstekst",
+          "englishDefault": "Good work!",
+          "default": "Godt jobbet!"
+        }
+      ]
+    }
+  ]
+}
