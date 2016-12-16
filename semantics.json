@@ -16,13 +16,13 @@
           "name": "image",
           "type": "image",
           "label": "Image",
-          "importance": "medium"
+          "importance": "high"
         },
         {
           "name": "description",
           "type": "text",
           "label": "Description",
-          "importance": "medium",
+          "importance": "low",
           "maxLength": 150,
           "optional": true,
           "description": "A short text that is displayed once the two equal cards are found."
