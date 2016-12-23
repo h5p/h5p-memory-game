@@ -2,7 +2,7 @@
   "semantics": [
     {
       "label": "Karten",
-      "entity": "card",
+      "entity": "karte",
       "field": {
         "label": "Karte",
         "fields": [
