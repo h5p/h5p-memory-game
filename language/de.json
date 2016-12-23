@@ -1,7 +1,7 @@
 {
   "semantics": [
     {
-      "label": "Cards",
+      "label": "Karten",
       "entity": "card",
       "field": {
         "label": "Karte",
