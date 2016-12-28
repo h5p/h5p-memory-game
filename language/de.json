@@ -1,0 +1,37 @@
+{
+  "semantics": [
+    {
+      "label": "Karten",
+      "entity": "karte",
+      "field": {
+        "label": "Karte",
+        "fields": [
+          {
+            "label": "Bild"
+          },
+          {
+            "label": "Beschreibung",
+            "description": "Ein kurzer Text, der angezeigt wird, sobald zwei identische Karten gefunden werden."
+          }
+        ]
+      }
+    },
+    {
+      "label": "Übersetzung",
+      "fields": [
+        {
+          "label": "Text für die Anzahl der Züge",
+          "default": "Züge"
+        },
+        {
+          "label": "Text für die benötigte Zeit",
+          "default": "Benötigte Zeit"
+        },
+        {
+          "label": "Text als Rückmeldung",
+          "default": "Gute Arbeit!"
+        }
+      ]
+    }
+  ]
+}
