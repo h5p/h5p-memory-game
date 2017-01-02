@@ -9,6 +9,7 @@
     "max": 100,
     "field": {
       "type": "group",
+      "name": "card",
       "label": "Card",
       "importance": "high",
       "fields": [
