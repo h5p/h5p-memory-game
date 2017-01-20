@@ -4,28 +4,29 @@
    * Controls all the operations for each card.
    *
    * @class H5P.MemoryGame.Card
-   * @param {Object} parameters
-   * @param {Number} id
+   * @param {Object} image
+   * @param {number} id
+   * @param {string} [description]
    */
-  MemoryGame.Card = function (parameters, id) {
+  MemoryGame.Card = function (image, id, description) {
     var self = this;
 
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var path = H5P.getPath(parameters.image.path, id);
+    var path = H5P.getPath(image.path, id);
     var width, height, margin, $card;
 
     var a = 96;
-    if (parameters.image.width !== undefined && parameters.image.height !== undefined) {
-      if (parameters.image.width > parameters.image.height) {
+    if (image.width !== undefined && image.height !== undefined) {
+      if (image.width > image.height) {
         width = a;
-        height = parameters.image.height * (width / parameters.image.width);
+        height = image.height * (width / image.width);
         margin = '' + ((a - height) / 2) + 'px 0 0 0';
       }
       else {
         height = a;
-        width = parameters.image.width * (height / parameters.image.height);
+        width = image.width * (height / image.height);
         margin = '0 0 0 ' + ((a - width) / 2) + 'px';
       }
     }
@@ -61,7 +62,7 @@
      * @returns {string}
      */
     self.getDescription = function () {
-      return parameters.description;
+      return description;
     };
 
     /**
@@ -110,6 +111,19 @@
     return (params !== undefined &&
             params.image !== undefined &&
             params.image.path !== undefined);
+  };
+
+  /**
+   * Checks to see if the card parameters should create cards with different
+   * images.
+   *
+   * @param {object} params
+   * @returns {boolean}
+   */
+  MemoryGame.Card.hasTwoImages = function (params) {
+    return (params !== undefined &&
+            params.match !== undefined &&
+            params.match.path !== undefined);
   };
 
 })(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery);

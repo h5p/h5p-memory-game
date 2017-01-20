@@ -103,10 +103,21 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     // Initialize cards.
     for (var i = 0; i < parameters.cards.length; i++) {
-      if (MemoryGame.Card.isValid(parameters.cards[i])) {
-        // Add two of each card
-        var cardOne = new MemoryGame.Card(parameters.cards[i], id);
-        var cardTwo = new MemoryGame.Card(parameters.cards[i], id);
+      var cardParams = parameters.cards[i];
+      if (MemoryGame.Card.isValid(cardParams)) {
+        // Create first card
+        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.description);
+
+        if (MemoryGame.Card.hasTwoImages(cardParams)) {
+          // Use matching image for card two
+          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.description);
+        }
+        else {
+          // Add two cards with the same image
+          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.description);
+        }
+
+        // Add cards to card list for shuffeling
         addCard(cardOne, cardTwo);
         addCard(cardTwo, cardOne);
       }
@@ -120,7 +131,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      */
     self.attach = function ($container) {
       this.triggerXAPI('attempted');
-      // TODO: Only create on first!
+      // TODO: Only create on first attach!
       $container.addClass('h5p-memory-game').html('');
 
       // Add cards to list

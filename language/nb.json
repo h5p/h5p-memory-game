@@ -14,10 +14,16 @@
             "label": "Bilde"
           },
           {
+            "englishLabel": "Matching Image",
+            "label": "",
+            "englishDescription": "An optional image to match against instead of using two cards with the same image.",
+            "description": "Et valgfritt bilde som brukes av kort nummer to istedenfor å bruke to kort med samme bilde."
+          },
+          {
             "englishLabel": "Description",
             "label": "Beskrivelse",
-            "englishDescription": "A short text that is displayed once the two equal cards are found.",
-            "description": "En kort tekst som vises hver gang et kort-par er funnet."
+            "englishDescription": "An optional short text that will pop up once the two matching cards are found.",
+            "description": "En valgfri kort tekst som spretter opp når kort-paret er funnet."
           }
         ]
       }
