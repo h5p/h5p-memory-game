@@ -157,7 +157,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         timer.notify('every_tenth_second', function () {
           var time = timer.getTime();
           var minutes = H5P.Timer.extractTimeElement(time, 'minutes');
-          var seconds = H5P.Timer.extractTimeElement(time, 'seconds');
+          var seconds = H5P.Timer.extractTimeElement(time, 'seconds') % 60;
           if (seconds < 10) {
             seconds = '0' + seconds;
           }
