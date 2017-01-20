@@ -30,9 +30,9 @@ html .h5p-memory-game > ul {
   -webkit-perspective: 400px;
   -moz-perspective: 400px;
   perspective: 400px;
-  -webkit-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  transition: opacity 0.4s;
+  -webkit-transition: opacity 0.4s, filter 0.4s;
+  -moz-transition: opacity 0.4s, filter 0.4s;
+  transition: opacity 0.4s, filter 0.4s;
 }
 .h5p-memory-game .h5p-memory-card .h5p-back,
 .h5p-memory-game .h5p-memory-card .h5p-front {
@@ -109,7 +109,8 @@ html .h5p-memory-game > ul {
   -ms-transform: scale(0,1.1);
 }
 .h5p-memory-game .h5p-memory-card.h5p-matched {
-  opacity: 0.25;
+  opacity: 0.3;
+  filter: grayscale(100%);
 }
 
 .h5p-memory-game .h5p-feedback {
