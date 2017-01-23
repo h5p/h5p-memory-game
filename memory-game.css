@@ -29,6 +29,9 @@
 .h5p-memory-game .h5p-memory-wrap {
   float: left;
   text-align: center;
+  background-image: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .h5p-memory-game .h5p-memory-card {
   display: inline-block;
