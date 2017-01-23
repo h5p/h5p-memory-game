@@ -1,5 +1,11 @@
 H5P.MemoryGame = (function (EventDispatcher, $) {
 
+  // We don't want to go smaller than 100px per card(including the required margin)
+  var CARD_MIN_SIZE = 100; // PX
+  var CARD_STD_SIZE = 116; // PX
+  var STD_FONT_SIZE = 16; // PX
+  var LIST_PADDING = 1; // EMs
+
   /**
    * Memory Game Constructor
    *
@@ -13,7 +19,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var flipped, timer, counter, popup, $feedback;
+    var flipped, timer, counter, popup, $feedback, $wrapper, maxWidth, numCols;
     var cards = [];
     var removed = 0;
 
@@ -132,7 +138,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     self.attach = function ($container) {
       this.triggerXAPI('attempted');
       // TODO: Only create on first attach!
-      $container.addClass('h5p-memory-game').html('');
+      $wrapper = $container.addClass('h5p-memory-game').html('');
 
       // Add cards to list
       var $list = $('<ul/>');
@@ -172,6 +178,67 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         });
       }
     };
+
+    /**
+     * Will try to scale the game so that it fits within its container.
+     * Puts the cards into a grid layout to make it as square as possible – 
+     * which improves the playability on multiple devices.
+     *
+     * @private
+     */
+    function scaleGameSize() {
+
+      // Check how much space we have available
+      var $list = $wrapper.children('ul');
+      var newMaxWidth = parseFloat(window.getComputedStyle($list[0]).width);
+      if (maxWidth === newMaxWidth) {
+        return; // Same size, no need to recalculate
+      }
+      else {
+        maxWidth = newMaxWidth;
+      }
+
+      // Get the card holders
+      var $elements = $list.children();
+      if ($elements.length < 4) {
+        return; // No need to proceed
+      }
+
+      // Determine the optimal number of columns
+      var newNumCols = Math.ceil(Math.sqrt($elements.length));
+
+      // Do not exceed the max number of columns
+      var maxCols = Math.floor(maxWidth / CARD_MIN_SIZE);
+      if (newNumCols > maxCols) {
+        newNumCols = maxCols;
+      }
+
+      if (numCols !== newNumCols) {
+        // We need to change layout
+        numCols = newNumCols;
+
+        // Calculate new column size in percentage and round it down (we don't
+        // want things sticking out…)
+        var colSize = Math.floor((100 / numCols) * 10000) / 10000;
+        $elements.css('width', colSize + '%').each(function (i, e) {
+          if (i === numCols) {
+            $(e).addClass('h5p-row-break');
+          }
+        });
+      }
+
+      // Calculate how much one percentage of the standard/default size is
+      var onePercentage = ((CARD_STD_SIZE * numCols) + STD_FONT_SIZE) / 100;
+      var paddingSize = (STD_FONT_SIZE * LIST_PADDING) / onePercentage;
+      var cardSize = (100 - paddingSize) / numCols;
+      var fontSize = (((maxWidth * (cardSize / 100)) * STD_FONT_SIZE) / CARD_STD_SIZE);
+
+      // We use font size to evenly scale all parts of the cards.
+      $list.css('font-size', fontSize + 'px');
+      // due to rounding errors in browsers the margins may vary a bit…
+    }
+
+    self.on('resize', scaleGameSize);
   }
 
   // Extends the event dispatcher

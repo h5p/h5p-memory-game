@@ -1,17 +1,21 @@
 .h5p-memory-game {
   overflow: hidden;
 }
-html .h5p-memory-game > ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
+.h5p-memory-game > ul {
+  list-style: none !important;
+  padding: 0.25em 0.5em !important;
+  /*padding: 0 !important;*/
+  margin: 0 !important;
+  overflow: hidden !important;
+  font-size: 16px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 .h5p-memory-game .h5p-memory-card,
 .h5p-memory-game .h5p-memory-card .h5p-back,
 .h5p-memory-game .h5p-memory-card .h5p-front {
-  width: 100px;
-  height: 100px;
+  width: 6.25em;
+  height: 6.25em;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -19,17 +23,24 @@ html .h5p-memory-game > ul {
 }
 .h5p-memory-game img {
   -webkit-user-drag: none;
+  display: inline-block !important;
+  margin: auto !important;
+  vertical-align: middle;
+}
+.h5p-memory-game .h5p-memory-wrap {
+  float: left;
+  text-align: center;
 }
 .h5p-memory-game .h5p-memory-card {
-  float: left;
+  display: inline-block;
   outline: none;
   position: relative;
-  margin: 1em;
+  margin: 0.75em 0.5em;
   padding: 0;
   background: transparent;
-  -webkit-perspective: 400px;
-  -moz-perspective: 400px;
-  perspective: 400px;
+  -webkit-perspective: 25em;
+  -moz-perspective: 25em;
+  perspective: 25em;
   -webkit-transition: opacity 0.4s, filter 0.4s;
   -moz-transition: opacity 0.4s, filter 0.4s;
   transition: opacity 0.4s, filter 0.4s;
@@ -61,17 +72,16 @@ html .h5p-memory-game > ul {
 }
 .h5p-memory-game .h5p-memory-card .h5p-front {
   cursor: pointer;
+  text-align: center;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front:hover {
   background: #dfdfdf;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front:before {
-  position: absolute;
   content: "?";
-  font-size: 60px;
+  font-size: 3.75em;
   color: #909090;
-  line-height: 100px;
-  left: 35px;
+  line-height: 1.67em;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front:after {
   content: "";
@@ -88,6 +98,8 @@ html .h5p-memory-game > ul {
   background-image: radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 .h5p-memory-game .h5p-memory-card .h5p-back {
+  line-height: 5.9em;
+  text-align: center;
   background: #f0f0f0;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
@@ -163,9 +175,9 @@ html .h5p-memory-game > ul {
   left: 50%;
   margin-left: -10em;
   box-shadow: 0 0 1em #666;
-  -webkit-transform: translateZ(24px);
-  -moz-transform: translateZ(24px);
-  transform: translateZ(24px);
+  -webkit-transform: translateZ(1.5em);
+  -moz-transform: translateZ(1.5em);
+  transform: translateZ(1.5em);
 }
 .h5p-memory-game .h5p-memory-image {
   float: left;
@@ -175,6 +187,9 @@ html .h5p-memory-game > ul {
   -moz-box-sizing: border-box;
   border-radius: 4px;
   background: #f0f0f0;
-  width: 100px;
-  height: 100px;
+  width: 6.25em;
+  height: 6.25em;
+}
+.h5p-memory-game .h5p-row-break {
+  clear: left;
 }
