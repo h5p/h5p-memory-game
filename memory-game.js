@@ -53,6 +53,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
             if (finished) {
               // Game has finished
               $feedback.addClass('h5p-show');
+              if (parameters.behaviour && parameters.behaviour.allowRetry) { /* TODO */ }
             }
             else {
               // Popup is closed, continue.
@@ -64,6 +65,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           // Game has finished
           timer.stop();
           $feedback.addClass('h5p-show');
+          if (parameters.behaviour && parameters.behaviour.allowRetry) { /* TODO */ }
         }
       }
       else {
@@ -107,9 +109,39 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       cards.push(card);
     };
 
+    /**
+     * @private
+     */
+    var getCardsToUse = function () {
+      var numCardsToUse = (parameters.behaviour && parameters.behaviour.numCardsToUse ? parseInt(parameters.behaviour.numCardsToUse) : 0);
+      if (numCardsToUse <= 2 || numCardsToUse >= parameters.cards.length) {
+        // Use all cards
+        return parameters.cards;
+      }
+
+      // Pick random cards from pool
+      var cardsToUse = [];
+      var pickedCardsMap = {};
+
+      var numPicket = 0;
+      while (numPicket < numCardsToUse) {
+        var pickIndex = Math.floor(Math.random() * parameters.cards.length);
+        if (pickedCardsMap[pickIndex]) {
+          continue; // Already picked, try again!
+        }
+
+        cardsToUse.push(parameters.cards[pickIndex]);
+        pickedCardsMap[pickIndex] = true;
+        numPicket++;
+      }
+
+      return cardsToUse;
+    };
+
     // Initialize cards.
-    for (var i = 0; i < parameters.cards.length; i++) {
-      var cardParams = parameters.cards[i];
+    var cardsToUse = getCardsToUse();
+    for (var i = 0; i < cardsToUse.length; i++) {
+      var cardParams = cardsToUse[i];
       if (MemoryGame.Card.isValid(cardParams)) {
         // Create first card
         var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.description);
@@ -186,10 +218,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      *
      * @private
      */
-    function scaleGameSize() {
+    var scaleGameSize = function () {
 
       // Check how much space we have available
       var $list = $wrapper.children('ul');
+
       var newMaxWidth = parseFloat(window.getComputedStyle($list[0]).width);
       if (maxWidth === newMaxWidth) {
         return; // Same size, no need to recalculate
@@ -236,9 +269,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       // We use font size to evenly scale all parts of the cards.
       $list.css('font-size', fontSize + 'px');
       // due to rounding errors in browsers the margins may vary a bit…
-    }
+    };
 
-    self.on('resize', scaleGameSize);
+    if (parameters.behaviour && parameters.behaviour.useGrid && cardsToUse.length) {
+      self.on('resize', scaleGameSize);
+    }
   }
 
   // Extends the event dispatcher
