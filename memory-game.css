@@ -173,13 +173,12 @@
   padding: 1em;
   width: 20em;
   position: absolute;
-  top: 2em;
+  top: 50%;
   left: 50%;
-  margin-left: -10em;
   box-shadow: 0 0 1em #666;
-  -webkit-transform: translateZ(1.5em);
-  -moz-transform: translateZ(1.5em);
-  transform: translateZ(1.5em);
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 .h5p-memory-game .h5p-memory-image {
   float: left;
