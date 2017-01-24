@@ -29,6 +29,28 @@
       }
     },
     {
+      "englishLabel": "Behavioural settings",
+      "label": "Innstillinger for oppførsel",
+      "englishDescription": "These options will let you control how the game behaves.",
+      "description": "Disse instillingene lar deg bestemme hvordan spillet skal oppføre seg.",
+      "fields": [
+        {
+          "englishLabel": "Put the cards in a grid layout",
+          "label": "Putt kortene i et rutenett"
+        },
+        {
+          "englishLabel": "Number of cards to use",
+          "label": "Antall kort som skal brukes",
+          "englishDescription": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards.",
+          "description": "Ved å sette antallet høyere enn 2 vil spillet plukke tilfeldige kort fra listen over kort."
+        },
+        {
+          "englishLabel": "Add button for retrying when the game is over",
+          "label": "Legg til knapp for å prøve på nytt når spillet er over"
+        }
+      ]
+    },
+    {
       "englishLabel": "Localization",
       "label": "Oversettelser",
       "fields": [
