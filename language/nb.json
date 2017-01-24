@@ -15,7 +15,7 @@
           },
           {
             "englishLabel": "Matching Image",
-            "label": "",
+            "label": "Tilhørende bilde",
             "englishDescription": "An optional image to match against instead of using two cards with the same image.",
             "description": "Et valgfritt bilde som brukes av kort nummer to istedenfor å bruke to kort med samme bilde."
           },
