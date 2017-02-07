@@ -4,33 +4,31 @@
    * Controls all the operations for each card.
    *
    * @class H5P.MemoryGame.Card
-   * @param {Object} parameters
-   * @param {Number} id
+   * @param {Object} image
+   * @param {number} id
+   * @param {string} [description]
    */
-  MemoryGame.Card = function (parameters, id) {
+  MemoryGame.Card = function (image, id, description) {
     var self = this;
 
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var path = H5P.getPath(parameters.image.path, id);
+    var path = H5P.getPath(image.path, id);
     var width, height, margin, $card;
 
-    var a = 96;
-    if (parameters.image.width !== undefined && parameters.image.height !== undefined) {
-      if (parameters.image.width > parameters.image.height) {
-        width = a;
-        height = parameters.image.height * (width / parameters.image.width);
-        margin = '' + ((a - height) / 2) + 'px 0 0 0';
+    if (image.width !== undefined && image.height !== undefined) {
+      if (image.width > image.height) {
+        width = '100%';
+        height = 'auto';
       }
       else {
-        height = a;
-        width = parameters.image.width * (height / parameters.image.height);
-        margin = '0 0 0 ' + ((a - width) / 2) + 'px';
+        height = '100%';
+        width = 'auto';
       }
     }
     else {
-      width = height = a;
+      width = height = '100%';
     }
 
     /**
@@ -61,7 +59,7 @@
      * @returns {string}
      */
     self.getDescription = function () {
-      return parameters.description;
+      return description;
     };
 
     /**
@@ -80,18 +78,19 @@
      */
     self.appendTo = function ($container) {
       // TODO: Translate alt attr
-      $card = $('<li class="h5p-memory-card" role="button" tabindex="1">' +
+      $card = $('<li class="h5p-memory-wrap"><div class="h5p-memory-card" role="button" tabindex="1">' +
                   '<div class="h5p-front"></div>' +
                   '<div class="h5p-back">' +
-                    '<img src="' + path + '" alt="Memory Card" width="' + width + '" height="' + height + '"' + (margin === undefined ? '' : ' style="margin:' + margin + '"') + '/>' +
+                    '<img src="' + path + '" alt="Memory Card" style="width:' + width + ';height:' + height + '"/>' +
                   '</div>' +
-                  '</li>')
+                '</div></li>')
         .appendTo($container)
-        .children('.h5p-front')
-          .click(function () {
-            self.flip();
-          })
-          .end();
+        .children('.h5p-memory-card')
+          .children('.h5p-front')
+            .click(function () {
+              self.flip();
+            })
+            .end();
       };
   };
 
@@ -110,6 +109,19 @@
     return (params !== undefined &&
             params.image !== undefined &&
             params.image.path !== undefined);
+  };
+
+  /**
+   * Checks to see if the card parameters should create cards with different
+   * images.
+   *
+   * @param {object} params
+   * @returns {boolean}
+   */
+  MemoryGame.Card.hasTwoImages = function (params) {
+    return (params !== undefined &&
+            params.match !== undefined &&
+            params.match.path !== undefined);
   };
 
 })(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery);

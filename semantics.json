@@ -5,7 +5,7 @@
     "label": "Cards",
     "importance": "high",
     "entity": "card",
-    "min": 1,
+    "min": 2,
     "max": 100,
     "field": {
       "type": "group",
@@ -17,7 +17,17 @@
           "name": "image",
           "type": "image",
           "label": "Image",
-          "importance": "high"
+          "importance": "high",
+          "ratio": 1
+        },
+        {
+          "name": "match",
+          "type": "image",
+          "label": "Matching Image",
+          "importance": "low",
+          "optional": true,
+          "description": "An optional image to match against instead of using two cards with the same image.",
+          "ratio": 1
         },
         {
           "name": "description",
@@ -26,10 +36,43 @@
           "importance": "low",
           "maxLength": 150,
           "optional": true,
-          "description": "A short text that is displayed once the two equal cards are found."
+          "description": "An optional short text that will pop up once the two matching cards are found."
         }
       ]
     }
+  },
+  {
+    "name": "behaviour",
+    "type": "group",
+    "label": "Behavioural settings",
+    "importance": "low",
+    "description": "These options will let you control how the game behaves.",
+    "optional": true,
+    "fields": [
+      {
+        "name": "useGrid",
+        "type": "boolean",
+        "label": "Put the cards in a grid layout",
+        "importance": "low",
+        "default": true
+      },
+      {
+        "name": "numCardsToUse",
+        "type": "number",
+        "label": "Number of cards to use",
+        "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards.",
+        "importance": "low",
+        "optional": true,
+        "min": 2
+      },
+      {
+        "name": "allowRetry",
+        "type": "boolean",
+        "label": "Add button for retrying when the game is over",
+        "importance": "low",
+        "default": true
+      }
+    ]
   },
   {
     "label": "Localization",
