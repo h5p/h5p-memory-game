@@ -23,6 +23,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     var flipped, timer, counter, popup, $feedback, $wrapper, maxWidth, numCols;
     var cards = [];
+    var flipBacks = []; // Que of cards to be flipped back
+    var numFlipped = 0;
     var removed = 0;
 
     /**
@@ -34,43 +36,51 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @param {H5P.MemoryGame.Card} correct
      */
     var check = function (card, mate, correct) {
-      if (mate === correct) {
-        // Remove them from the game.
-        card.remove();
-        mate.remove();
+      if (mate !== correct) {
+        // Incorrect, must be scheduled for flipping back
+        flipBacks.push(card);
+        flipBacks.push(mate);
 
-        removed += 2;
-
-        var isFinished = (removed === cards.length);
-        var desc = card.getDescription();
-
-        if (isFinished) {
-           self.triggerXAPIScored(1, 1, 'completed');
+        // Wait for next click to flip them back…
+        if (numFlipped > 2) {
+          // or do it straight away
+          processFlipBacks();
         }
-
-        if (desc !== undefined) {
-          // Pause timer and show desciption.
-          timer.pause();
-          popup.show(desc, card.getImage(), function () {
-            if (isFinished) {
-              // Game done
-              finished();
-            }
-            else {
-              // Popup is closed, continue.
-              timer.play();
-            }
-          });
-        }
-        else if (isFinished) {
-          // Game done
-          finished();
-        }
+        return;
       }
-      else {
-        // Flip them back
-        card.flipBack();
-        mate.flipBack();
+
+      // Remove them from the game.
+      card.remove();
+      mate.remove();
+
+      // Update counters
+      numFlipped -= 2;
+      removed += 2;
+
+      var isFinished = (removed === cards.length);
+      var desc = card.getDescription();
+
+      if (isFinished) {
+         self.triggerXAPIScored(1, 1, 'completed');
+      }
+
+      if (desc !== undefined) {
+        // Pause timer and show desciption.
+        timer.pause();
+        popup.show(desc, card.getImage(), function () {
+          if (isFinished) {
+            // Game done
+            finished();
+          }
+          else {
+            // Popup is closed, continue.
+            timer.play();
+          }
+        });
+      }
+      else if (isFinished) {
+        // Game done
+        finished();
       }
     };
 
@@ -169,6 +179,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         // Keep track of time spent
         timer.play();
 
+        // Keep track of the number of flipped cards
+        numFlipped++;
+
         if (flipped !== undefined) {
           var matie = flipped;
           // Reset the flipped card.
@@ -179,6 +192,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           }, 800);
         }
         else {
+          if (flipBacks.length > 1) {
+            // Turn back any flipped cards
+            processFlipBacks();
+          }
+
           // Keep track of the flipped card.
           flipped = card;
         }
@@ -188,6 +206,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       });
 
       cards.push(card);
+    };
+
+    /**
+     * Will flip back two and two cards
+     */
+    var processFlipBacks = function () {
+      flipBacks[0].flipBack();
+      flipBacks[1].flipBack();
+      flipBacks.splice(0, 2);
+      numFlipped -= 2;
     };
 
     /**
