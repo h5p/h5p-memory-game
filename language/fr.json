@@ -58,6 +58,12 @@
         {
           "label": "Texte de l'appréciation finale",
           "default": "Bien joué !"
+        },
+        {
+          "englishLabel": "Try again button text",
+          "label": "Try again button text",
+          "englishDefault": "Try again?",
+          "default": "Try again?"
         }
       ]
     }

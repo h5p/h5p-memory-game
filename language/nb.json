@@ -71,6 +71,12 @@
           "label": "Tilbakemeldingstekst",
           "englishDefault": "Good work!",
           "default": "Godt jobbet!"
+        },
+        {
+          "englishLabel": "Try again button text",
+          "label": "Prøv på nytt-tekst",
+          "englishDefault": "Try again?",
+          "default": "Prøv på nytt?"
         }
       ]
     }

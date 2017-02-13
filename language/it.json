@@ -55,6 +55,12 @@
         },
         {
           "label": "Testo Feedback"
+        },
+        {
+          "englishLabel": "Try again button text",
+          "label": "Try again button text",
+          "englishDefault": "Try again?",
+          "default": "Try again?"
         }
       ]
     }
