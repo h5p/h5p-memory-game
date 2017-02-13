@@ -268,6 +268,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       // We use font size to evenly scale all parts of the cards.
       $list.css('font-size', fontSize + 'px');
+      popup.setSize(fontSize);
       // due to rounding errors in browsers the margins may vary a bit…
     };
 

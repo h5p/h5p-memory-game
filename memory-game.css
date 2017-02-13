@@ -172,6 +172,7 @@
   background: #fff;
   padding: 1em;
   width: 20em;
+  max-width: 90%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -182,7 +183,6 @@
 }
 .h5p-memory-game .h5p-memory-image {
   float: left;
-  margin: 0 1em 1em 0;
   border: 2px solid #d0d0d0;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -190,7 +190,11 @@
   background: #f0f0f0;
   width: 6.25em;
   height: 6.25em;
+  text-align: center;
 }
 .h5p-memory-game .h5p-row-break {
   clear: left;
+}
+.h5p-memory-game .h5p-memory-desc {
+  margin-left: 7em;
 }
