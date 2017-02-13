@@ -52,7 +52,8 @@
       {
         "name": "useGrid",
         "type": "boolean",
-        "label": "Put the cards in a grid layout",
+        "label": "Position the cards in a square",
+        "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container.",
         "importance": "low",
         "default": true
       },
