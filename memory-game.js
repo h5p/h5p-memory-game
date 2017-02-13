@@ -83,7 +83,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       $feedback.addClass('h5p-show');
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
-        var retryButton = createButton('reset', parameters.l10n.tryAgain, function () {
+        var retryButton = createButton('reset', parameters.l10n.tryAgain || 'Try again?', function () {
           // Trigger handler (action)
 
           resetGame();
