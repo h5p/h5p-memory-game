@@ -7,6 +7,7 @@
    * @param {H5P.jQuery} $container
    */
   MemoryGame.Popup = function ($container) {
+    /** @alias H5P.MemoryGame.Popup# */
     var self = this;
 
     var closed;

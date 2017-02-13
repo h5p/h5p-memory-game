@@ -4,11 +4,13 @@
    * Controls all the operations for each card.
    *
    * @class H5P.MemoryGame.Card
+   * @extends H5P.EventDispatcher
    * @param {Object} image
    * @param {number} id
    * @param {string} [description]
    */
   MemoryGame.Card = function (image, id, description) {
+    /** @alias H5P.MemoryGame.Card# */
     var self = this;
 
     // Initialize event inheritance
@@ -54,6 +56,13 @@
     };
 
     /**
+     * Reset card to natural state
+     */
+    self.reset = function () {
+      $card[0].classList.remove('h5p-flipped', 'h5p-matched');
+    };
+
+    /**
      * Get card description.
      *
      * @returns {string}
@@ -91,7 +100,15 @@
               self.flip();
             })
             .end();
-      };
+    };
+
+    /**
+     * Re-append to parent container
+     */
+    self.reAppend = function () {
+      var parent = $card[0].parentElement.parentElement;
+      parent.appendChild($card[0].parentElement);
+    };
   };
 
   // Extends the event dispatcher

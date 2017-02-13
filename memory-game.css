@@ -198,3 +198,17 @@
 .h5p-memory-game .h5p-memory-desc {
   margin-left: 7em;
 }
+.h5p-memory-reset {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  font-style: italic;
+  text-shadow: 0 0 0.5em white;
+  padding: 0.125em 0.25em;
+  line-height: 1;
+}
+.h5p-memory-reset:focus {
+  outline: dashed pink;
+}
