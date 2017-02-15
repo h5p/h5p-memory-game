@@ -9,11 +9,13 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
   /**
    * Memory Game Constructor
    *
-   * @class
+   * @class H5P.MemoryGame
+   * @extends H5P.EventDispatcher
    * @param {Object} parameters
    * @param {Number} id
    */
   function MemoryGame(parameters, id) {
+    /** @alias H5P.MemoryGame# */
     var self = this;
 
     // Initialize event inheritance
@@ -21,6 +23,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     var flipped, timer, counter, popup, $feedback, $wrapper, maxWidth, numCols;
     var cards = [];
+    var flipBacks = []; // Que of cards to be flipped back
+    var numFlipped = 0;
     var removed = 0;
 
     /**
@@ -32,47 +36,134 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @param {H5P.MemoryGame.Card} correct
      */
     var check = function (card, mate, correct) {
-      if (mate === correct) {
-        // Remove them from the game.
-        card.remove();
-        mate.remove();
+      if (mate !== correct) {
+        // Incorrect, must be scheduled for flipping back
+        flipBacks.push(card);
+        flipBacks.push(mate);
 
-        removed += 2;
-
-        var finished = (removed === cards.length);
-        var desc = card.getDescription();
-
-        if (finished) {
-           self.triggerXAPIScored(1, 1, 'completed');
+        // Wait for next click to flip them back…
+        if (numFlipped > 2) {
+          // or do it straight away
+          processFlipBacks();
         }
-
-        if (desc !== undefined) {
-          // Pause timer and show desciption.
-          timer.pause();
-          popup.show(desc, card.getImage(), function () {
-            if (finished) {
-              // Game has finished
-              $feedback.addClass('h5p-show');
-              if (parameters.behaviour && parameters.behaviour.allowRetry) { /* TODO */ }
-            }
-            else {
-              // Popup is closed, continue.
-              timer.play();
-            }
-          });
-        }
-        else if (finished) {
-          // Game has finished
-          timer.stop();
-          $feedback.addClass('h5p-show');
-          if (parameters.behaviour && parameters.behaviour.allowRetry) { /* TODO */ }
-        }
+        return;
       }
-      else {
-        // Flip them back
-        card.flipBack();
-        mate.flipBack();
+
+      // Remove them from the game.
+      card.remove();
+      mate.remove();
+
+      // Update counters
+      numFlipped -= 2;
+      removed += 2;
+
+      var isFinished = (removed === cards.length);
+      var desc = card.getDescription();
+
+      if (isFinished) {
+         self.triggerXAPIScored(1, 1, 'completed');
       }
+
+      if (desc !== undefined) {
+        // Pause timer and show desciption.
+        timer.pause();
+        popup.show(desc, card.getImage(), function () {
+          if (isFinished) {
+            // Game done
+            finished();
+          }
+          else {
+            // Popup is closed, continue.
+            timer.play();
+          }
+        });
+      }
+      else if (isFinished) {
+        // Game done
+        finished();
+      }
+    };
+
+    /**
+     * Game has finished!
+     * @private
+     */
+    var finished = function () {
+      timer.stop();
+      $feedback.addClass('h5p-show');
+      if (parameters.behaviour && parameters.behaviour.allowRetry) {
+        // Create retry button
+        var retryButton = createButton('reset', parameters.l10n.tryAgain || 'Try again?', function () {
+          // Trigger handler (action)
+
+          resetGame();
+
+          // Remove button from DOM
+          $wrapper[0].removeChild(this);
+        });
+
+        // Same size as cards
+        retryButton.style.fontSize = $wrapper.children('ul')[0].style.fontSize;
+
+        $wrapper[0].appendChild(retryButton); // Add to DOM
+      }
+    };
+
+    /**
+     * Shuffle the cards and restart the game!
+     * @private
+     */
+    var resetGame = function () {
+
+      // Reset cards
+      removed = 0;
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].reset();
+      }
+
+      // Remove feedback
+      $feedback[0].classList.remove('h5p-show');
+
+      // Reset timer and counter
+      timer.reset();
+      counter.reset();
+
+      // Randomize cards
+      H5P.shuffleArray(cards);
+
+      setTimeout(function () {
+        // Re-append to DOM after flipping back
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].reAppend();
+        }
+
+        // Scale new layout
+        $wrapper.children('ul').children('.h5p-row-break').removeClass('h5p-row-break');
+        maxWidth = -1;
+        self.trigger('resize');
+      }, 600);
+    };
+
+    /**
+     * Game has finished!
+     * @private
+     */
+    var createButton = function (name, label, action) {
+      var buttonElement = document.createElement('div');
+      buttonElement.classList.add('h5p-memory-' + name);
+      buttonElement.innerHTML = label;
+      buttonElement.setAttribute('role', 'button');
+      buttonElement.tabIndex = 0;
+      buttonElement.addEventListener('click', function (event) {
+        action.apply(buttonElement);
+      }, false);
+      buttonElement.addEventListener('keypress', function (event) {
+        if (event.which === 13 || event.which === 32) { // Enter or Space key
+          event.preventDefault();
+          action.apply(buttonElement);
+        }
+      }, false);
+      return buttonElement;
     };
 
     /**
@@ -88,6 +179,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         // Keep track of time spent
         timer.play();
 
+        // Keep track of the number of flipped cards
+        numFlipped++;
+
         if (flipped !== undefined) {
           var matie = flipped;
           // Reset the flipped card.
@@ -98,6 +192,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           }, 800);
         }
         else {
+          if (flipBacks.length > 1) {
+            // Turn back any flipped cards
+            processFlipBacks();
+          }
+
           // Keep track of the flipped card.
           flipped = card;
         }
@@ -107,6 +206,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       });
 
       cards.push(card);
+    };
+
+    /**
+     * Will flip back two and two cards
+     */
+    var processFlipBacks = function () {
+      flipBacks[0].flipBack();
+      flipBacks[1].flipBack();
+      flipBacks.splice(0, 2);
+      numFlipped -= 2;
     };
 
     /**
@@ -191,17 +300,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
                         '<dd class="h5p-card-turns">0</dd>' +
                         '</dl>').appendTo($container);
 
-        timer = new H5P.Timer(100);
-        timer.notify('every_tenth_second', function () {
-          var time = timer.getTime();
-          var minutes = H5P.Timer.extractTimeElement(time, 'minutes');
-          var seconds = H5P.Timer.extractTimeElement(time, 'seconds') % 60;
-          if (seconds < 10) {
-            seconds = '0' + seconds;
-          }
-          $status.find('.h5p-time-spent').text(minutes + ':' + seconds);
-        });
-
+        timer = new MemoryGame.Timer($status.find('.h5p-time-spent')[0]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
         popup = new MemoryGame.Popup($container);
 
@@ -268,6 +367,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       // We use font size to evenly scale all parts of the cards.
       $list.css('font-size', fontSize + 'px');
+      popup.setSize(fontSize);
       // due to rounding errors in browsers the margins may vary a bit…
     };
 

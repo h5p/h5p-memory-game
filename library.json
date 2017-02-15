@@ -3,9 +3,9 @@
   "description": "See how many cards you can remember!",
   "majorVersion": 1,
   "minorVersion": 2,
-  "patchVersion": 1,
+  "patchVersion": 2,
   "runnable": 1,
-  "author": "Amendor AS",
+  "author": "Joubel AS",
   "license": "MIT",
   "machineName": "H5P.MemoryGame",
   "preloadedCss": [
@@ -25,6 +25,9 @@
     },
     {
       "path": "popup.js"
+    },
+    {
+      "path": "timer.js"
     }
   ],
   "preloadedDependencies": [

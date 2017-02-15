@@ -35,8 +35,10 @@
       "description": "Disse instillingene lar deg bestemme hvordan spillet skal oppføre seg.",
       "fields": [
         {
-          "englishLabel": "Put the cards in a grid layout",
-          "label": "Putt kortene i et rutenett"
+          "englishLabel": "Position the cards in a square",
+          "label": "Plasser kortene i en firkant",
+          "englishDescription": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container.",
+          "description": "Vil forsøk å samsvare antall kolonner og rader når kortene legges ut. Etterpå vil kortene bli skalert til å passe beholderen."
         },
         {
           "englishLabel": "Number of cards to use",
@@ -71,6 +73,12 @@
           "label": "Tilbakemeldingstekst",
           "englishDefault": "Good work!",
           "default": "Godt jobbet!"
+        },
+        {
+          "englishLabel": "Try again button text",
+          "label": "Prøv på nytt-tekst",
+          "englishDefault": "Try again?",
+          "default": "Prøv på nytt?"
         }
       ]
     }

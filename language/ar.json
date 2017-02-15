@@ -29,8 +29,10 @@
       "description": "These options will let you control how the game behaves.",
       "fields": [
         {
-          "englishLabel": "Put the cards in a grid layout",
-          "label": "Put the cards in a grid layout"
+          "englishLabel": "Position the cards in a square",
+          "label": "Position the cards in a square",
+          "englishDescription": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container.",
+          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
           "englishLabel": "Number of cards to use",
@@ -55,6 +57,12 @@
         },
         {
           "label": "نص الملاحظات"
+        },
+        {
+          "englishLabel": "Try again button text",
+          "label": "Try again button text",
+          "englishDefault": "Try again?",
+          "default": "Try again?"
         }
       ]
     }
