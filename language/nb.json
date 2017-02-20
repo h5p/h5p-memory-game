@@ -1,84 +1,60 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "englishLabel": "Cards",
-      "label": "Kort",
-      "englishEntity": "card",
-      "entity": "kort",
-      "field": {
-        "englishLabel": "Card",
-        "label": "Kort",
-        "fields": [
+      "label":"Kort",
+      "entity":"kort",
+      "field":{
+        "label":"Kort",
+        "fields":[
           {
-            "englishLabel": "Image",
-            "label": "Bilde"
+            "label":"Bilde"
           },
           {
-            "englishLabel": "Matching Image",
-            "label": "Tilhørende bilde",
-            "englishDescription": "An optional image to match against instead of using two cards with the same image.",
-            "description": "Et valgfritt bilde som brukes av kort nummer to istedenfor å bruke to kort med samme bilde."
+            "label":"Tilhørende bilde",
+            "description":"Et valgfritt bilde som brukes av kort nummer to istedenfor å bruke to kort med samme bilde."
           },
           {
-            "englishLabel": "Description",
-            "label": "Beskrivelse",
-            "englishDescription": "An optional short text that will pop up once the two matching cards are found.",
-            "description": "En valgfri kort tekst som spretter opp når kort-paret er funnet."
+            "label":"Beskrivelse",
+            "description":"En valgfri kort tekst som spretter opp når kort-paret er funnet."
           }
         ]
       }
     },
     {
-      "englishLabel": "Behavioural settings",
-      "label": "Innstillinger for oppførsel",
-      "englishDescription": "These options will let you control how the game behaves.",
-      "description": "Disse instillingene lar deg bestemme hvordan spillet skal oppføre seg.",
-      "fields": [
+      "label":"Innstillinger for oppførsel",
+      "description":"Disse instillingene lar deg bestemme hvordan spillet skal oppføre seg.",
+      "fields":[
         {
-          "englishLabel": "Position the cards in a square",
-          "label": "Plasser kortene i en firkant",
-          "englishDescription": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container.",
-          "description": "Vil forsøk å samsvare antall kolonner og rader når kortene legges ut. Etterpå vil kortene bli skalert til å passe beholderen."
+          "label":"Plasser kortene i en firkant",
+          "description":"Vil forsøk å samsvare antall kolonner og rader når kortene legges ut. Etterpå vil kortene bli skalert til å passe beholderen."
         },
         {
-          "englishLabel": "Number of cards to use",
-          "label": "Antall kort som skal brukes",
-          "englishDescription": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards.",
-          "description": "Ved å sette antallet høyere enn 2 vil spillet plukke tilfeldige kort fra listen over kort."
+          "label":"Antall kort som skal brukes",
+          "description":"Ved å sette antallet høyere enn 2 vil spillet plukke tilfeldige kort fra listen over kort."
         },
         {
-          "englishLabel": "Add button for retrying when the game is over",
-          "label": "Legg til knapp for å prøve på nytt når spillet er over"
+          "label":"Legg til knapp for å prøve på nytt når spillet er over"
         }
       ]
     },
     {
-      "englishLabel": "Localization",
-      "label": "Oversettelser",
-      "fields": [
+      "label":"Oversettelser",
+      "fields":[
         {
-          "englishLabel": "Card turns text",
-          "label": "Etikett for antall vendte kort",
-          "englishDefault": "Card turns",
-          "default": "Kort vendt"
+          "label":"Etikett for antall vendte kort",
+          "default":"Kort vendt"
         },
         {
-          "englishLabel": "Time spent text",
-          "label": "Etikett for tid brukt",
-          "englishDefault": "Time spent",
-          "default": "Tid brukt"
+          "label":"Etikett for tid brukt",
+          "default":"Tid brukt"
         },
         {
-          "englishLabel": "Feedback text",
-          "label": "Tilbakemeldingstekst",
-          "englishDefault": "Good work!",
-          "default": "Godt jobbet!"
+          "label":"Tilbakemeldingstekst",
+          "default":"Godt jobbet!"
         },
         {
-          "englishLabel": "Try again button text",
-          "label": "Prøv på nytt-tekst",
-          "englishDefault": "Try again?",
-          "default": "Prøv på nytt?"
+          "label":"Prøv på nytt-tekst",
+          "default":"Prøv på nytt?"
         }
       ]
     }
