@@ -5,7 +5,7 @@
   "minorVersion": 2,
   "patchVersion": 2,
   "runnable": 1,
-  "author": "Joubel AS",
+  "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.MemoryGame",
   "preloadedCss": [
