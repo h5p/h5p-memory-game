@@ -46,15 +46,15 @@
         },
         {
           "label":"Texto de tempo gasto",
-          "default":"Time spent"
+          "default":"Tempo gasto"
         },
         {
-          "label":"Feedback text",
-          "default":"Good work!"
+          "label":"Texto de Feedback",
+          "default":"Bom trabalho!"
         },
         {
-          "label":"Try again button text",
-          "default":"Try again?"
+          "label":"Texto do botão tente novamente",
+          "default":"Tentar novamente?"
         }
       ]
     }
