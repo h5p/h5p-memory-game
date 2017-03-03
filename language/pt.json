@@ -1,0 +1,62 @@
+{
+  "semantics":[
+    {
+      "label":"Cartões",
+      "entity":"cartão",
+      "field":{
+        "label":"Cartão",
+        "fields":[
+          {
+            "label":"Imagem"
+          },
+          {
+            "label":"Combinando imagem",
+            "description":"Uma imagem opcional que corresponda, ao invés de usar duas cartas com a mesma imagem."
+          },
+          {
+            "label":"Descrição",
+            "description":"Um pequeno texto opcional que irá aparecer uma vez encontradas as duas cartas correspondentes."
+          }
+        ]
+      }
+    },
+    {
+      "label":"Configurações comportamentais",
+      "description":"Estas opções permitirão que você controle como o jogo se comporta.",
+      "fields":[
+        {
+          "label":"Posicione as cartas em um quadrado",
+          "description":"Tentará corresponder o número de linhas e colunas quando da distribuição de cartas. Depois, os cartões serão dimensionados para caber o recipiente."
+        },
+        {
+          "label":"Número de cartões para usar",
+          "description":"Se o número for maior que 2, o jogo escolherá cartões aleatórios da lista de cartões."
+        },
+        {
+          "label":"Adicionar botão para tentar novamente ao final do jogo"
+        }
+      ]
+    },
+    {
+      "label":"Localização",
+      "fields":[
+        {
+          "label":"Cartão transforma-se em texto",
+          "default":"Vira o cartão"
+        },
+        {
+          "label":"Texto de tempo gasto",
+          "default":"Time spent"
+        },
+        {
+          "label":"Feedback text",
+          "default":"Good work!"
+        },
+        {
+          "label":"Try again button text",
+          "default":"Try again?"
+        }
+      ]
+    }
+  ]
+}
