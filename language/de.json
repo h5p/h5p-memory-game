@@ -1,71 +1,60 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "label": "Karten",
-      "entity": "karte",
-      "field": {
-        "label": "Karte",
-        "fields": [
+      "label":"Cards",
+      "entity":"card",
+      "field":{
+        "label":"Card",
+        "fields":[
           {
-            "label": "Bild"
+            "label":"Image"
           },
           {
-            "englishLabel": "Matching Image",
-            "label": "Matching Image",
-            "englishDescription": "An optional image to match against instead of using two cards with the same image.",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label":"Matching Image",
+            "description":"An optional image to match against instead of using two cards with the same image."
           },
           {
-            "label": "Beschreibung",
-            "description": "Ein kurzer Text, der angezeigt wird, sobald zwei identische Karten gefunden werden."
+            "label":"Description",
+            "description":"An optional short text that will pop up once the two matching cards are found."
           }
         ]
       }
     },
     {
-      "englishLabel": "Behavioural settings",
-      "label": "Behavioural settings",
-      "englishDescription": "These options will let you control how the game behaves.",
-      "description": "These options will let you control how the game behaves.",
-      "fields": [
+      "label":"Behavioural settings",
+      "description":"These options will let you control how the game behaves.",
+      "fields":[
         {
-          "englishLabel": "Position the cards in a square",
-          "label": "Position the cards in a square",
-          "englishDescription": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container.",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label":"Position the cards in a square",
+          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
-          "englishLabel": "Number of cards to use",
-          "label": "Number of cards to use",
-          "englishDescription": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards.",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label":"Number of cards to use",
+          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
-          "englishLabel": "Add button for retrying when the game is over",
-          "label": "Add button for retrying when the game is over"
+          "label":"Add button for retrying when the game is over"
         }
       ]
     },
     {
-      "label": "Übersetzung",
-      "fields": [
+      "label":"Localization",
+      "fields":[
         {
-          "label": "Text für die Anzahl der Züge",
-          "default": "Züge"
+          "label":"Card turns text",
+          "default":"Card turns"
         },
         {
-          "label": "Text für die benötigte Zeit",
-          "default": "Benötigte Zeit"
+          "label":"Time spent text",
+          "default":"Time spent"
         },
         {
-          "label": "Text als Rückmeldung",
-          "default": "Gute Arbeit!"
+          "label":"Feedback text",
+          "default":"Good work!"
         },
         {
-          "englishLabel": "Try again button text",
-          "label": "Try again button text",
-          "englishDefault": "Try again?",
-          "default": "Try again?"
+          "label":"Try again button text",
+          "default":"Try again?"
         }
       ]
     }
