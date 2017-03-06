@@ -1,0 +1,73 @@
+{
+  "semantics": [
+    {
+      "label": "Kaarten",
+      "entity": "Kaart",
+      "field": {
+        "label": "Kaart",
+        "fields": [
+          {
+            "label": "Afbeelding"
+          },
+          {
+            "englishLabel": "Matching Image",
+            "label": "Bijpassende afbeelding",
+            "englishDescription": "An optional image to match against instead of using two cards with the same image.",
+            "description": "Gebruik een facultatieve afbeelding die past in plaats van 2 kaarten te gebruiken met dezelfde afbeelding."
+          },
+          {
+            "label": "Beschrijving",
+            "description": "Een korte tekst, die getoond wordt, zodra twee identieke kaarten zijn gevonden."
+          }
+        ]
+      }
+    },
+    {
+      "englishLabel": "Behavioural settings",
+      "label": "Instellingen",
+      "englishDescription": "These options will let you control how the game behaves.",
+      "description": "Met deze opties bepaal jij hoe het spel wordt gespeeld.",
+      "fields": [
+        {
+          "englishLabel": "Position the cards in a square",
+          "label": "Positioneer de kaarten in een vierkant",
+          "englishDescription": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container.",
+          "description": "Tijdens het uitleggen van de kaarten wordt er geprobeerd het aantal kolommen en rijen onderling af te stemmen. Daarna zal de kaartgrootte worden aangepast om in vorm te passen."
+        },
+        {
+          "englishLabel": "Number of cards to use",
+          "label": "Het aantal te gebruiken kaarten",
+          "englishDescription": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards.",
+          "description": "Als je het aantal instelt op groter dan 2, dan zullen er willekeurige kaarten uit het dek worden genomen."
+        },
+        {
+          "englishLabel": "Add button for retrying when the game is over",
+          "label": "Voeg knop toe om te herhalen als het spel over is"
+        }
+      ]
+    },
+    {
+      "label": "Vertaling",
+      "fields": [
+        {
+          "label": "Aantal zetten tekst",
+          "default": "Zetten"
+        },
+        {
+          "label": "Benodigde tijd tekst",
+          "default": "Benodigde tijd"
+        },
+        {
+          "label": "Feedback tekst",
+          "default": "Goed werk!"
+        },
+        {
+          "englishLabel": "Try again button text",
+          "label": "Tekst probeer opnieuw knop",
+          "englishDefault": "Try again?",
+          "default": "Probeer opnieuw?"
+        }
+      ]
+    }
+  ]
+}
