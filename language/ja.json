@@ -22,7 +22,7 @@
     },
     {
       "label":"動作設定",
-      "description":"These options will let you control how the game behaves.",
+      "description":"これらのオプションを使用して、ゲームの動作を制御できます。",
       "fields":[
         {
           "label":"Position the cards in a square",
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "label":"Localization",
+      "label":"ローカライズ",
       "fields":[
         {
           "label":"Card turns text",
@@ -54,7 +54,7 @@
         },
         {
           "label":"Try again button text",
-          "default":"Try again?"
+          "default":"もう一度ドライしますか？"
         }
       ]
     }
