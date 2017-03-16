@@ -33,7 +33,7 @@
           "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
-          "label":"Add button for retrying when the game is over"
+          "label":"ゲームが終了したときに再挑戦のためのボタンを追加"
         }
       ]
     },
@@ -41,20 +41,20 @@
       "label":"ローカライズ",
       "fields":[
         {
-          "label":"Card turns text",
-          "default":"Card turns"
+          "label":"カードの裏返し のテキスト",
+          "default":"カードの裏返し"
         },
         {
-          "label":"Time spent text",
-          "default":"Time spent"
+          "label":"時間経過の文字列",
+          "default":"経過時間"
         },
         {
-          "label":"Feedback text",
-          "default":"Good work!"
+          "label":"フィードバックテキスト",
+          "default":"よくできました！"
         },
         {
-          "label":"Try again button text",
-          "default":"もう一度ドライしますか？"
+          "label":"再挑戦ボタンのテキスト",
+          "default":"再挑戦しますか？"
         }
       ]
     }
