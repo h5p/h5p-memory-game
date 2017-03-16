@@ -7,15 +7,15 @@
         "label":"カード",
         "fields":[
           {
-            "label":"Image"
+            "label":"画像"
           },
           {
-            "label":"Matching Image",
-            "description":"An optional image to match against instead of using two cards with the same image."
+            "label":"一致させる画像",
+            "description":"同じ画像の2枚のカードを使用する代わりに、別に一致させるためのオプション画像"
           },
           {
             "label":"説明",
-            "description":"An optional short text that will pop up once the two matching cards are found."
+            "description":"一致する2つのカードが見つかるとポップアップするオプションの短文テキスト。"
           }
         ]
       }
