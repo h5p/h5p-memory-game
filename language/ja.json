@@ -25,12 +25,12 @@
       "description":"これらのオプションを使用して、ゲームの動作を制御できます。",
       "fields":[
         {
-          "label":"Position the cards in a square",
-          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label":"カードを正方形に配置",
+          "description":"カードをレイアウトするときに、列と行の数を一致させてみてください。そうすると、カードは、コンテナに合わせてスケーリングされます。"
         },
         {
           "label":"使用するカードの数",
-          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "description":"これを2よりも大きい数値に設定すると、カードのリストからランダムなカードが選ばれるようになります。"
         },
         {
           "label":"ゲームが終了したときに再挑戦のためのボタンを追加"
@@ -45,7 +45,7 @@
           "default":"カードの裏返し"
         },
         {
-          "label":"時間経過の文字列",
+          "label":"経過時間の文字列",
           "default":"経過時間"
         },
         {
