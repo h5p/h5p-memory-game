@@ -11,29 +11,29 @@
           },
           {
             "label":"Bijpassende afbeelding",
-            "description":"Een facultatieve afbeelding die past in plaats van 2 kaarten te gebruiken met dezelfde afbeelding."
+            "description":"Een optionele afbeelding waarbij gepast moet worden in plaats van 2 kaarten te gebruiken met dezelfde afbeelding."
           },
           {
             "label":"Beschrijving",
-            "description":"Een optionele korte tekst die zal verschijnen zodra de twee bijbehorende kaarten zijn gevonden."
+            "description":"Een optionele korte tekst die zal verschijnen zodra de twee bij elkaar behorende kaarten zijn gevonden."
           }
         ]
       }
     },
     {
       "label":"Gedragsinstellingen",
-      "description":"Met deze opties bepaal jij hoe het spel wordt gespeeld.",
+      "description":"Met deze opties bepaal je hoe het spel zich gedraagt.",
       "fields":[
         {
           "label":"Positioneer de kaarten in een vierkant",
-          "description":"Tijdens het uitleggen van de kaarten wordt er geprobeerd het aantal kolommen en rijen onderling af te stemmen. Daarna zal de kaartgrootte worden aangepast om in vorm te passen."
+          "description":"Tijdens het uitleggen van de kaarten wordt er geprobeerd het aantal kolommen en rijen onderling af te stemmen. Daarna zal de kaartgrootte worden aangepast om in de vorm te passen."
         },
         {
           "label":"Het aantal te gebruiken kaarten",
-          "description":"Als je het aantal instelt op groter dan 2, dan zullen er willekeurige kaarten uit het dek worden genomen."
+          "description":"Als je het aantal op groter dan 2 instelt, zullen er willekeurige kaarten uit het dek worden genomen."
         },
         {
-          "label":"Voeg knop toe om te herhalen als het spel over is"
+          "label":"Voeg knop toe om opnieuw te proberen als het spel over is"
         }
       ]
     },
@@ -45,15 +45,15 @@
           "default":"Kaart draait om"
         },
         {
-          "label":"Benodigde tijd tekst",
-          "default":"Benodigde tijd"
+          "label":"Gebruikte tijd tekst",
+          "default":"Gebruikte tijd"
         },
         {
           "label":"Feedback tekst",
           "default":"Goed gedaan!"
         },
         {
-          "label":"Tekst probeer opnieuw knop",
+          "label":"Tekst van Probeer opnieuw knop",
           "default":"Opnieuw proberen?"
         }
       ]
