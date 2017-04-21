@@ -33,7 +33,7 @@
           "description":"Stelle eine Zahl größer als 2 ein, um aus der Liste der Karten zufällige Karten für das Spiel auszuwählen."
         },
         {
-          "label":"Add button for retrying when the game is over"
+          "label":"Füge einen Button hinzu, um das Spiel noch einmal neu zu starten zu können, wenn es vorbei ist."
         }
       ]
     },
@@ -53,8 +53,8 @@
           "default":"Gute Arbeit!"
         },
         {
-          "label":"Try again button text",
-          "default":"Try again?"
+          "label":"Text des Wiederholen-Buttons",
+          "default":"Wiederholen?"
         }
       ]
     }
