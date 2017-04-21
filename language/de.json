@@ -10,8 +10,8 @@
             "label":"Bild"
           },
           {
-            "label":"Matching Image",
-            "description":"An optional image to match against instead of using two cards with the same image."
+            "label":"Passendes Bild",
+            "description":"Ein optional passendes Bild anstelle von zwei Karten mit dem gleichen Bild"
           },
           {
             "label":"Beschreibung",
