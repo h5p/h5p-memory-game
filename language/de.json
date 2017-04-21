@@ -21,16 +21,16 @@
       }
     },
     {
-      "label":"Behavioural settings",
-      "description":"These options will let you control how the game behaves.",
+      "label":"Interaktionseinstellungen",
+      "description":"Durch diese Optionen können Sie steuern, wie das Spiel interagiert.",
       "fields":[
         {
-          "label":"Position the cards in a square",
+          "label":"Die Karten in einem Quadrat positionieren",
           "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
-          "label":"Number of cards to use",
-          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label":"Anzahl der zu nutzenden Karten",
+          "description":"Stelle eine Zahl größer als 2 ein, um aus der Liste der Karten zufällige Karten für das Spiel auszuwählen."
         },
         {
           "label":"Add button for retrying when the game is over"
