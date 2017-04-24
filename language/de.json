@@ -26,7 +26,7 @@
       "fields":[
         {
           "label":"Die Karten in einem Quadrat positionieren",
-          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "description":"Es wird versucht, die Anzahl der Spalten und Zeilen passend einzustellen, wenn Sie die Karten gelegt werden. Danach werden die Karten passend skaliert."
         },
         {
           "label":"Anzahl der zu nutzenden Karten",
