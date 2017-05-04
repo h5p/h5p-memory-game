@@ -53,6 +53,26 @@
       ]
     },
     {
+      "englishLabel": "Look and feel",
+      "label": "Tilpass utseende",
+      "englishDescription": "Control the visuals of the game.",
+      "description": "Kontroller de visuelle aspektene ved spillet.",
+      "fields": [
+        {
+          "englishLabel": "Theme Color",
+          "label": "Temafarge",
+          "englishDescription": "Choose a color to create a theme for your card game.",
+          "description": "Velg en farge for å skape et tema over kortspillet ditt."
+        },
+        {
+          "englishLabel": "Card Back",
+          "label": "Kortbaksiden",
+          "englishDescription": "Use a custom back for your cards.",
+          "description": "Bruk en tilpasset kortbakside for kortene dine."
+        }
+      ]
+    },
+    {
       "englishLabel": "Localization",
       "label": "Oversettelser",
       "fields": [

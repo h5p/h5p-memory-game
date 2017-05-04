@@ -47,6 +47,20 @@
       ]
     },
     {
+      "englishLabel": "Look and feel",
+      "englishDescription": "Control the visuals of the game.",
+      "fields": [
+        {
+          "englishLabel": "Theme Color",
+          "englishDescription": "Choose a color to create a theme for your card game."
+        },
+        {
+          "englishLabel": "Card Back",
+          "englishDescription": "Use a custom back for your cards."
+        }
+      ]
+    },
+    {
       "label": "Interface",
       "fields": [
         {

@@ -247,21 +247,30 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       return cardsToUse;
     };
 
+    var cardStyles, invertShades;
+    if (parameters.lookNFeel) {
+      // If the contrast between the chosen color and white is too low we invert the shades to create good contrast
+      invertShades = (parameters.lookNFeel.themeColor &&
+                      getContrast(parameters.lookNFeel.themeColor) < 1.7 ? -1 : 1);
+      var backImage = (parameters.lookNFeel.cardBack ? H5P.getPath(parameters.lookNFeel.cardBack.path, id) : null);
+      cardStyles = MemoryGame.Card.determineStyles(parameters.lookNFeel.themeColor, invertShades, backImage);
+    }
+
     // Initialize cards.
     var cardsToUse = getCardsToUse();
     for (var i = 0; i < cardsToUse.length; i++) {
       var cardParams = cardsToUse[i];
       if (MemoryGame.Card.isValid(cardParams)) {
         // Create first card
-        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.description);
+        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.description, cardStyles);
 
         if (MemoryGame.Card.hasTwoImages(cardParams)) {
           // Use matching image for card two
-          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.description);
+          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.description, cardStyles);
         }
         else {
           // Add two cards with the same image
-          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.description);
+          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.description, cardStyles);
         }
 
         // Add cards to card list for shuffeling
@@ -280,6 +289,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       this.triggerXAPI('attempted');
       // TODO: Only create on first attach!
       $wrapper = $container.addClass('h5p-memory-game').html('');
+      if (invertShades === -1) {
+        $container.addClass('h5p-invert-shades');
+      }
 
       // Add cards to list
       var $list = $('<ul/>');
@@ -379,6 +391,19 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
   // Extends the event dispatcher
   MemoryGame.prototype = Object.create(EventDispatcher.prototype);
   MemoryGame.prototype.constructor = MemoryGame;
+
+  /**
+   * Determine color contrast level compared to white(#fff)
+   *
+   * @private
+   * @param {string} color hex code
+   * @return {number} From 1 to Infinity.
+   */
+  var getContrast = function (color) {
+    return 255 / ((parseInt(color.substr(1, 2), 16) * 299 +
+                   parseInt(color.substr(3, 2), 16) * 587 +
+                   parseInt(color.substr(5, 2), 16) * 144) / 1000);
+  };
 
   return MemoryGame;
 })(H5P.EventDispatcher, H5P.jQuery);

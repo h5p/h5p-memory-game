@@ -76,6 +76,38 @@
     ]
   },
   {
+    "name": "lookNFeel",
+    "type": "group",
+    "label": "Look and feel",
+    "importance": "low",
+    "description": "Control the visuals of the game.",
+    "optional": true,
+    "fields": [
+      {
+        "name": "themeColor",
+        "type": "text",
+        "label": "Theme Color",
+        "importance": "low",
+        "description": "Choose a color to create a theme for your card game.",
+        "optional": true,
+        "default": "#909090",
+        "widget": "colorSelector",
+        "spectrum": {
+          "showInput": true
+        }
+      },
+      {
+        "name": "cardBack",
+        "type": "image",
+        "label": "Card Back",
+        "importance": "low",
+        "optional": true,
+        "description": "Use a custom back for your cards.",
+        "ratio": 1
+      }
+    ]
+  },
+  {
     "label": "Localization",
     "importance": "low",
     "name": "l10n",
