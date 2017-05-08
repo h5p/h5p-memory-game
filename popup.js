@@ -6,26 +6,29 @@
    * @class H5P.MemoryGame.Popup
    * @param {H5P.jQuery} $container
    */
-  MemoryGame.Popup = function ($container) {
+  MemoryGame.Popup = function ($container, styles) {
     /** @alias H5P.MemoryGame.Popup# */
     var self = this;
 
     var closed;
 
-    var $popup = $('<div class="h5p-memory-pop"><div class="h5p-memory-image"></div><div class="h5p-memory-desc"></div></div>').appendTo($container);
+    var $popup = $('<div class="h5p-memory-pop"><div class="h5p-memory-top"' + styles + '></div><div class="h5p-memory-desc"></div></div>').appendTo($container);
     var $desc = $popup.find('.h5p-memory-desc');
-    var $image = $popup.find('.h5p-memory-image');
+    var $top = $popup.find('.h5p-memory-top');
 
     /**
      * Show the popup.
      *
      * @param {string} desc
-     * @param {H5P.jQuery} $img
+     * @param {H5P.jQuery[]} imgs
      * @param {function} done
      */
-    self.show = function (desc, $img, done) {
+    self.show = function (desc, imgs, styles, done) {
       $desc.html(desc);
-      $img.appendTo($image.html(''));
+      $top.html('').toggleClass('h5p-memory-two-images', imgs.length > 1);
+      for (var i = 0; i < imgs.length; i++) {
+        $('<div class="h5p-memory-image"' + styles + '></div>').append(imgs[i]).appendTo($top);
+      }
       $popup.show();
       closed = done;
     };
@@ -47,15 +50,14 @@
      */
     self.setSize = function (fontSize) {
       // Set image size
-      $image[0].style.fontSize = fontSize + 'px';
+      $top[0].style.fontSize = fontSize + 'px';
 
       // Determine card size
       var cardSize = fontSize * 6.25; // From CSS
 
       // Set popup size
-      $popup[0].style.minWidth = (cardSize * 2) + 'px';
+      $popup[0].style.minWidth = (cardSize * 2.5) + 'px';
       $popup[0].style.minHeight = cardSize + 'px';
-      $desc[0].style.marginLeft = (cardSize + 20) + 'px';
     };
   };
 

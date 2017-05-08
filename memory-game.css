@@ -80,7 +80,8 @@
   color: #909090;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front:before,
-.h5p-memory-game .h5p-memory-card .h5p-back:before {
+.h5p-memory-game .h5p-memory-card .h5p-back:before,
+.h5p-memory-game .h5p-memory-image:before {
   position: absolute;
   display: block;
   content: "";
@@ -90,7 +91,8 @@
   opacity: 0;
 }
 .h5p-memory-game.h5p-invert-shades .h5p-memory-card .h5p-front:before,
-.h5p-memory-game.h5p-invert-shades .h5p-memory-card .h5p-back:before {
+.h5p-memory-game.h5p-invert-shades .h5p-memory-card .h5p-back:before,
+.h5p-memory-game.h5p-invert-shades .h5p-memory-image:before {
   background: #000;
 }
 
@@ -127,7 +129,8 @@
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -ms-transform: scale(0,1.1);
 }
-.h5p-memory-game .h5p-memory-card .h5p-back:before {
+.h5p-memory-game .h5p-memory-card .h5p-back:before,
+.h5p-memory-game .h5p-memory-image:before {
   opacity: 0.5;
 }
 .h5p-memory-game .h5p-memory-card.h5p-flipped .h5p-back {
@@ -193,19 +196,31 @@
 .h5p-memory-game .h5p-memory-pop {
   display: none;
   background: #fff;
-  padding: 1em;
-  width: 20em;
+  padding: 0.25em;
+  width: 24em;
   max-width: 90%;
   position: absolute;
   top: 50%;
   left: 50%;
-  box-shadow: 0 0 1em #666;
+  box-shadow: 0 0 2em #666;
+  border-radius: 0.25em;
   -webkit-transform: translate(-50%,-50%);
   -moz-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
 }
+.h5p-memory-game .h5p-memory-top {
+  padding: 0em 1em;
+  background-color: #f0f0f0;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 1.75em;
+  border-bottom: 1px solid #d0d0d0;
+}
 .h5p-memory-game .h5p-memory-image {
-  float: left;
+  display: inline-block;
+  position: relative;
+  top: 1.5em;
+  left: -0.5em;
   border: 2px solid #d0d0d0;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -214,12 +229,23 @@
   width: 6.25em;
   height: 6.25em;
   text-align: center;
+  overflow: hidden;
+  box-shadow: 0 0 1em rgba(125,125,125,0.5);
+}
+.h5p-memory-game .h5p-memory-image:first-child {
+  top: 1em;
+  left: 0;
+}
+.h5p-memory-game .h5p-memory-two-images .h5p-memory-image:first-child {
+  left: 0.5em;
 }
 .h5p-memory-game .h5p-row-break {
   clear: left;
 }
 .h5p-memory-game .h5p-memory-desc {
-  margin-left: 7em;
+  padding: 1em;
+  margin-bottom: 0.5em;
+  text-align: center;
 }
 .h5p-memory-reset {
   position: absolute;

@@ -67,7 +67,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (desc !== undefined) {
         // Pause timer and show desciption.
         timer.pause();
-        popup.show(desc, card.getImage(), function () {
+        var imgs = [card.getImage()];
+        if (card.hasTwoImages) {
+          imgs.push(mate.getImage());
+        }
+        popup.show(desc, imgs, cardStyles.back, function () {
           if (isFinished) {
             // Game done
             finished();
@@ -267,6 +271,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         if (MemoryGame.Card.hasTwoImages(cardParams)) {
           // Use matching image for card two
           cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.description, cardStyles);
+          cardOne.hasTwoImages = cardTwo.hasTwoImages = true;
         }
         else {
           // Add two cards with the same image
@@ -314,7 +319,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         timer = new MemoryGame.Timer($status.find('.h5p-time-spent')[0]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
-        popup = new MemoryGame.Popup($container);
+        popup = new MemoryGame.Popup($container, cardStyles.popup);
 
         $container.click(function () {
           popup.close();
