@@ -71,7 +71,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         if (card.hasTwoImages) {
           imgs.push(mate.getImage());
         }
-        popup.show(desc, imgs, cardStyles.back, function () {
+        popup.show(desc, imgs, cardStyles ? cardStyles.back : undefined, function () {
           if (isFinished) {
             // Game done
             finished();
@@ -319,7 +319,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         timer = new MemoryGame.Timer($status.find('.h5p-time-spent')[0]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
-        popup = new MemoryGame.Popup($container, cardStyles.popup);
+        popup = new MemoryGame.Popup($container, cardStyles ? cardStyles.popup : undefined);
 
         $container.click(function () {
           popup.close();

@@ -5,6 +5,7 @@
    *
    * @class H5P.MemoryGame.Popup
    * @param {H5P.jQuery} $container
+   * @param {string} [styles]
    */
   MemoryGame.Popup = function ($container, styles) {
     /** @alias H5P.MemoryGame.Popup# */
@@ -12,7 +13,7 @@
 
     var closed;
 
-    var $popup = $('<div class="h5p-memory-pop"><div class="h5p-memory-top"' + styles + '></div><div class="h5p-memory-desc"></div></div>').appendTo($container);
+    var $popup = $('<div class="h5p-memory-pop"><div class="h5p-memory-top"' + (styles ? styles : '') + '></div><div class="h5p-memory-desc"></div></div>').appendTo($container);
     var $desc = $popup.find('.h5p-memory-desc');
     var $top = $popup.find('.h5p-memory-top');
 
@@ -27,7 +28,7 @@
       $desc.html(desc);
       $top.html('').toggleClass('h5p-memory-two-images', imgs.length > 1);
       for (var i = 0; i < imgs.length; i++) {
-        $('<div class="h5p-memory-image"' + styles + '></div>').append(imgs[i]).appendTo($top);
+        $('<div class="h5p-memory-image"' + (styles ? styles : '') + '></div>').append(imgs[i]).appendTo($top);
       }
       $popup.show();
       closed = done;

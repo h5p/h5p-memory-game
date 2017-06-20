@@ -89,7 +89,7 @@
     self.appendTo = function ($container) {
       // TODO: Translate alt attr
       $card = $('<li class="h5p-memory-wrap"><div class="h5p-memory-card" role="button" tabindex="1">' +
-                  '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles.backImage ? '' : '<span></span>') + '</div>' +
+                  '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
                   '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
                     '<img src="' + path + '" alt="Memory Card" style="width:' + width + ';height:' + height + '"/>' +
                   '</div>' +
