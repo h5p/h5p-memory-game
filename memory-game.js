@@ -118,7 +118,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         }, 0);
 
         // Same size as cards
-        retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.5) + 'px';
+        retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
 
         $wrapper[0].appendChild(retryButton); // Add to DOM
       }
