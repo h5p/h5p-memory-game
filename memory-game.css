@@ -120,7 +120,7 @@
   background-image: radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 .h5p-memory-game .h5p-memory-card .h5p-back {
-  line-height: 5.9em;
+  line-height: 5.83em;
   text-align: center;
   background-color: #f0f0f0;
   -webkit-transform: rotateY(-180deg);
@@ -218,7 +218,7 @@
 }
 .h5p-memory-game .h5p-memory-image {
   display: inline-block;
-  line-height: 5.9;
+  line-height: 5.83em;
   position: relative;
   top: 1.5em;
   left: -0.5em;
