@@ -7,10 +7,11 @@
    * @extends H5P.EventDispatcher
    * @param {Object} image
    * @param {number} id
+   * @param {string} alt
    * @param {string} [description]
    * @param {Object} [styles]
    */
-  MemoryGame.Card = function (image, id, description, styles) {
+  MemoryGame.Card = function (image, id, alt, description, styles) {
     /** @alias H5P.MemoryGame.Card# */
     var self = this;
 
@@ -18,7 +19,7 @@
     EventDispatcher.call(self);
 
     var path = H5P.getPath(image.path, id);
-    var width, height, margin, $card;
+    var width, height, margin, $card, $wrapper, removedState, flippedState;
 
     if (image.width !== undefined && image.height !== undefined) {
       if (image.width > image.height) {
@@ -40,6 +41,7 @@
     self.flip = function () {
       $card.addClass('h5p-flipped');
       self.trigger('flip');
+      flippedState = true;
     };
 
     /**
@@ -47,6 +49,7 @@
      */
     self.flipBack = function () {
       $card.removeClass('h5p-flipped');
+      flippedState = false;
     };
 
     /**
@@ -54,6 +57,7 @@
      */
     self.remove = function () {
       $card.addClass('h5p-matched');
+      removedState = true;
     };
 
     /**
@@ -88,27 +92,85 @@
      */
     self.appendTo = function ($container) {
       // TODO: Translate alt attr
-      $card = $('<li class="h5p-memory-wrap"><div class="h5p-memory-card" role="button" tabindex="1">' +
+      $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">' +
                   '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
                   '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
-                    '<img src="' + path + '" alt="Memory Card" style="width:' + width + ';height:' + height + '"/>' +
+                    '<img src="' + path + '" alt="' + (alt || 'Memory Image') + '" style="width:' + width + ';height:' + height + '"/>' +
                   '</div>' +
                 '</div></li>')
         .appendTo($container)
-        .children('.h5p-memory-card')
-          .children('.h5p-front')
-            .click(function () {
-              self.flip();
-            })
-            .end();
+        .on('keydown', function (event) {
+          switch (event.which) {
+            case 13: // Enter
+            case 32: // Space
+              if (!flippedState) {
+                self.flip();
+                event.preventDefault();
+              }
+              return;
+            case 39: // Right
+            case 40: // Down
+              // Move focus forward
+              self.trigger('next');
+              event.preventDefault();
+              return;
+            case 37: // Left
+            case 38: // Up
+              // Move focus back
+              self.trigger('prev');
+              event.preventDefault();
+              return;
+          }
+        });
+      $card = $wrapper.children('.h5p-memory-card')
+        .children('.h5p-front')
+          .click(function () {
+            self.flip();
+          })
+          .end();
     };
 
     /**
      * Re-append to parent container
      */
     self.reAppend = function () {
-      var parent = $card[0].parentElement.parentElement;
-      parent.appendChild($card[0].parentElement);
+      var parent = $wrapper[0].parentElement;
+      parent.appendChild($wrapper[0]);
+    };
+
+    /**
+     *
+     */
+    self.makeTabbable = function () {
+      if ($wrapper) {
+        $wrapper.attr('tabindex', '0');
+      }
+    };
+
+    /**
+     *
+     */
+    self.makeUntabbable = function () {
+      if ($wrapper) {
+        $wrapper.attr('tabindex', '-1');
+      }
+    };
+
+    /**
+     *
+     */
+    self.setFocus = function () {
+      self.makeTabbable();
+      if ($wrapper) {
+        $wrapper.focus();
+      }
+    };
+
+    /**
+     *
+     */
+    self.isFlipped = function () {
+      return flippedState;
     };
   };
 

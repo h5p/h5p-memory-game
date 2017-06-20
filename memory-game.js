@@ -220,6 +220,38 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         counter.increment();
       });
 
+      /**
+       * @private
+       * @param {number} direction
+       */
+      var createCardChangeFocusHandler = function (direction) {
+        return function () {
+          // Locate next card
+          for (var i = 0; i < cards.length; i++) {
+            if (cards[i] === card) {
+              // Found current card
+
+              var nextCard, fails = 0;
+              do {
+                fails++;
+                nextCard = cards[i + (direction * fails)];
+                if (!nextCard) {
+                  return; // No more cards
+                }
+              }
+              while (nextCard.isFlipped());
+
+              card.makeUntabbable();
+              nextCard.setFocus();
+
+              return;
+            }
+          }
+        };
+      };
+
+      card.on('next', createCardChangeFocusHandler(1));
+      card.on('prev', createCardChangeFocusHandler(-1));
       cards.push(card);
     };
 
@@ -277,16 +309,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       var cardParams = cardsToUse[i];
       if (MemoryGame.Card.isValid(cardParams)) {
         // Create first card
-        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.description, cardStyles);
+        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, cardParams.description, cardStyles);
 
         if (MemoryGame.Card.hasTwoImages(cardParams)) {
           // Use matching image for card two
-          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.description, cardStyles);
+          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.matchAlt, cardParams.description, cardStyles);
           cardOne.hasTwoImages = cardTwo.hasTwoImages = true;
         }
         else {
           // Add two cards with the same image
-          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.description, cardStyles);
+          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, cardParams.description, cardStyles);
         }
 
         // Add cards to card list for shuffeling
@@ -314,6 +346,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       for (var i = 0; i < cards.length; i++) {
         cards[i].appendTo($list);
       }
+      cards[0].makeTabbable();
 
       if ($list.children().length) {
         $list.appendTo($container);
