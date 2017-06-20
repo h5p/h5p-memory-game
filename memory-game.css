@@ -232,6 +232,7 @@
   text-align: center;
   overflow: hidden;
   box-shadow: 0 0 1em rgba(125,125,125,0.5);
+  background-size: cover;
 }
 .h5p-memory-game .h5p-memory-image:first-child {
   top: 1em;
