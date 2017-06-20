@@ -2,6 +2,12 @@
   {
     "name": "cards",
     "type": "list",
+    "widgets": [
+      {
+        "name": "VerticalTabs",
+        "label": "Default"
+      }
+    ],
     "label": "Cards",
     "importance": "high",
     "entity": "card",

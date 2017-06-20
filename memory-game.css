@@ -273,13 +273,36 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%) scale(1) rotate(0);
   cursor: pointer;
-  font-style: italic;
-  text-shadow: 0 0 0.5em white;
-  padding: 0.125em 0.25em;
-  line-height: 1;
+  line-height: 1.2;
+  padding: 0.5em 1.25em;
+  border-radius: 2em;
+  background: #1a73d9;
+  color: #ffffff;
+  box-shadow: 0 0.5em 1em #999;
+  opacity: 1;
+  transition: box-shadow 200ms linear, margin 200ms linear, transform 300ms ease-out, opacity 300ms ease-out;
+}
+.h5p-memory-reset:before {
+  font-family: 'H5PFontAwesome4';
+  content: "\f01e";
+  margin-right: 0.5em;
+}
+.h5p-memory-reset:hover,
+.h5p-memory-reset:focus {
+  background: #1356a3;
+  box-shadow: 0 1em 1.5em #999;
+  margin-top: -0.2em;
 }
 .h5p-memory-reset:focus {
-  outline: dashed pink;
+  outline: 2px dashed pink;
+}
+.h5p-memory-transin {
+  transform: translate(-50%,-50%) scale(0) rotate(180deg);
+  opacity: 0;
+}
+.h5p-memory-transout {
+  transform: translate(-50%,-450%) scale(0) rotate(360deg);
+  opacity: 0;
 }

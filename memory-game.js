@@ -100,17 +100,25 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
-        var retryButton = createButton('reset', parameters.l10n.tryAgain || 'Try again?', function () {
+        var retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', function () {
           // Trigger handler (action)
 
-          resetGame();
+          retryButton.classList.add('h5p-memory-transout');
+          setTimeout(function () {
+            // Remove button on nextTick to get transition effect
+            $wrapper[0].removeChild(retryButton);
+          }, 300);
 
-          // Remove button from DOM
-          $wrapper[0].removeChild(this);
+          resetGame();
         });
+        retryButton.classList.add('h5p-memory-transin');
+        setTimeout(function () {
+          // Remove class on nextTick to get transition effect
+          retryButton.classList.remove('h5p-memory-transin');
+        }, 0);
 
         // Same size as cards
-        retryButton.style.fontSize = $wrapper.children('ul')[0].style.fontSize;
+        retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.5) + 'px';
 
         $wrapper[0].appendChild(retryButton); // Add to DOM
       }
