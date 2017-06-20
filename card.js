@@ -152,7 +152,6 @@
     var styles =  {
       front: '',
       back: '',
-      popup: '',
       backImage: !!backImage
     };
 
@@ -167,8 +166,6 @@
       styles.back += 'color:' + color + ';' +
                      'background-color:' + backColor + ';' +
                      'border-color:' + frontColor +';';
-      styles.popup += 'border-color:' + backColor + ';' +
-                      'background-color:' + shade(color, 90 * invertShades) + ';';
     }
 
     // Add back image for card
@@ -177,7 +174,6 @@
 
       styles.front += backgroundImage;
       styles.back += backgroundImage;
-      styles.popup += backgroundImage;
     }
 
     // Prep style attribute
@@ -186,9 +182,6 @@
     }
     if (styles.back) {
       styles.back = ' style="' + styles.back + '"';
-    }
-    if (styles.popup) {
-      styles.popup = ' style="' + styles.popup + '"';
     }
 
     return styles;

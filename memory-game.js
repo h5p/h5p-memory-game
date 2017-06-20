@@ -322,7 +322,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         timer = new MemoryGame.Timer($status.find('.h5p-time-spent')[0]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
-        popup = new MemoryGame.Popup($container, cardStyles ? cardStyles.popup : undefined, parameters.l10n);
+        popup = new MemoryGame.Popup($container, parameters.l10n);
 
         $container.click(function () {
           popup.close();
