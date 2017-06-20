@@ -77,9 +77,11 @@
         },
         {
           "englishLabel": "Try again button text",
-          "label": "Try again button text",
-          "englishDefault": "Try again?",
-          "default": "Try again?"
+          "englishDefault": "Try again?"
+        },
+        {
+          "englishLabel": "Close button label",
+          "englishDefault": "Close"
         }
       ]
     }

@@ -99,6 +99,12 @@
           "label": "Prøv på nytt-tekst",
           "englishDefault": "Try again?",
           "default": "Prøv på nytt?"
+        },
+        {
+          "englishLabel": "Close button label",
+          "label": "Lukk knapp-merkelapp",
+          "englishDefault": "Close",
+          "default": "Lukk"
         }
       ]
     }

@@ -76,10 +76,14 @@
           "default": "BRAVO!"
         },
         {
-          "englishLabel": "Tekst na dugmetu pokušaj ponovo",
+          "englishLabel": "Try again button text",
           "label": "Tekst na dugmetu pokušaj ponovo",
-          "englishDefault": "Pokušaj ponovo?",
+          "englishDefault": "Try again?",
           "default": "Pokušaj ponovo?"
+        },
+        {
+          "englishLabel": "Close button label",
+          "englishDefault": "Close"
         }
       ]
     }

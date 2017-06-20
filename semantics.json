@@ -141,6 +141,13 @@
         "name": "tryAgain",
         "type": "text",
         "default": "Try again?"
+      },
+      {
+        "label": "Close button label",
+        "importance": "low",
+        "name": "closeLabel",
+        "type": "text",
+        "default": "Close"
       }
     ]
   }

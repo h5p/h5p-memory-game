@@ -248,6 +248,26 @@
   margin-bottom: 0.5em;
   text-align: center;
 }
+.h5p-memory-game .h5p-memory-close {
+  cursor: pointer;
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 2em;
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  color: #888;
+}
+.h5p-memory-game .h5p-memory-close:before {
+  content: "\00D7"
+}
+.h5p-memory-game .h5p-memory-close:hover {
+  color: #666;
+}
+.h5p-memory-game .h5p-memory-close:focus {
+  outline: 2px dashed pink;
+}
 .h5p-memory-reset {
   position: absolute;
   top: 50%;
