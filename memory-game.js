@@ -60,10 +60,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       var isFinished = (removed === cards.length);
       var desc = card.getDescription();
 
-      if (isFinished) {
-         self.triggerXAPIScored(1, 1, 'completed');
-      }
-
       if (desc !== undefined) {
         // Pause timer and show desciption.
         timer.pause();
@@ -95,6 +91,13 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     var finished = function () {
       timer.stop();
       $feedback.addClass('h5p-show');
+
+      // Create and trigger xAPI event 'completed'
+      var completedEvent = self.createXAPIEventTemplate('completed');
+      completedEvent.setScoredResult(1, 1, self, true, true);
+      completedEvent.data.statement.result.duration = 'PT' + (Math.round(timer.getTime() / 10) / 100) + 'S';
+      self.trigger(completedEvent);
+
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
         var retryButton = createButton('reset', parameters.l10n.tryAgain || 'Try again?', function () {
