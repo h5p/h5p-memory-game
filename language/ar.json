@@ -10,9 +10,7 @@
             "label": "الصورة"
           },
           {
-            "englishLabel": "Matching Image",
             "label": "Matching Image",
-            "englishDescription": "An optional image to match against instead of using two cards with the same image.",
             "description": "An optional image to match against instead of using two cards with the same image."
           },
           {
@@ -23,41 +21,26 @@
       }
     },
     {
-      "englishLabel": "Behavioural settings",
       "label": "Behavioural settings",
-      "englishDescription": "These options will let you control how the game behaves.",
       "description": "These options will let you control how the game behaves.",
       "fields": [
         {
-          "englishLabel": "Position the cards in a square",
           "label": "Position the cards in a square",
-          "englishDescription": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container.",
           "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
-          "englishLabel": "Number of cards to use",
           "label": "Number of cards to use",
-          "englishDescription": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards.",
           "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
-          "englishLabel": "Add button for retrying when the game is over",
           "label": "Add button for retrying when the game is over"
         }
       ]
     },
     {
-      "englishLabel": "Look and feel",
-      "englishDescription": "Control the visuals of the game.",
       "fields": [
-        {
-          "englishLabel": "Theme Color",
-          "englishDescription": "Choose a color to create a theme for your card game."
-        },
-        {
-          "englishLabel": "Card Back",
-          "englishDescription": "Use a custom back for your cards."
-        }
+        {},
+        {}
       ]
     },
     {
@@ -72,14 +55,8 @@
         {
           "label": "نص الملاحظات"
         },
-        {
-          "englishLabel": "Try again button text",
-          "englishDefault": "Try again?"
-        },
-        {
-          "englishLabel": "Close button label",
-          "englishDefault": "Close"
-        }
+        {},
+        {}
       ]
     }
   ]
