@@ -1,60 +1,87 @@
 {
   "semantics":[
     {
-      "label":"カード",
-      "entity":"カード",
+      "widgets":[
+        {
+          "label":"Default"
+        }
+      ],
+      "label":"Cards",
+      "entity":"card",
       "field":{
-        "label":"カード",
+        "label":"Card",
         "fields":[
           {
-            "label":"画像"
+            "label":"Image"
           },
           {
-            "label":"一致させる画像",
-            "description":"同じ画像の2枚のカードを使用する代わりに、別に一致させるためのオプション画像"
+            "label":"Matching Image",
+            "description":"An optional image to match against instead of using two cards with the same image."
           },
           {
-            "label":"説明",
-            "description":"一致する2つのカードが見つかるとポップアップするオプションの短文テキスト。"
+            "label":"Description",
+            "description":"An optional short text that will pop up once the two matching cards are found."
           }
         ]
       }
     },
     {
-      "label":"動作設定",
-      "description":"これらのオプションを使用して、ゲームの動作を制御できます。",
+      "label":"Behavioural settings",
+      "description":"These options will let you control how the game behaves.",
       "fields":[
         {
-          "label":"カードを正方形に配置",
-          "description":"カードをレイアウトするときに、列と行の数を一致させてみてください。そうすると、カードは、コンテナに合わせてスケーリングされます。"
+          "label":"Position the cards in a square",
+          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
-          "label":"使用するカードの数",
-          "description":"これを2よりも大きい数値に設定すると、カードのリストからランダムなカードが選ばれるようになります。"
+          "label":"Number of cards to use",
+          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
-          "label":"ゲームが終了したときに再挑戦のためのボタンを追加"
+          "label":"Add button for retrying when the game is over"
         }
       ]
     },
     {
-      "label":"ローカライズ",
+      "label":"Look and feel",
+      "description":"Control the visuals of the game.",
       "fields":[
         {
-          "label":"カードターン のテキスト",
-          "default":"カードターン"
+          "label":"Theme Color",
+          "description":"Choose a color to create a theme for your card game.",
+          "default":"#909090",
+          "spectrum":{
+            
+          }
         },
         {
-          "label":"経過時間の文字列",
-          "default":"経過時間"
+          "label":"Card Back",
+          "description":"Use a custom back for your cards."
+        }
+      ]
+    },
+    {
+      "label":"Localization",
+      "fields":[
+        {
+          "label":"Card turns text",
+          "default":"Card turns"
         },
         {
-          "label":"フィードバックテキスト",
-          "default":"よくできました！"
+          "label":"Time spent text",
+          "default":"Time spent"
         },
         {
-          "label":"再挑戦ボタンのテキスト",
-          "default":"再挑戦しますか？"
+          "label":"Feedback text",
+          "default":"Good work!"
+        },
+        {
+          "label":"Try again button text",
+          "default":"Try again?"
+        },
+        {
+          "label":"Close button label",
+          "default":"Close"
         }
       ]
     }
