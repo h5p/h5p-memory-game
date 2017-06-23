@@ -49,7 +49,6 @@
         {
           "label":"Theme Color",
           "description":"Choose a color to create a theme for your card game.",
-          "default":"#909090",
           "spectrum":{
             
           }
