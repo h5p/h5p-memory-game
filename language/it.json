@@ -1,6 +1,11 @@
 {
   "semantics":[
     {
+      "widgets":[
+        {
+          "label":"Default"
+        }
+      ],
       "label":"Carte",
       "entity":"carta",
       "field":{
@@ -38,6 +43,24 @@
       ]
     },
     {
+      "label":"Look and feel",
+      "description":"Control the visuals of the game.",
+      "fields":[
+        {
+          "label":"Theme Color",
+          "description":"Choose a color to create a theme for your card game.",
+          "default":"#909090",
+          "spectrum":{
+            
+          }
+        },
+        {
+          "label":"Card Back",
+          "description":"Use a custom back for your cards."
+        }
+      ]
+    },
+    {
       "label":"Localizzazione",
       "fields":[
         {
@@ -55,6 +78,10 @@
         {
           "label":"Try again button text",
           "default":"Try again?"
+        },
+        {
+          "label":"Close button label",
+          "default":"Close"
         }
       ]
     }
