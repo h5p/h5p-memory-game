@@ -1,6 +1,11 @@
 {
   "semantics":[
     {
+      "widgets":[
+        {
+          "label":"Default"
+        }
+      ],
       "label":"Karten",
       "entity":"karte",
       "field":{
@@ -10,8 +15,8 @@
             "label":"Bild"
           },
           {
-            "label":"Passendes Bild",
-            "description":"Ein optional passendes Bild anstelle von zwei Karten mit dem gleichen Bild"
+            "label":"Matching Image",
+            "description":"An optional image to match against instead of using two cards with the same image."
           },
           {
             "label":"Beschreibung",
@@ -21,19 +26,37 @@
       }
     },
     {
-      "label":"Interaktionseinstellungen",
-      "description":"Durch diese Optionen können Sie steuern, wie das Spiel interagiert.",
+      "label":"Behavioural settings",
+      "description":"These options will let you control how the game behaves.",
       "fields":[
         {
-          "label":"Die Karten in einem Quadrat positionieren",
-          "description":"Es wird versucht, die Anzahl der Spalten und Zeilen passend einzustellen, wenn Sie die Karten gelegt werden. Danach werden die Karten passend skaliert."
+          "label":"Position the cards in a square",
+          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
-          "label":"Anzahl der zu nutzenden Karten",
-          "description":"Stelle eine Zahl größer als 2 ein, um aus der Liste der Karten zufällige Karten für das Spiel auszuwählen."
+          "label":"Number of cards to use",
+          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
-          "label":"Füge einen Button hinzu, um das Spiel noch einmal neu zu starten zu können, wenn es vorbei ist."
+          "label":"Add button for retrying when the game is over"
+        }
+      ]
+    },
+    {
+      "label":"Look and feel",
+      "description":"Control the visuals of the game.",
+      "fields":[
+        {
+          "label":"Theme Color",
+          "description":"Choose a color to create a theme for your card game.",
+          "default":"#909090",
+          "spectrum":{
+            
+          }
+        },
+        {
+          "label":"Card Back",
+          "description":"Use a custom back for your cards."
         }
       ]
     },
@@ -53,8 +76,12 @@
           "default":"Gute Arbeit!"
         },
         {
-          "label":"Text des Wiederholen-Buttons",
-          "default":"Wiederholen?"
+          "label":"Try again button text",
+          "default":"Try again?"
+        },
+        {
+          "label":"Close button label",
+          "default":"Close"
         }
       ]
     }
