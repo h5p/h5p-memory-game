@@ -1,60 +1,87 @@
 {
   "semantics":[
     {
-      "label":"Cartões",
-      "entity":"cartão",
+      "widgets":[
+        {
+          "label":"Default"
+        }
+      ],
+      "label":"Cards",
+      "entity":"card",
       "field":{
-        "label":"Cartão",
+        "label":"Card",
         "fields":[
           {
-            "label":"Imagem"
+            "label":"Image"
           },
           {
-            "label":"Combinando imagem",
-            "description":"Uma imagem opcional que corresponda, ao invés de usar duas cartas com a mesma imagem."
+            "label":"Matching Image",
+            "description":"An optional image to match against instead of using two cards with the same image."
           },
           {
-            "label":"Descrição",
-            "description":"Um pequeno texto opcional que irá aparecer uma vez encontradas as duas cartas correspondentes."
+            "label":"Description",
+            "description":"An optional short text that will pop up once the two matching cards are found."
           }
         ]
       }
     },
     {
-      "label":"Configurações comportamentais",
-      "description":"Estas opções permitirão que você controle como o jogo se comporta.",
+      "label":"Behavioural settings",
+      "description":"These options will let you control how the game behaves.",
       "fields":[
         {
-          "label":"Posicione as cartas em um quadrado",
-          "description":"Tentará corresponder o número de linhas e colunas quando da distribuição de cartas. Depois, os cartões serão dimensionados para caber o recipiente."
+          "label":"Position the cards in a square",
+          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
-          "label":"Número de cartões para usar",
-          "description":"Se o número for maior que 2, o jogo escolherá cartões aleatórios da lista de cartões."
+          "label":"Number of cards to use",
+          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
-          "label":"Adicionar botão para tentar novamente ao final do jogo"
+          "label":"Add button for retrying when the game is over"
         }
       ]
     },
     {
-      "label":"Localização",
+      "label":"Look and feel",
+      "description":"Control the visuals of the game.",
       "fields":[
         {
-          "label":"Cartão transforma-se em texto",
-          "default":"Vira o cartão"
+          "label":"Theme Color",
+          "description":"Choose a color to create a theme for your card game.",
+          "default":"#909090",
+          "spectrum":{
+            
+          }
         },
         {
-          "label":"Texto de tempo gasto",
-          "default":"Tempo gasto"
+          "label":"Card Back",
+          "description":"Use a custom back for your cards."
+        }
+      ]
+    },
+    {
+      "label":"Localization",
+      "fields":[
+        {
+          "label":"Card turns text",
+          "default":"Card turns"
         },
         {
-          "label":"Texto de Feedback",
-          "default":"Bom trabalho!"
+          "label":"Time spent text",
+          "default":"Time spent"
         },
         {
-          "label":"Texto do botão tente novamente",
-          "default":"Tentar novamente?"
+          "label":"Feedback text",
+          "default":"Good work!"
+        },
+        {
+          "label":"Try again button text",
+          "default":"Try again?"
+        },
+        {
+          "label":"Close button label",
+          "default":"Close"
         }
       ]
     }
