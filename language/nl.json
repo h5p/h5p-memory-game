@@ -1,60 +1,87 @@
 {
   "semantics":[
     {
-      "label":"Kaarten",
-      "entity":"kaart",
+      "widgets":[
+        {
+          "label":"Default"
+        }
+      ],
+      "label":"Cards",
+      "entity":"card",
       "field":{
-        "label":"Kaart",
+        "label":"Card",
         "fields":[
           {
-            "label":"Afbeelding"
+            "label":"Image"
           },
           {
-            "label":"Bijpassende afbeelding",
-            "description":"Een optionele afbeelding waarbij gepast moet worden in plaats van 2 kaarten te gebruiken met dezelfde afbeelding."
+            "label":"Matching Image",
+            "description":"An optional image to match against instead of using two cards with the same image."
           },
           {
-            "label":"Beschrijving",
-            "description":"Een optionele korte tekst die zal verschijnen zodra de twee bij elkaar behorende kaarten zijn gevonden."
+            "label":"Description",
+            "description":"An optional short text that will pop up once the two matching cards are found."
           }
         ]
       }
     },
     {
-      "label":"Gedragsinstellingen",
-      "description":"Met deze opties bepaal je hoe het spel zich gedraagt.",
+      "label":"Behavioural settings",
+      "description":"These options will let you control how the game behaves.",
       "fields":[
         {
-          "label":"Positioneer de kaarten in een vierkant",
-          "description":"Tijdens het uitleggen van de kaarten wordt er geprobeerd het aantal kolommen en rijen onderling af te stemmen. Daarna zal de kaartgrootte worden aangepast om in de vorm te passen."
+          "label":"Position the cards in a square",
+          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
-          "label":"Het aantal te gebruiken kaarten",
-          "description":"Als je het aantal op groter dan 2 instelt, zullen er willekeurige kaarten uit het dek worden genomen."
+          "label":"Number of cards to use",
+          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
-          "label":"Voeg knop toe om opnieuw te proberen als het spel over is"
+          "label":"Add button for retrying when the game is over"
         }
       ]
     },
     {
-      "label":"Taalversie",
+      "label":"Look and feel",
+      "description":"Control the visuals of the game.",
       "fields":[
         {
-          "label":"Kaart omdraaien naar tekst",
-          "default":"Kaart draait om"
+          "label":"Theme Color",
+          "description":"Choose a color to create a theme for your card game.",
+          "default":"#909090",
+          "spectrum":{
+            
+          }
         },
         {
-          "label":"Gebruikte tijd tekst",
-          "default":"Gebruikte tijd"
+          "label":"Card Back",
+          "description":"Use a custom back for your cards."
+        }
+      ]
+    },
+    {
+      "label":"Localization",
+      "fields":[
+        {
+          "label":"Card turns text",
+          "default":"Card turns"
         },
         {
-          "label":"Feedback tekst",
-          "default":"Goed gedaan!"
+          "label":"Time spent text",
+          "default":"Time spent"
         },
         {
-          "label":"Tekst van Probeer opnieuw knop",
-          "default":"Opnieuw proberen?"
+          "label":"Feedback text",
+          "default":"Good work!"
+        },
+        {
+          "label":"Try again button text",
+          "default":"Try again?"
+        },
+        {
+          "label":"Close button label",
+          "default":"Close"
         }
       ]
     }
