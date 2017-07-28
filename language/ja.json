@@ -3,64 +3,65 @@
     {
       "widgets":[
         {
-          "label":"Default"
+          "label":"デフォルト"
         }
       ],
-      "label":"Cards",
+      "label":"カード",
       "entity":"card",
       "field":{
-        "label":"Card",
+        "label":"カード",
         "fields":[
           {
-            "label":"Image"
+            "label":"画像"
           },
           {
-            "label":"Matching Image",
-            "description":"An optional image to match against instead of using two cards with the same image."
+            "label":"一致させる画像",
+            "description":"同じ画像の2枚のカードを使用する代わりに、別に一致させるためのオプション画像"
           },
           {
-            "label":"Description",
-            "description":"An optional short text that will pop up once the two matching cards are found."
+            "label":"説明",
+            "description":"一致する2つのカードが見つかるとポップアップするオプションの短文テキスト。"
           }
         ]
       }
     },
     {
-      "label":"Behavioural settings",
-      "description":"These options will let you control how the game behaves.",
+      "label":"動作設定",
+      "description":"これらのオプションを使用して、ゲームの動作を制御できます。",
       "fields":[
         {
-          "label":"Position the cards in a square",
-          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label":"カードを正方形に配置",
+          "description":"カードをレイアウトするときに、列と行の数を一致させてみてください。そうすると、カードは、コンテナに合わせてスケーリングされます。"
         },
         {
-          "label":"Number of cards to use",
-          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label":"使用するカードの数",
+          "description":"これを2よりも大きい数値に設定すると、カードのリストからランダムなカードが選ばれるようになります。"
         },
         {
-          "label":"Add button for retrying when the game is over"
+          "label":"ゲームが終了したときに、リトライのためのボタンを追加"
         }
       ]
     },
     {
-      "label":"Look and feel",
-      "description":"Control the visuals of the game.",
+      "label":"ルック＆フィール",
+      "description":"ゲームの外観を制御します。",
       "fields":[
         {
-          "label":"Theme Color",
-          "description":"Choose a color to create a theme for your card game.",
+          "label":"テーマ色",
+          "description":"カードゲームのテーマとなる色を選択してください。",
+          "default":"#909090",
           "spectrum":{
             
           }
         },
         {
-          "label":"Card Back",
-          "description":"Use a custom back for your cards."
+          "label":"カード裏",
+          "description":"カードに独自の裏を使います。"
         }
       ]
     },
     {
-      "label":"Localization",
+      "label":"ローカリゼーション",
       "fields":[
         {
           "label":"Card turns text",
