@@ -15,11 +15,11 @@
             "label":"Imagen"
           },
           {
-            "label":"Matching Image",
-            "description":"An optional image to match against instead of using two cards with the same image."
+            "label":"Imagen coincidente",
+            "description":"Una imagen opcional para emparejar, en vez de usar dos tarjetas con la misma imagen."
           },
           {
-            "label":"Description",
+            "label":"Descripción",
             "description":"An optional short text that will pop up once the two matching cards are found."
           }
         ]
