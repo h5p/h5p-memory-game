@@ -20,22 +20,22 @@
           },
           {
             "label":"Descripción",
-            "description":"An optional short text that will pop up once the two matching cards are found."
+            "description":"Un breve texto opcional que aparecerá una vez se encuentren las dos cartas coincidentes."
           }
         ]
       }
     },
     {
-      "label":"Behavioural settings",
-      "description":"These options will let you control how the game behaves.",
+      "label":"Ajustes de comportamiento",
+      "description":"Estas opciones te permitirán controlar cómo se comporta el juego.",
       "fields":[
         {
-          "label":"Position the cards in a square",
-          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label":"Coloca las tarjetas en un cuadrado",
+          "description":"Intentará igualar el número de columnas y filas al distribuir las tarjetas. Después, las tarjetas se escalarán para que se ajusten al contenedor."
         },
         {
-          "label":"Number of cards to use",
-          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label":"Número de tarjetas a utilizar",
+          "description":"Establecer esto a un número mayor que 2 hará que el juego seleccione tarjetas aleatorias de la lista de tarjetas."
         },
         {
           "label":"Add button for retrying when the game is over"
