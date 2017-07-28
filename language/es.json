@@ -3,16 +3,16 @@
     {
       "widgets":[
         {
-          "label":"Default"
+          "label":"Predeterminado"
         }
       ],
-      "label":"Cards",
+      "label":"Tarjetas",
       "entity":"card",
       "field":{
-        "label":"Card",
+        "label":"Tarjeta",
         "fields":[
           {
-            "label":"Image"
+            "label":"Imagen"
           },
           {
             "label":"Matching Image",
