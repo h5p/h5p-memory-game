@@ -27,7 +27,7 @@
     },
     {
       "label":"Ajustes de comportamiento",
-      "description":"Estas opciones te permitirán controlar cómo se comporta el juego.",
+      "description":"Estas opciones le permitirán controlar cómo se comporta el juego.",
       "fields":[
         {
           "label":"Coloca las tarjetas en un cuadrado",
@@ -38,37 +38,37 @@
           "description":"Establecer esto a un número mayor que 2 hará que el juego seleccione tarjetas aleatorias de la lista de tarjetas."
         },
         {
-          "label":"Add button for retrying when the game is over"
+          "label":"Añadir botón para volver a intentarlo cuando el juego ha terminado"
         }
       ]
     },
     {
-      "label":"Look and feel",
-      "description":"Control the visuals of the game.",
+      "label":"Aspecto y comportamiento",
+      "description":"Controla los efectos visuales del juego.",
       "fields":[
         {
-          "label":"Theme Color",
-          "description":"Choose a color to create a theme for your card game.",
+          "label":"Color del tema",
+          "description":"Elegir un color para crear un tema para su juego de cartas.",
           "default":"#909090",
           "spectrum":{
             
           }
         },
         {
-          "label":"Card Back",
-          "description":"Use a custom back for your cards."
+          "label":"Parte posterior de la tarjeta",
+          "description":"Utilice una parte posterior personalizada para sus tarjetas."
         }
       ]
     },
     {
-      "label":"Localization",
+      "label":"Localización",
       "fields":[
         {
-          "label":"Card turns text",
-          "default":"Card turns"
+          "label":"Texto para los giros de tarjetas",
+          "default":"Giros de tarjeta"
         },
         {
-          "label":"Time spent text",
+          "label":"Texto de tiempo usado",
           "default":"Time spent"
         },
         {
