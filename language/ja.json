@@ -64,24 +64,24 @@
       "label":"ローカリゼーション",
       "fields":[
         {
-          "label":"Card turns text",
-          "default":"Card turns"
+          "label":"カードターン のテキスト",
+          "default":"カードターン"
         },
         {
-          "label":"Time spent text",
-          "default":"Time spent"
+          "label":"経過時間のテキスト",
+          "default":"経過時間"
         },
         {
-          "label":"Feedback text",
-          "default":"Good work!"
+          "label":"フィードバックテキスト",
+          "default":"よくできました！"
         },
         {
-          "label":"Try again button text",
-          "default":"Try again?"
+          "label":"リトライボタンのテキスト",
+          "default":"もう一度トライしますか ?"
         },
         {
-          "label":"Close button label",
-          "default":"Close"
+          "label":"閉じるボタンのテキスト",
+          "default":"閉じる"
         }
       ]
     }
