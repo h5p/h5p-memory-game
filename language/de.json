@@ -3,7 +3,7 @@
     {
       "widgets":[
         {
-          "label":"Default"
+          "label":"Vorgabe"
         }
       ],
       "label":"Karten",
@@ -15,8 +15,8 @@
             "label":"Bild"
           },
           {
-            "label":"Matching Image",
-            "description":"An optional image to match against instead of using two cards with the same image."
+            "label":"Passendes Bild",
+            "description":"Ein optionales anderes Bild als Gegenstück statt zwei Karten mit dem selben Bild zu nutzen"
           },
           {
             "label":"Beschreibung",
@@ -26,11 +26,11 @@
       }
     },
     {
-      "label":"Behavioural settings",
-      "description":"These options will let you control how the game behaves.",
+      "label":"Interaktionseinstellungen",
+      "description":"Mit diesen Einstellungen kannst du das Verhalten des Spiels anpassen.",
       "fields":[
         {
-          "label":"Position the cards in a square",
+          "label":"Positioniere die Karten in einem Quadrat.",
           "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
