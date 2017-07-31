@@ -3,7 +3,7 @@
     {
       "widgets":[
         {
-          "label":"Vorgabe"
+          "label":"Vorgaben"
         }
       ],
       "label":"Karten",
@@ -48,15 +48,15 @@
       "fields":[
         {
           "label":"Themenfarbe",
-          "description":"Choose a color to create a theme for your card game.",
+          "description":"Wähle eine Farbe, um ein Theme für deine Karten zu erstellen.",
           "default":"#909090",
           "spectrum":{
             
           }
         },
         {
-          "label":"Card Back",
-          "description":"Use a custom back for your cards."
+          "label":"Kartenrückseite",
+          "description":"Nutze eine individuelle Rückseite für deine Karten."
         }
       ]
     },
@@ -76,12 +76,12 @@
           "default":"Gute Arbeit!"
         },
         {
-          "label":"Try again button text",
-          "default":"Try again?"
+          "label":"Text des Wiederholen-Buttons",
+          "default":"Erneut versuchen?"
         },
         {
-          "label":"Close button label",
-          "default":"Close"
+          "label":"Beschriftung des \"Abbrechen\"-Buttons",
+          "default":"Schließen"
         }
       ]
     }
