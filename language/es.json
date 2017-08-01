@@ -69,19 +69,19 @@
         },
         {
           "label":"Texto de tiempo usado",
-          "default":"Time spent"
+          "default":"Tiempo usado"
         },
         {
-          "label":"Feedback text",
-          "default":"Good work!"
+          "label":"Texto de comentarios",
+          "default":"¡Buen trabajo!"
         },
         {
-          "label":"Try again button text",
-          "default":"Try again?"
+          "label":"Intente del botón Intente de nuevo",
+          "default":"¿Volver a intentarlo?"
         },
         {
-          "label":"Close button label",
-          "default":"Close"
+          "label":"Etiqueta del botón Cerrar",
+          "default":"Cerrar"
         }
       ]
     }
