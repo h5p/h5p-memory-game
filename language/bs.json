@@ -1,35 +1,35 @@
 {
   "semantics": [
     {
-      "label": "Carte",
-      "entity": "carta",
+      "label": "Karte",
+      "entity": "karte",
       "field": {
-        "label": "Carta",
+        "label": "Karte",
         "fields": [
           {
-            "label": "Immagine"
+            "label": "Slika"
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Ista slika",
+            "description": "Opcionalna slika koja se koristi umjestodvije iste slike."
           },
           {
-            "label": "Descrizione",
-            "description": "Breve testo visualizzato quando due carte uguali vengono trovate."
+            "label": "Opis",
+            "description": "Kratak tekst koji će biti prikazan čim se pronađu dvije iste karte."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
+      "label": "Podešavanje ponašanja",
       "description": "These options will let you control how the game behaves.",
       "fields": [
         {
-          "label": "Position the cards in a square",
+          "label": "Poredaj karte u redove ",
           "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
-          "label": "Number of cards to use",
+          "label": "Broj karata za upotrebu",
           "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
@@ -44,18 +44,24 @@
       ]
     },
     {
-      "label": "Localizzazione",
+      "label": "Prijevod",
       "fields": [
         {
-          "label": "Testo Gira carta"
+          "label": "Tekst kad se okrene karta ",
+          "default": "Okrenuta karta"
         },
         {
-          "label": "Testo Tempo trascorso"
+          "label": "Tekst za provedeno vrijeme",
+          "default": "Provedeno vrijeme"
         },
         {
-          "label": "Testo Feedback"
+          "label": "Feedback tekst",
+          "default": "BRAVO!"
         },
-        {},
+        {
+          "label": "Tekst na dugmetu pokušaj ponovo",
+          "default": "Pokušaj ponovo?"
+        },
         {}
       ]
     }

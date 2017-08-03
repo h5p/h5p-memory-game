@@ -60,14 +60,14 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       var isFinished = (removed === cards.length);
       var desc = card.getDescription();
 
-      if (isFinished) {
-         self.triggerXAPIScored(1, 1, 'completed');
-      }
-
       if (desc !== undefined) {
         // Pause timer and show desciption.
         timer.pause();
-        popup.show(desc, card.getImage(), function () {
+        var imgs = [card.getImage()];
+        if (card.hasTwoImages) {
+          imgs.push(mate.getImage());
+        }
+        popup.show(desc, imgs, cardStyles ? cardStyles.back : undefined, function () {
           if (isFinished) {
             // Game done
             finished();
@@ -91,19 +91,34 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     var finished = function () {
       timer.stop();
       $feedback.addClass('h5p-show');
+
+      // Create and trigger xAPI event 'completed'
+      var completedEvent = self.createXAPIEventTemplate('completed');
+      completedEvent.setScoredResult(1, 1, self, true, true);
+      completedEvent.data.statement.result.duration = 'PT' + (Math.round(timer.getTime() / 10) / 100) + 'S';
+      self.trigger(completedEvent);
+
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
-        var retryButton = createButton('reset', parameters.l10n.tryAgain || 'Try again?', function () {
+        var retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', function () {
           // Trigger handler (action)
 
-          resetGame();
+          retryButton.classList.add('h5p-memory-transout');
+          setTimeout(function () {
+            // Remove button on nextTick to get transition effect
+            $wrapper[0].removeChild(retryButton);
+          }, 300);
 
-          // Remove button from DOM
-          $wrapper[0].removeChild(this);
+          resetGame();
         });
+        retryButton.classList.add('h5p-memory-transin');
+        setTimeout(function () {
+          // Remove class on nextTick to get transition effect
+          retryButton.classList.remove('h5p-memory-transin');
+        }, 0);
 
         // Same size as cards
-        retryButton.style.fontSize = $wrapper.children('ul')[0].style.fontSize;
+        retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
 
         $wrapper[0].appendChild(retryButton); // Add to DOM
       }
@@ -247,21 +262,31 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       return cardsToUse;
     };
 
+    var cardStyles, invertShades;
+    if (parameters.lookNFeel) {
+      // If the contrast between the chosen color and white is too low we invert the shades to create good contrast
+      invertShades = (parameters.lookNFeel.themeColor &&
+                      getContrast(parameters.lookNFeel.themeColor) < 1.7 ? -1 : 1);
+      var backImage = (parameters.lookNFeel.cardBack ? H5P.getPath(parameters.lookNFeel.cardBack.path, id) : null);
+      cardStyles = MemoryGame.Card.determineStyles(parameters.lookNFeel.themeColor, invertShades, backImage);
+    }
+
     // Initialize cards.
     var cardsToUse = getCardsToUse();
     for (var i = 0; i < cardsToUse.length; i++) {
       var cardParams = cardsToUse[i];
       if (MemoryGame.Card.isValid(cardParams)) {
         // Create first card
-        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.description);
+        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.description, cardStyles);
 
         if (MemoryGame.Card.hasTwoImages(cardParams)) {
           // Use matching image for card two
-          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.description);
+          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.description, cardStyles);
+          cardOne.hasTwoImages = cardTwo.hasTwoImages = true;
         }
         else {
           // Add two cards with the same image
-          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.description);
+          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.description, cardStyles);
         }
 
         // Add cards to card list for shuffeling
@@ -280,6 +305,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       this.triggerXAPI('attempted');
       // TODO: Only create on first attach!
       $wrapper = $container.addClass('h5p-memory-game').html('');
+      if (invertShades === -1) {
+        $container.addClass('h5p-invert-shades');
+      }
 
       // Add cards to list
       var $list = $('<ul/>');
@@ -302,7 +330,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         timer = new MemoryGame.Timer($status.find('.h5p-time-spent')[0]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
-        popup = new MemoryGame.Popup($container);
+        popup = new MemoryGame.Popup($container, parameters.l10n);
 
         $container.click(function () {
           popup.close();
@@ -379,6 +407,19 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
   // Extends the event dispatcher
   MemoryGame.prototype = Object.create(EventDispatcher.prototype);
   MemoryGame.prototype.constructor = MemoryGame;
+
+  /**
+   * Determine color contrast level compared to white(#fff)
+   *
+   * @private
+   * @param {string} color hex code
+   * @return {number} From 1 to Infinity.
+   */
+  var getContrast = function (color) {
+    return 255 / ((parseInt(color.substr(1, 2), 16) * 299 +
+                   parseInt(color.substr(3, 2), 16) * 587 +
+                   parseInt(color.substr(5, 2), 16) * 144) / 1000);
+  };
 
   return MemoryGame;
 })(H5P.EventDispatcher, H5P.jQuery);
