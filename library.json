@@ -8,6 +8,7 @@
   "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.MemoryGame",
+  "embedTypes": ["iframe"],
   "preloadedCss": [
     {
       "path": "memory-game.css"
