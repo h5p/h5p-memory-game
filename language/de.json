@@ -1,65 +1,88 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "label": "Karten",
-      "entity": "karte",
-      "field": {
-        "label": "Karte",
-        "fields": [
+      "widgets":[
+        {
+          "label":"Vorgaben"
+        }
+      ],
+      "label":"Karten",
+      "entity":"karte",
+      "field":{
+        "label":"Karte",
+        "fields":[
           {
-            "label": "Bild"
+            "label":"Bild"
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label":"Passendes Bild",
+            "description":"Ein optionales anderes Bild als Gegenstück statt zwei Karten mit dem selben Bild zu nutzen"
           },
           {
-            "label": "Beschreibung",
-            "description": "Ein kurzer Text, der angezeigt wird, sobald zwei identische Karten gefunden werden."
+            "label":"Beschreibung",
+            "description":"Ein kurzer Text, der angezeigt wird, sobald zwei identische Karten gefunden werden."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
-      "fields": [
+      "label":"Interaktionseinstellungen",
+      "description":"Mit diesen Einstellungen kannst du das Verhalten des Spiels anpassen.",
+      "fields":[
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label":"Positioniere die Karten in einem Quadrat.",
+          "description":"Es wird versucht, die Anzahl der Zeilen und Spalten passend zu den Karten einzustellen. Danach werden die Karten passend skaliert."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label":"Anzahl der zu nutzenden Karten",
+          "description":"Wird hier eine Zahl größer als 2 eingestellt, werden zufällig Karten aus der Kartenliste gezogen."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label":"Füge einen Button hinzu, um das Spiel noch einmal neu zu starten zu können, wenn es vorbei ist."
         }
       ]
     },
     {
-      "fields": [
-        {},
-        {}
+      "label":"Design-Aspekte",
+      "description":"Beeinflusse die Optik des Spiels",
+      "fields":[
+        {
+          "label":"Themenfarbe",
+          "description":"Wähle eine Farbe, um ein Theme für deine Karten zu erstellen.",
+          "default":"#909090",
+          "spectrum":{
+            
+          }
+        },
+        {
+          "label":"Kartenrückseite",
+          "description":"Nutze eine individuelle Rückseite für deine Karten."
+        }
       ]
     },
     {
-      "label": "Übersetzung",
-      "fields": [
+      "label":"Übersetzung",
+      "fields":[
         {
-          "label": "Text für die Anzahl der Züge",
-          "default": "Züge"
+          "label":"Text für die Anzahl der Züge",
+          "default":"Züge"
         },
         {
-          "label": "Text für die benötigte Zeit",
-          "default": "Benötigte Zeit"
+          "label":"Text für die benötigte Zeit",
+          "default":"Benötigte Zeit"
         },
         {
-          "label": "Text als Rückmeldung",
-          "default": "Gute Arbeit!"
+          "label":"Text als Rückmeldung",
+          "default":"Gute Arbeit!"
         },
-        {},
-        {}
+        {
+          "label":"Text des Wiederholen-Buttons",
+          "default":"Erneut versuchen?"
+        },
+        {
+          "label":"Beschriftung des \"Abbrechen\"-Buttons",
+          "default":"Schließen"
+        }
       ]
     }
   ]
