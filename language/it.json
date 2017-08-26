@@ -38,16 +38,16 @@
           "description":"Impostare a un numero maggiore di 2 farà pescare casualmente le schede dall'elenco."
         },
         {
-          "label":"Add button for retrying when the game is over"
+          "label":"Aggiungi il pulsante per riprovare quando il gioco è finito"
         }
       ]
     },
     {
-      "label":"Look and feel",
-      "description":"Control the visuals of the game.",
+      "label":"Aspetto",
+      "description":"Controlla gli effetti grafici del gioco.",
       "fields":[
         {
-          "label":"Theme Color",
+          "label":"Colore del tema",
           "description":"Choose a color to create a theme for your card game.",
           "default":"#909090",
           "spectrum":{
