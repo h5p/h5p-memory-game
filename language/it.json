@@ -16,11 +16,11 @@
           },
           {
             "label":"Immagine abbinata",
-            "description":"Un'immagine facoltativa da abbinare invece di utilizzare due schede con la stessa immagine."
+            "description":"Un'immagine facoltativa da abbinare invece di utilizzare due carte con la stessa immagine."
           },
           {
             "label":"Descrizione",
-            "description":"Breve testo visualizzato quando due carte uguali vengono trovate."
+            "description":"Un breve testo opzionale che appare quando si trovano due carte abbinate."
           }
         ]
       }
@@ -31,11 +31,11 @@
       "fields":[
         {
           "label":"Posiziona le carte in un riquadro",
-          "description":"Cercherà di abbinare il numero di colonne e righe quando si dispongono le schede. In seguito, le schede saranno ridimensionate per adattarsi al contenitore."
+          "description":"Cercherà di abbinare il numero di colonne e righe quando si dispongono le carte. In seguito, le carte saranno ridimensionate per adattarsi al contenitore."
         },
         {
-          "label":"Numero di schede da utilizzare",
-          "description":"Impostare a un numero maggiore di 2 farà pescare casualmente le schede dall'elenco."
+          "label":"Numero di carte da utilizzare",
+          "description":"Impostare a un numero maggiore di 2 farà pescare le carte dal mazzo in maniera casuale."
         },
         {
           "label":"Aggiungi il pulsante per riprovare quando il gioco è finito"
@@ -48,15 +48,15 @@
       "fields":[
         {
           "label":"Colore del tema",
-          "description":"Choose a color to create a theme for your card game.",
+          "description":"Scegli un colore per creare il tema del tuo gioco a carte.",
           "default":"#909090",
           "spectrum":{
             
           }
         },
         {
-          "label":"Card Back",
-          "description":"Use a custom back for your cards."
+          "label":"Retro della carta",
+          "description":"Utilizzare un retro personalizzato per le vostre carte."
         }
       ]
     },
@@ -64,24 +64,24 @@
       "label":"Localizzazione",
       "fields":[
         {
-          "label":"Testo Gira carta",
-          "default":"Card turns"
+          "label":"Testo per i giri di carta",
+          "default":"Giri di carta"
         },
         {
-          "label":"Testo Tempo trascorso",
-          "default":"Time spent"
+          "label":"Testo per il tempo trascorso",
+          "default":"Tempo trascorso"
         },
         {
-          "label":"Testo Feedback",
-          "default":"Good work!"
+          "label":"Testo del feedback",
+          "default":"Buon lavoro!"
         },
         {
-          "label":"Try again button text",
-          "default":"Try again?"
+          "label":"Testo del pulsante per riprovare di nuovo",
+          "default":"Vuoi riprovare?"
         },
         {
-          "label":"Close button label",
-          "default":"Close"
+          "label":"Etichetta del pulsante Chiudi",
+          "default":"Chiudi"
         }
       ]
     }
