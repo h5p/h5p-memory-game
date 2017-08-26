@@ -3,7 +3,7 @@
     {
       "widgets":[
         {
-          "label":"Default"
+          "label":"Predefinito"
         }
       ],
       "label":"Carte",
@@ -15,8 +15,8 @@
             "label":"Immagine"
           },
           {
-            "label":"Matching Image",
-            "description":"An optional image to match against instead of using two cards with the same image."
+            "label":"Immagine abbinata",
+            "description":"Un'immagine facoltativa da abbinare invece di utilizzare due schede con la stessa immagine."
           },
           {
             "label":"Descrizione",
@@ -26,16 +26,16 @@
       }
     },
     {
-      "label":"Behavioural settings",
-      "description":"These options will let you control how the game behaves.",
+      "label":"Impostazioni di esecuzione",
+      "description":"Queste opzioni ti consentono di controllare l'esecuzione del compito.",
       "fields":[
         {
-          "label":"Position the cards in a square",
-          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label":"Posiziona le carte in un riquadro",
+          "description":"Cercherà di abbinare il numero di colonne e righe quando si dispongono le schede. In seguito, le schede saranno ridimensionate per adattarsi al contenitore."
         },
         {
-          "label":"Number of cards to use",
-          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label":"Numero di schede da utilizzare",
+          "description":"Impostare a un numero maggiore di 2 farà pescare casualmente le schede dall'elenco."
         },
         {
           "label":"Add button for retrying when the game is over"
