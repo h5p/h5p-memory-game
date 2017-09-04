@@ -6,35 +6,35 @@
           "label":"Default"
         }
       ],
-      "label":"البطاقات",
-      "entity":"بطاقة",
+      "label":"Karte",
+      "entity":"karte",
       "field":{
-        "label":"البطاقة",
+        "label":"Karte",
         "fields":[
           {
-            "label":"الصورة"
+            "label":"Slika"
           },
           {
-            "label":"Matching Image",
-            "description":"An optional image to match against instead of using two cards with the same image."
+            "label":"Ista slika",
+            "description":"Opcionalna slika koja se koristi umjestodvije iste slike."
           },
           {
-            "label":"الوصف",
-            "description":"نص قصير يتم عرضه مرة واحدة علي اثنين من البطاقات متساوية"
+            "label":"Opis",
+            "description":"Kratak tekst koji će biti prikazan čim se pronađu dvije iste karte."
           }
         ]
       }
     },
     {
-      "label":"Behavioural settings",
+      "label":"Podešavanje ponašanja",
       "description":"These options will let you control how the game behaves.",
       "fields":[
         {
-          "label":"Position the cards in a square",
+          "label":"Poredaj karte u redove ",
           "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
-          "label":"Number of cards to use",
+          "label":"Broj karata za upotrebu",
           "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
@@ -61,23 +61,23 @@
       ]
     },
     {
-      "label":"الأقلمة",
+      "label":"Prijevod",
       "fields":[
         {
-          "label":"نص تدوير البطاقة",
-          "default":"Card turns"
+          "label":"Tekst kad se okrene karta ",
+          "default":"Okrenuta karta"
         },
         {
-          "label":"نص التوقيت الزمني",
-          "default":"Time spent"
+          "label":"Tekst za provedeno vrijeme",
+          "default":"Provedeno vrijeme"
         },
         {
-          "label":"نص الملاحظات",
-          "default":"Good work!"
+          "label":"Feedback tekst",
+          "default":"BRAVO!"
         },
         {
-          "label":"Try again button text",
-          "default":"Try again?"
+          "label":"Tekst na dugmetu pokušaj ponovo",
+          "default":"Pokušaj ponovo?"
         },
         {
           "label":"Close button label",

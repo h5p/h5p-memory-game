@@ -1,60 +1,87 @@
 {
-  "semantics": [
+  "semantics":[
     {
-      "label": "Carte",
-      "entity": "carta",
-      "field": {
-        "label": "Carta",
-        "fields": [
+      "widgets":[
+        {
+          "label":"Default"
+        }
+      ],
+      "label":"Carte",
+      "entity":"carta",
+      "field":{
+        "label":"Carta",
+        "fields":[
           {
-            "label": "Immagine"
+            "label":"Immagine"
           },
           {
-            "englishLabel": "Matching Image",
-            "label": "Matching Image",
-            "englishDescription": "An optional image to match against instead of using two cards with the same image.",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label":"Matching Image",
+            "description":"An optional image to match against instead of using two cards with the same image."
           },
           {
-            "label": "Descrizione",
-            "description": "Breve testo visualizzato quando due carte uguali vengono trovate."
+            "label":"Descrizione",
+            "description":"Breve testo visualizzato quando due carte uguali vengono trovate."
           }
         ]
       }
     },
     {
-      "englishLabel": "Behavioural settings",
-      "label": "Behavioural settings",
-      "englishDescription": "These options will let you control how the game behaves.",
-      "description": "These options will let you control how the game behaves.",
-      "fields": [
+      "label":"Behavioural settings",
+      "description":"These options will let you control how the game behaves.",
+      "fields":[
         {
-          "englishLabel": "Put the cards in a grid layout",
-          "label": "Put the cards in a grid layout"
+          "label":"Position the cards in a square",
+          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
         },
         {
-          "englishLabel": "Number of cards to use",
-          "label": "Number of cards to use",
-          "englishDescription": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards.",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label":"Number of cards to use",
+          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
-          "englishLabel": "Add button for retrying when the game is over",
-          "label": "Add button for retrying when the game is over"
+          "label":"Add button for retrying when the game is over"
         }
       ]
     },
     {
-      "label": "Localizzazione",
-      "fields": [
+      "label":"Look and feel",
+      "description":"Control the visuals of the game.",
+      "fields":[
         {
-          "label": "Testo Gira carta"
+          "label":"Theme Color",
+          "description":"Choose a color to create a theme for your card game.",
+          "default":"#909090",
+          "spectrum":{
+            
+          }
         },
         {
-          "label": "Testo Tempo trascorso"
+          "label":"Card Back",
+          "description":"Use a custom back for your cards."
+        }
+      ]
+    },
+    {
+      "label":"Localizzazione",
+      "fields":[
+        {
+          "label":"Testo Gira carta",
+          "default":"Card turns"
         },
         {
-          "label": "Testo Feedback"
+          "label":"Testo Tempo trascorso",
+          "default":"Time spent"
+        },
+        {
+          "label":"Testo Feedback",
+          "default":"Good work!"
+        },
+        {
+          "label":"Try again button text",
+          "default":"Try again?"
+        },
+        {
+          "label":"Close button label",
+          "default":"Close"
         }
       ]
     }

@@ -2,6 +2,12 @@
   {
     "name": "cards",
     "type": "list",
+    "widgets": [
+      {
+        "name": "VerticalTabs",
+        "label": "Default"
+      }
+    ],
     "label": "Cards",
     "importance": "high",
     "entity": "card",
@@ -52,7 +58,8 @@
       {
         "name": "useGrid",
         "type": "boolean",
-        "label": "Put the cards in a grid layout",
+        "label": "Position the cards in a square",
+        "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container.",
         "importance": "low",
         "default": true
       },
@@ -71,6 +78,38 @@
         "label": "Add button for retrying when the game is over",
         "importance": "low",
         "default": true
+      }
+    ]
+  },
+  {
+    "name": "lookNFeel",
+    "type": "group",
+    "label": "Look and feel",
+    "importance": "low",
+    "description": "Control the visuals of the game.",
+    "optional": true,
+    "fields": [
+      {
+        "name": "themeColor",
+        "type": "text",
+        "label": "Theme Color",
+        "importance": "low",
+        "description": "Choose a color to create a theme for your card game.",
+        "optional": true,
+        "default": "#909090",
+        "widget": "colorSelector",
+        "spectrum": {
+          "showInput": true
+        }
+      },
+      {
+        "name": "cardBack",
+        "type": "image",
+        "label": "Card Back",
+        "importance": "low",
+        "optional": true,
+        "description": "Use a custom back for your cards.",
+        "ratio": 1
       }
     ]
   },
@@ -101,6 +140,20 @@
         "name": "feedback",
         "type": "text",
         "default": "Good work!"
+      },
+      {
+        "label": "Try again button text",
+        "importance": "low",
+        "name": "tryAgain",
+        "type": "text",
+        "default": "Try again?"
+      },
+      {
+        "label": "Close button label",
+        "importance": "low",
+        "name": "closeLabel",
+        "type": "text",
+        "default": "Close"
       }
     ]
   }
