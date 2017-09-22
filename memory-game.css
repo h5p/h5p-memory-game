@@ -1,6 +1,14 @@
 .h5p-memory-game {
   overflow: hidden;
 }
+.h5p-memory-game .h5p-memory-hidden-read {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 1px;
+  height: 1px;
+  color: transparent;
+}
 .h5p-memory-game > ul {
   list-style: none !important;
   padding: 0.25em 0.5em !important;

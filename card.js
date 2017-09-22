@@ -21,6 +21,8 @@
     var path = H5P.getPath(image.path, id);
     var width, height, margin, $card, $wrapper, removedState, flippedState;
 
+    alt = alt || 'Missing description'; // Default for old games
+
     if (image.width !== undefined && image.height !== undefined) {
       if (image.width > image.height) {
         width = '100%';
@@ -36,9 +38,41 @@
     }
 
     /**
+     * Update the cards label to make it accessible to users with a readspeaker
+     *
+     * @param {boolean} isMatched The card has been matched
+     * @param {boolean} announce Announce the current state of the card
+     * @param {boolean} reset Go back to the default label
+     */
+    self.updateLabel = function (isMatched, announce, reset) {
+
+      // Determine new label from input params
+      var label = (reset ? 'Unturned' : alt);
+      if (isMatched) {
+        label = 'Match found. ' + label; // TODO l10n
+      }
+
+      // Update the card's label
+      $wrapper.attr('aria-label', 'Card ' + ($wrapper.index() + 1) + ': ' + label); // TODO l10n
+
+      // Update disabled property
+      $wrapper.attr('aria-disabled', reset ? null : 'true');
+
+      // Announce the label change
+      if (announce) {
+        $wrapper.blur().focus(); // Announce card label
+      }
+    };
+
+    /**
      * Flip card.
      */
     self.flip = function () {
+      if (flippedState) {
+        $wrapper.blur().focus(); // Announce card label again
+        return;
+      }
+
       $card.addClass('h5p-flipped');
       self.trigger('flip');
       flippedState = true;
@@ -48,6 +82,7 @@
      * Flip card back.
      */
     self.flipBack = function () {
+      self.updateLabel(null, null, true); // Reset card label
       $card.removeClass('h5p-flipped');
       flippedState = false;
     };
@@ -55,7 +90,7 @@
     /**
      * Remove.
      */
-    self.remove = function () {
+    self.remove = function (announce) {
       $card.addClass('h5p-matched');
       removedState = true;
     };
@@ -64,6 +99,9 @@
      * Reset card to natural state
      */
     self.reset = function () {
+      self.updateLabel(null, null, true); // Reset card label
+      flippedState = false;
+      removedState = false;
       $card[0].classList.remove('h5p-flipped', 'h5p-matched');
     };
 
@@ -91,11 +129,10 @@
      * @param {H5P.jQuery} $container
      */
     self.appendTo = function ($container) {
-      // TODO: Translate alt attr
       $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">' +
                   '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
                   '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
-                    '<img src="' + path + '" alt="' + (alt || 'Memory Image') + '" style="width:' + width + ';height:' + height + '"/>' +
+                    '<img src="' + path + '" alt="' + alt + '" style="width:' + width + ';height:' + height + '"/>' +
                   '</div>' +
                 '</div></li>')
         .appendTo($container)
@@ -103,10 +140,8 @@
           switch (event.which) {
             case 13: // Enter
             case 32: // Space
-              if (!flippedState) {
-                self.flip();
-                event.preventDefault();
-              }
+              self.flip();
+              event.preventDefault();
               return;
             case 39: // Right
             case 40: // Down
@@ -122,6 +157,7 @@
               return;
           }
         });
+      $wrapper.attr('aria-label', 'Card ' + ($wrapper.index() + 1) + ': Unturned.'); // TODO l10n
       $card = $wrapper.children('.h5p-memory-card')
         .children('.h5p-front')
           .click(function () {
@@ -131,7 +167,7 @@
     };
 
     /**
-     * Re-append to parent container
+     * Re-append to parent container.
      */
     self.reAppend = function () {
       var parent = $wrapper[0].parentElement;
@@ -139,7 +175,7 @@
     };
 
     /**
-     *
+     * Make the card accessible when tabbing
      */
     self.makeTabbable = function () {
       if ($wrapper) {
@@ -148,7 +184,7 @@
     };
 
     /**
-     *
+     * Prevent tabbing to the card
      */
     self.makeUntabbable = function () {
       if ($wrapper) {
@@ -157,7 +193,7 @@
     };
 
     /**
-     *
+     * Make card tabbable and move focus to it
      */
     self.setFocus = function () {
       self.makeTabbable();
@@ -167,10 +203,11 @@
     };
 
     /**
-     *
+     * Check if the card has been removed from the game, i.e. if has
+     * been matched.
      */
-    self.isFlipped = function () {
-      return flippedState;
+    self.isRemoved = function () {
+      return removedState;
     };
   };
 
