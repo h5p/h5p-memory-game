@@ -22,12 +22,28 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var flipped, timer, counter, popup, $bottom, $feedback, $wrapper, maxWidth, numCols;
+    var flipped, timer, counter, popup, $bottom, $taskComplete, $feedback, $wrapper, maxWidth, numCols;
     var cards = [];
     var flipBacks = []; // Que of cards to be flipped back
     var numFlipped = 0;
     var removed = 0;
     numInstances++;
+
+    // Add defaults
+    parameters = $.extend(true, {
+      l10n: {
+        cardTurns: 'Card turns',
+        timeSpent: 'Time spent',
+        feedback: 'Good work!',
+        tryAgain: 'Reset',
+        closeLabel: 'Close',
+        label: 'Memory Game. Find the matching cards.',
+        done: 'All of the cards have been found.',
+        cardPrefix: 'Card %num: ',
+        cardUnturned: 'Unturned.',
+        cardMatched: 'Match found.'
+      }
+    }, parameters);
 
     /**
      * Check if these two cards belongs together.
@@ -69,7 +85,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         if (card.hasTwoImages) {
           imgs.push(mate.getImage());
         }
-        popup.show(desc, imgs, cardStyles ? cardStyles.back : undefined, function () {
+        popup.show(desc, imgs, cardStyles ? cardStyles.back : undefined, function (refocus) {
           if (isFinished) {
             // Game done
             card.makeUntabbable();
@@ -78,6 +94,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           else {
             // Popup is closed, continue.
             timer.play();
+
+            if (refocus) {
+              card.setFocus();
+            }
           }
         });
       }
@@ -94,6 +114,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      */
     var finished = function () {
       timer.stop();
+      $taskComplete.show();
       $feedback.addClass('h5p-show'); // Announce
       $bottom.focus();
 
@@ -140,6 +161,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       // Remove feedback
       $feedback[0].classList.remove('h5p-show');
+      $taskComplete.hide();
 
       // Reset timer and counter
       timer.reset();
@@ -196,6 +218,14 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      */
     var addCard = function (card, mate) {
       card.on('flip', function () {
+
+        // Always return focus to the card last flipped
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].makeUntabbable();
+        }
+        card.makeTabbable();
+
+        popup.close();
         self.triggerXAPI('interacted');
         // Keep track of time spent
         timer.play();
@@ -232,8 +262,12 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       });
 
       /**
+       * Create event handler for moving focus to the next or the previous
+       * card on the table.
+       *
        * @private
-       * @param {number} direction
+       * @param {number} direction +1/-1
+       * @return {function}
        */
       var createCardChangeFocusHandler = function (direction) {
         return function () {
@@ -261,8 +295,38 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         };
       };
 
+      // Register handlers for moving focus to next and previous card
       card.on('next', createCardChangeFocusHandler(1));
       card.on('prev', createCardChangeFocusHandler(-1));
+
+      /**
+       * Create event handler for moving focus to the first or the last card
+       * on the table.
+       *
+       * @private
+       * @param {number} direction +1/-1
+       * @return {function}
+       */
+      var createEndCardFocusHandler = function (direction) {
+        return function () {
+          var focusSet = false;
+          for (var i = 0; i < cards.length; i++) {
+            var j = (direction === -1 ? cards.length - (i + 1) : i);
+            if (!focusSet && !cards[j].isRemoved()) {
+              cards[j].setFocus();
+              focusSet = true;
+            }
+            else if (cards[j] === card) {
+              card.makeUntabbable();
+            }
+          }
+        };
+      };
+
+      // Register handlers for moving focus to first and last card
+      card.on('first', createEndCardFocusHandler(1));
+      card.on('last', createEndCardFocusHandler(-1));
+
       cards.push(card);
     };
 
@@ -320,16 +384,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       var cardParams = cardsToUse[i];
       if (MemoryGame.Card.isValid(cardParams)) {
         // Create first card
-        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, cardParams.description, cardStyles);
+        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles);
 
         if (MemoryGame.Card.hasTwoImages(cardParams)) {
           // Use matching image for card two
-          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.matchAlt, cardParams.description, cardStyles);
+          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.matchAlt, parameters.l10n, cardParams.description, cardStyles);
           cardOne.hasTwoImages = cardTwo.hasTwoImages = true;
         }
         else {
           // Add two cards with the same image
-          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, cardParams.description, cardStyles);
+          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles);
         }
 
         // Add cards to card list for shuffeling
@@ -366,7 +430,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         $('<div/>', {
           id: 'h5p-intro-' + numInstances,
           'class': 'h5p-memory-hidden-read',
-          html: 'Memory Game. Find the matching cards.', // TODO: l10n
+          html: parameters.l10n.label,
           appendTo: $container
         });
         $list.appendTo($container);
@@ -375,9 +439,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           tabindex: '-1',
           appendTo: $container
         });
-        $('<div/>', {
-          'class': 'h5p-memory-hidden-read',
-          html: 'All of the cards have been found.', // TODO: l10n
+        $taskComplete = $('<div/>', {
+          'class': 'h5p-memory-complete h5p-memory-hidden-read',
+          html: parameters.l10n.done,
           appendTo: $bottom
         });
 
@@ -385,13 +449,13 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         // Add status bar
         var $status = $('<dl class="h5p-status">' +
-                        '<dt>' + parameters.l10n.timeSpent + '</dt>' +
-                        '<dd class="h5p-time-spent">0:00</dd>' + // TODO: Add hidden dot ?
-                        '<dt>' + parameters.l10n.cardTurns + '</dt>' +
-                        '<dd class="h5p-card-turns">0</dd>' +
+                        '<dt>' + parameters.l10n.timeSpent + ':</dt>' +
+                        '<dd class="h5p-time-spent"><time role="timer" datetime="PT0M0S">0:00</time><span class="h5p-memory-hidden-read">.</span></dd>' +
+                        '<dt>' + parameters.l10n.cardTurns + ':</dt>' +
+                        '<dd class="h5p-card-turns">0<span class="h5p-memory-hidden-read">.</span></dd>' +
                         '</dl>').appendTo($bottom);
 
-        timer = new MemoryGame.Timer($status.find('.h5p-time-spent')[0]);
+        timer = new MemoryGame.Timer($status.find('time')[0]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
         popup = new MemoryGame.Popup($container, parameters.l10n);
 

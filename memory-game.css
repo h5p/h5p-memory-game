@@ -194,9 +194,6 @@
   margin: 0 1em 0 0;
   font-weight: bold;
 }
-.h5p-memory-game .h5p-status > dt:after {
-  content: ":";
-}
 .h5p-memory-game .h5p-status > dd {
   margin: 0;
 }
@@ -313,4 +310,7 @@
 .h5p-memory-transout {
   transform: translate(-50%,-450%) scale(0) rotate(360deg);
   opacity: 0;
+}
+.h5p-memory-complete {
+  display: none;
 }

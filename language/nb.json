@@ -1,110 +1,112 @@
 {
   "semantics": [
     {
-      "englishLabel": "Cards",
+      "widgets": [
+        {
+          "label": "Default"
+        }
+      ],
       "label": "Kort",
-      "englishEntity": "card",
       "entity": "kort",
       "field": {
-        "englishLabel": "Card",
         "label": "Kort",
         "fields": [
           {
-            "englishLabel": "Image",
             "label": "Bilde"
           },
           {
-            "englishLabel": "Matching Image",
             "label": "Tilhørende bilde",
-            "englishDescription": "An optional image to match against instead of using two cards with the same image.",
             "description": "Et valgfritt bilde som brukes av kort nummer to istedenfor å bruke to kort med samme bilde."
           },
           {
-            "englishLabel": "Description",
             "label": "Beskrivelse",
-            "englishDescription": "An optional short text that will pop up once the two matching cards are found.",
             "description": "En valgfri kort tekst som spretter opp når kort-paret er funnet."
+          },
+          {
+            "label": "Alternative text for Matching Image",
+            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+          },
+          {
+            "label": "Description",
+            "description": "An optional short text that will pop up once the two matching cards are found."
           }
         ]
       }
     },
     {
-      "englishLabel": "Behavioural settings",
       "label": "Innstillinger for oppførsel",
-      "englishDescription": "These options will let you control how the game behaves.",
       "description": "Disse instillingene lar deg bestemme hvordan spillet skal oppføre seg.",
       "fields": [
         {
-          "englishLabel": "Position the cards in a square",
           "label": "Plasser kortene i en firkant",
-          "englishDescription": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container.",
           "description": "Vil forsøk å samsvare antall kolonner og rader når kortene legges ut. Etterpå vil kortene bli skalert til å passe beholderen."
         },
         {
-          "englishLabel": "Number of cards to use",
           "label": "Antall kort som skal brukes",
-          "englishDescription": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards.",
           "description": "Ved å sette antallet høyere enn 2 vil spillet plukke tilfeldige kort fra listen over kort."
         },
         {
-          "englishLabel": "Add button for retrying when the game is over",
           "label": "Legg til knapp for å prøve på nytt når spillet er over"
         }
       ]
     },
     {
-      "englishLabel": "Look and feel",
       "label": "Tilpass utseende",
-      "englishDescription": "Control the visuals of the game.",
       "description": "Kontroller de visuelle aspektene ved spillet.",
       "fields": [
         {
-          "englishLabel": "Theme Color",
           "label": "Temafarge",
-          "englishDescription": "Choose a color to create a theme for your card game.",
-          "description": "Velg en farge for å skape et tema over kortspillet ditt."
+          "description": "Velg en farge for å skape et tema over kortspillet ditt.",
+          "default": "#909090"
         },
         {
-          "englishLabel": "Card Back",
           "label": "Kortbaksiden",
-          "englishDescription": "Use a custom back for your cards.",
           "description": "Bruk en tilpasset kortbakside for kortene dine."
         }
       ]
     },
     {
-      "englishLabel": "Localization",
       "label": "Oversettelser",
       "fields": [
         {
-          "englishLabel": "Card turns text",
           "label": "Etikett for antall vendte kort",
-          "englishDefault": "Card turns",
           "default": "Kort vendt"
         },
         {
-          "englishLabel": "Time spent text",
           "label": "Etikett for tid brukt",
-          "englishDefault": "Time spent",
           "default": "Tid brukt"
         },
         {
-          "englishLabel": "Feedback text",
           "label": "Tilbakemeldingstekst",
-          "englishDefault": "Good work!",
           "default": "Godt jobbet!"
         },
         {
-          "englishLabel": "Try again button text",
           "label": "Prøv på nytt-tekst",
-          "englishDefault": "Try again?",
           "default": "Prøv på nytt?"
         },
         {
-          "englishLabel": "Close button label",
           "label": "Lukk knapp-merkelapp",
-          "englishDefault": "Close",
           "default": "Lukk"
+        },
+        {
+          "label": "Game label",
+          "default": "Memory Game. Find the matching cards."
+        },
+        {
+          "label": "Game finished label",
+          "default": "All of the cards have been found."
+        },
+        {
+          "label": "Card indexing label",
+          "default": "Card %num:"
+        },
+        {
+          "label": "Card unturned label",
+          "default": "Unturned."
+        },
+        {
+          "label": "Card matched label",
+          "default": "Match found."
         }
       ]
     }

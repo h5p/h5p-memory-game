@@ -169,6 +169,41 @@
         "name": "closeLabel",
         "type": "text",
         "default": "Close"
+      },
+      {
+        "label": "Game label",
+        "importance": "low",
+        "name": "label",
+        "type": "text",
+        "default": "Memory Game. Find the matching cards."
+      },
+      {
+        "label": "Game finished label",
+        "importance": "low",
+        "name": "done",
+        "type": "text",
+        "default": "All of the cards have been found."
+      },
+      {
+        "label": "Card indexing label",
+        "importance": "low",
+        "name": "cardPrefix",
+        "type": "text",
+        "default": "Card %num:"
+      },
+      {
+        "label": "Card unturned label",
+        "importance": "low",
+        "name": "cardUnturned",
+        "type": "text",
+        "default": "Unturned."
+      },
+      {
+        "label": "Card matched label",
+        "importance": "low",
+        "name": "cardMatched",
+        "type": "text",
+        "default": "Match found."
       }
     ]
   }

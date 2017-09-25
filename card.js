@@ -8,10 +8,11 @@
    * @param {Object} image
    * @param {number} id
    * @param {string} alt
+   * @param {Object} l10n Localization
    * @param {string} [description]
    * @param {Object} [styles]
    */
-  MemoryGame.Card = function (image, id, alt, description, styles) {
+  MemoryGame.Card = function (image, id, alt, l10n, description, styles) {
     /** @alias H5P.MemoryGame.Card# */
     var self = this;
 
@@ -47,13 +48,13 @@
     self.updateLabel = function (isMatched, announce, reset) {
 
       // Determine new label from input params
-      var label = (reset ? 'Unturned' : alt);
+      var label = (reset ? l10n.cardUnturned : alt);
       if (isMatched) {
-        label = 'Match found. ' + label; // TODO l10n
+        label = l10n.cardMatched + ' ' + label;
       }
 
       // Update the card's label
-      $wrapper.attr('aria-label', 'Card ' + ($wrapper.index() + 1) + ': ' + label); // TODO l10n
+      $wrapper.attr('aria-label', l10n.cardPrefix.replace('%num', $wrapper.index() + 1) + ' ' + label);
 
       // Update disabled property
       $wrapper.attr('aria-disabled', reset ? null : 'true');
@@ -155,9 +156,20 @@
               self.trigger('prev');
               event.preventDefault();
               return;
+            case 35:
+              // Move to last card
+              self.trigger('last');
+              event.preventDefault();
+              return;
+            case 36:
+              // Move to first card
+              self.trigger('first');
+              event.preventDefault();
+              return;
           }
         });
-      $wrapper.attr('aria-label', 'Card ' + ($wrapper.index() + 1) + ': Unturned.'); // TODO l10n
+
+      $wrapper.attr('aria-label', l10n.cardPrefix.replace('%num', $wrapper.index() + 1) + ' ' + l10n.cardUnturned);
       $card = $wrapper.children('.h5p-memory-card')
         .children('.h5p-front')
           .click(function () {
