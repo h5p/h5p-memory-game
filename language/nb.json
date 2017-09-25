@@ -1,6 +1,7 @@
 {
-  "semantics": [
+  "semantics":[
     {
+<<<<<<< HEAD
       "widgets": [
         {
           "label": "Default"
@@ -29,11 +30,34 @@
           {
             "label": "Description",
             "description": "An optional short text that will pop up once the two matching cards are found."
+=======
+      "widgets":[
+        {
+          "label":"Default"
+        }
+      ],
+      "label":"Kort",
+      "entity":"kort",
+      "field":{
+        "label":"Kort",
+        "fields":[
+          {
+            "label":"Bilde"
+          },
+          {
+            "label":"Tilhørende bilde",
+            "description":"Et valgfritt bilde som brukes av kort nummer to istedenfor å bruke to kort med samme bilde."
+          },
+          {
+            "label":"Beskrivelse",
+            "description":"En valgfri kort tekst som spretter opp når kort-paret er funnet."
+>>>>>>> master
           }
         ]
       }
     },
     {
+<<<<<<< HEAD
       "label": "Innstillinger for oppførsel",
       "description": "Disse instillingene lar deg bestemme hvordan spillet skal oppføre seg.",
       "fields": [
@@ -47,10 +71,26 @@
         },
         {
           "label": "Legg til knapp for å prøve på nytt når spillet er over"
+=======
+      "label":"Innstillinger for oppførsel",
+      "description":"Disse instillingene lar deg bestemme hvordan spillet skal oppføre seg.",
+      "fields":[
+        {
+          "label":"Plasser kortene i en firkant",
+          "description":"Vil forsøk å samsvare antall kolonner og rader når kortene legges ut. Etterpå vil kortene bli skalert til å passe beholderen."
+        },
+        {
+          "label":"Antall kort som skal brukes",
+          "description":"Ved å sette antallet høyere enn 2 vil spillet plukke tilfeldige kort fra listen over kort."
+        },
+        {
+          "label":"Legg til knapp for å prøve på nytt når spillet er over"
+>>>>>>> master
         }
       ]
     },
     {
+<<<<<<< HEAD
       "label": "Tilpass utseende",
       "description": "Kontroller de visuelle aspektene ved spillet.",
       "fields": [
@@ -62,10 +102,27 @@
         {
           "label": "Kortbaksiden",
           "description": "Bruk en tilpasset kortbakside for kortene dine."
+=======
+      "label":"Tilpass utseende",
+      "description":"Kontroller de visuelle aspektene ved spillet.",
+      "fields":[
+        {
+          "label":"Temafarge",
+          "description":"Velg en farge for å skape et tema over kortspillet ditt.",
+          "default":"#909090",
+          "spectrum":{
+            
+          }
+        },
+        {
+          "label":"Kortbaksiden",
+          "description":"Bruk en tilpasset kortbakside for kortene dine."
+>>>>>>> master
         }
       ]
     },
     {
+<<<<<<< HEAD
       "label": "Oversettelser",
       "fields": [
         {
@@ -107,6 +164,29 @@
         {
           "label": "Card matched label",
           "default": "Match found."
+=======
+      "label":"Oversettelser",
+      "fields":[
+        {
+          "label":"Etikett for antall vendte kort",
+          "default":"Kort vendt"
+        },
+        {
+          "label":"Etikett for tid brukt",
+          "default":"Tid brukt"
+        },
+        {
+          "label":"Tilbakemeldingstekst",
+          "default":"Godt jobbet!"
+        },
+        {
+          "label":"Prøv på nytt-tekst",
+          "default":"Prøv på nytt?"
+        },
+        {
+          "label":"Lukk knapp-merkelapp",
+          "default":"Lukk"
+>>>>>>> master
         }
       ]
     }

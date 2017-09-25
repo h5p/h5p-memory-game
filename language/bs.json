@@ -1,6 +1,7 @@
 {
-  "semantics": [
+  "semantics":[
     {
+<<<<<<< HEAD
       "widgets": [
         {
           "label": "Default"
@@ -11,10 +12,23 @@
       "field": {
         "label": "Karte",
         "fields": [
+=======
+      "widgets":[
+        {
+          "label":"Default"
+        }
+      ],
+      "label":"Karte",
+      "entity":"karte",
+      "field":{
+        "label":"Karte",
+        "fields":[
+>>>>>>> master
           {
-            "label": "Slika"
+            "label":"Slika"
           },
           {
+<<<<<<< HEAD
             "label": "Ista slika",
             "description": "Opcionalna slika koja se koristi umjestodvije iste slike."
           },
@@ -29,11 +43,20 @@
           {
             "label": "Description",
             "description": "An optional short text that will pop up once the two matching cards are found."
+=======
+            "label":"Ista slika",
+            "description":"Opcionalna slika koja se koristi umjestodvije iste slike."
+          },
+          {
+            "label":"Opis",
+            "description":"Kratak tekst koji će biti prikazan čim se pronađu dvije iste karte."
+>>>>>>> master
           }
         ]
       }
     },
     {
+<<<<<<< HEAD
       "label": "Podešavanje ponašanja",
       "description": "These options will let you control how the game behaves.",
       "fields": [
@@ -47,10 +70,26 @@
         },
         {
           "label": "Add button for retrying when the game is over"
+=======
+      "label":"Podešavanje ponašanja",
+      "description":"These options will let you control how the game behaves.",
+      "fields":[
+        {
+          "label":"Poredaj karte u redove ",
+          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+        },
+        {
+          "label":"Broj karata za upotrebu",
+          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+        },
+        {
+          "label":"Add button for retrying when the game is over"
+>>>>>>> master
         }
       ]
     },
     {
+<<<<<<< HEAD
       "label": "Look and feel",
       "description": "Control the visuals of the game.",
       "fields": [
@@ -62,25 +101,42 @@
         {
           "label": "Card Back",
           "description": "Use a custom back for your cards."
+=======
+      "label":"Look and feel",
+      "description":"Control the visuals of the game.",
+      "fields":[
+        {
+          "label":"Theme Color",
+          "description":"Choose a color to create a theme for your card game.",
+          "default":"#909090",
+          "spectrum":{
+            
+          }
+        },
+        {
+          "label":"Card Back",
+          "description":"Use a custom back for your cards."
+>>>>>>> master
         }
       ]
     },
     {
-      "label": "Prijevod",
-      "fields": [
+      "label":"Prijevod",
+      "fields":[
         {
-          "label": "Tekst kad se okrene karta ",
-          "default": "Okrenuta karta"
+          "label":"Tekst kad se okrene karta ",
+          "default":"Okrenuta karta"
         },
         {
-          "label": "Tekst za provedeno vrijeme",
-          "default": "Provedeno vrijeme"
+          "label":"Tekst za provedeno vrijeme",
+          "default":"Provedeno vrijeme"
         },
         {
-          "label": "Feedback tekst",
-          "default": "BRAVO!"
+          "label":"Feedback tekst",
+          "default":"BRAVO!"
         },
         {
+<<<<<<< HEAD
           "label": "Tekst na dugmetu pokušaj ponovo",
           "default": "Pokušaj ponovo?"
         },
@@ -107,6 +163,14 @@
         {
           "label": "Card matched label",
           "default": "Match found."
+=======
+          "label":"Tekst na dugmetu pokušaj ponovo",
+          "default":"Pokušaj ponovo?"
+        },
+        {
+          "label":"Close button label",
+          "default":"Close"
+>>>>>>> master
         }
       ]
     }
