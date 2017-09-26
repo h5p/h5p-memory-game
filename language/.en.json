@@ -21,6 +21,14 @@
           {
             "label": "Description",
             "description": "An optional short text that will pop up once the two matching cards are found."
+          },
+          {
+            "label": "Alternative text for Matching Image",
+            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+          },
+          {
+            "label": "Description",
+            "description": "An optional short text that will pop up once the two matching cards are found."
           }
         ]
       }
@@ -49,8 +57,7 @@
         {
           "label": "Theme Color",
           "description": "Choose a color to create a theme for your card game.",
-          "default": "#909090",
-          "spectrum": {}
+          "default": "#909090"
         },
         {
           "label": "Card Back",
@@ -80,6 +87,26 @@
         {
           "label": "Close button label",
           "default": "Close"
+        },
+        {
+          "label": "Game label",
+          "default": "Memory Game. Find the matching cards."
+        },
+        {
+          "label": "Game finished label",
+          "default": "All of the cards have been found."
+        },
+        {
+          "label": "Card indexing label",
+          "default": "Card %num:"
+        },
+        {
+          "label": "Card unturned label",
+          "default": "Unturned."
+        },
+        {
+          "label": "Card matched label",
+          "default": "Match found."
         }
       ]
     }

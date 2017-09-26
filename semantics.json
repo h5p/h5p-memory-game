@@ -27,6 +27,13 @@
           "ratio": 1
         },
         {
+          "name": "imageAlt",
+          "type": "text",
+          "label": "Alternative text for Image",
+          "importance": "high",
+          "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+        },
+        {
           "name": "match",
           "type": "image",
           "label": "Matching Image",
@@ -34,6 +41,14 @@
           "optional": true,
           "description": "An optional image to match against instead of using two cards with the same image.",
           "ratio": 1
+        },
+        {
+          "name": "matchAlt",
+          "type": "text",
+          "label": "Alternative text for Matching Image",
+          "importance": "low",
+          "optional": true,
+          "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
         },
         {
           "name": "description",
@@ -146,7 +161,7 @@
         "importance": "low",
         "name": "tryAgain",
         "type": "text",
-        "default": "Try again?"
+        "default": "Reset"
       },
       {
         "label": "Close button label",
@@ -154,6 +169,41 @@
         "name": "closeLabel",
         "type": "text",
         "default": "Close"
+      },
+      {
+        "label": "Game label",
+        "importance": "low",
+        "name": "label",
+        "type": "text",
+        "default": "Memory Game. Find the matching cards."
+      },
+      {
+        "label": "Game finished label",
+        "importance": "low",
+        "name": "done",
+        "type": "text",
+        "default": "All of the cards have been found."
+      },
+      {
+        "label": "Card indexing label",
+        "importance": "low",
+        "name": "cardPrefix",
+        "type": "text",
+        "default": "Card %num:"
+      },
+      {
+        "label": "Card unturned label",
+        "importance": "low",
+        "name": "cardUnturned",
+        "type": "text",
+        "default": "Unturned."
+      },
+      {
+        "label": "Card matched label",
+        "importance": "low",
+        "name": "cardMatched",
+        "type": "text",
+        "default": "Match found."
       }
     ]
   }

@@ -1,6 +1,14 @@
 .h5p-memory-game {
   overflow: hidden;
 }
+.h5p-memory-game .h5p-memory-hidden-read {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 1px;
+  height: 1px;
+  color: transparent;
+}
 .h5p-memory-game > ul {
   list-style: none !important;
   padding: 0.25em 0.5em !important;
@@ -186,9 +194,6 @@
   margin: 0 1em 0 0;
   font-weight: bold;
 }
-.h5p-memory-game .h5p-status > dt:after {
-  content: ":";
-}
 .h5p-memory-game .h5p-status > dd {
   margin: 0;
 }
@@ -306,4 +311,7 @@
 .h5p-memory-transout {
   transform: translate(-50%,-450%) scale(0) rotate(360deg);
   opacity: 0;
+}
+.h5p-memory-complete {
+  display: none;
 }
