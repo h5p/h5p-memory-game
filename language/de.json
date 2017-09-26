@@ -1,7 +1,6 @@
 {
-  "semantics":[
+  "semantics": [
     {
-<<<<<<< HEAD
       "widgets": [
         {
           "label": "Default"
@@ -12,23 +11,10 @@
       "field": {
         "label": "Karte",
         "fields": [
-=======
-      "widgets":[
-        {
-          "label":"Vorgaben"
-        }
-      ],
-      "label":"Karten",
-      "entity":"karte",
-      "field":{
-        "label":"Karte",
-        "fields":[
->>>>>>> master
           {
-            "label":"Bild"
+            "label": "Bild"
           },
           {
-<<<<<<< HEAD
             "label": "Matching Image",
             "description": "An optional image to match against instead of using two cards with the same image."
           },
@@ -43,20 +29,11 @@
           {
             "label": "Description",
             "description": "An optional short text that will pop up once the two matching cards are found."
-=======
-            "label":"Passendes Bild",
-            "description":"Ein optionales anderes Bild als Gegenstück statt zwei Karten mit dem selben Bild zu nutzen"
-          },
-          {
-            "label":"Beschreibung",
-            "description":"Ein kurzer Text, der angezeigt wird, sobald zwei identische Karten gefunden werden."
->>>>>>> master
           }
         ]
       }
     },
     {
-<<<<<<< HEAD
       "label": "Behavioural settings",
       "description": "These options will let you control how the game behaves.",
       "fields": [
@@ -70,26 +47,10 @@
         },
         {
           "label": "Add button for retrying when the game is over"
-=======
-      "label":"Interaktionseinstellungen",
-      "description":"Mit diesen Einstellungen kannst du das Verhalten des Spiels anpassen.",
-      "fields":[
-        {
-          "label":"Positioniere die Karten in einem Quadrat.",
-          "description":"Es wird versucht, die Anzahl der Zeilen und Spalten passend zu den Karten einzustellen. Danach werden die Karten passend skaliert."
-        },
-        {
-          "label":"Anzahl der zu nutzenden Karten",
-          "description":"Wird hier eine Zahl größer als 2 eingestellt, werden zufällig Karten aus der Kartenliste gezogen."
-        },
-        {
-          "label":"Füge einen Button hinzu, um das Spiel noch einmal neu zu starten zu können, wenn es vorbei ist."
->>>>>>> master
         }
       ]
     },
     {
-<<<<<<< HEAD
       "label": "Look and feel",
       "description": "Control the visuals of the game.",
       "fields": [
@@ -101,42 +62,25 @@
         {
           "label": "Card Back",
           "description": "Use a custom back for your cards."
-=======
-      "label":"Design-Aspekte",
-      "description":"Beeinflusse die Optik des Spiels",
-      "fields":[
-        {
-          "label":"Themenfarbe",
-          "description":"Wähle eine Farbe, um ein Theme für deine Karten zu erstellen.",
-          "default":"#909090",
-          "spectrum":{
-            
-          }
-        },
-        {
-          "label":"Kartenrückseite",
-          "description":"Nutze eine individuelle Rückseite für deine Karten."
->>>>>>> master
         }
       ]
     },
     {
-      "label":"Übersetzung",
-      "fields":[
+      "label": "Übersetzung",
+      "fields": [
         {
-          "label":"Text für die Anzahl der Züge",
-          "default":"Züge"
+          "label": "Text für die Anzahl der Züge",
+          "default": "Züge"
         },
         {
-          "label":"Text für die benötigte Zeit",
-          "default":"Benötigte Zeit"
+          "label": "Text für die benötigte Zeit",
+          "default": "Benötigte Zeit"
         },
         {
-          "label":"Text als Rückmeldung",
-          "default":"Gute Arbeit!"
+          "label": "Text als Rückmeldung",
+          "default": "Gute Arbeit!"
         },
         {
-<<<<<<< HEAD
           "label": "Try again button text",
           "default": "Reset"
         },
@@ -163,14 +107,6 @@
         {
           "label": "Card matched label",
           "default": "Match found."
-=======
-          "label":"Text des Wiederholen-Buttons",
-          "default":"Erneut versuchen?"
-        },
-        {
-          "label":"Beschriftung des \"Abbrechen\"-Buttons",
-          "default":"Schließen"
->>>>>>> master
         }
       ]
     }

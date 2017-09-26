@@ -1,7 +1,6 @@
 {
-  "semantics":[
+  "semantics": [
     {
-<<<<<<< HEAD
       "widgets": [
         {
           "label": "Default"
@@ -12,23 +11,10 @@
       "field": {
         "label": "Carte",
         "fields": [
-=======
-      "widgets":[
-        {
-          "label":"Default"
-        }
-      ],
-      "label":"Cartes",
-      "entity":"carte",
-      "field":{
-        "label":"Carte",
-        "fields":[
->>>>>>> master
           {
-            "label":"Image"
+            "label": "Image"
           },
           {
-<<<<<<< HEAD
             "label": "Matching Image",
             "description": "An optional image to match against instead of using two cards with the same image."
           },
@@ -43,20 +29,11 @@
           {
             "label": "Description",
             "description": "An optional short text that will pop up once the two matching cards are found."
-=======
-            "label":"Matching Image",
-            "description":"An optional image to match against instead of using two cards with the same image."
-          },
-          {
-            "label":"Description",
-            "description":"Petit texte affiché quand deux cartes identiques sont trouvées."
->>>>>>> master
           }
         ]
       }
     },
     {
-<<<<<<< HEAD
       "label": "Behavioural settings",
       "description": "These options will let you control how the game behaves.",
       "fields": [
@@ -70,26 +47,10 @@
         },
         {
           "label": "Add button for retrying when the game is over"
-=======
-      "label":"Behavioural settings",
-      "description":"These options will let you control how the game behaves.",
-      "fields":[
-        {
-          "label":"Position the cards in a square",
-          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
-        },
-        {
-          "label":"Number of cards to use",
-          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
-        },
-        {
-          "label":"Add button for retrying when the game is over"
->>>>>>> master
         }
       ]
     },
     {
-<<<<<<< HEAD
       "label": "Look and feel",
       "description": "Control the visuals of the game.",
       "fields": [
@@ -101,42 +62,25 @@
         {
           "label": "Card Back",
           "description": "Use a custom back for your cards."
-=======
-      "label":"Look and feel",
-      "description":"Control the visuals of the game.",
-      "fields":[
-        {
-          "label":"Theme Color",
-          "description":"Choose a color to create a theme for your card game.",
-          "default":"#909090",
-          "spectrum":{
-            
-          }
-        },
-        {
-          "label":"Card Back",
-          "description":"Use a custom back for your cards."
->>>>>>> master
         }
       ]
     },
     {
-      "label":"Interface",
-      "fields":[
+      "label": "Interface",
+      "fields": [
         {
-          "label":"Texte pour le nombre de cartes retournées",
-          "default":"Cartes retournées :"
+          "label": "Texte pour le nombre de cartes retournées",
+          "default": "Cartes retournées :"
         },
         {
-          "label":"Texte pour le temps passé",
-          "default":"Temps écoulé :"
+          "label": "Texte pour le temps passé",
+          "default": "Temps écoulé :"
         },
         {
-          "label":"Texte de l'appréciation finale",
-          "default":"Bien joué !"
+          "label": "Texte de l'appréciation finale",
+          "default": "Bien joué !"
         },
         {
-<<<<<<< HEAD
           "label": "Try again button text",
           "default": "Reset"
         },
@@ -163,14 +107,6 @@
         {
           "label": "Card matched label",
           "default": "Match found."
-=======
-          "label":"Try again button text",
-          "default":"Try again?"
-        },
-        {
-          "label":"Close button label",
-          "default":"Close"
->>>>>>> master
         }
       ]
     }
