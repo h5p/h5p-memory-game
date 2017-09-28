@@ -1,7 +1,7 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "widgets":[
+      "widgets": [
         {
           "label":"Oletus"
         }
@@ -16,11 +16,11 @@
           },
           {
             "label":"Vastattava kuva",
-            "description":"Valinnainen kuva johon verrata korttia sen sijaan, että kortille etsitään toista samaa kuvaa."
+            "description":"Valinnainen kuva johon verrata korttia sen sijaan, että kortille etsitään toista samaa kuvaa pariksi."
           },
           {
             "label":"Selite",
-            "description":"Valinnainen lyhyt teksti, joka näytetään kun oikeat kaksi korttia on löydetty."
+            "description":"Valinnainen lyhyt teksti, joka näytetään kun oikea pari on löydetty."
           }
         ]
       }
@@ -82,6 +82,26 @@
         {
           "label":"Painikkeen Sulje teksti",
           "default":"Sulje"
+        },
+        {
+          "label": "Pelin kuvaus",
+          "default": "Muistipeli. Löydä parit."
+        },
+        {
+          "label": "Peli päättynyt",
+          "default": "Kaikki parit löydetty."
+        },
+        {
+          "label": "Kortin yksilöllinen järjestysnumero",
+          "default": "Kortti %num:"
+        },
+        {
+          "label": "Kääntämätön",
+          "default": "Kääntämätön."
+        },
+        {
+          "label": "Pari löytynyt",
+          "default": "Pari löydetty."
         }
       ]
     }

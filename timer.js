@@ -28,6 +28,11 @@
 
       var minutes = Timer.extractTimeElement(time, 'minutes');
       var seconds = Timer.extractTimeElement(time, 'seconds') % 60;
+
+      // Update duration attribute
+      element.setAttribute('datetime', 'PT' + minutes + 'M' + seconds + 'S');
+
+      // Add leading zero
       if (seconds < 10) {
         seconds = '0' + seconds;
       }
