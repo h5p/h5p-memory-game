@@ -20,7 +20,7 @@
     EventDispatcher.call(self);
 
     var path = H5P.getPath(image.path, id);
-    var width, height, margin, $card, $wrapper, removedState, flippedState;
+    var width, height, $card, $wrapper, removedState, flippedState;
 
     alt = alt || 'Missing description'; // Default for old games
 
@@ -91,7 +91,7 @@
     /**
      * Remove.
      */
-    self.remove = function (announce) {
+    self.remove = function () {
       $card.addClass('h5p-matched');
       removedState = true;
     };
@@ -137,7 +137,7 @@
                   '</div>' +
                 '</div></li>')
         .appendTo($container)
-        .on('keydown', function (event) {
+        .on('keydown', function (event) {
           switch (event.which) {
             case 13: // Enter
             case 32: // Space

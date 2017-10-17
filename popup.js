@@ -18,7 +18,7 @@
     var $top = $popup.find('.h5p-memory-top');
 
     // Hook up the close button
-    $popup.find('.h5p-memory-close').on('click', function () {
+    $popup.find('.h5p-memory-close').on('click', function () {
       self.close(true);
     }).on('keypress', function (event) {
       if (event.which === 13 || event.which === 32) {

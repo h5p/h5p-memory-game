@@ -1,6 +1,6 @@
 var H5PUpgrades = H5PUpgrades || {};
 
-H5PUpgrades['H5P.MemoryGame'] = (function ($) {
+H5PUpgrades['H5P.MemoryGame'] = (function () {
   return {
     1: {
       /**
@@ -42,4 +42,4 @@ H5PUpgrades['H5P.MemoryGame'] = (function ($) {
       }
     }
   };
-})(H5P.jQuery);
+})();

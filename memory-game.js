@@ -154,7 +154,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * Shuffle the cards and restart the game!
      * @private
      */
-    var resetGame = function () {
+    var resetGame = function () {
 
       // Reset cards
       removed = 0;
@@ -197,7 +197,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       buttonElement.innerHTML = label;
       buttonElement.setAttribute('role', 'button');
       buttonElement.tabIndex = 0;
-      buttonElement.addEventListener('click', function (event) {
+      buttonElement.addEventListener('click', function () {
         action.apply(buttonElement);
       }, false);
       buttonElement.addEventListener('keypress', function (event) {
@@ -437,7 +437,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         $bottom = $('<div/>', {
           tabindex: '-1',
-          appendTo: $container
+          appendTo: $container
         });
         $taskComplete = $('<div/>', {
           'class': 'h5p-memory-complete h5p-memory-hidden-read',
@@ -467,10 +467,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     /**
      * Will try to scale the game so that it fits within its container.
-     * Puts the cards into a grid layout to make it as square as possible – 
+     * Puts the cards into a grid layout to make it as square as possible –
      * which improves the playability on multiple devices.
      *
-     * @private
+     * @private
      */
     var scaleGameSize = function () {
 
@@ -538,7 +538,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
   /**
    * Determine color contrast level compared to white(#fff)
    *
-   * @private
+   * @private
    * @param {string} color hex code
    * @return {number} From 1 to Infinity.
    */
