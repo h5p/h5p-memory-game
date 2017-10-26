@@ -13,16 +13,16 @@
 
     var closed;
 
-    var $popup = $('<div class="h5p-memory-pop"><div class="h5p-memory-top"></div><div class="h5p-memory-desc"></div><div class="h5p-memory-close" role="button" tabindex="0" title="' + (l10n.closeLabel || 'Close') + '"></div></div>').appendTo($container);
+    var $popup = $('<div class="h5p-memory-pop" role="dialog"><div class="h5p-memory-top"></div><div class="h5p-memory-desc" tabindex="-1"></div><div class="h5p-memory-close" role="button" tabindex="0" title="' + (l10n.closeLabel || 'Close') + '"></div></div>').appendTo($container);
     var $desc = $popup.find('.h5p-memory-desc');
     var $top = $popup.find('.h5p-memory-top');
 
     // Hook up the close button
-    $popup.find('.h5p-memory-close').on('click', function () {
-      self.close();
+    $popup.find('.h5p-memory-close').on('click', function () {
+      self.close(true);
     }).on('keypress', function (event) {
       if (event.which === 13 || event.which === 32) {
-        self.close();
+        self.close(true);
         event.preventDefault();
       }
     });
@@ -41,22 +41,26 @@
         $('<div class="h5p-memory-image"' + (styles ? styles : '') + '></div>').append(imgs[i]).appendTo($top);
       }
       $popup.show();
+      $desc.focus();
       closed = done;
     };
 
     /**
      * Close the popup.
+     *
+     * @param {boolean} refocus Sets focus after closing the dialog
      */
-    self.close = function () {
+    self.close = function (refocus) {
       if (closed !== undefined) {
         $popup.hide();
-        closed();
+        closed(refocus);
         closed = undefined;
       }
     };
 
     /**
      * Sets popup size relative to the card size
+     *
      * @param {number} fontSize
      */
     self.setSize = function (fontSize) {

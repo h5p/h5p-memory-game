@@ -1,87 +1,107 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "widgets":[
+      "widgets": [
         {
-          "label":"Default"
+          "label":"Oletus"
         }
       ],
-      "label":"Cards",
-      "entity":"card",
+      "label":"Kortit",
+      "entity":"kortti",
       "field":{
-        "label":"Card",
+        "label":"Kortti",
         "fields":[
           {
-            "label":"Image"
+            "label":"Kuva"
           },
           {
-            "label":"Matching Image",
-            "description":"An optional image to match against instead of using two cards with the same image."
+            "label":"Vastattava kuva",
+            "description":"Valinnainen kuva johon verrata korttia sen sijaan, että kortille etsitään toista samaa kuvaa pariksi."
           },
           {
-            "label":"Description",
-            "description":"An optional short text that will pop up once the two matching cards are found."
+            "label":"Selite",
+            "description":"Valinnainen lyhyt teksti, joka näytetään kun oikea pari on löydetty."
           }
         ]
       }
     },
     {
-      "label":"Behavioural settings",
-      "description":"These options will let you control how the game behaves.",
+      "label":"Yleisasetukset",
+      "description":"Näillä valinnoilla voit muokata pelin asetuksia.",
       "fields":[
         {
-          "label":"Position the cards in a square",
-          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label":"Aseta kortit säännöllisesti",
+          "description":"Yrittää sovittaa kortit ruudukkomuotoon rivien sijaan."
         },
         {
-          "label":"Number of cards to use",
-          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label":"Korttien lukumäärä",
+          "description":"Kun lukumäärä on suurempi kuin kaksi, annettu määrä kortteja arvotaan kaikista korteista pelattavaksi."
         },
         {
-          "label":"Add button for retrying when the game is over"
+          "label":"Salli Yritä uudelleen -painike pelin päätyttyä"
         }
       ]
     },
     {
-      "label":"Look and feel",
-      "description":"Control the visuals of the game.",
+      "label":"Ulkoasu",
+      "description":"Hallinnoi pelin ulkoasua.",
       "fields":[
         {
-          "label":"Theme Color",
-          "description":"Choose a color to create a theme for your card game.",
+          "label":"Väriteema",
+          "description":"Valitse väri luodaksesi teeman pelille.",
           "default":"#909090",
           "spectrum":{
             
           }
         },
         {
-          "label":"Card Back",
-          "description":"Use a custom back for your cards."
+          "label":"Kortin kääntöpuoli",
+          "description":"Mukauta korttien kääntöpuoli."
         }
       ]
     },
     {
-      "label":"Localization",
+      "label":"Tekstit",
       "fields":[
         {
-          "label":"Card turns text",
-          "default":"Card turns"
+          "label":"Kortteja käännetty",
+          "default":"Kortteja käännetty"
         },
         {
-          "label":"Time spent text",
-          "default":"Time spent"
+          "label":"Aikaa kulunut",
+          "default":"Aikaa kulunut"
         },
         {
-          "label":"Feedback text",
-          "default":"Good work!"
+          "label":"Palaute",
+          "default":"Hyvää työtä!"
         },
         {
-          "label":"Try again button text",
-          "default":"Try again?"
+          "label":"Painikkeen Yritä uudelleen teksti",
+          "default":"Yritä uudelleen?"
         },
         {
-          "label":"Close button label",
-          "default":"Close"
+          "label":"Painikkeen Sulje teksti",
+          "default":"Sulje"
+        },
+        {
+          "label": "Pelin kuvaus",
+          "default": "Muistipeli. Löydä parit."
+        },
+        {
+          "label": "Peli päättynyt",
+          "default": "Kaikki parit löydetty."
+        },
+        {
+          "label": "Kortin yksilöllinen järjestysnumero",
+          "default": "Kortti %num:"
+        },
+        {
+          "label": "Kääntämätön",
+          "default": "Kääntämätön."
+        },
+        {
+          "label": "Pari löytynyt",
+          "default": "Pari löydetty."
         }
       ]
     }

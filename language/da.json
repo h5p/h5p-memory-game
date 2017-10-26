@@ -1,87 +1,112 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "widgets":[
+      "widgets": [
         {
-          "label":"Default"
+          "label": "Standard"
         }
       ],
-      "label":"Cards",
-      "entity":"card",
-      "field":{
-        "label":"Card",
-        "fields":[
+      "label": "Kort",
+      "entity": "card",
+      "field": {
+        "label": "Kort",
+        "fields": [
           {
-            "label":"Image"
+            "label": "Billede"
           },
           {
-            "label":"Matching Image",
-            "description":"An optional image to match against instead of using two cards with the same image."
+            "label": "Matchende billede",
+            "description": "Valgfrit billede som match i stedet for at have to kort med det samme billede."
           },
           {
-            "label":"Description",
-            "description":"An optional short text that will pop up once the two matching cards are found."
+            "label": "Beskrivelse",
+            "description": "Valgfri tekst, som popper op, når to matchende billeder er fundet."
+          },
+          {
+            "label": "Alternative text for Matching Image",
+            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+          },
+          {
+            "label": "Description",
+            "description": "An optional short text that will pop up once the two matching cards are found."
           }
         ]
       }
     },
     {
-      "label":"Behavioural settings",
-      "description":"These options will let you control how the game behaves.",
-      "fields":[
+      "label": "Indstillinger",
+      "description": "Disse indstillinger giver dig mulighed for at bestemme, hvordan spillet fremstår.",
+      "fields": [
         {
-          "label":"Position the cards in a square",
-          "description":"Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Placer kortene kvadratisk",
+          "description": "Vil forsøge at matche antallet af kolonner og rækker, når kortene placeres. Efterfølgende vil størrelsen på kortene blive tilpasset."
         },
         {
-          "label":"Number of cards to use",
-          "description":"Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Antal kort i opgaven",
+          "description": "Vælges et større tal end 2, vælges kort tilfældigt fra listen af kort."
         },
         {
-          "label":"Add button for retrying when the game is over"
+          "label": "Tilføj knap for at prøve spillet igen, når spillet er afsluttet."
         }
       ]
     },
     {
-      "label":"Look and feel",
-      "description":"Control the visuals of the game.",
-      "fields":[
+      "label": "Udseende",
+      "description": "Indstil spillets udseende.",
+      "fields": [
         {
-          "label":"Theme Color",
-          "description":"Choose a color to create a theme for your card game.",
-          "default":"#909090",
-          "spectrum":{
-            
-          }
+          "label": "Farvetema",
+          "description": "Vælg en farve til bagsiden af dine kort.",
+          "default": "#909090"
         },
         {
-          "label":"Card Back",
-          "description":"Use a custom back for your cards."
+          "label": "Bagsidebillede",
+          "description": "Brug et billede som bagside på dine kort."
         }
       ]
     },
     {
-      "label":"Localization",
-      "fields":[
+      "label": "Oversættelse",
+      "fields": [
         {
-          "label":"Card turns text",
-          "default":"Card turns"
+          "label": "Tekst når kort vendes",
+          "default": "Kort vendes"
         },
         {
-          "label":"Time spent text",
-          "default":"Time spent"
+          "label": "Tekst for tidsforbrug",
+          "default": "Tidsforbrug"
         },
         {
-          "label":"Feedback text",
-          "default":"Good work!"
+          "label": "Feedback tekst",
+          "default": "Godt klaret!"
         },
         {
-          "label":"Try again button text",
-          "default":"Try again?"
+          "label": "Prøv igen knaptekst",
+          "default": "Prøv igen?"
         },
         {
-          "label":"Close button label",
-          "default":"Close"
+          "label": "Luk knaptekst",
+          "default": "Luk"
+        },
+        {
+          "label": "Game label",
+          "default": "Memory Game. Find the matching cards."
+        },
+        {
+          "label": "Game finished label",
+          "default": "All of the cards have been found."
+        },
+        {
+          "label": "Card indexing label",
+          "default": "Card %num:"
+        },
+        {
+          "label": "Card unturned label",
+          "default": "Unturned."
+        },
+        {
+          "label": "Card matched label",
+          "default": "Match found."
         }
       ]
     }

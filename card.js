@@ -7,10 +7,12 @@
    * @extends H5P.EventDispatcher
    * @param {Object} image
    * @param {number} id
+   * @param {string} alt
+   * @param {Object} l10n Localization
    * @param {string} [description]
    * @param {Object} [styles]
    */
-  MemoryGame.Card = function (image, id, description, styles) {
+  MemoryGame.Card = function (image, id, alt, l10n, description, styles) {
     /** @alias H5P.MemoryGame.Card# */
     var self = this;
 
@@ -18,7 +20,9 @@
     EventDispatcher.call(self);
 
     var path = H5P.getPath(image.path, id);
-    var width, height, margin, $card;
+    var width, height, $card, $wrapper, removedState, flippedState;
+
+    alt = alt || 'Missing description'; // Default for old games
 
     if (image.width !== undefined && image.height !== undefined) {
       if (image.width > image.height) {
@@ -35,18 +39,53 @@
     }
 
     /**
+     * Update the cards label to make it accessible to users with a readspeaker
+     *
+     * @param {boolean} isMatched The card has been matched
+     * @param {boolean} announce Announce the current state of the card
+     * @param {boolean} reset Go back to the default label
+     */
+    self.updateLabel = function (isMatched, announce, reset) {
+
+      // Determine new label from input params
+      var label = (reset ? l10n.cardUnturned : alt);
+      if (isMatched) {
+        label = l10n.cardMatched + ' ' + label;
+      }
+
+      // Update the card's label
+      $wrapper.attr('aria-label', l10n.cardPrefix.replace('%num', $wrapper.index() + 1) + ' ' + label);
+
+      // Update disabled property
+      $wrapper.attr('aria-disabled', reset ? null : 'true');
+
+      // Announce the label change
+      if (announce) {
+        $wrapper.blur().focus(); // Announce card label
+      }
+    };
+
+    /**
      * Flip card.
      */
     self.flip = function () {
+      if (flippedState) {
+        $wrapper.blur().focus(); // Announce card label again
+        return;
+      }
+
       $card.addClass('h5p-flipped');
       self.trigger('flip');
+      flippedState = true;
     };
 
     /**
      * Flip card back.
      */
     self.flipBack = function () {
+      self.updateLabel(null, null, true); // Reset card label
       $card.removeClass('h5p-flipped');
+      flippedState = false;
     };
 
     /**
@@ -54,12 +93,16 @@
      */
     self.remove = function () {
       $card.addClass('h5p-matched');
+      removedState = true;
     };
 
     /**
      * Reset card to natural state
      */
     self.reset = function () {
+      self.updateLabel(null, null, true); // Reset card label
+      flippedState = false;
+      removedState = false;
       $card[0].classList.remove('h5p-flipped', 'h5p-matched');
     };
 
@@ -87,28 +130,96 @@
      * @param {H5P.jQuery} $container
      */
     self.appendTo = function ($container) {
-      // TODO: Translate alt attr
-      $card = $('<li class="h5p-memory-wrap"><div class="h5p-memory-card" role="button" tabindex="1">' +
+      $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">' +
                   '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
                   '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
-                    '<img src="' + path + '" alt="Memory Card" style="width:' + width + ';height:' + height + '"/>' +
+                    '<img src="' + path + '" alt="' + alt + '" style="width:' + width + ';height:' + height + '"/>' +
                   '</div>' +
                 '</div></li>')
         .appendTo($container)
-        .children('.h5p-memory-card')
-          .children('.h5p-front')
-            .click(function () {
+        .on('keydown', function (event) {
+          switch (event.which) {
+            case 13: // Enter
+            case 32: // Space
               self.flip();
-            })
-            .end();
+              event.preventDefault();
+              return;
+            case 39: // Right
+            case 40: // Down
+              // Move focus forward
+              self.trigger('next');
+              event.preventDefault();
+              return;
+            case 37: // Left
+            case 38: // Up
+              // Move focus back
+              self.trigger('prev');
+              event.preventDefault();
+              return;
+            case 35:
+              // Move to last card
+              self.trigger('last');
+              event.preventDefault();
+              return;
+            case 36:
+              // Move to first card
+              self.trigger('first');
+              event.preventDefault();
+              return;
+          }
+        });
+
+      $wrapper.attr('aria-label', l10n.cardPrefix.replace('%num', $wrapper.index() + 1) + ' ' + l10n.cardUnturned);
+      $card = $wrapper.children('.h5p-memory-card')
+        .children('.h5p-front')
+          .click(function () {
+            self.flip();
+          })
+          .end();
     };
 
     /**
-     * Re-append to parent container
+     * Re-append to parent container.
      */
     self.reAppend = function () {
-      var parent = $card[0].parentElement.parentElement;
-      parent.appendChild($card[0].parentElement);
+      var parent = $wrapper[0].parentElement;
+      parent.appendChild($wrapper[0]);
+    };
+
+    /**
+     * Make the card accessible when tabbing
+     */
+    self.makeTabbable = function () {
+      if ($wrapper) {
+        $wrapper.attr('tabindex', '0');
+      }
+    };
+
+    /**
+     * Prevent tabbing to the card
+     */
+    self.makeUntabbable = function () {
+      if ($wrapper) {
+        $wrapper.attr('tabindex', '-1');
+      }
+    };
+
+    /**
+     * Make card tabbable and move focus to it
+     */
+    self.setFocus = function () {
+      self.makeTabbable();
+      if ($wrapper) {
+        $wrapper.focus();
+      }
+    };
+
+    /**
+     * Check if the card has been removed from the game, i.e. if has
+     * been matched.
+     */
+    self.isRemoved = function () {
+      return removedState;
     };
   };
 
