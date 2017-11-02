@@ -436,6 +436,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         $list.appendTo($container);
 
         $bottom = $('<div/>', {
+          'class': 'h5p-programatically-focusable',
           tabindex: '-1',
           appendTo: $container
         });
