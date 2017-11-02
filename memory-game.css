@@ -272,7 +272,7 @@
   color: #666;
 }
 .h5p-memory-game .h5p-memory-close:focus {
-  outline: 2px dashed pink;
+  outline: 2px solid #a5c7fe;
 }
 .h5p-memory-reset {
   position: absolute;
@@ -302,7 +302,7 @@
   margin-top: -0.2em;
 }
 .h5p-memory-reset:focus {
-  outline: 2px dashed pink;
+  outline: 2px solid #a5c7fe;
 }
 .h5p-memory-transin {
   transform: translate(-50%,-50%) scale(0) rotate(180deg);
@@ -314,4 +314,7 @@
 }
 .h5p-memory-complete {
   display: none;
+}
+.h5p-memory-game .h5p-programatically-focusable {
+  outline: none;
 }
