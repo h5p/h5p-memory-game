@@ -3,110 +3,110 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "預設"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "紙牌",
+      "entity": "紙牌",
       "field": {
-        "label": "Card",
+        "label": "紙牌",
         "fields": [
           {
-            "label": "Image"
+            "label": "圖片"
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "相符合的圖片",
+            "description": "一個可選擇的符合圖片, 而不是使用兩張相同的圖片紙牌."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "描述",
+            "description": "一旦找到兩張符合的紙牌, 就會彈出一個可選擇的短文字."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "符合圖片的替代文字",
+            "description": "描述在照片中可以看到什麼. 文字是由視障者所需的文字轉語音工具讀取的."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "描述",
+            "description": "一旦找到兩張符合的紙牌, 就會彈出一個可選擇的短文字."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "行為設定",
+      "description": "這些選項可以讓你控制遊戲的行為.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "把紙牌放在正方形中",
+          "description": "在佈置紙牌時, 將嘗試匹配列數和行數. 之後, 紙牌將被縮放以適合容器大小."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "要使用的紙牌數量",
+          "description": "將其設置為大於2的數字將使遊戲從紙牌列表中選擇隨機卡片."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "新增遊戲結束時的重試按鈕"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "外觀和感覺",
+      "description": "控制遊戲的視覺效果.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game.",
+          "label": "主題顏色",
+          "description": "選擇一種顏色來為你的紙牌遊戲創建一個主題.",
           "default": "#909090"
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "紙牌返回",
+          "description": "為您的紙牌使用自定義返回."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "本地化",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "紙牌轉文字",
+          "default": "紙牌輪流"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "花費時間的文字",
+          "default": "花費時間"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "反饋文字",
+          "default": "做得好!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "再試一次按鈕文字",
+          "default": "再試一次?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "關閉按鈕標籤",
+          "default": "關閉"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "遊戲標籤",
+          "default": "記憶遊戲. 找到匹配的卡片."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "遊戲結束標籤",
+          "default": "所有的紙牌都被找到了."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "紙牌索引標籤",
+          "default": "紙牌 %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "未翻出的紙牌標籤",
+          "default": "紙牌."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "紙牌符合的標籤",
+          "default": "找到符合的."
         }
       ]
     }
