@@ -21,6 +21,14 @@
           {
             "label":"Selite",
             "description":"Valinnainen lyhyt teksti, joka näytetään kun oikea pari on löydetty."
+          },
+          {
+            "label": "Alternative text for Matching Image",
+            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+          },
+          {
+            "label": "Description",
+            "description": "An optional short text that will pop up once the two matching cards are found."
           }
         ]
       }
@@ -49,10 +57,7 @@
         {
           "label":"Väriteema",
           "description":"Valitse väri luodaksesi teeman pelille.",
-          "default":"#909090",
-          "spectrum":{
-            
-          }
+          "default":"#909090"
         },
         {
           "label":"Kortin kääntöpuoli",
