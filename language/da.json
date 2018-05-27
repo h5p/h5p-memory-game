@@ -15,20 +15,20 @@
             "label": "Billede"
           },
           {
-            "label": "Matchende billede",
-            "description": "Valgfrit billede som match i stedet for at have to kort med det samme billede."
+            "label": "Alternative text for Image",
+            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
-            "label": "Beskrivelse",
-            "description": "Valgfri tekst, som popper op, når to matchende billeder er fundet."
+            "label": "Matchende billede",
+            "description": "Valgfrit billede som match i stedet for at have to kort med det samme billede."
           },
           {
             "label": "Alternative text for Matching Image",
             "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Beskrivelse",
+            "description": "Valgfri tekst, som popper op, når to matchende billeder er fundet."
           }
         ]
       }

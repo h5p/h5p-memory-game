@@ -15,20 +15,20 @@
             "label": "Imagen"
           },
           {
-            "label": "Imagen coincidente",
-            "description": "Una imagen opcional para emparejar, en vez de usar dos tarjetas con la misma imagen."
+            "label": "Alternative text for Image",
+            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
-            "label": "Descripción",
-            "description": "Un breve texto opcional que aparecerá una vez se encuentren las dos cartas coincidentes."
+            "label": "Imagen coincidente",
+            "description": "Una imagen opcional para emparejar, en vez de usar dos tarjetas con la misma imagen."
           },
           {
             "label": "Alternative text for Matching Image",
             "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Descripción",
+            "description": "Un breve texto opcional que aparecerá una vez se encuentren las dos cartas coincidentes."
           }
         ]
       }
