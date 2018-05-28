@@ -15,20 +15,20 @@
             "label": "Bilde"
           },
           {
-            "label": "Tilhørende bilde",
-            "description": "Et valgfritt bilde som brukes av kort nummer to istedenfor å bruke to kort med samme bilde."
+            "label": "Alternative text for Image",
+            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
-            "label": "Beskrivelse",
-            "description": "En valgfri kort tekst som spretter opp når kort-paret er funnet."
+            "label": "Tilhørende bilde",
+            "description": "Et valgfritt bilde som brukes av kort nummer to istedenfor å bruke to kort med samme bilde."
           },
           {
             "label": "Alternative text for Matching Image",
             "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Beskrivelse",
+            "description": "En valgfri kort tekst som spretter opp når kort-paret er funnet."
           }
         ]
       }

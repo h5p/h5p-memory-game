@@ -15,12 +15,12 @@
             "label": "圖示"
           },
           {
-            "label": "相稱圖示",
-            "description": "可選用一張與主圖示相稱的圖示,並非使用兩張相同的圖示."
+            "label": "Alternative text for Image",
+            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
-            "label": "描述",
-            "description": "選填。當找到兩張相稱圖示時所顯示的文字."
+            "label": "相稱圖示",
+            "description": "可選用一張與主圖示相稱的圖示,並非使用兩張相同的圖示."
           },
           {
             "label": "相稱圖示的替代文字",
