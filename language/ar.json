@@ -15,20 +15,20 @@
             "label": "الصورة"
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Alternative text for Image",
+            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
-            "label": "الوصف",
-            "description": "نص قصير يتم عرضه مرة واحدة علي اثنين من البطاقات متساوية"
+            "label": "Matching Image",
+            "description": "An optional image to match against instead of using two cards with the same image."
           },
           {
             "label": "Alternative text for Matching Image",
             "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "الوصف",
+            "description": "نص قصير يتم عرضه مرة واحدة علي اثنين من البطاقات متساوية"
           }
         ]
       }
