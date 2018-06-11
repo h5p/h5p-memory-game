@@ -17,14 +17,15 @@
           {
             "label": "Texte alternatif pour l'image",
             "description": "Décrivez ce que représente l'image. Le texte est lu par la synthèse vocale."
-          },        {
+          },
+          {
             "label": "Image correspondante",
             "description": "Une image facultative à comparer au lieu d'utiliser deux cartes avec la même image."
           },
-			{
+          {
             "label": "Texte alternatif pour l'image correspondante",
             "description": "Décrivez ce que représente l'image correspondante. Le texte est lu par la synthèse vocale."
-          },            
+          },
           {
             "label": "Description",
             "description": "Un texte court optionnel qui apparaîtra une fois que les deux cartes correspondantes auront été trouvées."
