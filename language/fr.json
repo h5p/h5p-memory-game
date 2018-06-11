@@ -3,7 +3,7 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Par défaut"
         }
       ],
       "label": "Cartes",
@@ -15,53 +15,52 @@
             "label": "Image"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Texte alternatif pour l'image",
+            "description": "Décrivez ce que représente l'image. Le texte est lu par la synthèse vocale."
+          },        {
+            "label": "Image correspondante",
+            "description": "Une image facultative à comparer au lieu d'utiliser deux cartes avec la même image."
           },
-          {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
-          },
-          {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
-          },
+			{
+            "label": "Texte alternatif pour l'image correspondante",
+            "description": "Décrivez ce que représente l'image correspondante. Le texte est lu par la synthèse vocale."
+          },            
           {
             "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "description": "Un texte court optionnel qui apparaîtra une fois que les deux cartes correspondantes auront été trouvées."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Paramètres comportementaux",
+      "description": "Ces options vous permettent de définir le \"comportement\" du jeu de mémoire.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Positionnez les cartes en carré",
+          "description": "Essaiera de faire correspondre le nombre de colonnes et de rangées lors de la disposition des cartes. Ensuite, les cartes seront mises à l'échelle pour s'adapter au conteneur."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Nombre de cartes à utiliser",
+          "description": "Régler ce nombre sur un nombre supérieur à 2 fera que le jeu choisira des cartes aléatoires dans la liste des cartes."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Ajoutez un bouton pour essayer à nouveau quand le jeu est terminé"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Apparence",
+      "description": "Définissez l'apparence visuelle des éléments dans le jeu.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game.",
+          "label": "Couleur du thème",
+          "description": "Choisissez une couleur pour créer un thème pour votre jeu de cartes.",
           "default": "#909090"
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Dos des cartes",
+          "description": "Utilisez un dos personnalisé pour vos cartes."
         }
       ]
     },
@@ -81,32 +80,32 @@
           "default": "Bien joué !"
         },
         {
-          "label": "Try again button text",
-          "default": "Reset"
+          "label": "Texte pour le bouton Réessayez",
+          "default": "Réessayer"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Texte du bouton Fermer",
+          "default": "Fermer"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Le nom du jeu",
+          "default": "Jeu de mémoire. Trouver les cartes qui se correspondent."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Texte pour Le jeu est terminé",
+          "default": "Toutes les cartes ont été trouvées."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Texte de numérotation des cartes",
+          "default": "Carte %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Texte pour les cartes non retournées",
+          "default": "Non retournées."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Texte quand les cartes correspondent",
+          "default": "Correspondance trouvée."
         }
       ]
     }
