@@ -3,110 +3,110 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Standaard"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "Kaarten",
+      "entity": "kaart",
       "field": {
-        "label": "Card",
+        "label": "Kaart",
         "fields": [
           {
-            "label": "Image"
+            "label": "Afbeelding"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Bijpassende afbeelding",
+            "description": "Een optionele afbeelding die past in plaats van 2 kaarten met dezelfde afbeelding."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Omschrijving",
+            "description": "Een optionele korte tekst die zal verschijnen zodra de 2 overeenkomende kaarten zijn gevonden."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "De alternatieve tekst voor de bijpassende afbeelding",
+            "description": "Omschrijf wat de afbeelding voorstelt. De tekst zal worden gelezen door tekst-naar-spraak tools voor slechtzienden."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Omschrijving",
+            "description": "Een optionele korte tekst die zal verschijnen zodra de 2 overeenkomende kaarten zijn gevonden."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Gedragsinstellingen",
+      "description": "Met deze opties kun je bepalen hoe het spel zich gedraagt.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Plaats de kaarten in een vierkant",
+          "description": "Bij het leggen van de kaarten zullen het aantal kolommen en rijen op elkaar worden afgestemd. Daarna zal de omvang van de kaarten worden aangepast om in de beschikbare omgeving te passen."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Het aantal te gebruiken kaarten",
+          "description": "Als je dit getal instelt op een aantal groter dan 2, dan zal het spel willekeurig kaarten kiezen uit de complete lijst met kaarten."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Voeg de knop 'Opnieuw proberen? toe als het spel is afgelopen"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "De vormgeving",
+      "description": "Stel de beelden van het spel in.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game.",
+          "label": "Themakleur",
+          "description": "Kies een themakleur voor kaarten van je geheugenspel.",
           "default": "#909090"
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Achterkant kaart",
+          "description": "Gebruik een aangepaste achterkant voor je kaarten."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Localiseer",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Label gedraaide kaarten",
+          "default": "Gedraaide kaarten"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Label verstreken tijd",
+          "default": "Verstreken tijd"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Label feedback",
+          "default": "Goed gedaan!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Label opnieuw proberen knop",
+          "default": "Opnieuw proberen?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Label sluiten knop",
+          "default": "Sluiten"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Label spel",
+          "default": "Geheugenspel. Vind de overeenkomende kaarten."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": ":Label einde spel",
+          "default": "Alle kaarten zijn gevonden."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Label kaartenindex",
+          "default": "Kaart %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Label niet gedraaide kaarten",
+          "default": "Niet gedraaid."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Label overeenkomende kaarten",
+          "default": "Paar gevonden."
         }
       ]
     }
