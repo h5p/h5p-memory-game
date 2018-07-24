@@ -24,7 +24,8 @@
           "type": "image",
           "label": "Image",
           "importance": "high",
-          "ratio": 1
+          "ratio": 1,
+          "disableCopyright": true
         },
         {
           "name": "imageAlt",
