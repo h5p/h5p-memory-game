@@ -3,110 +3,110 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Padrão"
         }
       ],
-      "label": "Cards",
+      "label": "Cartões",
       "entity": "card",
       "field": {
-        "label": "Card",
+        "label": "Cartão",
         "fields": [
           {
-            "label": "Image"
+            "label": "Imagem"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Texto alternativo para a imagem",
+            "description": "Descreva o que pode ser visto na foto. O texto será lido para os usuários que necessitam utilizar leitores de tela."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Imagem-par",
+            "description": "Uma imagem opcional para ser combinada ao invés de utilizar dois cartões com a mesma imagem."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Texto alternativo para a Imagem-par",
+            "description": "Descreva o que pode ser visto na foto. O texto será lido para os usuários que necessitam utilizar leitores de tela."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Descrição",
+            "description": "Um texto curto opcional que aparecerá quando duas cartas forem combinadas corretamente."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Configurações comportamentais",
+      "description": "Estas opções permitirão que você controle como o jogo funciona.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Posicionar os cartões em um quadrado",
+          "description": "Tentará coincidir o número de linhas e colunas quando distribuir os cartões. Após, os cartões serão dimensionados para preencher o espaço."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Número de cartas para serem usadas",
+          "description": "Colocando um número maior que 2 fara com que o jogo escolha cartões aleatórios da lista de cartões."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Adicionar botão para tentar novamente quando o jogo acabar"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Aparência e percepção",
+      "description": "Controla o visual do jogo.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game.",
+          "label": "Cor tema",
+          "description": "Escolha uma cor para criar um tema para seu jogo.",
           "default": "#909090"
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Verso do cartão",
+          "description": "Use um verso customizado para seus cartões."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Localização",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Texto de virada de cartão",
+          "default": "Cartão virou"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Texto de tempo gasto",
+          "default": "Tempo gasto"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Texto de feedback",
+          "default": "Bom trabalho!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Texto do botão Tentar Novamente",
+          "default": "Tentar novamente?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Rótulo do botão Fechar",
+          "default": "Fechar"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Rótulo do jogo",
+          "default": "Jogo da memória. Forme pares de cartões."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Rótulo de fim de jogo",
+          "default": "Todas os cartões foram encontrados."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Rótulo de índice de cartão",
+          "default": "Cartão %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Rótulo de cartão não virado",
+          "default": "Não virado."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Rótulo de combinação",
+          "default": "Combinação encontrada."
         }
       ]
     }
