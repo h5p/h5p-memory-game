@@ -12,30 +12,71 @@
    * @param {string} [description]
    * @param {Object} [styles]
    */
-  MemoryGame.Card = function (image, id, alt, l10n, description, styles) {
+  MemoryGame.Card = function (image, id, alt, l10n, description, styles, audio) {
     /** @alias H5P.MemoryGame.Card# */
     var self = this;
 
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var path = H5P.getPath(image.path, id);
-    var width, height, $card, $wrapper, removedState, flippedState;
+    var path, width, height, $card, $wrapper, removedState, flippedState, audioPlayer;
 
     alt = alt || 'Missing description'; // Default for old games
 
-    if (image.width !== undefined && image.height !== undefined) {
-      if (image.width > image.height) {
-        width = '100%';
-        height = 'auto';
+    if (image && image.path) {
+      path = H5P.getPath(image.path, id);
+
+      if (image.width !== undefined && image.height !== undefined) {
+        if (image.width > image.height) {
+          width = '100%';
+          height = 'auto';
+        }
+        else {
+          height = '100%';
+          width = 'auto';
+        }
       }
       else {
-        height = '100%';
-        width = 'auto';
+        width = height = '100%';
       }
     }
-    else {
-      width = height = '100%';
+
+    if (audio) {
+      // Check if browser supports audio.
+      audioPlayer = document.createElement('audio');
+      if (audioPlayer.canPlayType !== undefined) {
+        // Add supported source files.
+        for (var i = 0; i < audio.length; i++) {
+          if (audioPlayer.canPlayType(audio[i].mime)) {
+            var source = document.createElement('source');
+            source.src = H5P.getPath(audio[i].path, id);
+            source.type = audio[i].mime;
+            audioPlayer.appendChild(source);
+          }
+        }
+      }
+
+      if (!audioPlayer.children.length) {
+        audioPlayer = null; // Not supported
+      }
+      else {
+        audioPlayer.controls = false;
+        audioPlayer.preload = 'auto';
+
+        var handlePlaying = function () {
+          if ($card) {
+            $card.addClass('h5p-memory-audio-playing');
+          }
+        };
+        var handleStopping = function () {
+          if ($card) {
+            $card.removeClass('h5p-memory-audio-playing');
+          }
+        };
+        audioPlayer.addEventListener('play', handlePlaying);
+        audioPlayer.addEventListener('ended', handleStopping);
+        audioPlayer.addEventListener('pause', handleStopping);
+      }
     }
 
     /**
@@ -74,6 +115,10 @@
         return;
       }
 
+      if (audioPlayer) {
+        audioPlayer.play();
+      }
+
       $card.addClass('h5p-flipped');
       self.trigger('flip');
       flippedState = true;
@@ -83,6 +128,11 @@
      * Flip card back.
      */
     self.flipBack = function () {
+      if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      }
+
       self.updateLabel(null, null, true); // Reset card label
       $card.removeClass('h5p-flipped');
       flippedState = false;
@@ -100,6 +150,11 @@
      * Reset card to natural state
      */
     self.reset = function () {
+      if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      }
+
       self.updateLabel(null, null, true); // Reset card label
       flippedState = false;
       removedState = false;
@@ -133,7 +188,7 @@
       $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">' +
                   '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
                   '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
-                    '<img src="' + path + '" alt="' + alt + '" style="width:' + width + ';height:' + height + '"/>' +
+                    (path ? '<img src="' + path + '" alt="' + alt + '" style="width:' + width + ';height:' + height + '"/>' + (audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : '') : '<i class="h5p-memory-audio-instead-of-image">') +
                   '</div>' +
                 '</div></li>')
         .appendTo($container)
@@ -176,6 +231,19 @@
             self.flip();
           })
           .end();
+
+      if (audioPlayer) {
+        $card.children('.h5p-back')
+          .click(function () {
+            if ($card.hasClass('h5p-memory-audio-playing')) {
+              audioPlayer.pause();
+              audioPlayer.currentTime = 0;
+            }
+            else {
+              audioPlayer.play();
+            }
+          })
+      }
     };
 
     /**
@@ -236,8 +304,9 @@
    */
   MemoryGame.Card.isValid = function (params) {
     return (params !== undefined &&
-            params.image !== undefined &&
-            params.image.path !== undefined);
+             (params.image !== undefined &&
+             params.image.path !== undefined) ||
+           params.audio);
   };
 
   /**
@@ -249,8 +318,9 @@
    */
   MemoryGame.Card.hasTwoImages = function (params) {
     return (params !== undefined &&
-            params.match !== undefined &&
-            params.match.path !== undefined);
+             (params.match !== undefined &&
+              params.match.path !== undefined) ||
+           params.matchAudio);
   };
 
   /**

@@ -318,3 +318,28 @@
 .h5p-memory-game .h5p-programatically-focusable {
   outline: none;
 }
+.h5p-memory-audio-instead-of-image {
+  font-family: 'H5PFontAwesome4';
+  width: 100%;
+  height: 100%;
+  font-style: normal;
+  color: #404040;
+  font-size: 2em;
+}
+.h5p-memory-audio-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: 'H5PFontAwesome4';
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+}
+.h5p-memory-audio-instead-of-image:before,
+.h5p-memory-audio-button:before {
+  content: "\f026";
+}
+.h5p-memory-audio-playing .h5p-memory-audio-instead-of-image:before,
+.h5p-memory-audio-playing .h5p-memory-audio-button:before {
+  content: "\f028";
+}

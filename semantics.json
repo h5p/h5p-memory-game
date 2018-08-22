@@ -34,6 +34,15 @@
           "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
         },
         {
+          "state": "new",
+          "name": "audio",
+          "type": "audio",
+          "importance": "high",
+          "label": "Audio Track",
+          "description": "An optional sound that plays when the card is turned.",
+          "optional": true
+        },
+        {
           "name": "match",
           "type": "image",
           "label": "Matching Image",
@@ -49,6 +58,15 @@
           "importance": "low",
           "optional": true,
           "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+        },
+        {
+          "state": "new",
+          "name": "matchAudio",
+          "type": "audio",
+          "importance": "low",
+          "label": "Matching Audio Track",
+          "description": "An optional sound that plays when the second card is turned.",
+          "optional": true
         },
         {
           "name": "description",
