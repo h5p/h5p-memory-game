@@ -15,16 +15,16 @@
             "label": "Imagen"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Texto alternativo para la imagen",
+            "description": "Describe lo que se puede ver en la foto. El texto es leído por una herramienta de conversion de texto a voz, a usuarios con discapacidad visual."
           },
           {
             "label": "Imagen coincidente",
             "description": "Una imagen opcional para emparejar, en vez de usar dos tarjetas con la misma imagen."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Texto alternativo para imagenes coincidentes",
+            "description": "El texto es leído por una herramienta de conversion de texto a voz, a usuarios con discapacidad visual."
           },
           {
             "label": "Descripción",
@@ -81,32 +81,32 @@
           "default": "¡Buen trabajo!"
         },
         {
-          "label": "Intente del botón Intente de nuevo",
+          "label": "Texto del botón Intente de nuevo",
           "default": "¿Volver a intentarlo?"
         },
         {
-          "label": "Etiqueta del botón Cerrar",
+          "label": "Texto del botón Cerrar",
           "default": "Cerrar"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Texto del juego",
+          "default": "Juego de memoria. Encuentra las cartas que hacen juego."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Texto del juego terminado",
+          "default": "Todas las cartas han sido encontradas."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Texto de indexación de la tarjeta",
+          "default": "Tarjeta %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Texto de tarjetas sin voltear",
+          "default": "Sin voltear."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Texto de la tarjeta coincidente",
+          "default": "Coincidencia encontrada."
         }
       ]
     }
