@@ -19,12 +19,20 @@
             "description": "如果遊戲中要配對的不是同一張圖像，那麼可以在這裡添加要配對的另一張圖像。"
           },
           {
+            "label": "Audio Track",
+            "description": "An optional sound that plays when the card is turned."
+          },
+          {
             "label": "配對成功文字（非必要項）",
             "description": "在找到配對時會跳出的文字訊息。"
           },
           {
             "label": "配對圖像的替代文字",
             "description": "在報讀器上用、或是配對圖像無法正常輸出時顯示的文字。"
+          },
+          {
+            "label": "Matching Audio Track",
+            "description": "An optional sound that plays when the second card is turned."
           },
           {
             "label": "配對成功文字（非必要項）",
