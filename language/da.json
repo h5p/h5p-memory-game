@@ -19,12 +19,20 @@
             "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
+            "label": "Audio Track",
+            "description": "An optional sound that plays when the card is turned."
+          },
+          {
             "label": "Matchende billede",
             "description": "Valgfrit billede som match i stedet for at have to kort med det samme billede."
           },
           {
             "label": "Alternative text for Matching Image",
             "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+          },
+          {
+            "label": "Matching Audio Track",
+            "description": "An optional sound that plays when the second card is turned."
           },
           {
             "label": "Beskrivelse",

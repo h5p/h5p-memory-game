@@ -34,7 +34,6 @@
           "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
         },
         {
-          "state": "new",
           "name": "audio",
           "type": "audio",
           "importance": "high",
@@ -60,7 +59,6 @@
           "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
         },
         {
-          "state": "new",
           "name": "matchAudio",
           "type": "audio",
           "importance": "low",
