@@ -16,7 +16,11 @@
           },
           {
             "label": "Irudiaren ordezko testua",
-            "description": "Deskribatu irudian ikusi daitekeena. Testua irakurketa tresna automatikoek irakurriko dute."
+            "description": "Deskribatu irudian ikusi daitekeena. Testua irakurketa tresna automatikoek irakurriko dute ikusmen urritasunak dituztenentzat."
+          },
+          {
+            "label": "Audio Pista",
+            "description": "Karta itzultzen denean erreproduzitzeko aukerazko soinua."
           },
           {
             "label": "Pareko irudia",
@@ -24,7 +28,11 @@
           },
           {
             "label": "Pareko irudiaren ordezko irudia",
-            "description": "Deskribatu argazkian ikusi daitekeena. Testua irakurketa tresna automatikoek irakurriko dute."
+            "description": "Deskribatu argazkian ikusi daitekeena. Testua irakurketa tresna automatikoek irakurriko dute ikusmen urritasunak dituztenentzat."
+          },
+          {
+            "label": "Pareko Audio Pista",
+            "description": "Bigarren karta itzultzen denean erreproduzitzeko aukerazko soinua."
           },
           {
             "label": "Deskribapena",
