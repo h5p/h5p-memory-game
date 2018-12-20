@@ -39,7 +39,8 @@
           "importance": "high",
           "label": "Audio Track",
           "description": "An optional sound that plays when the card is turned.",
-          "optional": true
+          "optional": true,
+          "extraTabs": ["AudioRecorder"]
         },
         {
           "name": "match",
@@ -64,7 +65,8 @@
           "importance": "low",
           "label": "Matching Audio Track",
           "description": "An optional sound that plays when the second card is turned.",
-          "optional": true
+          "optional": true,
+          "extraTabs": ["AudioRecorder"]
         },
         {
           "name": "description",
