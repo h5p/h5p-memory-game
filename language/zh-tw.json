@@ -19,12 +19,20 @@
             "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
           },
           {
+            "label": "Audio Track",
+            "description": "An optional sound that plays when the card is turned."
+          },
+          {
             "label": "相稱圖示",
             "description": "可選用一張與主圖示相稱的圖示,並非使用兩張相同的圖示."
           },
           {
             "label": "相稱圖示的替代文字",
             "description": "請描述此張圖示中可以看到什麼. 此段文字將做為閱讀器導讀文字，對視障使用者更為友善."
+          },
+          {
+            "label": "Matching Audio Track",
+            "description": "An optional sound that plays when the second card is turned."
           },
           {
             "label": "描述",

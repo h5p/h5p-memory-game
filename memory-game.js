@@ -22,7 +22,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var flipped, timer, counter, popup, $bottom, $taskComplete, $feedback, $wrapper, maxWidth, numCols;
+    var flipped, timer, counter, popup, $bottom, $taskComplete, $feedback, $wrapper, maxWidth, numCols, audioCard;
     var cards = [];
     var flipBacks = []; // Que of cards to be flipped back
     var numFlipped = 0;
@@ -218,6 +218,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      */
     var addCard = function (card, mate) {
       card.on('flip', function () {
+        if (audioCard) {
+          audioCard.stopAudio();
+        }
 
         // Always return focus to the card last flipped
         for (var i = 0; i < cards.length; i++) {
@@ -259,6 +262,15 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         // Count number of cards turned
         counter.increment();
+      });
+      card.on('audioplay', function () {
+        if (audioCard) {
+          audioCard.stopAudio();
+        }
+        audioCard = card;
+      });
+      card.on('audiostop', function () {
+        audioCard = undefined;
       });
 
       /**
@@ -384,16 +396,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       var cardParams = cardsToUse[i];
       if (MemoryGame.Card.isValid(cardParams)) {
         // Create first card
-        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles);
+        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio);
 
         if (MemoryGame.Card.hasTwoImages(cardParams)) {
           // Use matching image for card two
-          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.matchAlt, parameters.l10n, cardParams.description, cardStyles);
+          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.matchAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.matchAudio);
           cardOne.hasTwoImages = cardTwo.hasTwoImages = true;
         }
         else {
           // Add two cards with the same image
-          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles);
+          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio);
         }
 
         // Add cards to card list for shuffeling

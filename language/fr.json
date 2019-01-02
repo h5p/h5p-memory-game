@@ -19,12 +19,20 @@
             "description": "Décrivez ce que représente l'image. Le texte est lu par la synthèse vocale."
           },
           {
+            "label": "Audio Track",
+            "description": "An optional sound that plays when the card is turned."
+          },
+          {
             "label": "Image correspondante",
             "description": "Une image facultative à comparer au lieu d'utiliser deux cartes avec la même image."
           },
           {
             "label": "Texte alternatif pour l'image correspondante",
             "description": "Décrivez ce que représente l'image correspondante. Le texte est lu par la synthèse vocale."
+          },
+          {
+            "label": "Matching Audio Track",
+            "description": "An optional sound that plays when the second card is turned."
           },
           {
             "label": "Description",

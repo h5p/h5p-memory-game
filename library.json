@@ -2,8 +2,8 @@
   "title": "Memory Game",
   "description": "See how many cards you can remember!",
   "majorVersion": 1,
-  "minorVersion": 2,
-  "patchVersion": 14,
+  "minorVersion": 3,
+  "patchVersion": 0,
   "runnable": 1,
   "author": "Joubel",
   "license": "MIT",
@@ -52,6 +52,11 @@
       "machineName": "H5PEditor.VerticalTabs",
       "majorVersion": 1,
       "minorVersion": 3
+    },
+    {
+      "machineName": "H5PEditor.AudioRecorder",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ]
 }
