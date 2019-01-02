@@ -22,7 +22,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var flipped, timer, counter, popup, $bottom, $taskComplete, $feedback, $wrapper, maxWidth, numCols;
+    var flipped, timer, counter, popup, $bottom, $taskComplete, $feedback, $wrapper, maxWidth, numCols, audioCard;
     var cards = [];
     var flipBacks = []; // Que of cards to be flipped back
     var numFlipped = 0;
@@ -218,6 +218,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      */
     var addCard = function (card, mate) {
       card.on('flip', function () {
+        if (audioCard) {
+          audioCard.stopAudio();
+        }
 
         // Always return focus to the card last flipped
         for (var i = 0; i < cards.length; i++) {
@@ -259,6 +262,12 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         // Count number of cards turned
         counter.increment();
+      });
+      card.on('audioplay', function () {
+        audioCard = card;
+      });
+      card.on('audiostop', function () {
+        audioCard = undefined;
       });
 
       /**
