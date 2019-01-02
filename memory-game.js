@@ -264,6 +264,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         counter.increment();
       });
       card.on('audioplay', function () {
+        if (audioCard) {
+          audioCard.stopAudio();
+        }
         audioCard = card;
       });
       card.on('audiostop', function () {
