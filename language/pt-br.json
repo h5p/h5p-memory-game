@@ -19,12 +19,20 @@
             "description": "Descreva o que pode ser visto na foto. O texto será lido para os usuários que necessitam utilizar leitores de tela."
           },
           {
+            "label": "Audio Track",
+            "description": "An optional sound that plays when the card is turned."
+          },
+          {
             "label": "Imagem-par",
             "description": "Uma imagem opcional para ser combinada ao invés de utilizar dois cartões com a mesma imagem."
           },
           {
             "label": "Texto alternativo para a Imagem-par",
             "description": "Descreva o que pode ser visto na foto. O texto será lido para os usuários que necessitam utilizar leitores de tela."
+          },
+          {
+            "label": "Matching Audio Track",
+            "description": "An optional sound that plays when the second card is turned."
           },
           {
             "label": "Descrição",
