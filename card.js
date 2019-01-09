@@ -66,11 +66,13 @@
         var handlePlaying = function () {
           if ($card) {
             $card.addClass('h5p-memory-audio-playing');
+            self.trigger('audioplay');
           }
         };
         var handleStopping = function () {
           if ($card) {
             $card.removeClass('h5p-memory-audio-playing');
+            self.trigger('audiostop');
           }
         };
         audioPlayer.addEventListener('play', handlePlaying);
@@ -115,24 +117,20 @@
         return;
       }
 
-      if (audioPlayer) {
-        audioPlayer.play();
-      }
-
       $card.addClass('h5p-flipped');
       self.trigger('flip');
       flippedState = true;
+
+      if (audioPlayer) {
+        audioPlayer.play();
+      }
     };
 
     /**
      * Flip card back.
      */
     self.flipBack = function () {
-      if (audioPlayer) {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-      }
-
+      self.stopAudio();
       self.updateLabel(null, null, true); // Reset card label
       $card.removeClass('h5p-flipped');
       flippedState = false;
@@ -150,11 +148,7 @@
      * Reset card to natural state
      */
     self.reset = function () {
-      if (audioPlayer) {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-      }
-
+      self.stopAudio();
       self.updateLabel(null, null, true); // Reset card label
       flippedState = false;
       removedState = false;
@@ -236,8 +230,7 @@
         $card.children('.h5p-back')
           .click(function () {
             if ($card.hasClass('h5p-memory-audio-playing')) {
-              audioPlayer.pause();
-              audioPlayer.currentTime = 0;
+              self.stopAudio();
             }
             else {
               audioPlayer.play();
@@ -288,6 +281,16 @@
      */
     self.isRemoved = function () {
       return removedState;
+    };
+
+    /**
+     * Stop any audio track that might be playing.
+     */
+    self.stopAudio = function () {
+      if (audioPlayer) {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      }
     };
   };
 
