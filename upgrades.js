@@ -37,6 +37,9 @@ H5PUpgrades['H5P.MemoryGame'] = (function () {
         parameters.behaviour = {};
         parameters.behaviour.useGrid = false;
         parameters.behaviour.allowRetry = false;
+        parameters.behaviour.showTime = true;
+        parameters.behaviour.showTurns = true;
+        parameters.behaviour.showFeedback = true;
 
         finished(null, parameters);
       }
