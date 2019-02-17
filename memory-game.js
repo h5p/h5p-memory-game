@@ -37,7 +37,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         feedback: 'Good work!',
         tryAgain: 'Reset',
         closeLabel: 'Close',
-        label: 'Memory Game. Find the matching cards.',
+        label: 'Memory Game. Find the matching cards.',
         done: 'All of the cards have been found.',
         cardPrefix: 'Card %num: ',
         cardUnturned: 'Unturned.',
@@ -458,19 +458,32 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           appendTo: $bottom
         });
 
-        $feedback = $('<div class="h5p-feedback">' + parameters.l10n.feedback + '</div>').appendTo($bottom);
+        $feedback = $('<div class="h5p-feedback">' + '<div class="h5p-statusLine" id="h5p-showFeedback" hidden="true">' + parameters.l10n.feedback + '</div>'+ '</div>').appendTo($bottom);
+
+        if(parameters.behaviour && parameters.behaviour.showFeedback){
+          $feedback.find('div#h5p-showFeedback').show();
+        }
 
         // Add status bar
-        var $status = $('<dl class="h5p-status">' +
-                        '<dt>' + parameters.l10n.timeSpent + ':</dt>' +
-                        '<dd class="h5p-time-spent"><time role="timer" datetime="PT0M0S">0:00</time><span class="h5p-memory-hidden-read">.</span></dd>' +
-                        '<dt>' + parameters.l10n.cardTurns + ':</dt>' +
-                        '<dd class="h5p-card-turns">0<span class="h5p-memory-hidden-read">.</span></dd>' +
-                        '</dl>').appendTo($bottom);
+          var $status = $('<dl class="h5p-status">' + '<div class="h5p-statusLine" id="h5p-showTime" hidden="true">' +
+                          '<dt>' + parameters.l10n.timeSpent + ':</dt>' +
+                          '<dd class="h5p-time-spent"><time role="timer" datetime="PT0M0S">0:00</time><span class="h5p-memory-hidden-read">.</span></dd>' +
+                          '</div>' + '<div class="h5p-statusLine" id="h5p-showTurns" hidden="true">' + '<dt>' + parameters.l10n.cardTurns + ':</dt>' +
+                          '<dd class="h5p-card-turns">0<span class="h5p-memory-hidden-read">.</span></dd>' +
+                          '</div>' + '</dl>').appendTo($bottom);
 
-        timer = new MemoryGame.Timer($status.find('time')[0]);
-        counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
-        popup = new MemoryGame.Popup($container, parameters.l10n);
+          timer = new MemoryGame.Timer($status.find('time')[0]);
+          counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
+          popup = new MemoryGame.Popup($container, parameters.l10n);
+
+          if (parameters.behaviour){
+            if(parameters.behaviour.showTime){
+              $status.find('div#h5p-showTime').show();
+            }
+            if(parameters.behaviour.showTurns){
+              $status.find('div#h5p-showTurns').show();
+            }
+          }
 
         $container.click(function () {
           popup.close();
