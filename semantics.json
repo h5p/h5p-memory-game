@@ -111,6 +111,27 @@
         "label": "Add button for retrying when the game is over",
         "importance": "low",
         "default": true
+      },
+      {
+        "name": "showTime",
+        "type": "boolean",
+        "label": "Show timer",
+        "importance": "low",
+        "default": true
+      },
+      {
+        "name": "showTurns",
+        "type": "boolean",
+        "label": "Show card turns",
+        "importance": "low",
+        "default": true
+      },
+      {
+        "name": "showFeedback",
+        "type": "boolean",
+        "label": "Show feedback",
+        "importance": "low",
+        "default": true
       }
     ]
   },
@@ -193,7 +214,7 @@
         "importance": "low",
         "name": "label",
         "type": "text",
-        "default": "Memory Game. Find the matching cards."
+        "default": "Memory Game. Find the matching cards."
       },
       {
         "label": "Game finished label",
