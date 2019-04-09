@@ -3,118 +3,118 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Vaikimisi"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "Kaardid",
+      "entity": "kaart",
       "field": {
-        "label": "Card",
+        "label": "Kaart",
         "fields": [
           {
-            "label": "Image"
+            "label": "Pilt"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Pildi alternatiivtekst",
+            "description": "Kirjelda, mis pildil näha on. Tekst on mõeldud vaegnägijaile tekstilugeriga kuulamiseks."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Heliriba",
+            "description": "Valikheli, mida mängitakse kaardi pööramisel."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Sobituv pilt",
+            "description": "Valikuline pilt võrdlemiseks, selmet kasutada kahte kaarti sama pildiga."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Sobituva pildi alternatiivtekst",
+            "description": "Kirjelda, mis pildil näha on. Tekst on mõeldud vaegnägijaile tekstilugeriga kuulamiseks."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Sobituv heliriba",
+            "description": "Valikheli, mida mängitakse teise kaardi pööramisel."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Kirjeldus",
+            "description": "Valikuline lühitekst, mida näidatakse hüpikaknas peale kahe sobituva kaardi leidmist."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Käitumisseaded",
+      "description": "Need valikud võimaldavad sul kontrollida mängu käitumist.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Aseta kaardid väljakule",
+          "description": "Proovib sobitada ridade ja veergude arvu kaartide asetamisel. Peale seda muudetakse kaartide suurust, et täita neid hoidev raam."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Kasutatav kaartide arv",
+          "description": "Määrates selle arvu kahest suuremaks valib mäng kaartide loetelust juhuslikud kaardid."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Lisa Proovi uuesti nupp lõppenud mängule"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Välimus",
+      "description": "Säti mängu visuaali.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game.",
+          "label": "Teemavärv",
+          "description": "Vali oma mängu teemavärv.",
           "default": "#909090"
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Kaardi taust",
+          "description": "Kasuta kohandatud kaarditausta."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Kohandamine",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Kaardi pööramise tekst",
+          "default": "Kaart pöörab"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Aega kulunud tekst",
+          "default": "Aega kulunud"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Tagasiside tekst",
+          "default": "Hea töö!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Proovi uuesti nupu tekst",
+          "default": "Proovida uuesti?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Sulge nupu tekst",
+          "default": "Sulge"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Mängu pealkiri",
+          "default": "Mälumäng. Leida sobituvad kaardid."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Mäng on lõppenud silt",
+          "default": "Kõik kaardid on leitud."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Kaardi indeksi silt",
+          "default": "Kaart %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Kaart pööramata silt",
+          "default": "Pööramata."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Kaart sobitub silt",
+          "default": "Vaste leitud."
         }
       ]
     }
