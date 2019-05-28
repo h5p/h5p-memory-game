@@ -77,44 +77,44 @@
       "label": "Превод и локализация",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Брой обърнати карти",
+          "default": "Обърнати карти"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Вашето време",
+          "default": "Вашето време"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Обратна връзка",
+          "default": "Браво!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Бутон за повторен опит",
+          "default": "Искаш ли да опиташ пак?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Бутон за затваряне",
+          "default": "Затвори"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Етикет на Играта",
+          "default": "Имате ли добра памет? Намерете еднаквите карти"
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Етикет за край на играта",
+          "default": "Всички карти са намерени"
         },
         {
           "label": "Card indexing label",
           "default": "Card %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Етикет за необърната карта.",
+          "default": "Необърната карта."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Етикет за открито съвпадение на карти",
+          "default": "Имате съвпадение."
         }
       ]
     }
