@@ -1,87 +1,120 @@
 {
-  "semantics":[
+  "semantics": [
     {
-      "widgets":[
+      "widgets": [
         {
-          "label":"Vorgaben"
+          "label": "Eingabemaske"
         }
       ],
-      "label":"Karten",
-      "entity":"karte",
-      "field":{
-        "label":"Karte",
-        "fields":[
+      "label": "Karten",
+      "entity": "Karte",
+      "field": {
+        "label": "Karte",
+        "fields": [
           {
-            "label":"Bild"
+            "label": "Bild"
           },
           {
-            "label":"Passendes Bild",
-            "description":"Ein optionales anderes Bild als Gegenstück statt zwei Karten mit dem selben Bild zu nutzen"
+            "label": "Alternativtext für das Bild",
+            "description": "Beschreibt, was im Bild zu sehen ist. Dieser Text wird von Vorlesewerkzeugen für Sehbehinderte genutzt."
           },
           {
-            "label":"Beschreibung",
-            "description":"Ein kurzer Text, der angezeigt wird, sobald zwei identische Karten gefunden werden."
+            "label": "Ton",
+            "description": "Optionaler Ton, der abgespielt wird, wenn die Karte umgedreht wird."
+          },
+          {
+            "label": "Zugehöriges Bild",
+            "description": "Ein optionales zweites Bild, das mit dem ersten ein Paar bildet, anstatt zweimal das selbe Bild zu verwenden."
+          },
+          {
+            "label": "Alternativtext für das zweite Bild",
+            "description": "Beschreibt, was im Bild zu sehen ist. Dieser Text wird von Vorlesewerkzeugen für Sehbehinderte genutzt."
+          },
+          {
+            "label": "Ton zum zweiten Bild",
+            "description": "Optionaler Ton, der abgespielt wird, wenn die zweite Karte umgedreht wird."
+          },
+          {
+            "label": "Beschreibung",
+            "description": "Ein kurzer optionaler Text, der angezeigt wird, wenn das Kartenpaar gefunden wurde."
           }
         ]
       }
     },
     {
-      "label":"Interaktionseinstellungen",
-      "description":"Mit diesen Einstellungen kannst du das Verhalten des Spiels anpassen.",
-      "fields":[
+      "label": "Verhaltenseinstellungen",
+      "description": "Diese Optionen legen fest, wie das Spiel im Detail funktioniert.",
+      "fields": [
         {
-          "label":"Positioniere die Karten in einem Quadrat.",
-          "description":"Es wird versucht, die Anzahl der Zeilen und Spalten passend zu den Karten einzustellen. Danach werden die Karten passend skaliert."
+          "label": "Karten in einem Quadrat anordnen",
+          "description": "Versucht die Karten in der gleichen Zahl von Reihen und Spalten zu anzuordnen. Danach wird die Kartengröße an den verfügbaren Platz angepasst."
         },
         {
-          "label":"Anzahl der zu nutzenden Karten",
-          "description":"Wird hier eine Zahl größer als 2 eingestellt, werden zufällig Karten aus der Kartenliste gezogen."
+          "label": "Anzahl der zu verwendenden Karten",
+          "description": "Wenn die Anzahl größer als 2 ist, werden zufällige Karten aus der Liste ausgewählt."
         },
         {
-          "label":"Füge einen Button hinzu, um das Spiel noch einmal neu zu starten zu können, wenn es vorbei ist."
+          "label": "\"Wiederholen\"-Button anzeigen"
         }
       ]
     },
     {
-      "label":"Design-Aspekte",
-      "description":"Beeinflusse die Optik des Spiels",
-      "fields":[
+      "label": "Erscheinungsbild",
+      "description": "Legt fest, wie das Spiel aussieht.",
+      "fields": [
         {
-          "label":"Themenfarbe",
-          "description":"Wähle eine Farbe, um ein Theme für deine Karten zu erstellen.",
-          "default":"#909090",
-          "spectrum":{
-            
-          }
+          "label": "Themenfarbe",
+          "description": "Wähle eine Farbe, um das Spiel zu individualisieren.",
+          "default": "#909090"
         },
         {
-          "label":"Kartenrückseite",
-          "description":"Nutze eine individuelle Rückseite für deine Karten."
+          "label": "Kartenrückseite",
+          "description": "Verwende eine benutzerdefinierte Rückseite für die Karten."
         }
       ]
     },
     {
-      "label":"Übersetzung",
-      "fields":[
+      "label": "Bezeichnungen und Beschriftungen",
+      "fields": [
         {
-          "label":"Text für die Anzahl der Züge",
-          "default":"Züge"
+          "label": "Text mit der Anzahl der Züge",
+          "default": "Züge"
         },
         {
-          "label":"Text für die benötigte Zeit",
-          "default":"Benötigte Zeit"
+          "label": "Text mit der bisher benötigten Zeit",
+          "default": "Benötigte Zeit"
         },
         {
-          "label":"Text als Rückmeldung",
-          "default":"Gute Arbeit!"
+          "label": "Rückmeldungstext",
+          "default": "Gut gemacht!"
         },
         {
-          "label":"Text des Wiederholen-Buttons",
-          "default":"Erneut versuchen?"
+          "label": "Beschriftung des \"Wiederholen\"-Buttons",
+          "default": "Nochmal spielen"
         },
         {
-          "label":"Beschriftung des \"Abbrechen\"-Buttons",
-          "default":"Schließen"
+          "label": "Beschriftung des \"Schließen\"-Buttons",
+          "default": "Schließen"
+        },
+        {
+          "label": "Bezeichnung des Spiels",
+          "default": "Memory - Finde die Kartenpaare!"
+        },
+        {
+          "label": "Meldung, wenn das Spiel abgeschlossen wurde",
+          "default": "Du hast alle Kartenpaare gefunden!"
+        },
+        {
+          "label": "Beschriftung der Kartennummer",
+          "default": "Karte %num:"
+        },
+        {
+          "label": "Text, wenn eine Karte wieder zugedeckt wurde",
+          "default": "Zugedeckt."
+        },
+        {
+          "label": "Text, wenn ein Paar gefunden wurde",
+          "default": "Paar gefunden."
         }
       ]
     }
