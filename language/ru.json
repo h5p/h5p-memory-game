@@ -3,118 +3,118 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "По умолчанию"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "Карточки",
+      "entity": "карточка",
       "field": {
-        "label": "Card",
+        "label": "Карточка",
         "fields": [
           {
-            "label": "Image"
+            "label": "Изображение"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Альтернативный текст для изображения",
+            "description": "Опишите, что видно на фото. Текст читается с помощью инструментов преобразования текста в речь, необходимых пользователям с нарушениями зрения."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Звуковая дорожка",
+            "description": "Дополнительный звук, который воспроизводится при повороте карточки."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Соответствующее изображения",
+            "description": "Необязательное изображение для сравнения вместо использования двух карточек с одинаковым изображением."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Альтернативный текст для соответствующего изображения",
+            "description": "Describe what can be seen in the photo. Текст читается с помощью инструментов преобразования текста в речь, необходимых пользователям с нарушениями зрения."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Соответствующая звуковая дорожка",
+            "description": "Дополнительный звук, который воспроизводится при повороте второй карточки."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Описание",
+            "description": "Дополнительный короткий текст, который появится после того, как найдены две подходящие карточки."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Настройки поведения",
+      "description": "Эти параметры позволят вам контролировать поведение игры.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Положение карточки на площадке",
+          "description": "Постарайтесь сопоставить количество столбцов и строк при разложении карточек. После чего карточки будут масштабироваться до размера контейнера."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Количество карточек для использования",
+          "description": "Если установить значение больше 2, игра будет выбирать случайные карточки из списка."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Добавить кнопку для повтора, когда игра закончена"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Смотреть и чувствовать",
+      "description": "Управление визуальными эффектами игры.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game.",
+          "label": "Цвет темы",
+          "description": "Выберите цвет, чтобы создать тему для своей карточной игры.",
           "default": "#909090"
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Обратная сторона карточки",
+          "description": "Использование произвольной спины для своих карточек."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Локализация",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Текст перевернутой карточки",
+          "default": "Карточка перевернута"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Текст затраченного времени",
+          "default": "Затраченное время"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Текст обратной связи",
+          "default": "Хорошая работа!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Текст кнопки повтора",
+          "default": "Попробовать еще раз?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Надпись кнопки закрытия",
+          "default": "Закрыть"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Надпись игры",
+          "default": "Игра на запоминание. Найти подходящие карточки."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Надпись завершения игры",
+          "default": "Все карточки были найдены."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Надпись номера карточки",
+          "default": "Карточка %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Надпись неперевернутой карточки",
+          "default": "Неперевернутая."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Надпись подходящей карточки",
+          "default": "Соответствие найдено."
         }
       ]
     }

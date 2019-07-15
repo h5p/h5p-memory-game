@@ -15,24 +15,24 @@
             "label": "Kuva"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Vaihtoehtoinen teksti kuvalle.",
+            "description": "Kuvaile tekstillä mitä kuvassa näkyy. Tämä teksti luetaan ruudunlukijasovelluksella henkilöille jotka käyttävät ko. sovelluksia."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Audioraita.",
+            "description": "Vapaaehtoinen äänitehoste joka soitetaan kun kortti käännetään."
           },
           {
             "label": "Vastattava kuva",
             "description": "Valinnainen kuva johon verrata korttia sen sijaan, että kortille etsitään toista samaa kuvaa pariksi."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Vaihtoehtoinen teksti kuvapareille.",
+            "description": "Kuvaile tekstillä mitä kuvassa näkyy. Tämä teksti luetaan ruudunlukijasovelluksella henkilöille jotka käyttävät ko. sovelluksia."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Vastaavien parien audioraita.",
+            "description": "Vapaaehtoinen äänitehoste joka soitetaan kun toinen kortti käännetään."
           },
           {
             "label": "Selite",
