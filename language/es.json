@@ -19,8 +19,8 @@
             "description": "Describe lo que se puede ver en la foto. El texto es leído por una herramienta de conversion de texto a voz, a usuarios con discapacidad visual."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Pista de Audio",
+            "description": "Un sonido opcional que se reproduce cuando se voltea la carta."
           },
           {
             "label": "Imagen coincidente",
@@ -31,8 +31,8 @@
             "description": "El texto es leído por una herramienta de conversion de texto a voz, a usuarios con discapacidad visual."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Pista de Audio Coincidente",
+            "description": "Un sonido opcional que se reproduce cuando se voltea la segunda carta."
           },
           {
             "label": "Descripción",
