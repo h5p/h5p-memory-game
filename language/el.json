@@ -3,118 +3,118 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Βασικό"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "Κάρτες",
+      "entity": "καρτας",
       "field": {
-        "label": "Card",
+        "label": "Κάρτα",
         "fields": [
           {
-            "label": "Image"
+            "label": "Εικόνα"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Εναλλακτικό κείμενο εικόνας",
+             "description": "Δώστε μια περιγραφή της εικόνας. Το κείμενο διαβάζεται από εργαλεία ανάγνωσης κειμένου (text-to-speech) που χρησιμοποιούνται από χρήστες με προβλήματα όρασης."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Ήχος ανοίγματος",
+            "description": "Ήχος που ακούγεται κάθε φορά που μια κάρτα ανοίγει (προαιρετικά)."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Αντίστοιχη εικόνα",
+            "description": "Αντίστοιχη εικόνα που μπορεί να χρησιμοποιηθεί προαιρετικά αντί της χρήσης της ίδιας εικόνας σε δύο κάρτες (προαιρετικά)."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Εναλλακτικό κείμενο αντίστοιχης εικόνας",
+            "description": "Δώστε μια περιγραφή της εικόνας. Το κείμενο διαβάζεται από εργαλεία ανάγνωσης κειμένου (text-to-speech) που χρησιμοποιούνται από χρήστες με προβλήματα όρασης."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Ήχος αντιστοίχισης",
+            "description": "Ήχος που ακούγεται κάθε φορά που δύο κάρτες αντιστοιχίζονται μεταξύ τους (προαιρετικά)."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Κείμενο αντιστοίχισης",
+            "description": "Σύντομο κείμενο που εμφανίζεται κάθε φορά που δύο κάρτες αντιστοιχίζονται μεταξύ τους (προαιρετικά)."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Ρυθμίσεις παιχνιδιού",
+      "description": "Αυτές οι ρυθμίσεις σας επιτρέπουν να καθορίσετε τον τρόπο λειτουργίας του παιχνιδιού.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Διάταξη καρτών σε τετράγωνο",
+          "description": "Κατά τη διάταξη των καρτών επιχειρείται ο αριθμός των στηλών να είναι ίδιος με τον αριθμό των γραμμών. Οι διαστάσεις των καρτών προσαρμόζονται."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Αριθμός καρτών που χρησιμοποιούνται",
+          "description": "Επιλέγοντας αριθμό μεγαλύτερο του δύο (2) οδηγείτε το παιχνίδι στην τυχαία επιλογή καρτών από τη συνολική λίστα."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Προσθήκη κουμπιού νέας προσπάθειας μετά την ολοκλήρωση του παιχνιδιού"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Εμφάνιση",
+      "description": "Έλεγχος της εμφάνισης του παιχνιδιού.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game.",
+          "label": "Χρώμα \"θέματος\"",
+          "description": "Επιλέξτε ένα χρώμα για τη δημιουργία \"θέματος\" για το παιχνίδι μνήμης.",
           "default": "#909090"
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Πίσω πλευρά καρτών",
+          "description": "Χρησιμοποιήστε μια δική σας εικόνα για την πίσω πλευρά των καρτών."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Προσαρμογή",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Κείμενο ανοίγματος κάρτας",
+          "default": "Άνοιγμα κάρτας"
         },
         {
           "label": "Time spent text",
-          "default": "Time spent"
+          "default": "Χρόνος"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Κείμενο ανατροφοδότησης",
+          "default": "Μπράβο!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Κείμενο κουμπιού νέας προσπάθειας",
+          "default": "Επανάληψη"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Ετικέτα κουμπιού κλεισίματος",
+          "default": "Κλείσιμο"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Ετικέτα παιχνιδιού",
+          "default": "Παιχνίδι μνήμης. Αντιστοίχισε τις κάρτες που ταιριάζουν μεταξύ τους."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Ετικέτα ολοκλήρωσης παιχνιδιού",
+          "default": "Έχουν αντιστοιχιστεί όλες οι κάρτες!"
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Ετικέτα ταξινόμησης κάρτας",
+          "default": "Κάρτα %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Ετικέτα κλειστής κάρτας",
+          "default": "Κλειστή."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Ετικέτα κάρτας που έχει αντιστοιχιστεί",
+          "default": "Έχει αντιστοιχιστεί."
         }
       ]
     }
