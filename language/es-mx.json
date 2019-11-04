@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Color del tema",
-          "description": "Elegir un color para crear un tema para su juego de cartas.",
-          "default": "#909090"
+          "description": "Elegir un color para crear un tema para su juego de cartas."
         },
         {
           "label": "Parte posterior de la tarjeta",

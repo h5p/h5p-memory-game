@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "主题色调",
-          "description": "选择游戏环境要使用的色调。",
-          "default": "#909090"
+          "description": "选择游戏环境要使用的色调。"
         },
         {
           "label": "背面图像（非必要项）",
