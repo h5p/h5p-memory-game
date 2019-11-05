@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Themakleur",
-          "description": "Kies een themakleur voor kaarten van je geheugenspel.",
-          "default": "#909090"
+          "description": "Kies een themakleur voor kaarten van je geheugenspel."
         },
         {
           "label": "Achterkant kaart",

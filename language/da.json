@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Farvetema",
-          "description": "Vælg en farve til bagsiden af dine kort.",
-          "default": "#909090"
+          "description": "Vælg en farve til bagsiden af dine kort."
         },
         {
           "label": "Bagsidebillede",
