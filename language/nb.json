@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Temafarge",
-          "description": "Velg en farge for å skape et tema over kortspillet ditt.",
-          "default": "#909090"
+          "description": "Velg en farge for å skape et tema over kortspillet ditt."
         },
         {
           "label": "Kortbaksiden",
