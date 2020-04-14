@@ -7,7 +7,7 @@
         }
       ],
       "label": "Tarjetas",
-      "entity": "card",
+      "entity": "tarjeta",
       "field": {
         "label": "Tarjeta",
         "fields": [
