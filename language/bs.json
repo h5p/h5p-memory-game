@@ -15,24 +15,24 @@
             "label": "Slika"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Alternativni tekst za sliku",
+            "description": "Opiši šta može biti viđeno na slici. Tekst se čita elektronski za vizualno neuparene korisnike."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Audio traka",
+            "description": "Opcionalan zvuk koji se čuje kada se okrene karta."
           },
           {
             "label": "Ista slika",
-            "description": "Opcionalna slika koja se koristi umjestodvije iste slike."
+            "description": "Opcionalna slika koja se koristi umjesto dvije iste slike."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Alternativni tekst za sliku podudaranja",
+            "description": "Opiši šta može biti viđeno na slici. Tekst se čita elektronski za vizualno neuparene korisnike."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Zvuk podudaranja",
+            "description": "Opcionalan zvuk koji se čuje kada se okrene druga karta."
           },
           {
             "label": "Opis",
@@ -54,20 +54,20 @@
           "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Dodaj dugme za ponovni pokušaj kada je igra gotova"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Pogledaj i osjeti",
+      "description": "Kontroliraj u igri ono što vidiš.",
       "fields": [
         {
-          "label": "Theme Color",
+          "label": "Boja teme",
           "description": "Choose a color to create a theme for your card game."
         },
         {
-          "label": "Card Back",
+          "label": "Pozadina karte",
           "description": "Use a custom back for your cards."
         }
       ]
@@ -92,28 +92,28 @@
           "default": "Pokušaj ponovo?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Oznaka za dugme zatvori",
+          "default": "Zatvori"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Oznaka za igru",
+          "default": "Memory igra. Pronađi kartu koja se podudara."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Oznaka za završenu igru",
+          "default": "Sve karte su pronađene."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Oznaka za indeksiranje karata",
+          "default": "Karta %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Oznaka za neokrenutu kartu",
+          "default": "Neokrenuta."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Oznaka za kartu podudaranja",
+          "default": "Pronađeno podudaranje."
         }
       ]
     }
