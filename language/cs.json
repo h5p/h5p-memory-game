@@ -3,117 +3,117 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Výchozí"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "Karty",
+      "entity": "karta",
       "field": {
-        "label": "Card",
+        "label": "Karta",
         "fields": [
           {
-            "label": "Image"
+            "label": "Obrázek"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Alternativní text pro obrázek",
+            "description": "Popište, co lze na fotografii vidět. Text je čten pomocí nástrojů převodu textu na řeč, které potřebují zrakově hendikepovaní uživatelé."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Zvuková stopa",
+            "description": "Volitelný zvuk, který se přehraje při otočení karty."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Odpovídající obrázek",
+            "description": "Volitelný obrázek, který bude odpovídat namísto použití dvou karet se stejným obrázkem."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Alternativní text pro odpovídající obrázek",
+            "description": "Popište, co lze na fotografii vidět. Text je čten pomocí nástrojů převodu textu na řeč, které potřebují zrakově hendikepovaní uživatelé."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Odpovídající zvuková stopa",
+            "description": "Volitelný zvuk, který se přehraje při otočení druhé karty."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Popis",
+            "description": "Volitelný krátký text, který se objeví, jakmile jsou nalezeny dvě odpovídající karty."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Nastavení chování",
+      "description": "Tyto možnosti vám umožní řídit, jak se hra bude chovat.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Umístit karty do čtverce",
+          "description": "Při rozložení karet se bude snažit porovnat počet sloupců a řádků. Poté budou karty upraveny podle velikosti kontejneru."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Počet karet k použití",
+          "description": "Pokud toto nastavíte na číslo větší než 2, bude hra vybírat náhodné karty ze seznamu karet."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Tlačítko pro opakování pokusu o ukončení hry"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Vzhled a pocit",
+      "description": "Ovládat vizuální prvky hry.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "label": "Barva motivu",
+          "description": "Vyberte barvu pro vytvoření motivu pro vaši karetní hru."
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Zadní strana karty",
+          "description": "Použijte vlastní zadní stranu karet."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Localizace",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Text pro otočení karet",
+          "default": "Otočení karet"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Text pro strávený čas",
+          "default": "Strávený čas"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Text zpětné vazby",
+          "default": "Výborně!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Text tlačítka Zkusit znovu",
+          "default": "Zkusit znovu?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Text tlačítka Zavřít",
+          "default": "Zavřít"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Popisek hry",
+          "default": "Paměťová hra. Najděte odpovídající karty. (Pexeso)."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Popisek konce hry",
+          "default": "Všechny karty byly nalezeny."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Popisek indexu karty",
+          "default": "Karta %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Popisek neotočené karty",
+          "default": "Neotočená."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Popisek shody karet",
+          "default": "Nalezena shoda."
         }
       ]
     }
