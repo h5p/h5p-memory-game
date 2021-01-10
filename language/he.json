@@ -3,40 +3,40 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "ברירת מחדל"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "קלפים",
+      "entity": "קלף",
       "field": {
-        "label": "Card",
+        "label": "קלף",
         "fields": [
           {
-            "label": "Image"
+            "label": "תמונה"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "תוכן חלופי לתמונה",
+            "description": "תאר מה אפשר לראות בתמונה. הטקסט נקרא על ידי כלי טקסט-לדיבור הנחוצים למשתמשים בעלי לקויות ראייה."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "ערוץ שמע",
+            "description": "צליל אופציונלי שמתנגן כאשר הופכים את הקלף."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "תמונה תואמת",
+            "description": "תמונה אופציונלית להתאמה במקום להשתמש בשני קלפים עם אותה התמונה."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "טקסט חליפי לתמונה תואמת",
+            "description": "תאר מה אפשר לראות בתמונה. הטקסט נקרא על ידי כלי טקסט-לדיבור שנחוצים למשתמשים בעלי לקויות ראייה."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "ערוץ שמע תואם",
+            "description": "צליל אופציונלי שמתנן כאשר הופכים את הקלף השני."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "תיאור",
+            "description": "טקסט קצר אופציונלי יקפוץ ברגע ששני הקלפים התואמים יימצאו."
           }
         ]
       }
@@ -46,74 +46,74 @@
       "description": "These options will let you control how the game behaves.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "סדרו את הכרטיסים בריבוע",
+          "description": "ניסיון להתאים בין מספר הטורים והשורות בעת סידור הכרטיסים. לאחר מכן, גודל הכרטיסים יותאם למכל."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "מספר קלפים לשימוש",
+          "description": "להגדיר את זה למספר גדול מ-2 יגרום למשחק לבחור כרטיסים אקראיים מרשימת הכרטיסים."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "הוסף כפתור כדי לנסות שוב כאשר המשחק נגמר"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "הבט וחוש",
+      "description": "שליטה בהגדרות החזותיות של המשחק.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "label": "צבע נושא",
+          "description": "בחרו צבע ליצירת נושא למשחק הכרטיסים."
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "גב הכרטיס",
+          "description": "השתמש בגב מותאם אישית עבור הקלפים שלך."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "תרגום מקומי",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "תוכן הפיכת כרטיס",
+          "default": "הפיכת כרטיס"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "טקסט זמן שהושקע",
+          "default": "זמן שהושקע"
         },
         {
           "label": "משוב",
-          "default": "Good work!"
+          "default": "עבודה טובה!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "תוכן של כפתור ניסיון חוזר",
+          "default": "נסה שוב?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "תווית כפתור סגור",
+          "default": "סגור"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "תווית משחק",
+          "default": "משחק זיכרון. מצאו את הכרטיסים המתאימים."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "תווית המשחק נגמר",
+          "default": "נמצאו כל הכרטיסים."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "תווית מפתוח כרטיס",
+          "default": "כרטיס %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "תווית כרטיס לא הפוך",
+          "default": "לא הפוך."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "תווית כרטיס מותאם",
+          "default": "נמצאה התאמה."
         }
       ]
     }
