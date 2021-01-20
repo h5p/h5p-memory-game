@@ -20,7 +20,7 @@
           },
           {
             "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "description": "Een optioneel geluid dat afspeelt wanneer de kaart wordt omgedraaid."
           },
           {
             "label": "Omschrijving",
@@ -32,7 +32,7 @@
           },
           {
             "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "description": "Een optioneel geluid dat afspeelt wanneer de tweede kaart wordt omgedraaid."
           },
           {
             "label": "Omschrijving",

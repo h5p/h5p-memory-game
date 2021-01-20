@@ -436,9 +436,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       for (var i = 0; i < cards.length; i++) {
         cards[i].appendTo($list);
       }
-      cards[0].makeTabbable();
 
       if ($list.children().length) {
+        cards[0].makeTabbable();
+
         $('<div/>', {
           id: 'h5p-intro-' + numInstances,
           'class': 'h5p-memory-hidden-read',
@@ -475,6 +476,13 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         $container.click(function () {
           popup.close();
         });
+      }
+      else {
+        const $foo = $('<div/>')
+          .text('No card was added to the memory game!')
+          .appendTo($list);
+
+        $list.appendTo($container);
       }
     };
 

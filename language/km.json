@@ -42,7 +42,7 @@
       }
     },
     {
-      "label": "Beteende-inställningar",
+      "label": "Behavioural settings",
       "description": "These options will let you control how the game behaves.",
       "fields": [
         {
@@ -77,43 +77,43 @@
       "fields": [
         {
           "label": "Card turns text",
-          "default": "Card turns"
+          "default": "កាតបង្វិល"
         },
         {
           "label": "Time spent text",
-          "default": "Time spent"
+          "default": "ពេលចំណាយ"
         },
         {
-          "label": "Feedbacktext",
-          "default": "Good work!"
+          "label": "Feedback text",
+          "default": "ល្អណាស់!"
         },
         {
           "label": "Try again button text",
-          "default": "Try again?"
+          "default": "សាកម្តងទៀត?"
         },
         {
           "label": "Close button label",
-          "default": "Close"
+          "default": "បិទ"
         },
         {
           "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "default": "ល្បែងចងចាំ! រកកាតដែលផ្គូផ្គង"
         },
         {
           "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "default": "អ្នកបានរកឃើញកាតទាំងអស់ហើយ!"
         },
         {
           "label": "Card indexing label",
-          "default": "Card %num:"
+          "default": "កាត %num:"
         },
         {
           "label": "Card unturned label",
-          "default": "Unturned."
+          "default": "មិនបានបង្វិល។"
         },
         {
           "label": "Card matched label",
-          "default": "Match found."
+          "default": "រកឃើញកាតផ្គូផ្គង។"
         }
       ]
     }
