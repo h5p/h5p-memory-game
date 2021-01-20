@@ -3,117 +3,117 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Opció predeterminada"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "Cartes",
+      "entity": "carta",
       "field": {
-        "label": "Card",
+        "label": "Carta",
         "fields": [
           {
-            "label": "Image"
+            "label": "Imatge"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Text alternatiu per a la imatge",
+            "description": "Descriu el que es pot veure a la foto. El text és llegit per les eines de text a veu que necessiten els usuaris amb deficiència visual."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Pista d’àudio",
+            "description": "So opcional que es reprodueix en girar una carta."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Imatge coincident",
+            "description": "Imatge opcional per emparellar en lloc d’utilitzar dues cartes amb la mateixa imatge."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Text alternatiu per a la imatge",
+            "description": "Descriu el que es pot veure a la foto. El text és llegit per les eines de text a veu que necessiten els usuaris amb deficiència visual."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Pista d’àudio per a una coincidència",
+            "description": "So opcional que es reprodueix quan es gira la segona carta."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Descripció",
+            "description": "Text breu opcional que es mostrarà quan es trobin les dues cartes coincidents."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Opcions de comportament",
+      "description": "Aquestes opcions us permeten controlar com es comporta el joc.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Distribueix les cartes formant un quadrat",
+          "description": "Es provarà de fer coincidir el nombre de files i de columnes en disposar les cartes. Després, les cartes s’ajustaran al contenidor."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Nombre de targetes a utilitzar",
+          "description": "Si configureu aquest valor amb un número més gran que 2, el joc seleccionarà les cartes aleatòriament de la llista de cartes."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Afegeix el botó per tornar-ho a provar quan el joc finalitzi"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Aspecte visual",
+      "description": "Controleu els elements visuals del joc.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "label": "Color del tema",
+          "description": "Trieu un color per crear un tema per al joc de cartes."
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Revers de la carta",
+          "description": "Utilitzeu un revers personalitzat per a les cartes."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Localització",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Text dels girs de cartes",
+          "default": "Girs de cartes"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Text de temps transcorregut",
+          "default": "Temps dedicat"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Text del suggeriment",
+          "default": "Correcte!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Text del botó \"Torna-ho a provar\"",
+          "default": "Voleu tornar-ho a provar?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Etiqueta del botó de tancar",
+          "default": "Tanca"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Etiqueta del joc",
+          "default": "Joc de memòria.  Cerca les targetes coincidents."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Etiqueta \"El joc ha finalitzat\"",
+          "default": "S’han emparellat totes les cartes."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Etiqueta d’indexació de les cartes",
+          "default": "Carta %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Etiqueta per a les cartes no girades",
+          "default": "Sense girar."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Etiqueta per a les cartes coincidents",
+          "default": "S’ha trobat una coincidència."
         }
       ]
     }
