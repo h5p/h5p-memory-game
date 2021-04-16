@@ -3,117 +3,117 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Verstek"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "Kaarte",
+      "entity": "kaart",
       "field": {
-        "label": "Card",
+        "label": "Kaart",
         "fields": [
           {
-            "label": "Image"
+            "label": "Beeld"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Alternatiewe teks vir prent",
+            "description": "Beskryf wat jy in die foto kan sien. Die teks word gelees deur teks-na-spraak instrumente wat vir visueel beperkte gebruikers gebruik word."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Klankgreep",
+            "description": "'n Opsionele klank wat speel wanneer die kaartjie omgedraai word."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Passende Prent",
+            "description": "'n Opsionele prent om dit daar teenoor te laat pas in stede daarvan om twee kaartjies met dieselfde prent te gebruik."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Alternatiewe teks vir die passende prent",
+            "description": "Beskryf wat jy in die foto kan sien. Die teks word gelees deur teks-na-spraak instrumente wat vir visueel beperkte gebruikers gebruik word."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Passende klankgreep",
+            "description": "'n Opsionele klank wat speel wanneer die tweede kaartjie omgedraai word."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Beskrywing",
+            "description": "'n Opsionele kort teks wat opspring sodra die twee passende kaartjies gevind is."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Gedragsinstellings",
+      "description": "Hierdie opsies laat jou beheer hoe die spelletjie werk.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Plaas die kaartjies in 'n vierkant",
+          "description": "Sal probeer om die aantal kolomme en rye te pas wanneer jy die kaarte uitlê. Daarna sal die kaarte volgens die houer se grote aangepas word."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Aantal kaartjies om te gebruik",
+          "description": "As jy dit op 'n getal groter as 2 stel, sal die spelletjie willekeurige kaartjies uit die kaartlys kies."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Voeg 'n probeer weer knoppie by wanneer die spelletjie verby is"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Aansig en gevoel",
+      "description": "Beheer die visuele van die spelletjie.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "label": "Temakleur",
+          "description": "Kies 'n kleur om 'n tema vir jou kaartjie te skep."
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Kaartjie agterkant",
+          "description": "Gebruik verstek agterkant vir jou kaartjies."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Lokalisasie",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Kaartjie draaiteks",
+          "default": "Kaartjie draai"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Tyd bestee teks",
+          "default": "Tyd bestee"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Terugvoerteks",
+          "default": "Goeie werk!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Probeer weer knoppie teks",
+          "default": "Probeer weer?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Maak toe knoppie etiket",
+          "default": "Maak toe"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Spelletjie etiket",
+          "default": "Geheue spelletjie. Vind die passend kaartjies."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Speletjie verby etiket",
+          "default": "Al die kaartjies is gevind."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Kaart indeks etiket",
+          "default": "Kaartjie %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Onaangeraakte kaartjie etiket",
+          "default": "Onaangeraak."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Kaartjie gepas etiket",
+          "default": "Pasmaat gevind."
         }
       ]
     }
