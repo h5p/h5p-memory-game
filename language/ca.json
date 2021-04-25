@@ -97,7 +97,7 @@
         },
         {
           "label": "Etiqueta del joc",
-          "default": "Joc de memòria.  Cerca les targetes coincidents."
+          "default": "Joc de memòria. Cerca les targetes coincidents."
         },
         {
           "label": "Etiqueta \"El joc ha finalitzat\"",
