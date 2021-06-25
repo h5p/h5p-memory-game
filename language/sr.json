@@ -3,117 +3,117 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Уобичајено"
         }
       ],
-      "label": "Cards",
+      "label": "Картице",
       "entity": "card",
       "field": {
-        "label": "Card",
+        "label": "Картица",
         "fields": [
           {
-            "label": "Image"
+            "label": "Слика"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Алтернативни текст за слику",
+            "description": "Опишите шта се може видети на фотографији. Текст читају алати за претварање текста у говор који су потребни корисницима са оштећеним видом."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Аудио запис",
+            "description": "Опционални звук који се чује када се картица окрене."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Упарене слике",
+            "description": "Опционална слика за упоређивање уместо да користите две картице са истом сликом."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Алтернативни текст за подударање слике",
+            "description": "пишите шта се може видети на фотографији. Текст читају алати за претварање текста у говор који су потребни корисницима са оштећеним видом."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Подударање аудио записа",
+            "description": "Опционални звук који се чује када се окрене друга карта."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Опис",
+            "description": "Необавезни кратак текст који ће се појавити када се пронађу две одговарајуће картице."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Поставке понашања",
+      "description": "Ове опције ће вам омогућити да контролишете понашање игре.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Позиција карте у квадрат",
+          "description": "Покушаће да усклади број колона и редова приликом полагања карата. Након тога, картице ће се скалирати тако да одговарају контејнеру."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Број карата које треба користити",
+          "description": "Ако ово поставите на број већи од 2, игра ће изабрати случајне карте са листе карата."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Додај дугме за поновни покушај када се игра заврши"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Погледај и осети",
+      "description": "Контролишите визуелне елементе игре.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "label": "Боја теме",
+          "description": "Одаберите боју да бисте креирали тему за своју игру."
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Полеђина карте",
+          "description": "Користите прилагођену полеђину за картице."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Локализација",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Текст окрета картице",
+          "default": "Окретање карата"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Текст утрошеног времена",
+          "default": "Утрошено време"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Текст повратне информације",
+          "default": "Одлично!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Текст дугмета Покушај поново",
+          "default": "Покушај поново?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Наслов дугмета Затвори",
+          "default": "Затвори"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Наслов Игре",
+          "default": "Игра Меморија"
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Текст завршетка игре",
+          "default": "Све карте су пронађене."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Ознака за индексирање картица",
+          "default": "Картица %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Наслов Неокренуте картице",
+          "default": "Неокренуте."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Наслов Картице се подударају",
+          "default": "Подударају се картице."
         }
       ]
     }
