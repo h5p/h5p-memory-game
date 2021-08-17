@@ -42,7 +42,7 @@
       }
     },
     {
-      "label": "Behavioural settings",
+      "label": "הגדרות כלליות",
       "description": "These options will let you control how the game behaves.",
       "fields": [
         {
