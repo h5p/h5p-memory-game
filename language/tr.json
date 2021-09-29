@@ -42,7 +42,7 @@
       }
     },
     {
-      "label": "Çalışma ayarları"",
+      "label": "Etkinlik ayarları",
       "description": "Bu seçenekler aktivitenin çalışma şeklini denetlemenize izin verir.",
       "fields": [
         {
@@ -67,7 +67,7 @@
           "description": "Kart oyunu teması için bir renk seçiniz."
         },
         {
-          "label": "Kart Arkası",
+          "label": "Kart Görünümü",
           "description": "Kart arkası için bir görünüm seçin."
         }
       ]
@@ -88,7 +88,7 @@
           "default": "İyi oyundu!"
         },
         {
-          "label": "Tekrar ",
+          "label": "Tekrar",
           "default": "Tekrar denemek ister misiniz?"
         },
         {
@@ -96,7 +96,7 @@
           "default": "Kapat"
         },
         {
-          "label": "Oyun Etiketi",
+          "label": "Oyun Başlığı",
           "default": "Hazfıza oyunu. Kartları eşleştirin."
         },
         {
