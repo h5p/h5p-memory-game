@@ -84,7 +84,7 @@
           "default": "Time spent"
         },
         {
-          "label": "Feedback text",
+          "label": "Text de feedback",
           "default": "Good work!"
         },
         {
