@@ -42,7 +42,7 @@
       }
     },
     {
-      "label": "Configurações comportamentais",
+      "label": "Configurações gerais",
       "description": "Estas opções permitirão que você controle como o jogo funciona.",
       "fields": [
         {
@@ -84,7 +84,7 @@
           "default": "Tempo gasto"
         },
         {
-          "label": "Texto de feedback",
+          "label": "Texto do feedback",
           "default": "Bom trabalho!"
         },
         {
