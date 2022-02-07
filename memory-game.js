@@ -27,6 +27,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     var flipBacks = []; // Que of cards to be flipped back
     var numFlipped = 0;
     var removed = 0;
+    var score = 0;
     numInstances++;
 
     // Add defaults
@@ -117,6 +118,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       $taskComplete.show();
       $feedback.addClass('h5p-show'); // Announce
       $bottom.focus();
+      score = 1;
 
       // Create and trigger xAPI event 'completed'
       var completedEvent = self.createXAPIEventTemplate('completed');
@@ -158,6 +160,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       // Reset cards
       removed = 0;
+      score = 0;
 
       // Remove feedback
       $feedback[0].classList.remove('h5p-show');
@@ -550,6 +553,44 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     if (parameters.behaviour && parameters.behaviour.useGrid && cardsToUse.length) {
       self.on('resize', scaleGameSize);
     }
+
+    /**
+     * Used for contracts.
+     * Checks the maximum score for this task.
+     *
+     * @returns {Number} The maximum score.
+     */
+    self.getScore = function () {
+      return score;
+    };
+
+    /**
+     * Used for contracts.
+     * Checks the maximum score for this task.
+     *
+     * @returns {Number} The maximum score.
+     */
+    self.getMaxScore = function () {
+      return 1;
+    };
+
+    /**
+     * getXAPIData
+     * Contract used by report rendering engine.
+     *
+     * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
+     *
+     * @returns {Object} xAPI data
+     */
+    self.getXAPIData = function () {
+      var xAPIEvent = this.createXAPIEventTemplate('answered');
+      xAPIEvent.data.statement.result = {
+        score: this.getScore()
+      };
+      return {
+        statement: xAPIEvent.data.statement
+      };
+    };
   }
 
   // Extends the event dispatcher
