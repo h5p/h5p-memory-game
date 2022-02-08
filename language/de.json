@@ -89,7 +89,7 @@
         },
         {
           "label": "Beschriftung des \"Wiederholen\"-Buttons",
-          "default": "Nochmal spielen"
+          "default": "Nochmal spielen?"
         },
         {
           "label": "Beschriftung des \"Schließen\"-Buttons",

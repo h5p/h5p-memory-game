@@ -42,7 +42,7 @@
       }
     },
     {
-      "label": "Portaera-ezarpenak",
+      "label": "Portaeraren ezarpenak",
       "description": "Aukera hauen bidez kontrolatu ahal izango duzu zereginaren portaera.",
       "fields": [
         {
@@ -60,7 +60,7 @@
     },
     {
       "label": "Itxura",
-      "description": "Jokoaren itxura kontrolatu",
+      "description": "Kontrolatu ezazu jokoaren itxura.",
       "fields": [
         {
           "label": "Estiloaren kolorea",
@@ -84,7 +84,7 @@
           "default": "Igarotako denbora"
         },
         {
-          "label": "Feedback testua",
+          "label": "Feedbackaren testua",
           "default": "Lan bikaina!"
         },
         {
@@ -109,7 +109,7 @@
         },
         {
           "label": "buelta eman gabeko txartela",
-          "default": "Itzuli gabe"
+          "default": "Itzuli gabe."
         },
         {
           "label": "Parekatutako txartelaren etiketa",
