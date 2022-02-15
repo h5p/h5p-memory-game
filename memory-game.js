@@ -121,10 +121,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       score = 1;
 
       // Create and trigger xAPI event 'completed'
-      var completedEvent = self.createXAPIEventTemplate('completed');
-      completedEvent.setScoredResult(1, 1, self, true, true);
-      completedEvent.data.statement.result.duration = 'PT' + (Math.round(timer.getTime() / 10) / 100) + 'S';
-      self.trigger(completedEvent);
+      self.getXAPIData();
 
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
@@ -424,6 +421,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @param {H5P.jQuery} $container
      */
     self.attach = function ($container) {
+      // isRoot is undefined in the editor
+      if (this.isRoot !== undefined && this.isRoot()) {
+        this.setActivityStarted();
+      }
+      
       this.triggerXAPI('attempted');
       // TODO: Only create on first attach!
       $wrapper = $container.addClass('h5p-memory-game').html('');
@@ -583,12 +585,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @returns {Object} xAPI data
      */
     self.getXAPIData = function () {
-      var xAPIEvent = this.createXAPIEventTemplate('answered');
-      xAPIEvent.data.statement.result = {
-        score: this.getScore()
-      };
+      var completedEvent = self.createXAPIEventTemplate('completed');
+      completedEvent.setScoredResult(self.getScore(), self.getMaxScore(), self, true, true);
+      self.trigger(completedEvent);
       return {
-        statement: xAPIEvent.data.statement
+        statement: completedEvent.data.statement
       };
     };
   }
