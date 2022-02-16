@@ -420,11 +420,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @param {H5P.jQuery} $container
      */
     self.attach = function ($container) {
-      // isRoot is undefined in the editor
-      if (this.isRoot !== undefined && this.isRoot()) {
-        this.setActivityStarted();
-      }
-
       this.triggerXAPI('attempted');
       // TODO: Only create on first attach!
       $wrapper = $container.addClass('h5p-memory-game').html('');
@@ -556,18 +551,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     }
 
     /**
-     * Used for contracts.
-     * Checks the maximum score for this task.
+     * Get the user's score for this task.
      *
-     * @returns {Number} The maximum score.
+     * @returns {Number} The current score.
      */
     self.getScore = function () {
       return score;
     };
 
     /**
-     * Used for contracts.
-     * Checks the maximum score for this task.
+     * Get the maximum score for this task.
      *
      * @returns {Number} The maximum score.
      */
@@ -576,13 +569,14 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     };
 
     /**
-     * Create a 'completed' xapi event object.
+     * Create a 'completed' xAPI event object.
      *
      * @returns {Object} xAPI completed event
      */
     self.createXAPICompletedEvent = function () {
       var completedEvent = self.createXAPIEventTemplate('completed');
       completedEvent.setScoredResult(self.getScore(), self.getMaxScore(), self, true, true);
+      completedEvent.data.statement.result.duration = 'PT' + (Math.round(timer.getTime() / 10) / 100) + 'S';
       return completedEvent;
     }
 
