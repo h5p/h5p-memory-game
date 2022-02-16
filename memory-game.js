@@ -120,8 +120,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       $bottom.focus();
       score = 1;
 
-      // Create and trigger xAPI event 'completed'
-      self.getXAPIData();
+      self.trigger(self.createXAPICompletedEvent());
 
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
@@ -425,7 +424,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (this.isRoot !== undefined && this.isRoot()) {
         this.setActivityStarted();
       }
-      
+
       this.triggerXAPI('attempted');
       // TODO: Only create on first attach!
       $wrapper = $container.addClass('h5p-memory-game').html('');
@@ -577,7 +576,17 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     };
 
     /**
-     * getXAPIData
+     * Create a 'completed' xapi event object.
+     *
+     * @returns {Object} xAPI completed event
+     */
+    self.createXAPICompletedEvent = function () {
+      var completedEvent = self.createXAPIEventTemplate('completed');
+      completedEvent.setScoredResult(self.getScore(), self.getMaxScore(), self, true, true);
+      return completedEvent;
+    }
+
+    /**
      * Contract used by report rendering engine.
      *
      * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
@@ -585,9 +594,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @returns {Object} xAPI data
      */
     self.getXAPIData = function () {
-      var completedEvent = self.createXAPIEventTemplate('completed');
-      completedEvent.setScoredResult(self.getScore(), self.getMaxScore(), self, true, true);
-      self.trigger(completedEvent);
+      var completedEvent = self.createXAPICompletedEvent();
       return {
         statement: completedEvent.data.statement
       };
