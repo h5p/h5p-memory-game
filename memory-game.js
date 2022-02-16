@@ -27,6 +27,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     var flipBacks = []; // Que of cards to be flipped back
     var numFlipped = 0;
     var removed = 0;
+    var score = 0;
     numInstances++;
 
     // Add defaults
@@ -117,12 +118,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       $taskComplete.show();
       $feedback.addClass('h5p-show'); // Announce
       $bottom.focus();
+      score = 1;
 
-      // Create and trigger xAPI event 'completed'
-      var completedEvent = self.createXAPIEventTemplate('completed');
-      completedEvent.setScoredResult(1, 1, self, true, true);
-      completedEvent.data.statement.result.duration = 'PT' + (Math.round(timer.getTime() / 10) / 100) + 'S';
-      self.trigger(completedEvent);
+      self.trigger(self.createXAPICompletedEvent());
 
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
@@ -158,6 +156,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       // Reset cards
       removed = 0;
+      score = 0;
 
       // Remove feedback
       $feedback[0].classList.remove('h5p-show');
@@ -550,6 +549,50 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     if (parameters.behaviour && parameters.behaviour.useGrid && cardsToUse.length) {
       self.on('resize', scaleGameSize);
     }
+
+    /**
+     * Get the user's score for this task.
+     *
+     * @returns {Number} The current score.
+     */
+    self.getScore = function () {
+      return score;
+    };
+
+    /**
+     * Get the maximum score for this task.
+     *
+     * @returns {Number} The maximum score.
+     */
+    self.getMaxScore = function () {
+      return 1;
+    };
+
+    /**
+     * Create a 'completed' xAPI event object.
+     *
+     * @returns {Object} xAPI completed event
+     */
+    self.createXAPICompletedEvent = function () {
+      var completedEvent = self.createXAPIEventTemplate('completed');
+      completedEvent.setScoredResult(self.getScore(), self.getMaxScore(), self, true, true);
+      completedEvent.data.statement.result.duration = 'PT' + (Math.round(timer.getTime() / 10) / 100) + 'S';
+      return completedEvent;
+    }
+
+    /**
+     * Contract used by report rendering engine.
+     *
+     * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
+     *
+     * @returns {Object} xAPI data
+     */
+    self.getXAPIData = function () {
+      var completedEvent = self.createXAPICompletedEvent();
+      return {
+        statement: completedEvent.data.statement
+      };
+    };
   }
 
   // Extends the event dispatcher
