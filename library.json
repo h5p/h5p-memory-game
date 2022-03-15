@@ -3,7 +3,7 @@
   "description": "See how many cards you can remember!",
   "majorVersion": 1,
   "minorVersion": 3,
-  "patchVersion": 8,
+  "patchVersion": 9,
   "runnable": 1,
   "author": "Joubel",
   "license": "MIT",
@@ -46,7 +46,7 @@
     {
       "machineName": "H5PEditor.ColorSelector",
       "majorVersion": 1,
-      "minorVersion": 2
+      "minorVersion": 3
     },
     {
       "machineName": "H5PEditor.VerticalTabs",
