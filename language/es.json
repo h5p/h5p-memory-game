@@ -3,7 +3,7 @@
     {
       "widgets": [
         {
-          "label": "Predeterminado"
+          "label": "Por defecto"
         }
       ],
       "label": "Tarjetas",
@@ -16,11 +16,11 @@
           },
           {
             "label": "Texto alternativo para la imagen",
-            "description": "Describe lo que se puede ver en la foto. El texto es leído por herramientas de conversión de texto a voz, necesarias para usuarios con discapacidad visual."
+            "description": "Describe lo que se puede ver en la foto. El texto lo leen herramientas de conversión de texto a voz, necesarias para usuarios con discapacidad visual."
           },
           {
             "label": "Pista de Audio",
-            "description": "Un sonido opcional que se reproduce cuando se voltea la carta."
+            "description": "Un sonido opcional que se reproduce cuando se gira la carta."
           },
           {
             "label": "Imagen Coincidente",
@@ -28,21 +28,21 @@
           },
           {
             "label": "Texto alternativo para Imagen Coincidente",
-            "description": "Describir lo que puede verse en la foto. El texto es leído por herramientas de conversión de texto a voz, necesarias para usuarios con discapacidad visual."
+            "description": "Describir lo que puede verse en la foto. El texto lo leen herramientas de conversión de texto a voz, necesarias para usuarios con discapacidad visual."
           },
           {
-            "label": "Pista de Audio Coincidente",
-            "description": "Un sonido opcional que se reproduce cuando se voltea la segunda carta."
+            "label": "Pista de Audio para Coincidente",
+            "description": "Un sonido opcional que se reproduce cuando se gira la segunda carta."
           },
           {
             "label": "Descripción",
-            "description": "Un breve texto opcional que aparecerá una vez se encuentren las dos cartas coincidentes."
+            "description": "Un breve texto opcional que aparecerá cuando se encuentren las dos cartas coincidentes."
           }
         ]
       }
     },
     {
-      "label": "Configuraciones del comportamiento",
+      "label": "Configuración del comportamiento",
       "description": "Estas opciones le permitirán controlar cómo se comporta el juego.",
       "fields": [
         {
@@ -51,7 +51,7 @@
         },
         {
           "label": "Número de tarjetas a utilizar",
-          "description": "Establecer esto a un número mayor que 2 hará que el juego seleccione tarjetas aleatorias de la lista de tarjetas."
+          "description": "Si se establece un número mayor que 2, el juego seleccionará tarjetas aleatorias de la lista de tarjetas."
         },
         {
           "label": "Añadir botón para volver a intentarlo cuando el juego ha terminado"
@@ -64,11 +64,11 @@
       "fields": [
         {
           "label": "Color del Tema",
-          "description": "Elegir un color para crear un tema para su juego de tarjetas."
+          "description": "Elige un color para crear un tema para tu juego de tarjetas."
         },
         {
           "label": "Reverso de la Tarjeta",
-          "description": "Utilice una parte posterior personalizada para sus tarjetas."
+          "description": "Utiliza una parte posterior personalizada para tus tarjetas."
         }
       ]
     },
@@ -88,7 +88,7 @@
           "default": "¡Buen trabajo!"
         },
         {
-          "label": "Texto del botón Intente de nuevo",
+          "label": "Texto del botón Intentar de nuevo",
           "default": "¿Volver a intentarlo?"
         },
         {
@@ -101,15 +101,15 @@
         },
         {
           "label": "Etiqueta de juego terminado",
-          "default": "Todas las cartas han sido encontradas."
+          "default": "Has encontrado todas las cartas."
         },
         {
           "label": "Etiqueta de indexación de tarjeta",
           "default": "Tarjeta %num:"
         },
         {
-          "label": "Texto de tarjetas sin voltear",
-          "default": "Sin voltear."
+          "label": "Texto de tarjetas sin girar",
+          "default": "Sin girar."
         },
         {
           "label": "Texto de tarjeta coincidente",
