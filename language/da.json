@@ -77,11 +77,11 @@
       "fields": [
         {
           "label": "Tekst når kort vendes",
-          "default": "Kort vendes"
+          "default": "Kort du har vendt"
         },
         {
           "label": "Tekst for tidsforbrug",
-          "default": "Tidsforbrug"
+          "default": "Tid:"
         },
         {
           "label": "Feedback tekst",
@@ -89,7 +89,7 @@
         },
         {
           "label": "Prøv igen knaptekst",
-          "default": "Prøv igen?"
+          "default": "Prøv igen"
         },
         {
           "label": "Luk knaptekst",
@@ -97,23 +97,23 @@
         },
         {
           "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "default": "Vendespil. Find de kort, der passer sammen."
         },
         {
           "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "default": "Du har matchet alle kort."
         },
         {
           "label": "Card indexing label",
-          "default": "Card %num:"
+          "default": "Kort %num:"
         },
         {
           "label": "Card unturned label",
-          "default": "Unturned."
+          "default": "Ikke vendt."
         },
         {
           "label": "Card matched label",
-          "default": "Match found."
+          "default": "Par fundet."
         }
       ]
     }
