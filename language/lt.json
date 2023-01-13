@@ -1,0 +1,121 @@
+{
+  "semantics": [
+    {
+      "label": "Kortelės",
+      "field": {
+        "label": "Kortelė",
+        "fields": [
+          {
+            "label": "Paveikslėlis"
+          },
+          {
+            "label": "Alternatyvus paveikslėlio tekstas",
+            "description": "Apibūdinkite, ką galite pamatyti nuotraukoje. Tekstas skaitomas naudojant teksto į kalbą priemones, kurių reikia regėjimo negalią turintiems naudotojams."
+          },
+          {
+            "label": "Garso takelis",
+            "description": "An optional sound that plays when the card is turned."
+          },
+          {
+            "label": "Atitinkantis paveikslėlis",
+            "description": "An optional image to match against instead of using two cards with the same image."
+          },
+          {
+            "label": "Alternatyvus atitinkančio paveikslėlio tekstas",
+            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+          },
+          {
+            "label": "Atitinkantis garso takelis",
+            "description": "An optional sound that plays when the second card is turned."
+          },
+          {
+            "label": "Aprašymas",
+            "description": "An optional short text that will pop up once the two matching cards are found."
+          }
+        ]
+      },
+      "widgets": [
+        {
+          "label": "Numatytasis"
+        }
+      ],
+      "entity": "kortelė"
+    },
+    {
+      "label": "Veikimo nustatymai",
+      "fields": [
+        {
+          "label": "Padėti korteles į kvadratą",
+          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+        },
+        {
+          "label": "Naudojamų kortelių skaičius",
+          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+        },
+        {
+          "label": "Pridėti mygtuką pakartotiniam bandymui, kai žaidimas pasibaigs"
+        }
+      ],
+      "description": "These options will let you control how the game behaves."
+    },
+    {
+      "description": "Valdyti žaidimo vaizdus.",
+      "fields": [
+        {
+          "description": "Pasirinkite spalvą, kad sukurtumėte savo kortelių žaidimo temą.",
+          "label": "Temos spalva"
+        },
+        {
+          "description": "Kortoms naudoti tinkintą nugarėlę.",
+          "label": "Kortelės nugarėlė"
+        }
+      ],
+      "label": "Matyti ir jausti"
+    },
+    {
+      "fields": [
+        {
+          "label": "Kortelės apvertimo tekstas",
+          "default": "Kortelės apvertimas"
+        },
+        {
+          "label": "Praleisto laiko tekstas",
+          "default": "Praleistas laikas"
+        },
+        {
+          "label": "Atsiliepimo tekstas",
+          "default": "Gerai padirbėta!"
+        },
+        {
+          "label": "Bandyti dar kartą mygtuko tekstas",
+          "default": "Bandyti dar kartą?"
+        },
+        {
+          "label": "Uždaryti mygtuko pavadinimas",
+          "default": "Uždaryti"
+        },
+        {
+          "label": "Žaidimo pavadinimas",
+          "default": "Atminties žaidimas. Raskite atitinkančias korteles."
+        },
+        {
+          "label": "Žaidimas baigtas pavadinimas",
+          "default": "Visos kortelės rastos."
+        },
+        {
+          "label": "Kortelių indeksavimo pavadinimas",
+          "default": "Kortelė %num:"
+        },
+        {
+          "label": "Neatverstos kortelės pavadinimas",
+          "default": "Neatversta."
+        },
+        {
+          "label": "Kortelė atitiko pavadinimas",
+          "default": "Atitiktis rasta."
+        }
+      ],
+      "label": "Lokalizacija"
+    }
+  ]
+}
