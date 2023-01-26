@@ -106,7 +106,8 @@
         },
         {
           "label": "Lebo ya kuorodhesha kadi",
-          "default": "Kadi %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kadi %num/%total:"
         },
         {
           "label": "Lebo ya kadi ambayo haijageuzwa",

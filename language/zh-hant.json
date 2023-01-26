@@ -106,7 +106,8 @@
         },
         {
           "label": "卡片索引的顯示文字",
-          "default": "%num: 張卡片"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "%num/%total: 張卡片"
         },
         {
           "label": "卡片未翻開的顯示文字",

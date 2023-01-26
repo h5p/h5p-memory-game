@@ -106,7 +106,8 @@
         },
         {
           "label": "Card indexing label",
-          "default": "Kort %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kort %num av %total:"
         },
         {
           "label": "Card unturned label",

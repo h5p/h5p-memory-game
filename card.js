@@ -14,12 +14,13 @@
    * @extends H5P.EventDispatcher
    * @param {Object} image
    * @param {number} id
+   * @param {number} cardsTotal Number of cards in total.
    * @param {string} alt
    * @param {Object} l10n Localization
    * @param {string} [description]
    * @param {Object} [styles]
    */
-  MemoryGame.Card = function (image, id, alt, l10n, description, styles, audio) {
+  MemoryGame.Card = function (image, id, cardsTotal, alt, l10n, description, styles, audio) {
     /** @alias H5P.MemoryGame.Card# */
     var self = this;
 
@@ -107,7 +108,9 @@
       }
 
       // Update the card's label
-      $wrapper.attr('aria-label', l10n.cardPrefix.replace('%num', $wrapper.index() + 1) + ' ' + label);
+      $wrapper.attr('aria-label', l10n.cardPrefix
+        .replace('%num', $wrapper.index() + 1)
+        .replace('%total', cardsTotal) + ' ' + label);
 
       // Update disabled property
       $wrapper.attr('aria-disabled', reset ? null : 'true');
@@ -236,7 +239,13 @@
           }
         });
 
-      $wrapper.attr('aria-label', l10n.cardPrefix.replace('%num', $wrapper.index() + 1) + ' ' + l10n.cardUnturned);
+      $wrapper.attr(
+        'aria-label',
+        l10n.cardPrefix
+          .replace('%num', $wrapper.index() + 1)
+          .replace('%total', cardsTotal) + ' ' + l10n.cardUnturned
+      );
+
       $card = $wrapper.children('.h5p-memory-card')
         .children('.h5p-front')
           .click(function () {

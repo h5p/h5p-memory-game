@@ -106,7 +106,8 @@
         },
         {
           "label": "Texte de numérotation des cartes",
-          "default": "Carte %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Carte %num sur %total:"
         },
         {
           "label": "Texte pour les cartes non retournées",

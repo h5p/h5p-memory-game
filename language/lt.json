@@ -106,7 +106,8 @@
         },
         {
           "label": "Kortelių indeksavimo pavadinimas",
-          "default": "Kortelė %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kortelė %num iš %total:"
         },
         {
           "label": "Neatverstos kortelės pavadinimas",

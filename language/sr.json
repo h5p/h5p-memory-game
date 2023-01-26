@@ -106,7 +106,8 @@
         },
         {
           "label": "Ознака за индексирање картица",
-          "default": "Картица %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Картица %num од %total:"
         },
         {
           "label": "Наслов Неокренуте картице",

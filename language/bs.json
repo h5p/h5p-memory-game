@@ -106,7 +106,8 @@
         },
         {
           "label": "Oznaka za indeksiranje karata",
-          "default": "Karta %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Karta %num od %total:"
         },
         {
           "label": "Oznaka za neokrenutu kartu",

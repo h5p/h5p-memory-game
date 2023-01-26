@@ -106,7 +106,8 @@
         },
         {
           "label": "Надпис номера карточки",
-          "default": "Карточка %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Карточка %num/%total:"
         },
         {
           "label": "Надпис неперевернутої карточки",

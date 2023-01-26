@@ -106,7 +106,8 @@
         },
         {
           "label": "Ετικέτα ταξινόμησης κάρτας",
-          "default": "Κάρτα %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Κάρτα %num από %total:"
         },
         {
           "label": "Ετικέτα κλειστής κάρτας",

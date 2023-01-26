@@ -106,7 +106,8 @@
         },
         {
           "label": "תווית מפתוח קלף",
-          "default": "כרטיס %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "כרטיס %num של %total:"
         },
         {
           "label": "תווית קלף לא הפוך",

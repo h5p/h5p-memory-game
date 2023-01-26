@@ -106,7 +106,8 @@
         },
         {
           "label": "記憶牌索引名稱",
-          "default": "記憶牌數量 %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "記憶牌數量 %num/%total:"
         },
         {
           "label": "未翻轉記憶牌名稱",

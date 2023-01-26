@@ -106,7 +106,8 @@
         },
         {
           "label": "Etiqueta d’indexació de les cartes",
-          "default": "Carta %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Carta %num de %total:"
         },
         {
           "label": "Etiqueta per a les cartes no girades",

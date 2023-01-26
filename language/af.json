@@ -106,7 +106,8 @@
         },
         {
           "label": "Kaart indeks etiket",
-          "default": "Kaartjie %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kaartjie %num uit %total:"
         },
         {
           "label": "Onaangeraakte kaartjie etiket",

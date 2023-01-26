@@ -106,7 +106,8 @@
         },
         {
           "label": "Rótulo de Indexação de cartões",
-          "default": "Cartão %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Cartão %num de %total:"
         },
         {
           "label": "Rótulo de Cartão não virado",

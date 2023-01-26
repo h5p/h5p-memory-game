@@ -208,10 +208,11 @@
       },
       {
         "label": "Card indexing label",
+        "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
         "importance": "low",
         "name": "cardPrefix",
         "type": "text",
-        "default": "Card %num:"
+        "default": "Card %num of %total:"
       },
       {
         "label": "Card unturned label",

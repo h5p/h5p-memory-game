@@ -106,7 +106,8 @@
         },
         {
           "label": "Etykieta indeksująca karty",
-          "default": "Karta %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Karta %num z %total:"
         },
         {
           "label": "Etykieta nie odwróconej karty",

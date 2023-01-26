@@ -106,7 +106,8 @@
         },
         {
           "label": "Besedilo za razlikovanje kartic",
-          "default": "Kartica %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kartica %num od %total:"
         },
         {
           "label": "Besedilo za neobrnjene kartice",

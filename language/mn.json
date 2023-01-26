@@ -106,7 +106,8 @@
         },
         {
           "label": "Карт индексжүүлэх шошго",
-          "default": "Карт %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Карт %num/%total:"
         },
         {
           "label": "Картыг эргүүлээгүй шошго",

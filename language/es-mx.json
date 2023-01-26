@@ -106,7 +106,8 @@
         },
         {
           "label": "Etiqueta de indexación de tarjeta",
-          "default": "Tarjeta %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Tarjeta %num de %total:"
         },
         {
           "label": "Texto de tarjeta sin voltear",

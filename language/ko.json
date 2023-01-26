@@ -106,7 +106,8 @@
         },
         {
           "label": "카드 색인 라벨",
-          "default": "카드 %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "카드 %num/%total:"
         },
         {
           "label": "돌려지지 않은 카드 라벨",

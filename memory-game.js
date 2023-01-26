@@ -40,7 +40,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         closeLabel: 'Close',
         label: 'Memory Game. Find the matching cards.',
         done: 'All of the cards have been found.',
-        cardPrefix: 'Card %num: ',
+        cardPrefix: 'Card %num of %total:',
         cardUnturned: 'Unturned.',
         cardMatched: 'Match found.'
       }
@@ -400,16 +400,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       var cardParams = cardsToUse[i];
       if (MemoryGame.Card.isValid(cardParams)) {
         // Create first card
-        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio);
+        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, 2 * cardsToUse.length, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio);
 
         if (MemoryGame.Card.hasTwoImages(cardParams)) {
           // Use matching image for card two
-          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.matchAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.matchAudio);
+          cardTwo = new MemoryGame.Card(cardParams.match, id, 2 * cardsToUse.length, cardParams.matchAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.matchAudio);
           cardOne.hasTwoImages = cardTwo.hasTwoImages = true;
         }
         else {
           // Add two cards with the same image
-          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio);
+          cardTwo = new MemoryGame.Card(cardParams.image, id, 2 * cardsToUse.length, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio);
         }
 
         // Add cards to card list for shuffeling

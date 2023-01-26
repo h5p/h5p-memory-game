@@ -106,7 +106,8 @@
         },
         {
           "label": "Label kaartenindex",
-          "default": "Kaart %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kaart %num de %total:"
         },
         {
           "label": "Label niet gedraaide kaarten",

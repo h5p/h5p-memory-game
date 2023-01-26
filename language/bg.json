@@ -106,7 +106,8 @@
         },
         {
           "label": "Card indexing label",
-          "default": "Card %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Card %num of %total:"
         },
         {
           "label": "Етикет за необърната карта.",
