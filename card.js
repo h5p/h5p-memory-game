@@ -1,6 +1,13 @@
 (function (MemoryGame, EventDispatcher, $) {
 
   /**
+   * @private
+   * @constant {number} WCAG_MIN_CONTRAST_AA_LARGE Minimum contrast ratio.
+   * @see https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+   */
+  const WCAG_MIN_CONTRAST_AA_LARGE = 3;
+
+  /**
    * Controls all the operations for each card.
    *
    * @class H5P.MemoryGame.Card
@@ -354,8 +361,8 @@
 
     // Create color theme
     if (color) {
-      var frontColor = shade(color, 43.75 * invertShades);
-      var backColor = shade(color, 56.25 * invertShades);
+      const frontColor = shadeEnforceContrast(color, 43.75 * invertShades);
+      const backColor = shade(frontColor, 12.75 * invertShades);
 
       styles.front += 'color:' + color + ';' +
                       'background-color:' + frontColor + ';' +
@@ -385,6 +392,89 @@
   };
 
   /**
+   * Get RGB color components from color hex value.
+   *
+   * @private
+   * @param {string} color Color as hex value, e.g. '#123456`.
+   * @returns {number[]} Red, green, blue color component as integer from 0-255.
+   */
+  const getRGB = function (color) {
+    return [
+      parseInt(color.substring(1, 3), 16),
+      parseInt(color.substring(3, 5), 16),
+      parseInt(color.substring(5, 7), 16)
+    ];
+  }
+
+
+  /**
+   * Compute luminance for color.
+   *
+   * @private
+   * @see http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
+   * @param {string} color Color as hex value, e.g. '#123456`.
+   * @returns {number} Luminance, [0-1], 0 = lightest, 1 = darkest.
+   */
+  const computeLuminance = function (color) {
+    const rgba = getRGB(color)
+      .map(function (v) {
+        v = v / 255;
+
+        return v < 0.03928 ?
+          v / 12.92 :
+          Math.pow((v + 0.055) / 1.055, 2.4);
+      });
+
+    return rgba[0] * 0.2126 + rgba[1] * 0.7152 + rgba[2] * 0.0722;
+  }
+
+  /**
+   * Compute relative contrast between two colors.
+   *
+   * @private
+   * @see https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+   * @param {string} color1 Color as hex value, e.g. '#123456`.
+   * @param {string} color2 Color as hex value, e.g. '#123456`.
+   * @returns {number} Contrast, [1-21], 1 = no contrast, 21 = max contrast.
+   */
+  const computeContrast = function (color1, color2) {
+    const luminance1 = computeLuminance(color1);
+    const luminance2 = computeLuminance(color2);
+
+    return (
+      (Math.max(luminance1, luminance2) + 0.05) /
+      (Math.min(luminance1, luminance2) + 0.05)
+    )
+  }
+
+  /**
+   * Use shade function, but enforce minimum contrast
+   *
+   * @param {string} color Color as hex value, e.g. '#123456`.
+   * @param {number} percent Shading percentage.
+   * @returns {string} Color as hex value, e.g. '#123456`.
+   */
+  const shadeEnforceContrast = function (color, percent) {
+    let shadedColor;
+
+    do {
+      shadedColor = shade(color, percent);
+
+      if (shadedColor === '#ffffff' || shadedColor === '#000000') {
+        // Cannot brighten/darken, make original color 5% points darker/brighter
+        color = shade(color, -5 * Math.sign(percent));
+      }
+      else {
+        // Increase shading by 5 percent
+        percent = percent * 1.05;
+      }
+    }
+    while (computeContrast(color, shadedColor) < WCAG_MIN_CONTRAST_AA_LARGE);
+
+    return shadedColor;
+  }
+
+  /**
    * Convert hex color into shade depending on given percent
    *
    * @private
@@ -406,7 +496,7 @@
 
     for (var i = 1; i < 6; i += 2) {
       // Grab channel and convert from hex to dec
-      var channel = parseInt(color.substr(i, 2), 16);
+      var channel = parseInt(color.substring(i, i + 2), 16);
 
       // Calculate new shade and convert back to hex
       channel = (Math.round((max - channel) * percent) + channel).toString(16);

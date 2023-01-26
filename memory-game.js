@@ -679,9 +679,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
    * @return {number} From 1 to Infinity.
    */
   var getContrast = function (color) {
-    return 255 / ((parseInt(color.substr(1, 2), 16) * 299 +
-                   parseInt(color.substr(3, 2), 16) * 587 +
-                   parseInt(color.substr(5, 2), 16) * 144) / 1000);
+    return 255 / ((parseInt(color.substring(1, 3), 16) * 299 +
+                   parseInt(color.substring(3, 5), 16) * 587 +
+                   parseInt(color.substring(5, 7), 16) * 144) / 1000);
   };
 
   return MemoryGame;
