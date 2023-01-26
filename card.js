@@ -16,6 +16,9 @@
     /** @alias H5P.MemoryGame.Card# */
     var self = this;
 
+    // Keep track of tabbable state
+    self.isTabbable = false;
+
     // Initialize event inheritance
     EventDispatcher.call(self);
 
@@ -194,15 +197,23 @@
               event.preventDefault();
               return;
             case 39: // Right
-            case 40: // Down
               // Move focus forward
               self.trigger('next');
               event.preventDefault();
               return;
+            case 40: // Down
+              // Move focus down
+              self.trigger('down');
+              event.preventDefault();
+              return;
             case 37: // Left
-            case 38: // Up
               // Move focus back
               self.trigger('prev');
+              event.preventDefault();
+              return;
+            case 38: // Up
+              // Move focus up
+              self.trigger('up');
               event.preventDefault();
               return;
             case 35:
@@ -253,6 +264,7 @@
     self.makeTabbable = function () {
       if ($wrapper) {
         $wrapper.attr('tabindex', '0');
+        this.isTabbable = true;
       }
     };
 
@@ -262,6 +274,7 @@
     self.makeUntabbable = function () {
       if ($wrapper) {
         $wrapper.attr('tabindex', '-1');
+        this.isTabbable = false;
       }
     };
 
