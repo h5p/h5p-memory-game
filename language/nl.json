@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Themakleur",
-          "description": "Kies een themakleur voor kaarten van je spel."
+          "description": "Kies een themakleur voor kaarten van je spel.",
+          "default": "#707070"
         },
         {
           "label": "Achterkant kaart",

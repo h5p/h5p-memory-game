@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "description": "Choose a color to create a theme for your card game.",
+          "default": "#707070"
         },
         {
           "label": "Card Back",

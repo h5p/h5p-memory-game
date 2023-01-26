@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Color del Tema",
-          "description": "Elegir un color para crear un tema para su juego de tarjetas."
+          "description": "Elegir un color para crear un tema para su juego de tarjetas.",
+          "default": "#707070"
         },
         {
           "label": "Reverso de la Tarjeta",

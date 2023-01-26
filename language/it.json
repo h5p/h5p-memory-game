@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Colore del tema",
-          "description": "Scegli un colore per creare una tema per il tuo gioco di carte"
+          "description": "Scegli un colore per creare una tema per il tuo gioco di carte",
+          "default": "#707070"
         },
         {
           "label": "Dietro della carta",

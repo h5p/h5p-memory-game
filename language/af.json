@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Temakleur",
-          "description": "Kies 'n kleur om 'n tema vir jou kaartjie te skep."
+          "description": "Kies 'n kleur om 'n tema vir jou kaartjie te skep.",
+          "default": "#707070"
         },
         {
           "label": "Kaartjie agterkant",

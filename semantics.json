@@ -40,7 +40,9 @@
           "label": "Audio Track",
           "description": "An optional sound that plays when the card is turned.",
           "optional": true,
-          "widgetExtensions": ["AudioRecorder"]
+          "widgetExtensions": [
+            "AudioRecorder"
+          ]
         },
         {
           "name": "match",
@@ -66,7 +68,9 @@
           "label": "Matching Audio Track",
           "description": "An optional sound that plays when the second card is turned.",
           "optional": true,
-          "widgetExtensions": ["AudioRecorder"]
+          "widgetExtensions": [
+            "AudioRecorder"
+          ]
         },
         {
           "name": "description",

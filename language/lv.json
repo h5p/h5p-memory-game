@@ -9,6 +9,7 @@
       "label": "Kartītes",
       "entity": "kartīte",
       "field": {
+        "label": "Kartīte",
         "fields": [
           {
             "label": "Attēls"
@@ -37,11 +38,11 @@
             "label": "Apraksts",
             "description": "Neobligāts īss teksts, kas tiks parādīts, tiklīdz tiks atrastas divas atbilstošās kartītes."
           }
-        ],
-        "label": "Kartīte"
+        ]
       }
     },
     {
+      "label": "Uzvedības iestatījumi",
       "description": "Šie parametri ļaus jums kontrolēt spēles uzvedību.",
       "fields": [
         {
@@ -55,8 +56,7 @@
         {
           "label": "Pievienot atkārtota mēģinājuma pogu, kad spēle ir beigusies"
         }
-      ],
-      "label": "Uzvedības iestatījumi"
+      ]
     },
     {
       "label": "Izskats un uzvedība",
@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Motīva krāsa",
-          "description": "Izvēlieties krāsu, lai izveidotu kartīšu spēles motīvu."
+          "description": "Izvēlieties krāsu, lai izveidotu kartīšu spēles motīvu.",
+          "default": "#707070"
         },
         {
           "label": "Kartītes aizmugure",
@@ -88,8 +89,8 @@
           "default": "Labs darbs!"
         },
         {
-          "default": "Mēģināt vēlreiz?",
-          "label": "Mēģiniet vēlreiz pogas teksts"
+          "label": "Mēģiniet vēlreiz pogas teksts",
+          "default": "Mēģināt vēlreiz?"
         },
         {
           "label": "Pogas \"Aizvērt\" etiķete",

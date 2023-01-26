@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Estiloaren kolorea",
-          "description": "Aukeratu kolorea zure karta jokoarentzat estiloa sortzeko."
+          "description": "Aukeratu kolorea zure karta jokoarentzat estiloa sortzeko.",
+          "default": "#707070"
         },
         {
           "label": "Kartaren atzeko aldea",

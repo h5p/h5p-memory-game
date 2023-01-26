@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Cor do tema",
-          "description": "Escolle unha cor para crear un tema para o teu xogo de tarxetas."
+          "description": "Escolle unha cor para crear un tema para o teu xogo de tarxetas.",
+          "default": "#707070"
         },
         {
           "label": "Reverso da tarxeta",

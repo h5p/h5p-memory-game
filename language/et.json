@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Teemavärv",
-          "description": "Vali oma mängu teemavärv."
+          "description": "Vali oma mängu teemavärv.",
+          "default": "#707070"
         },
         {
           "label": "Kaardi taust",
