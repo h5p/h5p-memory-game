@@ -129,7 +129,7 @@
         "importance": "low",
         "description": "Choose a color to create a theme for your card game.",
         "optional": true,
-        "default": "#909090",
+        "default": "#707070",
         "widget": "colorSelector",
         "spectrum": {
           "showInput": true
