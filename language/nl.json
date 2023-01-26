@@ -114,6 +114,10 @@
           "default": "Niet gedraaid. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Label overeenkomende kaarten",
           "default": "Paar gevonden."
         }

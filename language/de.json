@@ -114,6 +114,10 @@
           "default": "Zugedeckt. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Text, wenn ein Paar gefunden wurde",
           "default": "Paar gefunden."
         }

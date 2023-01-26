@@ -42,6 +42,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         done: 'All of the cards have been found.',
         cardPrefix: 'Card %num of %total:',
         cardUnturned: 'Unturned. Click to turn.',
+        cardTurned: 'Turned.',
         cardMatched: 'Match found.'
       }
     }, parameters);

@@ -114,6 +114,10 @@
           "default": "Неокренуте. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Наслов Картице се подударају",
           "default": "Подударају се картице."
         }

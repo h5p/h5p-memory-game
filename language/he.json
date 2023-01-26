@@ -114,6 +114,10 @@
           "default": "לא הפוך. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "תווית קלף מותאם",
           "default": "נמצאה התאמה."
         }

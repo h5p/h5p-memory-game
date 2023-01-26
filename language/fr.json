@@ -114,6 +114,10 @@
           "default": "Non retournées. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Texte quand les cartes correspondent",
           "default": "Correspondance trouvée."
         }

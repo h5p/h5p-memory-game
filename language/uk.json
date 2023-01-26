@@ -114,6 +114,10 @@
           "default": "Неперевернута. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Надпис відповідної карточки",
           "default": "Відповідність знайдено."
         }

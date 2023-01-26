@@ -114,6 +114,10 @@
           "default": "Neobrnjeno. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Besedilo ob povezanem paru",
           "default": "Najden par."
         }

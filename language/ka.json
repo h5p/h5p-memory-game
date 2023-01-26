@@ -114,6 +114,10 @@
           "default": "გაუხსნელი. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "შესაბამისი ბარათის ტექსტი",
           "default": "შესაბამისობა ნაპოვნია."
         }

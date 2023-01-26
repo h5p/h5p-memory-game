@@ -114,6 +114,10 @@
           "default": "Sense girar. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Etiqueta per a les cartes coincidents",
           "default": "S’ha trobat una coincidència."
         }

@@ -114,6 +114,10 @@
           "default": "Neapgriezta. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Kartītes atbilstības etiķete",
           "default": "Atbilstība atrasta."
         }

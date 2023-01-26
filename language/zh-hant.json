@@ -114,6 +114,10 @@
           "default": "還沒翻開。Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "卡片已配對的顯示文字",
           "default": "配對成功。"
         }

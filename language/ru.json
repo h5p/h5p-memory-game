@@ -114,6 +114,10 @@
           "default": "Неперевернутая. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Надпись подходящей карточки",
           "default": "Соответствие найдено."
         }

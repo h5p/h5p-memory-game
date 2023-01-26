@@ -114,6 +114,10 @@
           "default": "Não virado. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Rótulo de Combinação",
           "default": "Combinação encontrada."
         }

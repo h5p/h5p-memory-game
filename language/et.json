@@ -114,6 +114,10 @@
           "default": "Pööramata. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Kaart sobitub silt",
           "default": "Vaste leitud."
         }

@@ -114,6 +114,10 @@
           "default": "Κλειστή. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Ετικέτα κάρτας που έχει αντιστοιχιστεί",
           "default": "Έχει αντιστοιχιστεί."
         }

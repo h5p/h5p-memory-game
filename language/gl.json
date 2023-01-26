@@ -114,6 +114,10 @@
           "default": "Sen xirar. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Etiqueta para coincidencia atopada",
           "default": "Coincidencia atopada."
         }

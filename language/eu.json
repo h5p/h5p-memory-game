@@ -114,6 +114,10 @@
           "default": "Itzuli gabe. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Parekatutako txartelaren etiketa",
           "default": "Parekoa topatuta."
         }

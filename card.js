@@ -100,9 +100,8 @@
      * @param {boolean} reset Go back to the default label
      */
     self.updateLabel = function (isMatched, announce, reset) {
-
       // Determine new label from input params
-      var label = (reset ? l10n.cardUnturned : alt);
+      var label = (reset ? l10n.cardUnturned : l10n.cardTurned + ' ' + alt);
       if (isMatched) {
         label = l10n.cardMatched + ' ' + label;
       }

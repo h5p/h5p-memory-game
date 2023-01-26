@@ -114,6 +114,10 @@
           "default": "Необърната карта. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Етикет за открито съвпадение на карти",
           "default": "Имате съвпадение."
         }

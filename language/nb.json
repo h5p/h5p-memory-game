@@ -114,6 +114,10 @@
           "default": "Unturned. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Card matched label",
           "default": "Match found."
         }

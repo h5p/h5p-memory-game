@@ -114,6 +114,10 @@
           "default": "未翻轉. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "相稱記憶牌名稱",
           "default": "已找到相稱的記憶牌."
         }

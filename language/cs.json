@@ -114,6 +114,10 @@
           "default": "Neotočená. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Popisek shody karet",
           "default": "Nalezena shoda."
         }

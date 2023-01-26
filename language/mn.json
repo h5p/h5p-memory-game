@@ -114,6 +114,10 @@
           "default": "Эргэлзээгүй. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Карт таарсан шошго",
           "default": "Тохирох байдал олдлоо."
         }

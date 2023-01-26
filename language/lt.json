@@ -114,6 +114,10 @@
           "default": "Neatversta. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Kortelė atitiko pavadinimas",
           "default": "Atitiktis rasta."
         }

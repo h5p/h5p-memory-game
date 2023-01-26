@@ -114,6 +114,10 @@
           "default": "មិនបានបង្វិល។. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Card matched label",
           "default": "រកឃើញកាតផ្គូផ្គង។"
         }

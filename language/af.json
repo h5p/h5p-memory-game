@@ -114,6 +114,10 @@
           "default": "Onaangeraak. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Kaartjie gepas etiket",
           "default": "Pasmaat gevind."
         }

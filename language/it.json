@@ -114,6 +114,10 @@
           "default": "Non voltata. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Etichetta della cartata abbinata",
           "default": "Trovata corrispondenza"
         }

@@ -114,6 +114,10 @@
           "default": "Neokrenuta. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Oznaka za kartu podudaranja",
           "default": "Pronađeno podudaranje."
         }

@@ -114,6 +114,10 @@
           "default": "Haijageuzwa. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Lebo inayolingana na kadi",
           "default": "Inayolingana imepatikana."
         }

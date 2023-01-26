@@ -114,6 +114,10 @@
           "default": "Döndürülmedi. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Kart eşleşme etiketi",
           "default": "Eşleştirildi."
         }

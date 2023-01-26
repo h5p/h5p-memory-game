@@ -114,6 +114,10 @@
           "default": "Kääntämätön. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Pari löytynyt",
           "default": "Pari löydetty."
         }

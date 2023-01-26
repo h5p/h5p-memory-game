@@ -114,6 +114,10 @@
           "default": "Nie odwrócona. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Etykieta pasującej karty",
           "default": "Znaleziono dopasowanie."
         }

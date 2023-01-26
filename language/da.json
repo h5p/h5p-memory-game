@@ -114,6 +114,10 @@
           "default": "Ikke vendt. Click to turn."
         },
         {
+          "label": "Card turned label",
+          "default": "Turned."
+        },
+        {
           "label": "Card matched label",
           "default": "Par fundet."
         }
