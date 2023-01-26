@@ -111,7 +111,7 @@
         },
         {
           "label": "Neatverstos kortelės pavadinimas",
-          "default": "Neatversta."
+          "default": "Neatversta. Click to turn."
         },
         {
           "label": "Kortelė atitiko pavadinimas",

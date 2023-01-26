@@ -111,7 +111,7 @@
         },
         {
           "label": "Card unturned label",
-          "default": "Unturned."
+          "default": "Unturned. Click to turn."
         },
         {
           "label": "Card matched label",

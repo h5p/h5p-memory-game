@@ -111,7 +111,7 @@
         },
         {
           "label": "Rótulo de Cartão não virado",
-          "default": "Não virado."
+          "default": "Não virado. Click to turn."
         },
         {
           "label": "Rótulo de Combinação",

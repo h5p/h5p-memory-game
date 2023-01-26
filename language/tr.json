@@ -111,7 +111,7 @@
         },
         {
           "label": "Kart döndürülmemiş etiketi",
-          "default": "Döndürülmedi."
+          "default": "Döndürülmedi. Click to turn."
         },
         {
           "label": "Kart eşleşme etiketi",

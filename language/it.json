@@ -111,7 +111,7 @@
         },
         {
           "label": "Etichetta della carta non voltata",
-          "default": "Non voltata"
+          "default": "Non voltata. Click to turn."
         },
         {
           "label": "Etichetta della cartata abbinata",

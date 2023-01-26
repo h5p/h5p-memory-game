@@ -111,7 +111,7 @@
         },
         {
           "label": "卡片未翻开的显示文字",
-          "default": "还没翻开。"
+          "default": "还没翻开。Click to turn."
         },
         {
           "label": "卡片已配对的显示文字",

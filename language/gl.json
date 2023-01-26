@@ -111,7 +111,7 @@
         },
         {
           "label": "Etiqueta para as tarxetas non xiradas",
-          "default": "Sen xirar."
+          "default": "Sen xirar. Click to turn."
         },
         {
           "label": "Etiqueta para coincidencia atopada",

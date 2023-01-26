@@ -111,7 +111,7 @@
         },
         {
           "label": "Card unturned label",
-          "default": "Ikke vendt."
+          "default": "Ikke vendt. Click to turn."
         },
         {
           "label": "Card matched label",

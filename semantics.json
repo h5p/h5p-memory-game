@@ -219,7 +219,7 @@
         "importance": "low",
         "name": "cardUnturned",
         "type": "text",
-        "default": "Unturned."
+        "default": "Unturned. Click to turn."
       },
       {
         "label": "Card matched label",

@@ -111,7 +111,7 @@
         },
         {
           "label": "Kaart pööramata silt",
-          "default": "Pööramata."
+          "default": "Pööramata. Click to turn."
         },
         {
           "label": "Kaart sobitub silt",

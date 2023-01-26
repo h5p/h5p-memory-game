@@ -111,7 +111,7 @@
         },
         {
           "label": "Card unturned label",
-          "default": "មិនបានបង្វិល។"
+          "default": "មិនបានបង្វិល។. Click to turn."
         },
         {
           "label": "Card matched label",

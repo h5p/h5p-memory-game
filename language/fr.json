@@ -111,7 +111,7 @@
         },
         {
           "label": "Texte pour les cartes non retournées",
-          "default": "Non retournées."
+          "default": "Non retournées. Click to turn."
         },
         {
           "label": "Texte quand les cartes correspondent",

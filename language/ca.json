@@ -111,7 +111,7 @@
         },
         {
           "label": "Etiqueta per a les cartes no girades",
-          "default": "Sense girar."
+          "default": "Sense girar. Click to turn."
         },
         {
           "label": "Etiqueta per a les cartes coincidents",

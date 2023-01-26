@@ -111,7 +111,7 @@
         },
         {
           "label": "Label niet gedraaide kaarten",
-          "default": "Niet gedraaid."
+          "default": "Niet gedraaid. Click to turn."
         },
         {
           "label": "Label overeenkomende kaarten",

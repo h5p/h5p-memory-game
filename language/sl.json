@@ -111,7 +111,7 @@
         },
         {
           "label": "Besedilo za neobrnjene kartice",
-          "default": "Neobrnjeno."
+          "default": "Neobrnjeno. Click to turn."
         },
         {
           "label": "Besedilo ob povezanem paru",

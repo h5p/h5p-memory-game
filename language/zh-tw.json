@@ -111,7 +111,7 @@
         },
         {
           "label": "未翻轉記憶牌名稱",
-          "default": "未翻轉."
+          "default": "未翻轉. Click to turn."
         },
         {
           "label": "相稱記憶牌名稱",

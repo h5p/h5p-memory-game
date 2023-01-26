@@ -111,7 +111,7 @@
         },
         {
           "label": "Card unturned label",
-          "default": "Ikkje snudd."
+          "default": "Ikkje snudd. Click to turn."
         },
         {
           "label": "Card matched label",

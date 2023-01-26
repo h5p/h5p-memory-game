@@ -111,7 +111,7 @@
         },
         {
           "label": "Popisek neotočené karty",
-          "default": "Neotočená."
+          "default": "Neotočená. Click to turn."
         },
         {
           "label": "Popisek shody karet",

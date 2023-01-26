@@ -111,7 +111,7 @@
         },
         {
           "label": "Neapgrieztas kartītes etiķete",
-          "default": "Neapgriezta."
+          "default": "Neapgriezta. Click to turn."
         },
         {
           "label": "Kartītes atbilstības etiķete",

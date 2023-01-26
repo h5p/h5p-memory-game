@@ -111,7 +111,7 @@
         },
         {
           "label": "돌려지지 않은 카드 라벨",
-          "default": "돌려지지 않음."
+          "default": "돌려지지 않음. Click to turn."
         },
         {
           "label": "매칭된 카드 라벨",

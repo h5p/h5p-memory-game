@@ -111,7 +111,7 @@
         },
         {
           "label": "Texto de tarjetas sin girar",
-          "default": "Sin girar."
+          "default": "Sin girar. Click to turn."
         },
         {
           "label": "Texto de tarjeta coincidente",

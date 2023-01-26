@@ -111,7 +111,7 @@
         },
         {
           "label": "Oznaka za neokrenutu kartu",
-          "default": "Neokrenuta."
+          "default": "Neokrenuta. Click to turn."
         },
         {
           "label": "Oznaka za kartu podudaranja",

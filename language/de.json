@@ -111,7 +111,7 @@
         },
         {
           "label": "Text, wenn eine Karte wieder zugedeckt wurde",
-          "default": "Zugedeckt."
+          "default": "Zugedeckt. Click to turn."
         },
         {
           "label": "Text, wenn ein Paar gefunden wurde",

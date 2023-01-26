@@ -111,7 +111,7 @@
         },
         {
           "label": "Etykieta nie odwróconej karty",
-          "default": "Nie odwrócona."
+          "default": "Nie odwrócona. Click to turn."
         },
         {
           "label": "Etykieta pasującej karty",
