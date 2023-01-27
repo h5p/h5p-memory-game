@@ -101,6 +101,10 @@
           "default": "Muistipeli. Löydä parit."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Peli päättynyt",
           "default": "Kaikki parit löydetty."
         },

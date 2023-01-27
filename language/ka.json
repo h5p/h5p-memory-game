@@ -101,6 +101,10 @@
           "default": "მეხსიერების გასავარჯიშებელი თამაში. მოძებნეთ შესაფერისი ბარათები."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "თამაშის დასრულების ტექსტი",
           "default": "ყველა ბარათი მოიძებნა."
         },

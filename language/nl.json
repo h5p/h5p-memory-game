@@ -101,6 +101,10 @@
           "default": "Geheugenspel. Vind de overeenkomende kaarten."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Label einde spel",
           "default": "Alle kaarten zijn gevonden."
         },

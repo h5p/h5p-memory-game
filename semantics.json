@@ -200,6 +200,13 @@
         "default": "Memory Game. Find the matching cards."
       },
       {
+        "label": "Game instructions",
+        "importance": "low",
+        "name": "label",
+        "type": "text",
+        "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+      },
+      {
         "label": "Game finished label",
         "importance": "low",
         "name": "done",

@@ -101,6 +101,10 @@
           "default": "Xogo de memoria. Atopa as tarxetas coincidentes."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Etiqueta para xogo rematado",
           "default": "Atoparonse todas as tarxetas."
         },

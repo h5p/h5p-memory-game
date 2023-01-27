@@ -101,6 +101,10 @@
           "default": "Joc de memòria. Cerca les targetes coincidents."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Etiqueta \"El joc ha finalitzat\"",
           "default": "S’han emparellat totes les cartes."
         },

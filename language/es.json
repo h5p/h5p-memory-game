@@ -101,6 +101,10 @@
           "default": "Juego de Memoria. Encuentra las cartas que coinciden."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Etiqueta de juego terminado",
           "default": "Has encontrado todas las cartas."
         },

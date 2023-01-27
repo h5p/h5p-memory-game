@@ -1,14 +1,18 @@
-(function (MemoryGame, $) {
+(function (MemoryGame, EventDispatcher, $) {
 
   /**
    * A dialog for reading the description of a card.
    * @see https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/
    *
    * @class H5P.MemoryGame.Popup
+   * @extends H5P.EventDispatcher
    * @param {H5P.jQuery} $container
    * @param {Object.<string, string>} l10n
    */
   MemoryGame.Popup = function ($container, l10n) {
+    // Initialize event inheritance
+    EventDispatcher.call(this);
+
     /** @alias H5P.MemoryGame.Popup# */
     var self = this;
 
@@ -85,6 +89,8 @@
         $popup.hide();
         closed(refocus);
         closed = undefined;
+
+        self.trigger('closed');
       }
     };
 
@@ -106,4 +112,4 @@
     };
   };
 
-})(H5P.MemoryGame, H5P.jQuery);
+})(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery);

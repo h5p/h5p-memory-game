@@ -101,6 +101,10 @@
           "default": "Игра на запоминание. Найти подходящие карточки."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Надпись завершения игры",
           "default": "Все карточки были найдены."
         },

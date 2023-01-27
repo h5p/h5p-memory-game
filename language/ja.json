@@ -101,6 +101,10 @@
           "default": "Memory Game. Find the matching cards."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Game finished label",
           "default": "All of the cards have been found."
         },

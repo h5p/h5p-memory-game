@@ -101,6 +101,10 @@
           "default": "메모리 게임. 매칭되는 카드를 찾으세요."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "게임 완료 텍스트",
           "default": "모든 카드가 발견되었습니다."
         },

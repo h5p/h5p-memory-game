@@ -101,6 +101,10 @@
           "default": "Memory igra. Pronađi kartu koja se podudara."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Oznaka za završenu igru",
           "default": "Sve karte su pronađene."
         },

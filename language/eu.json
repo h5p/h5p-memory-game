@@ -101,6 +101,10 @@
           "default": "Memoria jokoa. Aurkitu pareko kartak."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Amaitutako jokoaren etiketa",
           "default": "Karta guztiak aurkitu dira."
         },

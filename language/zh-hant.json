@@ -101,6 +101,10 @@
           "default": "卡片記憶遊戲，找出配對的所有卡片吧！"
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "遊戲結束的的顯示文字",
           "default": "已配對完所有卡片。"
         },

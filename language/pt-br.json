@@ -101,6 +101,10 @@
           "default": "Jogo da memória. Forme pares de cartas."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Rótulo de fim de jogo",
           "default": "Todas as cartas foram encontradas."
         },

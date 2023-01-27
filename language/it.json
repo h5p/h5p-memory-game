@@ -101,6 +101,10 @@
           "default": "Gioco di memoria. Trova le carte corrispondenti"
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Etichetta di fine gioco",
           "default": "Tutte le carte sono state trovate"
         },

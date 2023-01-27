@@ -101,6 +101,10 @@
           "default": "Mchezo wa Kumbukizi. Tafuta kadi zinazolingana."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Lebo ya mchezo umekwisha",
           "default": "Kadi zote zimepatikana."
         },

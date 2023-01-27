@@ -101,6 +101,10 @@
           "default": "Παιχνίδι μνήμης. Αντιστοίχισε τις κάρτες που ταιριάζουν μεταξύ τους."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Ετικέτα ολοκλήρωσης παιχνιδιού",
           "default": "Έχουν αντιστοιχιστεί όλες οι κάρτες!"
         },

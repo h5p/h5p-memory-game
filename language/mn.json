@@ -101,6 +101,10 @@
           "default": "Санах ойн тоглоом. Тохирох картуудыг олоорой."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Тоглоом дууссан шошго",
           "default": "Бүх картууд олдсон."
         },

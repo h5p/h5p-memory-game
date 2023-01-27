@@ -101,6 +101,10 @@
           "default": "Geheue spelletjie. Vind die passend kaartjies."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Speletjie verby etiket",
           "default": "Al die kaartjies is gevind."
         },

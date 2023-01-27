@@ -39,6 +39,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         tryAgain: 'Reset',
         closeLabel: 'Close',
         label: 'Memory Game. Find the matching cards.',
+        labelInstructions: 'Use arrow keys left and right to navigate cards. Use space or enter key to turn card.',
         done: 'All of the cards have been found.',
         cardPrefix: 'Card %num of %total:',
         cardUnturned: 'Unturned. Click to turn.',
@@ -91,6 +92,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         if (card.hasTwoImages) {
           imgs.push(mate.getImage());
         }
+
+        // Keep message for dialog modal shorter without instructions
+        $applicationLabel.html(parameters.l10n.label);
+
         popup.show(desc, imgs, cardStyles ? cardStyles.back : undefined, function (refocus) {
           if (isFinished) {
             // Game done
@@ -449,10 +454,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if ($list.children().length) {
         cards[0].makeTabbable();
 
-        $('<div/>', {
+        $applicationLabel = $('<div/>', {
           id: 'h5p-intro-' + numInstances,
           'class': 'h5p-memory-hidden-read',
-          html: parameters.l10n.label,
+          html: parameters.l10n.label + ' ' + parameters.l10n.labelInstructions,
           appendTo: $container
         });
         $list.appendTo($container);
@@ -481,6 +486,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         timer = new MemoryGame.Timer($status.find('time')[0]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
         popup = new MemoryGame.Popup($container, parameters.l10n);
+
+        popup.on('closed', function () {
+          // Add instructions back
+          $applicationLabel.html(parameters.l10n.label + ' ' + parameters.l10n.labelInstructions);
+        });
 
         // Aria live region to politely read to screen reader
         ariaLiveRegion = new MemoryGame.AriaLiveRegion();

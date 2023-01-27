@@ -101,6 +101,10 @@
           "default": "Mälumäng. Leida sobituvad kaardid."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Mäng on lõppenud silt",
           "default": "Kõik kaardid on leitud."
         },

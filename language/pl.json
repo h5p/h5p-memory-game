@@ -101,6 +101,10 @@
           "default": "Gra Memory. Znajdź pasujące karty."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Etykieta ukończona gra",
           "default": "Wszystkie karty zostały znalezione."
         },

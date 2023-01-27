@@ -101,6 +101,10 @@
           "default": "Memory-spel. Finn dei matchande korta."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Game finished label",
           "default": "Alle korta har blitt funne."
         },

@@ -101,6 +101,10 @@
           "default": "Atmiņas spēle. Atrodiet atbilstošās kartītes."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Spēle pabeigta etiķete",
           "default": "Visas kartītes ir atrastas."
         },

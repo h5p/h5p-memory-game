@@ -101,6 +101,10 @@
           "default": "ល្បែងចងចាំ! រកកាតដែលផ្គូផ្គង"
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Game finished label",
           "default": "អ្នកបានរកឃើញកាតទាំងអស់ហើយ!"
         },

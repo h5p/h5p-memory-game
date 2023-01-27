@@ -101,6 +101,10 @@
           "default": "Memory - Finde die Kartenpaare!"
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Meldung, wenn das Spiel abgeschlossen wurde",
           "default": "Du hast alle Kartenpaare gefunden!"
         },

@@ -101,6 +101,10 @@
           "default": "Игра Меморија"
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Текст завршетка игре",
           "default": "Све карте су пронађене."
         },

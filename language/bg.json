@@ -101,6 +101,10 @@
           "default": "Имате ли добра памет? Намерете еднаквите карти"
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Етикет за край на играта",
           "default": "Всички карти са намерени"
         },

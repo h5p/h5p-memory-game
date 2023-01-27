@@ -101,6 +101,10 @@
           "default": "Hazfıza oyunu. Kartları eşleştirin."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Oyun bitti etiketi",
           "default": "Tüm kartlar eşleştirildi."
         },
