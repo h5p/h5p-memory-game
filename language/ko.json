@@ -122,6 +122,10 @@
           "default": "매칭되었습니다."
         },
         {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
         }

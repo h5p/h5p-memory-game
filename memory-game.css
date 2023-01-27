@@ -260,6 +260,14 @@
 .h5p-memory-game .h5p-row-break {
   clear: left;
 }
+.h5p-memory-screen-reader {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
 .h5p-memory-game .h5p-memory-desc {
   padding: 1em;
   margin-bottom: 0.5em;

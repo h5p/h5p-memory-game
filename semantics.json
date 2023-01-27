@@ -236,6 +236,13 @@
         "default": "Match found."
       },
       {
+        "label": "Card matched announcement",
+        "importance": "low",
+        "name": "cardMatchedA11y",
+        "type": "text",
+        "default": "Your cards match!"
+      },
+      {
         "label": "Card not matched announcement",
         "importance": "low",
         "name": "cardNotMatchedA11y",

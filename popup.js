@@ -62,7 +62,10 @@
      * @param {function} done
      */
     self.show = function (desc, imgs, styles, done) {
-      $desc.html(desc);
+      const announcement = '<span class="h5p-memory-screen-reader">' +
+        l10n.cardMatchedA11y + '</span>' + desc;
+      $desc.html(announcement);
+
       $top.html('').toggleClass('h5p-memory-two-images', imgs.length > 1);
       for (var i = 0; i < imgs.length; i++) {
         $('<div class="h5p-memory-image"' + (styles ? styles : '') + '></div>').append(imgs[i]).appendTo($top);

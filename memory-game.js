@@ -44,6 +44,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         cardUnturned: 'Unturned. Click to turn.',
         cardTurned: 'Turned.',
         cardMatched: 'Match found.',
+        cardMatchedA11y: 'Your cards match!',
         cardNotMatchedA11y: 'Your chosen cards do not match. Turn other cards to try again.'
       }
     }, parameters);
