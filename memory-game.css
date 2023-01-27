@@ -198,8 +198,19 @@
   margin: 0;
 }
 
-.h5p-memory-game .h5p-memory-pop {
+.h5p-memory-game .h5p-memory-obscure-content {
+  background-color: rgba(44, 44, 44, 0.8);
+  box-sizing: border-box;
   display: none;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.h5p-memory-game .h5p-memory-pop {
   background: #fff;
   padding: 0.25em;
   width: 24em;

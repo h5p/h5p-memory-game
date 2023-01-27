@@ -2,6 +2,7 @@
 
   /**
    * A dialog for reading the description of a card.
+   * @see https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/
    *
    * @class H5P.MemoryGame.Popup
    * @param {H5P.jQuery} $container
@@ -13,19 +14,45 @@
 
     var closed;
 
-    var $popup = $('<div class="h5p-memory-pop" role="dialog"><div class="h5p-memory-top"></div><div class="h5p-memory-desc h5p-programatically-focusable" tabindex="-1"></div><div class="h5p-memory-close" role="button" tabindex="0" title="' + (l10n.closeLabel || 'Close') + '" aria-label="' + (l10n.closeLabel || 'Close') + '"></div></div>').appendTo($container);
-    var $desc = $popup.find('.h5p-memory-desc');
-    var $top = $popup.find('.h5p-memory-top');
+    const $popup = $(
+      '<div class="h5p-memory-obscure-content"><div class="h5p-memory-pop" role="dialog" aria-modal="true"><div class="h5p-memory-top"></div><div class="h5p-memory-desc h5p-programatically-focusable" tabindex="-1"></div><div class="h5p-memory-close" role="button" tabindex="0" title="' + (l10n.closeLabel || 'Close') + '" aria-label="' + (l10n.closeLabel || 'Close') + '"></div></div></div>'
+      )
+      .on('keydown', function (event) {
+        if (event.code === 'Escape') {
+          self.close(true);
+          event.preventDefault();
+        }
+      })
+      .hide()
+      .appendTo($container);
+
+    const $top = $popup.find('.h5p-memory-top');
 
     // Hook up the close button
-    $popup.find('.h5p-memory-close').on('click', function () {
-      self.close(true);
-    }).on('keypress', function (event) {
-      if (event.which === 13 || event.which === 32) {
+    const $closeButton = $popup
+      .find('.h5p-memory-close')
+      .on('click', function () {
         self.close(true);
-        event.preventDefault();
-      }
+      })
+      .on('keydown', function (event) {
+        if (event.code === 'Enter' || event.code === 'Space') {
+          self.close(true);
+          event.preventDefault();
+        }
+        else if (event.code === 'Tab') {
+          event.preventDefault(); // Lock focus
+        }
     });
+
+    const $desc = $popup
+      .find('.h5p-memory-desc')
+      .on('keydown', function (event) {
+        if (event.code === 'Tab') {
+          // Keep focus inside dialog
+          $closeButton.focus();
+          event.preventDefault();
+        }
+      });
 
     /**
      * Show the popup.
