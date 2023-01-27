@@ -120,6 +120,10 @@
         {
           "label": "Kortelė atitiko pavadinimas",
           "default": "Atitiktis rasta."
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

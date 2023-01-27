@@ -120,6 +120,10 @@
         {
           "label": "Надпис відповідної карточки",
           "default": "Відповідність знайдено."
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

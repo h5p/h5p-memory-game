@@ -120,6 +120,10 @@
         {
           "label": "매칭된 카드 라벨",
           "default": "매칭되었습니다."
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

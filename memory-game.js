@@ -43,7 +43,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         cardPrefix: 'Card %num of %total:',
         cardUnturned: 'Unturned. Click to turn.',
         cardTurned: 'Turned.',
-        cardMatched: 'Match found.'
+        cardMatched: 'Match found.',
+        cardNotMatchedA11y: 'Your chosen cards do not match. Turn other cards to try again.'
       }
     }, parameters);
 
@@ -60,6 +61,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         // Incorrect, must be scheduled for flipping back
         flipBacks.push(card);
         flipBacks.push(mate);
+
+        ariaLiveRegion.read(parameters.l10n.cardNotMatchedA11y);
 
         // Wait for next click to flip them back…
         if (numFlipped > 2) {
@@ -477,6 +480,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         timer = new MemoryGame.Timer($status.find('time')[0]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
         popup = new MemoryGame.Popup($container, parameters.l10n);
+
+        // Aria live region to politely read to screen reader
+        ariaLiveRegion = new MemoryGame.AriaLiveRegion();
+        $container.append(ariaLiveRegion.getDOM());
 
         $container.click(function () {
           popup.close();

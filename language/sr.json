@@ -120,6 +120,10 @@
         {
           "label": "Наслов Картице се подударају",
           "default": "Подударају се картице."
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

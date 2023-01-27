@@ -120,6 +120,10 @@
         {
           "label": "Card matched label",
           "default": "Match found."
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

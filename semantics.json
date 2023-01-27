@@ -234,6 +234,13 @@
         "name": "cardMatched",
         "type": "text",
         "default": "Match found."
+      },
+      {
+        "label": "Card not matched announcement",
+        "importance": "low",
+        "name": "cardNotMatchedA11y",
+        "type": "text",
+        "default": "Your chosen cards do not match. Turn other cards to try again."
       }
     ]
   }

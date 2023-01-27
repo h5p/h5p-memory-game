@@ -28,6 +28,9 @@
     },
     {
       "path": "timer.js"
+    },
+    {
+      "path": "aria-live-region.js"
     }
   ],
   "preloadedDependencies": [
