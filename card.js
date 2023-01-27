@@ -30,7 +30,8 @@
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var path, width, height, $card, $wrapper, removedState, flippedState, audioPlayer;
+    let path, width, height, $card, $wrapper, $image, removedState,
+      flippedState, audioPlayer;
 
     alt = alt || 'Missing description'; // Default for old games
 
@@ -122,6 +123,10 @@
 
     /**
      * Flip card.
+     *
+     * Win 11 screen reader announces image's alt tag even though it never gets
+     * focus and button provides aria-label. Therefore alt tag is only set when
+     * card is turned.
      */
     self.flip = function () {
       if (flippedState) {
@@ -130,6 +135,7 @@
       }
 
       $card.addClass('h5p-flipped');
+      $image.attr('alt', alt);
       self.trigger('flip');
       flippedState = true;
 
@@ -145,6 +151,7 @@
       self.stopAudio();
       self.updateLabel(null, null, true); // Reset card label
       $card.removeClass('h5p-flipped');
+      $image.attr('alt', '');
       flippedState = false;
     };
 
@@ -194,7 +201,7 @@
       $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">' +
                   '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
                   '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
-                    (path ? '<img src="' + path + '" alt="' + alt + '" style="width:' + width + ';height:' + height + '"/>' + (audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : '') : '<i class="h5p-memory-audio-instead-of-image">') +
+                    (path ? '<img src="' + path + '" alt="" style="width:' + width + ';height:' + height + '"/>' + (audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : '') : '<i class="h5p-memory-audio-instead-of-image">') +
                   '</div>' +
                 '</div></li>')
         .appendTo($container)
@@ -237,6 +244,8 @@
               return;
           }
         });
+
+      $image = $wrapper.find('img');
 
       $wrapper.attr(
         'aria-label',
