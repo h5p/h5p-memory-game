@@ -127,7 +127,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       timer.stop();
       $taskComplete.show();
       $feedback.addClass('h5p-show'); // Announce
-      $bottom.focus();
+      setTimeout(function () {
+        $bottom.focus();
+      }, 0); // Give closing dialog modal time to free screen reader
       score = 1;
 
       self.trigger(self.createXAPICompletedEvent());
