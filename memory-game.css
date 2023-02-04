@@ -183,21 +183,22 @@
   -ms-transform: scale(1,1) rotate(0deg);
   transform: scale(1,1) rotate(0deg);
 }
-
 .h5p-memory-game .h5p-status {
   clear: left;
   padding: 0 1em;
   margin: 0.25em 0 1em 0;
 }
-.h5p-memory-game .h5p-status > dt {
+.h5p-memory-game .h5p-status > div {
+  margin: 0;
+}
+.h5p-memory-game .h5p-status .h5p-statusLine > dt {
   float: left;
   margin: 0 1em 0 0;
   font-weight: bold;
 }
-.h5p-memory-game .h5p-status > dd {
+.h5p-memory-game .h5p-status .h5p-statusLine > dd {
   margin: 0;
 }
-
 .h5p-memory-game .h5p-memory-pop {
   display: none;
   background: #fff;
