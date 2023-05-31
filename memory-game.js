@@ -603,28 +603,15 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         adjacentIndex = currentIndex + 1;
       }
       else if (direction === MemoryGame.DIRECTION_UP) {
-        adjacentIndex = currentIndex - getNumberColumns();
+        adjacentIndex = currentIndex - numCols;
       }
       else if (direction === MemoryGame.DIRECTION_DOWN) {
-        adjacentIndex = currentIndex + getNumberColumns();
+        adjacentIndex = currentIndex + numCols;
       }
 
       return (adjacentIndex >= 0 && adjacentIndex < cards.length) ?
         adjacentIndex :
         null; // Out of bounds
-    }
-
-    /**
-     * Get number of columns that are displayed.
-     *
-     * @private
-     * @returns {number} Number of columns that are displayed.
-     */
-    const getNumberColumns = function () {
-      const $list = $wrapper.children('ul');
-      const $referenceCard = $list.children().first();
-
-      return Math.floor($list.width() / $referenceCard.width());
     }
 
     if (parameters.behaviour && parameters.behaviour.useGrid && cardsToUse.length) {
