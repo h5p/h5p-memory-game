@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Color del Tema",
-          "description": "Elegir un color para crear un tema para su juego de tarjetas."
+          "description": "Elegir un color para crear un tema para su juego de tarjetas.",
+          "default": "#707070"
         },
         {
           "label": "Reverso de la Tarjeta",
@@ -100,20 +101,37 @@
           "default": "Juego de Memoria. Encuentra las cartas que coinciden."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Etiqueta de juego terminado",
           "default": "Todas las cartas han sido encontradas."
         },
         {
           "label": "Etiqueta de indexación de tarjeta",
-          "default": "Tarjeta %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Tarjeta %num de %total:"
         },
         {
           "label": "Texto de tarjeta sin voltear",
-          "default": "Sin voltear."
+          "default": "Sin voltear. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Texto de tarjeta coincidente",
           "default": "Coincidencia encontrada."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

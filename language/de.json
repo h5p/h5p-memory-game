@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Themenfarbe",
-          "description": "Wähle eine Farbe, um das Spiel zu individualisieren."
+          "description": "Wähle eine Farbe, um das Spiel zu individualisieren.",
+          "default": "#707070"
         },
         {
           "label": "Kartenrückseite",
@@ -100,20 +101,37 @@
           "default": "Memory - Finde die Kartenpaare!"
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Meldung, wenn das Spiel abgeschlossen wurde",
           "default": "Du hast alle Kartenpaare gefunden!"
         },
         {
           "label": "Beschriftung der Kartennummer",
-          "default": "Karte %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Karte %num von %total:"
         },
         {
           "label": "Text, wenn eine Karte wieder zugedeckt wurde",
-          "default": "Zugedeckt."
+          "default": "Zugedeckt. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Text, wenn ein Paar gefunden wurde",
           "default": "Paar gefunden."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

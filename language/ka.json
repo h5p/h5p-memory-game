@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "თემის ფერი",
-          "description": "აირჩიეთ ფერი, რომ შექმნათ თემა თქვენი თამაშისთვის."
+          "description": "აირჩიეთ ფერი, რომ შექმნათ თემა თქვენი თამაშისთვის.",
+          "default": "#707070"
         },
         {
           "label": "ბარათის უკანა მხარე",
@@ -100,20 +101,37 @@
           "default": "მეხსიერების გასავარჯიშებელი თამაში. მოძებნეთ შესაფერისი ბარათები."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "თამაშის დასრულების ტექსტი",
           "default": "ყველა ბარათი მოიძებნა."
         },
         {
           "label": "ბარათის ნომრის ტექსტი",
-          "default": "ბარათი %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "ბარათი %num/%total:"
         },
         {
           "label": "გაუხსნელი ბარათის ტექსტი",
-          "default": "გაუხსნელი."
+          "default": "გაუხსნელი. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "შესაბამისი ბარათის ტექსტი",
           "default": "შესაბამისობა ნაპოვნია."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

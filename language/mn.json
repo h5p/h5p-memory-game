@@ -1,7 +1,13 @@
 {
   "semantics": [
     {
+      "widgets": [
+        {
+          "label": "Өгөгдмөл"
+        }
+      ],
       "label": "Картууд",
+      "entity": "карт",
       "field": {
         "label": "Карт",
         "fields": [
@@ -33,16 +39,11 @@
             "description": "Тохирох хоёр карт олсны дараа гарч ирэх нэмэлт богино текст."
           }
         ]
-      },
-      "widgets": [
-        {
-          "label": "Өгөгдмөл"
-        }
-      ],
-      "entity": "карт"
+      }
     },
     {
       "label": "Зан үйлийн тохиргоо",
+      "description": "Эдгээр сонголтууд нь тоглоом хэрхэн ажиллахыг хянах боломжийг танд олгоно.",
       "fields": [
         {
           "label": "Картуудыг дөрвөлжин хэлбэрээр байрлуул",
@@ -55,24 +56,25 @@
         {
           "label": "Тоглоом дууссаны дараа дахин оролдох товчлуурыг нэмнэ үү"
         }
-      ],
-      "description": "Эдгээр сонголтууд нь тоглоом хэрхэн ажиллахыг хянах боломжийг танд олгоно."
+      ]
     },
     {
+      "label": "Харж, мэдэр",
       "description": "Тоглоомын дүрслэлийг хянах.",
       "fields": [
         {
+          "label": "Сэдвийн өнгө",
           "description": "Хөзрийн тоглоомондоо сэдэв үүсгэхийн тулд өнгө сонгоно уу.",
-          "label": "Сэдвийн өнгө"
+          "default": "#707070"
         },
         {
-          "description": "Картуудаа захиалгат арын дэвсгэр ашиглана уу.",
-          "label": "Карт буцааж"
+          "label": "Карт буцааж",
+          "description": "Картуудаа захиалгат арын дэвсгэр ашиглана уу."
         }
-      ],
-      "label": "Харж, мэдэр"
+      ]
     },
     {
+      "label": "Локалчлал",
       "fields": [
         {
           "label": "Карт текстийг эргүүлнэ",
@@ -99,23 +101,39 @@
           "default": "Санах ойн тоглоом. Тохирох картуудыг олоорой."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Тоглоом дууссан шошго",
           "default": "Бүх картууд олдсон."
         },
         {
           "label": "Карт индексжүүлэх шошго",
-          "default": "Карт %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Карт %num/%total:"
         },
         {
           "label": "Картыг эргүүлээгүй шошго",
-          "default": "Эргэлзээгүй."
+          "default": "Эргэлзээгүй. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Карт таарсан шошго",
           "default": "Тохирох байдал олдлоо."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
-      ],
-      "label": "Локалчлал"
+      ]
     }
   ]
 }

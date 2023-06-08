@@ -39,10 +39,14 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         tryAgain: 'Reset',
         closeLabel: 'Close',
         label: 'Memory Game. Find the matching cards.',
+        labelInstructions: 'Use arrow keys left and right to navigate cards. Use space or enter key to turn card.',
         done: 'All of the cards have been found.',
-        cardPrefix: 'Card %num: ',
-        cardUnturned: 'Unturned.',
-        cardMatched: 'Match found.'
+        cardPrefix: 'Card %num of %total:',
+        cardUnturned: 'Unturned. Click to turn.',
+        cardTurned: 'Turned.',
+        cardMatched: 'Match found.',
+        cardMatchedA11y: 'Your cards match!',
+        cardNotMatchedA11y: 'Your chosen cards do not match. Turn other cards to try again.'
       }
     }, parameters);
 
@@ -59,6 +63,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         // Incorrect, must be scheduled for flipping back
         flipBacks.push(card);
         flipBacks.push(mate);
+
+        ariaLiveRegion.read(parameters.l10n.cardNotMatchedA11y);
 
         // Wait for next click to flip them back…
         if (numFlipped > 2) {
@@ -86,6 +92,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         if (card.hasTwoImages) {
           imgs.push(mate.getImage());
         }
+
+        // Keep message for dialog modal shorter without instructions
+        $applicationLabel.html(parameters.l10n.label);
+
         popup.show(desc, imgs, cardStyles ? cardStyles.back : undefined, function (refocus) {
           if (isFinished) {
             // Game done
@@ -117,7 +127,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       timer.stop();
       $taskComplete.show();
       $feedback.addClass('h5p-show'); // Announce
-      $bottom.focus();
+      setTimeout(function () {
+        $bottom.focus();
+      }, 0); // Give closing dialog modal time to free screen reader
       score = 1;
 
       self.trigger(self.createXAPICompletedEvent());
@@ -273,42 +285,47 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       });
 
       /**
-       * Create event handler for moving focus to the next or the previous
-       * card on the table.
+       * Create event handler for moving focus to next available card i
+       * given direction.
        *
        * @private
-       * @param {number} direction +1/-1
-       * @return {function}
+       * @param {number} direction Direction code, see MemoryGame.DIRECTION_x.
+       * @return {function} Focus handler.
        */
       var createCardChangeFocusHandler = function (direction) {
         return function () {
-          // Locate next card
-          for (var i = 0; i < cards.length; i++) {
-            if (cards[i] === card) {
-              // Found current card
 
-              var nextCard, fails = 0;
-              do {
-                fails++;
-                nextCard = cards[i + (direction * fails)];
-                if (!nextCard) {
-                  return; // No more cards
-                }
-              }
-              while (nextCard.isRemoved());
+          // Get current card index
+          const currentIndex = cards.map(function (card) {
+            return card.isTabbable;
+          }).indexOf(true);
 
-              card.makeUntabbable();
-              nextCard.setFocus();
-
-              return;
-            }
+          if (currentIndex === -1) {
+            return; // No tabbable card found
           }
+
+          // Skip cards that have already been removed from the game
+          let adjacentIndex = currentIndex;
+          do {
+            adjacentIndex = getAdjacentCardIndex(adjacentIndex, direction);
+          }
+          while (adjacentIndex !== null && cards[adjacentIndex].isRemoved());
+
+          if (adjacentIndex === null) {
+            return; // No card available in that direction
+          }
+
+          // Move focus
+          cards[currentIndex].makeUntabbable();
+          cards[adjacentIndex].setFocus();
         };
       };
 
-      // Register handlers for moving focus to next and previous card
-      card.on('next', createCardChangeFocusHandler(1));
-      card.on('prev', createCardChangeFocusHandler(-1));
+      // Register handlers for moving focus in given direction
+      card.on('up', createCardChangeFocusHandler(MemoryGame.DIRECTION_UP));
+      card.on('next', createCardChangeFocusHandler(MemoryGame.DIRECTION_RIGHT));
+      card.on('down', createCardChangeFocusHandler(MemoryGame.DIRECTION_DOWN));
+      card.on('prev', createCardChangeFocusHandler(MemoryGame.DIRECTION_LEFT));
 
       /**
        * Create event handler for moving focus to the first or the last card
@@ -395,16 +412,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       var cardParams = cardsToUse[i];
       if (MemoryGame.Card.isValid(cardParams)) {
         // Create first card
-        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio);
+        var cardTwo, cardOne = new MemoryGame.Card(cardParams.image, id, 2 * cardsToUse.length, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio);
 
         if (MemoryGame.Card.hasTwoImages(cardParams)) {
           // Use matching image for card two
-          cardTwo = new MemoryGame.Card(cardParams.match, id, cardParams.matchAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.matchAudio);
+          cardTwo = new MemoryGame.Card(cardParams.match, id, 2 * cardsToUse.length, cardParams.matchAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.matchAudio);
           cardOne.hasTwoImages = cardTwo.hasTwoImages = true;
         }
         else {
           // Add two cards with the same image
-          cardTwo = new MemoryGame.Card(cardParams.image, id, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio);
+          cardTwo = new MemoryGame.Card(cardParams.image, id, 2 * cardsToUse.length, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio);
         }
 
         // Add cards to card list for shuffeling
@@ -439,10 +456,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if ($list.children().length) {
         cards[0].makeTabbable();
 
-        $('<div/>', {
+        $applicationLabel = $('<div/>', {
           id: 'h5p-intro-' + numInstances,
           'class': 'h5p-memory-hidden-read',
-          html: parameters.l10n.label,
+          html: parameters.l10n.label + ' ' + parameters.l10n.labelInstructions,
           appendTo: $container
         });
         $list.appendTo($container);
@@ -471,6 +488,15 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         timer = new MemoryGame.Timer($status.find('time')[0]);
         counter = new MemoryGame.Counter($status.find('.h5p-card-turns'));
         popup = new MemoryGame.Popup($container, parameters.l10n);
+
+        popup.on('closed', function () {
+          // Add instructions back
+          $applicationLabel.html(parameters.l10n.label + ' ' + parameters.l10n.labelInstructions);
+        });
+
+        // Aria live region to politely read to screen reader
+        ariaLiveRegion = new MemoryGame.AriaLiveRegion();
+        $container.append(ariaLiveRegion.getDOM());
 
         $container.click(function () {
           popup.close();
@@ -546,6 +572,48 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       // due to rounding errors in browsers the margins may vary a bit…
     };
 
+    /**
+     * Get index of adjacent card.
+     *
+     * @private
+     * @param {number} currentIndex Index of card to check adjacent card for.
+     * @param {number} direction Direction code, cmp. MemoryGame.DIRECTION_x.
+     * @returns {number|null} Index of adjacent card or null if not retrievable.
+     */
+    const getAdjacentCardIndex = function (currentIndex, direction) {
+      if (
+        typeof currentIndex !== 'number' ||
+        currentIndex < 0 || currentIndex > cards.length - 1 ||
+        (
+          direction !== MemoryGame.DIRECTION_UP &&
+          direction !== MemoryGame.DIRECTION_RIGHT &&
+          direction !== MemoryGame.DIRECTION_DOWN &&
+          direction !== MemoryGame.DIRECTION_LEFT
+        )
+      ) {
+        return null; // Parameters not valid
+      }
+
+      let adjacentIndex = null;
+
+      if (direction === MemoryGame.DIRECTION_LEFT) {
+        adjacentIndex = currentIndex - 1;
+      }
+      else if (direction === MemoryGame.DIRECTION_RIGHT) {
+        adjacentIndex = currentIndex + 1;
+      }
+      else if (direction === MemoryGame.DIRECTION_UP) {
+        adjacentIndex = currentIndex - numCols;
+      }
+      else if (direction === MemoryGame.DIRECTION_DOWN) {
+        adjacentIndex = currentIndex + numCols;
+      }
+
+      return (adjacentIndex >= 0 && adjacentIndex < cards.length) ?
+        adjacentIndex :
+        null; // Out of bounds
+    }
+
     if (parameters.behaviour && parameters.behaviour.useGrid && cardsToUse.length) {
       self.on('resize', scaleGameSize);
     }
@@ -599,6 +667,18 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
   MemoryGame.prototype = Object.create(EventDispatcher.prototype);
   MemoryGame.prototype.constructor = MemoryGame;
 
+  /** @constant {number} DIRECTION_UP Code for up. */
+  MemoryGame.DIRECTION_UP = 0;
+
+  /** @constant {number} DIRECTION_LEFT Code for left. Legacy value. */
+  MemoryGame.DIRECTION_LEFT = -1;
+
+  /** @constant {number} DIRECTION_DOWN Code for down. */
+  MemoryGame.DIRECTION_DOWN = 2;
+
+  /** @constant {number} DIRECTION_DOWN Code for right. Legacy value. */
+  MemoryGame.DIRECTION_RIGHT = 1
+
   /**
    * Determine color contrast level compared to white(#fff)
    *
@@ -607,9 +687,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
    * @return {number} From 1 to Infinity.
    */
   var getContrast = function (color) {
-    return 255 / ((parseInt(color.substr(1, 2), 16) * 299 +
-                   parseInt(color.substr(3, 2), 16) * 587 +
-                   parseInt(color.substr(5, 2), 16) * 144) / 1000);
+    return 255 / ((parseInt(color.substring(1, 3), 16) * 299 +
+                   parseInt(color.substring(3, 5), 16) * 587 +
+                   parseInt(color.substring(5, 7), 16) * 144) / 1000);
   };
 
   return MemoryGame;

@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Цвят на темата",
-          "description": "Изберете цвят, за да създадете тема за вашата игра на карти."
+          "description": "Изберете цвят, за да създадете тема за вашата игра на карти.",
+          "default": "#707070"
         },
         {
           "label": "Карта назад",
@@ -100,20 +101,37 @@
           "default": "Имате ли добра памет? Намерете еднаквите карти"
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Етикет за край на играта",
           "default": "Всички карти са намерени"
         },
         {
           "label": "Card indexing label",
-          "default": "Card %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Card %num of %total:"
         },
         {
           "label": "Етикет за необърната карта.",
-          "default": "Необърната карта."
+          "default": "Необърната карта. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Етикет за открито съвпадение на карти",
           "default": "Имате съвпадение."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

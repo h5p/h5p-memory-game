@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Temakleur",
-          "description": "Kies 'n kleur om 'n tema vir jou kaartjie te skep."
+          "description": "Kies 'n kleur om 'n tema vir jou kaartjie te skep.",
+          "default": "#707070"
         },
         {
           "label": "Kaartjie agterkant",
@@ -100,20 +101,37 @@
           "default": "Geheue spelletjie. Vind die passend kaartjies."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Speletjie verby etiket",
           "default": "Al die kaartjies is gevind."
         },
         {
           "label": "Kaart indeks etiket",
-          "default": "Kaartjie %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kaartjie %num uit %total:"
         },
         {
           "label": "Onaangeraakte kaartjie etiket",
-          "default": "Onaangeraak."
+          "default": "Onaangeraak. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Kaartjie gepas etiket",
           "default": "Pasmaat gevind."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

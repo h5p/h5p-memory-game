@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Teemavärv",
-          "description": "Vali oma mängu teemavärv."
+          "description": "Vali oma mängu teemavärv.",
+          "default": "#707070"
         },
         {
           "label": "Kaardi taust",
@@ -100,20 +101,37 @@
           "default": "Mälumäng. Leida sobituvad kaardid."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Mäng on lõppenud silt",
           "default": "Kõik kaardid on leitud."
         },
         {
           "label": "Kaardi indeksi silt",
-          "default": "Kaart %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kaart %num punkti %total:"
         },
         {
           "label": "Kaart pööramata silt",
-          "default": "Pööramata."
+          "default": "Pööramata. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Kaart sobitub silt",
           "default": "Vaste leitud."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

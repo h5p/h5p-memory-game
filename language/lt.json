@@ -1,7 +1,13 @@
 {
   "semantics": [
     {
+      "widgets": [
+        {
+          "label": "Numatytasis"
+        }
+      ],
       "label": "Kortelės",
+      "entity": "kortelė",
       "field": {
         "label": "Kortelė",
         "fields": [
@@ -33,16 +39,11 @@
             "description": "An optional short text that will pop up once the two matching cards are found."
           }
         ]
-      },
-      "widgets": [
-        {
-          "label": "Numatytasis"
-        }
-      ],
-      "entity": "kortelė"
+      }
     },
     {
       "label": "Veikimo nustatymai",
+      "description": "These options will let you control how the game behaves.",
       "fields": [
         {
           "label": "Padėti korteles į kvadratą",
@@ -55,24 +56,25 @@
         {
           "label": "Pridėti mygtuką pakartotiniam bandymui, kai žaidimas pasibaigs"
         }
-      ],
-      "description": "These options will let you control how the game behaves."
+      ]
     },
     {
+      "label": "Matyti ir jausti",
       "description": "Valdyti žaidimo vaizdus.",
       "fields": [
         {
+          "label": "Temos spalva",
           "description": "Pasirinkite spalvą, kad sukurtumėte savo kortelių žaidimo temą.",
-          "label": "Temos spalva"
+          "default": "#707070"
         },
         {
-          "description": "Kortoms naudoti tinkintą nugarėlę.",
-          "label": "Kortelės nugarėlė"
+          "label": "Kortelės nugarėlė",
+          "description": "Kortoms naudoti tinkintą nugarėlę."
         }
-      ],
-      "label": "Matyti ir jausti"
+      ]
     },
     {
+      "label": "Lokalizacija",
       "fields": [
         {
           "label": "Kortelės apvertimo tekstas",
@@ -99,23 +101,39 @@
           "default": "Atminties žaidimas. Raskite atitinkančias korteles."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Žaidimas baigtas pavadinimas",
           "default": "Visos kortelės rastos."
         },
         {
           "label": "Kortelių indeksavimo pavadinimas",
-          "default": "Kortelė %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kortelė %num iš %total:"
         },
         {
           "label": "Neatverstos kortelės pavadinimas",
-          "default": "Neatversta."
+          "default": "Neatversta. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Kortelė atitiko pavadinimas",
           "default": "Atitiktis rasta."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
-      ],
-      "label": "Lokalizacija"
+      ]
     }
   ]
 }

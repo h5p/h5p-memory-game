@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "主題色調",
-          "description": "選擇遊戲環境要使用的色調。"
+          "description": "選擇遊戲環境要使用的色調。",
+          "default": "#707070"
         },
         {
           "label": "背面圖像（非必要項）",
@@ -100,20 +101,37 @@
           "default": "卡片記憶遊戲，找出配對的所有卡片吧！"
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "遊戲結束的的顯示文字",
           "default": "已配對完所有卡片。"
         },
         {
           "label": "卡片索引的顯示文字",
-          "default": "%num: 張卡片"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "%num/%total: 張卡片"
         },
         {
           "label": "卡片未翻開的顯示文字",
-          "default": "還沒翻開。"
+          "default": "還沒翻開。Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "卡片已配對的顯示文字",
           "default": "配對成功。"
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

@@ -64,12 +64,12 @@
       "fields": [
         {
           "label": "테마 색깔",
-          "description": "카드 게임의 테마를 만들 색을 선택하십시오."
+          "description": "카드 게임의 테마를 만들 색을 선택하십시오.",
+          "default": "#707070"
         },
         {
           "label": "카드 뒷면",
           "description": "카드의 뒷면을 맞춤형으로 사용하십시오."
-          
         }
       ]
     },
@@ -101,20 +101,37 @@
           "default": "메모리 게임. 매칭되는 카드를 찾으세요."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "게임 완료 텍스트",
           "default": "모든 카드가 발견되었습니다."
         },
         {
           "label": "카드 색인 라벨",
-          "default": "카드 %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "카드 %num/%total:"
         },
         {
           "label": "돌려지지 않은 카드 라벨",
-          "default": "돌려지지 않음."
+          "default": "돌려지지 않음. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "매칭된 카드 라벨",
           "default": "매칭되었습니다."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

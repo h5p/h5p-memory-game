@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Cor do tema",
-          "description": "Escolha uma cor para criar um tema para seu jogo."
+          "description": "Escolha uma cor para criar um tema para seu jogo.",
+          "default": "#707070"
         },
         {
           "label": "Verso da carta",
@@ -100,20 +101,37 @@
           "default": "Jogo da memória. Forme pares de cartas."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Rótulo de fim de jogo",
           "default": "Todas as cartas foram encontradas."
         },
         {
           "label": "Rótulo de índice da carta",
-          "default": "Carta %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Carta %num de %total:"
         },
         {
           "label": "Rótulo de carta não virada",
-          "default": "Não virado."
+          "default": "Não virado. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Rótulo de Carta-par",
           "default": "Carta-par encontrada."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Farvetema",
-          "description": "Vælg en farve til bagsiden af dine kort."
+          "description": "Vælg en farve til bagsiden af dine kort.",
+          "default": "#707070"
         },
         {
           "label": "Bagsidebillede",
@@ -100,20 +101,37 @@
           "default": "Vendespil. Find de kort, der passer sammen."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Game finished label",
           "default": "Du har matchet alle kort."
         },
         {
           "label": "Card indexing label",
-          "default": "Kort %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kort %num af %total:"
         },
         {
           "label": "Card unturned label",
-          "default": "Ikke vendt."
+          "default": "Ikke vendt. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Card matched label",
           "default": "Par fundet."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Cor do tema",
-          "description": "Escolle unha cor para crear un tema para o teu xogo de tarxetas."
+          "description": "Escolle unha cor para crear un tema para o teu xogo de tarxetas.",
+          "default": "#707070"
         },
         {
           "label": "Reverso da tarxeta",
@@ -100,20 +101,37 @@
           "default": "Xogo de memoria. Atopa as tarxetas coincidentes."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Etiqueta para xogo rematado",
           "default": "Atoparonse todas as tarxetas."
         },
         {
           "label": "Etiqueta para o índice das tarxetas",
-          "default": "Tarxeta %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Tarxeta %num de %total:"
         },
         {
           "label": "Etiqueta para as tarxetas non xiradas",
-          "default": "Sen xirar."
+          "default": "Sen xirar. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Etiqueta para coincidencia atopada",
           "default": "Coincidencia atopada."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

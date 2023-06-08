@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Barva motivu",
-          "description": "Vyberte barvu pro vytvoření motivu pro vaši karetní hru."
+          "description": "Vyberte barvu pro vytvoření motivu pro vaši karetní hru.",
+          "default": "#707070"
         },
         {
           "label": "Zadní strana karty",
@@ -100,20 +101,37 @@
           "default": "Paměťová hra. Najděte odpovídající karty. (Pexeso)."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Popisek konce hry",
           "default": "Všechny karty byly nalezeny."
         },
         {
           "label": "Popisek indexu karty",
-          "default": "Karta %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Karta %num z %total:"
         },
         {
           "label": "Popisek neotočené karty",
-          "default": "Neotočená."
+          "default": "Neotočená. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Popisek shody karet",
           "default": "Nalezena shoda."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

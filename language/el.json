@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Χρώμα \"θέματος\"",
-          "description": "Επιλέξτε ένα χρώμα για τη δημιουργία \"θέματος\" για το παιχνίδι μνήμης."
+          "description": "Επιλέξτε ένα χρώμα για τη δημιουργία \"θέματος\" για το παιχνίδι μνήμης.",
+          "default": "#707070"
         },
         {
           "label": "Πίσω πλευρά καρτών",
@@ -100,20 +101,37 @@
           "default": "Παιχνίδι μνήμης. Αντιστοίχισε τις κάρτες που ταιριάζουν μεταξύ τους."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Ετικέτα ολοκλήρωσης παιχνιδιού",
           "default": "Έχουν αντιστοιχιστεί όλες οι κάρτες!"
         },
         {
           "label": "Ετικέτα ταξινόμησης κάρτας",
-          "default": "Κάρτα %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Κάρτα %num από %total:"
         },
         {
           "label": "Ετικέτα κλειστής κάρτας",
-          "default": "Κλειστή."
+          "default": "Κλειστή. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Ετικέτα κάρτας που έχει αντιστοιχιστεί",
           "default": "Έχει αντιστοιχιστεί."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }
