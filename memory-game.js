@@ -554,9 +554,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         // want things sticking out…)
         var colSize = Math.floor((100 / numCols) * 10000) / 10000;
         $elements.css('width', colSize + '%').each(function (i, e) {
-          if (i === numCols) {
-            $(e).addClass('h5p-row-break');
-          }
+          $(e).toggleClass('h5p-row-break', i === numCols);
         });
       }
 
