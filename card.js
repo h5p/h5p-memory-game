@@ -33,7 +33,22 @@
     let path, width, height, $card, $wrapper, $image, removedState,
       flippedState, audioPlayer;
 
-    alt = alt || 'Missing description'; // Default for old games
+    /**
+     * Process HTML escaped string for use as attribute value,
+     * e.g. for alt text or title attributes.
+     *
+     * @param {string} value
+     * @return {string} WARNING! Do NOT use for innerHTML.
+     */
+    const massageAttributeOutput = (value) => {
+      const dparser = new DOMParser().parseFromString(value, 'text/html');
+      const div = document.createElement('div');
+      div.innerHTML = dparser.documentElement.textContent;;
+      return div.textContent || div.innerText || 'Missing description';
+    };
+
+    // alt = alt || 'Missing description'; // Default for old games
+    alt = massageAttributeOutput(alt);
 
     if (image && image.path) {
       path = H5P.getPath(image.path, id);
