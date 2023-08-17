@@ -20,43 +20,43 @@
           },
           {
             "label": "Garso takelis",
-            "description": "An optional sound that plays when the card is turned."
+            "description": "Pasirenkamas garsas, skambantis, kai kortelė pasukama."
           },
           {
             "label": "Atitinkantis paveikslėlis",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "description": "Pasirenkamas vaizdas, su kuriuo galima suderinti, o ne naudoti dvi korteles su tuo pačiu vaizdu."
           },
           {
             "label": "Alternatyvus atitinkančio paveikslėlio tekstas",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "description": "Apibūdinkite, ką galite pamatyti nuotraukoje. Tekstas skaitomas naudojant teksto į kalbą priemones, kurių reikia regėjimo negalią turintiems naudotojams."
           },
           {
             "label": "Atitinkantis garso takelis",
-            "description": "An optional sound that plays when the second card is turned."
+            "description": "Pasirenkamas garsas, skambantis, kai pasukama antra kortelė."
           },
           {
             "label": "Aprašymas",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "description": "Pasirenkamas trumpas tekstas, kuris pasirodys, kai bus rastos dvi atitinkančios kortelės."
           }
         ]
       }
     },
     {
       "label": "Veikimo nustatymai",
-      "description": "These options will let you control how the game behaves.",
+      "description": "Šios parinktys leis jums valdyti, kaip žaidimas elgsis."
       "fields": [
         {
           "label": "Padėti korteles į kvadratą",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "description": "Sėliojant korteles stengsis, kad atitiktų stulpelių ir eilučių skaičius. Vėliau kortelės bus pakeistos, kad tilptų į konteinerį."
         },
         {
           "label": "Naudojamų kortelių skaičius",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "description": "Nustačius šį skaičių didesnį nei 2, žaidimas iš kortelių sąrašo pasirenka atsitiktines korteles."
         },
         {
           "label": "Pridėti mygtuką pakartotiniam bandymui, kai žaidimas pasibaigs"
         }
-      ]
+      ],
     },
     {
       "label": "Matyti ir jausti",
