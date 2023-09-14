@@ -101,8 +101,8 @@
           "default": "Xogo de memoria. Atopa as tarxetas coincidentes."
         },
         {
-          "label": "Game instructions",
-          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+          "label": "Instrucións do xogo",
+          "default": "Usa as frechas cara á esquerda e á dereita para navegar polas tarxetas. Usa espazo ou tecla Intro para virar a tarxeta."
         },
         {
           "label": "Etiqueta para xogo rematado",
@@ -110,7 +110,7 @@
         },
         {
           "label": "Etiqueta para o índice das tarxetas",
-          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "description": "%num e %total son marcadores de posición e substituiranse polos valores respectivos para a tarxeta.",
           "default": "Tarxeta %num de %total:"
         },
         {
@@ -118,20 +118,20 @@
           "default": "Sen xirar. Click to turn."
         },
         {
-          "label": "Card turned label",
-          "default": "Turned."
+          "label": "Etiqueta para as tarxetas xiradas",
+          "default": "Xirada."
         },
         {
           "label": "Etiqueta para coincidencia atopada",
           "default": "Coincidencia atopada."
         },
         {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
+          "label": "Anuncio de tarxeta coincidente",
+          "default": "As túas tarxetas coinciden!"
         },
         {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "Anuncio de tarxeta non coincidente",
+          "default": "As túas tarxetas escollidas non coinciden. Xira outras tarxetas para tentalo de novo."
         }
       ]
     }

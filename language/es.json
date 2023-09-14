@@ -101,8 +101,8 @@
           "default": "Juego de Memoria. Encuentra las cartas que coinciden."
         },
         {
-          "label": "Game instructions",
-          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+          "label": "Instrucciones del juego",
+          "default": "Use flechas izquierda y derecha para navegar las tarjetas. Use barra espaciadora o tecla Intro para voltear tarjeta."
         },
         {
           "label": "Etiqueta de juego terminado",
@@ -110,7 +110,7 @@
         },
         {
           "label": "Etiqueta de indexación de tarjeta",
-          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "description": "%num y %total son reemplazables y serán reemplazados con los valores respectivos para la tarjeta.",
           "default": "Tarjeta %num de %total:"
         },
         {
@@ -118,20 +118,20 @@
           "default": "Sin girar. Click to turn."
         },
         {
-          "label": "Card turned label",
-          "default": "Turned."
+          "label": "Etiqueta tarjeta volteada",
+          "default": "Volteada."
         },
         {
           "label": "Texto de tarjeta coincidente",
           "default": "Coincidencia encontrada."
         },
         {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
+          "label": "Anuncio tarjeta coincidida",
+          "default": "¡Sus tarjetas coinciden!"
         },
         {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "Anuncio tarjeta no coincide",
+          "default": "Sus tarjetas elegidas no coinciden. Voltee otras tarjetas o inténtelo de nuevo."
         }
       ]
     }
