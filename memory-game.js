@@ -136,28 +136,36 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
-        var retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', function () {
-          // Trigger handler (action)
-
-          retryButton.classList.add('h5p-memory-transout');
-          setTimeout(function () {
-            // Remove button on nextTick to get transition effect
-            $wrapper[0].removeChild(retryButton);
-          }, 300);
-
-          resetGame();
+        self.retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', function () {
+          self.resetTask();
         });
-        retryButton.classList.add('h5p-memory-transin');
+        self.retryButton.classList.add('h5p-memory-transin');
         setTimeout(function () {
           // Remove class on nextTick to get transition effectupd
-          retryButton.classList.remove('h5p-memory-transin');
+          self.retryButton.classList.remove('h5p-memory-transin');
         }, 0);
 
         // Same size as cards
-        retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
+        self.retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
 
-        $wrapper[0].appendChild(retryButton); // Add to DOM
+        $wrapper[0].appendChild(self.retryButton); // Add to DOM
       }
+    };
+
+    /**
+     * Remove retry button.
+     * @private
+     */
+    const removeRetryButton = function () {
+      if (!self.retryButton || self.retryButton.parentNode !== $wrapper[0]) {
+        return; // Button not defined or attached to wrapper
+      }
+
+      self.retryButton.classList.add('h5p-memory-transout');
+      setTimeout(function () {
+        // Remove button on nextTick to get transition effect
+        $wrapper[0].removeChild(self.retryButton);
+      }, 300);
     };
 
     /**
@@ -658,6 +666,15 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       return {
         statement: completedEvent.data.statement
       };
+    };
+
+    /**
+     * Reset task.
+     * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-5}
+     */
+    self.resetTask = function () {
+      removeRetryButton();
+      resetGame();
     };
   }
 
