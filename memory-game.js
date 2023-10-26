@@ -182,7 +182,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       $feedback[0].classList.remove('h5p-show');
       $taskComplete.hide();
 
+      popup.close();
+
       // Reset timer and counter
+      timer.stop();
       timer.reset();
       counter.reset();
 
