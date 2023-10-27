@@ -177,6 +177,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       // Reset cards
       removed = 0;
       score = 0;
+      flipped = undefined;
+      numFlipped = 0;
 
       // Remove feedback
       $feedback[0].classList.remove('h5p-show');
