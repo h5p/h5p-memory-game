@@ -517,6 +517,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         $list.appendTo($container);
       }
+
+      self.attached = true;
     };
 
     /**
@@ -673,8 +675,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-5}
      */
     self.resetTask = function () {
-      removeRetryButton();
-      resetGame();
+      if (self.attached) {
+        removeRetryButton();
+        resetGame();
+      }
     };
   }
 
