@@ -101,37 +101,37 @@
           "default": "Atminties žaidimas. Raskite atitinkančias korteles."
         },
         {
-          "label": "Game instructions",
-          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+          "label": "Žaidimo instrukcijos",
+          "default": "Rodyklių klavišais į kairę ir į dešinę naršykite korteles. Norėdami pasukti kortelę, naudokite tarpo arba įvesties klavišą."
         },
         {
-          "label": "Žaidimas baigtas pavadinimas",
+          "label": "„Žaidimas baigtas“ pavadinimas",
           "default": "Visos kortelės rastos."
         },
         {
           "label": "Kortelių indeksavimo pavadinimas",
-          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
-          "default": "Kortelė %num iš %total:"
+          "description": "%num ir %total yra pakaitinės žymos, kurios bus pakeistos atitinkamomis kortelės reikšmėmis.",
+          "default": "%num kortelė iš %total:"
         },
         {
           "label": "Neatverstos kortelės pavadinimas",
-          "default": "Neatversta. Click to turn."
+          "default": "Neatversta. Paspauskite norėdami atversti."
         },
         {
-          "label": "Card turned label",
-          "default": "Turned."
+          "label": "„Kortelė apsukta“ etikete",
+          "default": "Apsukta."
         },
         {
-          "label": "Kortelė atitiko pavadinimas",
+          "label": "„Kortelė sutampa“ pavadinimas",
           "default": "Atitiktis rasta."
         },
         {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
+          "label": "Kortelė atitiko skelbimą",
+          "default": "Jūsų kortelės sutampa!"
         },
         {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "Kortelė neatitinka skelbimo",
+          "default": "Jūsų pasirinktos kortelės nesutampa. Atverskite kitas kortas ir bandykite dar kartą."
         }
       ]
     }
