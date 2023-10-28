@@ -115,10 +115,10 @@
         },
         {
           "label": "Popisek neotočené karty",
-          "default": "Neotočená. Click to turn."
+          "default": "Neotočená. Klikněte pro otočení."
         },
         {
-          "label": "Card turned label",
+          "label": "Popisek otočené karty",
           "default": "Turned."
         },
         {
