@@ -101,8 +101,8 @@
           "default": "Memory - Finde die Kartenpaare!"
         },
         {
-          "label": "Game instructions",
-          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+          "label": "Spielanleitung",
+          "default": "Benutze die Pfeiltasten nach links und rechts, um von Karte zu Karte zu springen. Benutze Space oder Enter, um die Karte umzudrehen."
         },
         {
           "label": "Meldung, wenn das Spiel abgeschlossen wurde",
@@ -110,7 +110,7 @@
         },
         {
           "label": "Beschriftung der Kartennummer",
-          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "description": "%num und %total sind Platzhalter und werden durch die entsprechenden Werte für die Karte ersetzt.",
           "default": "Karte %num von %total:"
         },
         {
@@ -118,20 +118,20 @@
           "default": "Zugedeckt. Click to turn."
         },
         {
-          "label": "Card turned label",
-          "default": "Turned."
+          "label": "Beschriftung für \"Karte umgedreht\"",
+          "default": "Umgedreht."
         },
         {
           "label": "Text, wenn ein Paar gefunden wurde",
           "default": "Paar gefunden."
         },
         {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
+          "label": "Ansage für \"Kartenpaar gefunden\"",
+          "default": "Die Karten passen zueinander!"
         },
         {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "Ansage für \"Karten passen nicht\"",
+          "default": "Die Karten passen nicht zueinander. Drehe andere Karten um, um es weiter zu versuchen."
         }
       ]
     }
