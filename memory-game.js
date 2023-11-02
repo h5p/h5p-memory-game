@@ -137,7 +137,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
         self.retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', function () {
-          self.resetTask(true);
+          self.resetTask();
         });
         self.retryButton.classList.add('h5p-memory-transin');
         setTimeout(function () {
