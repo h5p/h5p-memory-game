@@ -137,7 +137,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
         self.retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', function () {
-          self.resetTask();
+          self.resetTask(true);
         });
         self.retryButton.classList.add('h5p-memory-transin');
         setTimeout(function () {
@@ -172,8 +172,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * Shuffle the cards and restart the game!
      * @private
      */
-    var resetGame = function () {
-
+    var resetGame = function (moveFocus = true) {
       // Reset cards
       removed = 0;
       score = 0;
@@ -207,7 +206,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         $wrapper.children('ul').children('.h5p-row-break').removeClass('h5p-row-break');
         maxWidth = -1;
         self.trigger('resize');
-        cards[0].setFocus();
+        moveFocus && cards[0].setFocus();
       }, 600);
     };
 
@@ -679,10 +678,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * Reset task.
      * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-5}
      */
-    self.resetTask = function () {
+    self.resetTask = function (moveFocus = false) {
       if (self.attached) {
         removeRetryButton();
-        resetGame();
+        resetGame(moveFocus);
       }
     };
   }
