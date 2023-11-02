@@ -173,7 +173,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @private
      */
     var resetGame = function () {
-
       // Reset cards
       removed = 0;
       score = 0;
@@ -207,7 +206,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         $wrapper.children('ul').children('.h5p-row-break').removeClass('h5p-row-break');
         maxWidth = -1;
         self.trigger('resize');
-        cards[0].setFocus();
+        self.isRoot() && cards[0].setFocus();
       }, 600);
     };
 
