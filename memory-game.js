@@ -172,7 +172,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * Shuffle the cards and restart the game!
      * @private
      */
-    var resetGame = function (moveFocus = true) {
+    var resetGame = function (moveFocus = false) {
       // Reset cards
       removed = 0;
       score = 0;
