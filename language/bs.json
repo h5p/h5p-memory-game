@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Boja teme",
-          "description": "Choose a color to create a theme for your card game."
+          "description": "Choose a color to create a theme for your card game.",
+          "default": "#707070"
         },
         {
           "label": "Pozadina karte",
@@ -100,20 +101,37 @@
           "default": "Memory igra. Pronađi kartu koja se podudara."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Oznaka za završenu igru",
           "default": "Sve karte su pronađene."
         },
         {
           "label": "Oznaka za indeksiranje karata",
-          "default": "Karta %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Karta %num od %total:"
         },
         {
           "label": "Oznaka za neokrenutu kartu",
-          "default": "Neokrenuta."
+          "default": "Neokrenuta. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Oznaka za kartu podudaranja",
           "default": "Pronađeno podudaranje."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

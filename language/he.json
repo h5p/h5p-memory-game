@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "צבע נושא",
-          "description": "בחר צבע ליצירת נושא למשחק הקלפים שלך."
+          "description": "בחר צבע ליצירת נושא למשחק הקלפים שלך.",
+          "default": "#707070"
         },
         {
           "label": "גב הקלף",
@@ -100,20 +101,37 @@
           "default": "משחק זיכרון. מצא את הקלפים המתאימים."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "תווית המשחק נגמר",
           "default": "נמצאו כל הקלפים."
         },
         {
           "label": "תווית מפתוח קלף",
-          "default": "כרטיס %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "כרטיס %num של %total:"
         },
         {
           "label": "תווית קלף לא הפוך",
-          "default": "לא הפוך."
+          "default": "לא הפוך. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "תווית קלף מותאם",
           "default": "נמצאה התאמה."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

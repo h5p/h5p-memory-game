@@ -40,7 +40,9 @@
           "label": "Audio Track",
           "description": "An optional sound that plays when the card is turned.",
           "optional": true,
-          "widgetExtensions": ["AudioRecorder"]
+          "widgetExtensions": [
+            "AudioRecorder"
+          ]
         },
         {
           "name": "match",
@@ -66,7 +68,9 @@
           "label": "Matching Audio Track",
           "description": "An optional sound that plays when the second card is turned.",
           "optional": true,
-          "widgetExtensions": ["AudioRecorder"]
+          "widgetExtensions": [
+            "AudioRecorder"
+          ]
         },
         {
           "name": "description",
@@ -129,7 +133,7 @@
         "importance": "low",
         "description": "Choose a color to create a theme for your card game.",
         "optional": true,
-        "default": "#909090",
+        "default": "#707070",
         "widget": "colorSelector",
         "spectrum": {
           "showInput": true
@@ -196,6 +200,13 @@
         "default": "Memory Game. Find the matching cards."
       },
       {
+        "label": "Game instructions",
+        "importance": "low",
+        "name": "label",
+        "type": "text",
+        "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+      },
+      {
         "label": "Game finished label",
         "importance": "low",
         "name": "done",
@@ -204,17 +215,25 @@
       },
       {
         "label": "Card indexing label",
+        "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
         "importance": "low",
         "name": "cardPrefix",
         "type": "text",
-        "default": "Card %num:"
+        "default": "Card %num of %total:"
       },
       {
         "label": "Card unturned label",
         "importance": "low",
         "name": "cardUnturned",
         "type": "text",
-        "default": "Unturned."
+        "default": "Unturned. Click to turn."
+      },
+      {
+        "label": "Card turned label",
+        "importance": "low",
+        "name": "cardTurned",
+        "type": "text",
+        "default": "Turned."
       },
       {
         "label": "Card matched label",
@@ -222,6 +241,20 @@
         "name": "cardMatched",
         "type": "text",
         "default": "Match found."
+      },
+      {
+        "label": "Card matched announcement",
+        "importance": "low",
+        "name": "cardMatchedA11y",
+        "type": "text",
+        "default": "Your cards match!"
+      },
+      {
+        "label": "Card not matched announcement",
+        "importance": "low",
+        "name": "cardNotMatchedA11y",
+        "type": "text",
+        "default": "Your chosen cards do not match. Turn other cards to try again."
       }
     ]
   }

@@ -1,27 +1,54 @@
 (function (MemoryGame, EventDispatcher, $) {
 
   /**
+   * @private
+   * @constant {number} WCAG_MIN_CONTRAST_AA_LARGE Minimum contrast ratio.
+   * @see https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+   */
+  const WCAG_MIN_CONTRAST_AA_LARGE = 3;
+
+  /**
    * Controls all the operations for each card.
    *
    * @class H5P.MemoryGame.Card
    * @extends H5P.EventDispatcher
    * @param {Object} image
    * @param {number} id
+   * @param {number} cardsTotal Number of cards in total.
    * @param {string} alt
    * @param {Object} l10n Localization
    * @param {string} [description]
    * @param {Object} [styles]
    */
-  MemoryGame.Card = function (image, id, alt, l10n, description, styles, audio) {
+  MemoryGame.Card = function (image, id, cardsTotal, alt, l10n, description, styles, audio) {
     /** @alias H5P.MemoryGame.Card# */
     var self = this;
+
+    // Keep track of tabbable state
+    self.isTabbable = false;
 
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var path, width, height, $card, $wrapper, removedState, flippedState, audioPlayer;
+    let path, width, height, $card, $wrapper, $image, removedState,
+      flippedState, audioPlayer;
 
-    alt = alt || 'Missing description'; // Default for old games
+    /**
+     * Process HTML escaped string for use as attribute value,
+     * e.g. for alt text or title attributes.
+     *
+     * @param {string} value
+     * @return {string} WARNING! Do NOT use for innerHTML.
+     */
+    const massageAttributeOutput = (value) => {
+      const dparser = new DOMParser().parseFromString(value, 'text/html');
+      const div = document.createElement('div');
+      div.innerHTML = dparser.documentElement.textContent;;
+      return div.textContent || div.innerText || 'Missing description';
+    };
+
+    // alt = alt || 'Missing description'; // Default for old games
+    alt = massageAttributeOutput(alt);
 
     if (image && image.path) {
       path = H5P.getPath(image.path, id);
@@ -89,15 +116,16 @@
      * @param {boolean} reset Go back to the default label
      */
     self.updateLabel = function (isMatched, announce, reset) {
-
       // Determine new label from input params
-      var label = (reset ? l10n.cardUnturned : alt);
+      var label = (reset ? l10n.cardUnturned : l10n.cardTurned + ' ' + alt);
       if (isMatched) {
         label = l10n.cardMatched + ' ' + label;
       }
 
       // Update the card's label
-      $wrapper.attr('aria-label', l10n.cardPrefix.replace('%num', $wrapper.index() + 1) + ' ' + label);
+      $wrapper.attr('aria-label', l10n.cardPrefix
+        .replace('%num', $wrapper.index() + 1)
+        .replace('%total', cardsTotal) + ' ' + label);
 
       // Update disabled property
       $wrapper.attr('aria-disabled', reset ? null : 'true');
@@ -110,6 +138,10 @@
 
     /**
      * Flip card.
+     *
+     * Win 11 screen reader announces image's alt tag even though it never gets
+     * focus and button provides aria-label. Therefore alt tag is only set when
+     * card is turned.
      */
     self.flip = function () {
       if (flippedState) {
@@ -118,6 +150,7 @@
       }
 
       $card.addClass('h5p-flipped');
+      $image.attr('alt', alt);
       self.trigger('flip');
       flippedState = true;
 
@@ -133,6 +166,7 @@
       self.stopAudio();
       self.updateLabel(null, null, true); // Reset card label
       $card.removeClass('h5p-flipped');
+      $image.attr('alt', '');
       flippedState = false;
     };
 
@@ -182,7 +216,7 @@
       $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">' +
                   '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
                   '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
-                    (path ? '<img src="' + path + '" alt="' + alt + '" style="width:' + width + ';height:' + height + '"/>' + (audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : '') : '<i class="h5p-memory-audio-instead-of-image">') +
+                    (path ? '<img src="' + path + '" alt="" style="width:' + width + ';height:' + height + '"/>' + (audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : '') : '<i class="h5p-memory-audio-instead-of-image">') +
                   '</div>' +
                 '</div></li>')
         .appendTo($container)
@@ -194,15 +228,23 @@
               event.preventDefault();
               return;
             case 39: // Right
-            case 40: // Down
               // Move focus forward
               self.trigger('next');
               event.preventDefault();
               return;
+            case 40: // Down
+              // Move focus down
+              self.trigger('down');
+              event.preventDefault();
+              return;
             case 37: // Left
-            case 38: // Up
               // Move focus back
               self.trigger('prev');
+              event.preventDefault();
+              return;
+            case 38: // Up
+              // Move focus up
+              self.trigger('up');
               event.preventDefault();
               return;
             case 35:
@@ -218,7 +260,15 @@
           }
         });
 
-      $wrapper.attr('aria-label', l10n.cardPrefix.replace('%num', $wrapper.index() + 1) + ' ' + l10n.cardUnturned);
+      $image = $wrapper.find('img');
+
+      $wrapper.attr(
+        'aria-label',
+        l10n.cardPrefix
+          .replace('%num', $wrapper.index() + 1)
+          .replace('%total', cardsTotal) + ' ' + l10n.cardUnturned
+      );
+
       $card = $wrapper.children('.h5p-memory-card')
         .children('.h5p-front')
           .click(function () {
@@ -253,6 +303,7 @@
     self.makeTabbable = function () {
       if ($wrapper) {
         $wrapper.attr('tabindex', '0');
+        this.isTabbable = true;
       }
     };
 
@@ -262,6 +313,7 @@
     self.makeUntabbable = function () {
       if ($wrapper) {
         $wrapper.attr('tabindex', '-1');
+        this.isTabbable = false;
       }
     };
 
@@ -341,8 +393,8 @@
 
     // Create color theme
     if (color) {
-      var frontColor = shade(color, 43.75 * invertShades);
-      var backColor = shade(color, 56.25 * invertShades);
+      const frontColor = shadeEnforceContrast(color, 43.75 * invertShades);
+      const backColor = shade(frontColor, 12.75 * invertShades);
 
       styles.front += 'color:' + color + ';' +
                       'background-color:' + frontColor + ';' +
@@ -372,6 +424,89 @@
   };
 
   /**
+   * Get RGB color components from color hex value.
+   *
+   * @private
+   * @param {string} color Color as hex value, e.g. '#123456`.
+   * @returns {number[]} Red, green, blue color component as integer from 0-255.
+   */
+  const getRGB = function (color) {
+    return [
+      parseInt(color.substring(1, 3), 16),
+      parseInt(color.substring(3, 5), 16),
+      parseInt(color.substring(5, 7), 16)
+    ];
+  }
+
+
+  /**
+   * Compute luminance for color.
+   *
+   * @private
+   * @see http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
+   * @param {string} color Color as hex value, e.g. '#123456`.
+   * @returns {number} Luminance, [0-1], 0 = lightest, 1 = darkest.
+   */
+  const computeLuminance = function (color) {
+    const rgba = getRGB(color)
+      .map(function (v) {
+        v = v / 255;
+
+        return v < 0.03928 ?
+          v / 12.92 :
+          Math.pow((v + 0.055) / 1.055, 2.4);
+      });
+
+    return rgba[0] * 0.2126 + rgba[1] * 0.7152 + rgba[2] * 0.0722;
+  }
+
+  /**
+   * Compute relative contrast between two colors.
+   *
+   * @private
+   * @see https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+   * @param {string} color1 Color as hex value, e.g. '#123456`.
+   * @param {string} color2 Color as hex value, e.g. '#123456`.
+   * @returns {number} Contrast, [1-21], 1 = no contrast, 21 = max contrast.
+   */
+  const computeContrast = function (color1, color2) {
+    const luminance1 = computeLuminance(color1);
+    const luminance2 = computeLuminance(color2);
+
+    return (
+      (Math.max(luminance1, luminance2) + 0.05) /
+      (Math.min(luminance1, luminance2) + 0.05)
+    )
+  }
+
+  /**
+   * Use shade function, but enforce minimum contrast
+   *
+   * @param {string} color Color as hex value, e.g. '#123456`.
+   * @param {number} percent Shading percentage.
+   * @returns {string} Color as hex value, e.g. '#123456`.
+   */
+  const shadeEnforceContrast = function (color, percent) {
+    let shadedColor;
+
+    do {
+      shadedColor = shade(color, percent);
+
+      if (shadedColor === '#ffffff' || shadedColor === '#000000') {
+        // Cannot brighten/darken, make original color 5% points darker/brighter
+        color = shade(color, -5 * Math.sign(percent));
+      }
+      else {
+        // Increase shading by 5 percent
+        percent = percent * 1.05;
+      }
+    }
+    while (computeContrast(color, shadedColor) < WCAG_MIN_CONTRAST_AA_LARGE);
+
+    return shadedColor;
+  }
+
+  /**
    * Convert hex color into shade depending on given percent
    *
    * @private
@@ -393,7 +528,7 @@
 
     for (var i = 1; i < 6; i += 2) {
       // Grab channel and convert from hex to dec
-      var channel = parseInt(color.substr(i, 2), 16);
+      var channel = parseInt(color.substring(i, i + 2), 16);
 
       // Calculate new shade and convert back to hex
       channel = (Math.round((max - channel) * percent) + channel).toString(16);

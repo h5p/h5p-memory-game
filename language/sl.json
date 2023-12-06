@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Barvna shema",
-          "description": "Izbira barvne sheme kartic."
+          "description": "Izbira barvne sheme kartic.",
+          "default": "#707070"
         },
         {
           "label": "Slika hrbta kartic",
@@ -100,20 +101,37 @@
           "default": "Poveži pare kartic."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Besedilo ob zaključku naloge",
           "default": "Povezani so vsi pari."
         },
         {
           "label": "Besedilo za razlikovanje kartic",
-          "default": "Kartica %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kartica %num od %total:"
         },
         {
           "label": "Besedilo za neobrnjene kartice",
-          "default": "Neobrnjeno."
+          "default": "Neobrnjeno. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Besedilo ob povezanem paru",
           "default": "Najden par."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

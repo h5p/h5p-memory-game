@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Rangi ya mandhari",
-          "description": "Chagua rangi ili kuunda mandhari ya mchezo wa kadi yako."
+          "description": "Chagua rangi ili kuunda mandhari ya mchezo wa kadi yako.",
+          "default": "#707070"
         },
         {
           "label": "Kadi Nyuma",
@@ -100,20 +101,37 @@
           "default": "Mchezo wa Kumbukizi. Tafuta kadi zinazolingana."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Lebo ya mchezo umekwisha",
           "default": "Kadi zote zimepatikana."
         },
         {
           "label": "Lebo ya kuorodhesha kadi",
-          "default": "Kadi %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kadi %num/%total:"
         },
         {
           "label": "Lebo ya kadi ambayo haijageuzwa",
-          "default": "Haijageuzwa."
+          "default": "Haijageuzwa. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Lebo inayolingana na kadi",
           "default": "Inayolingana imepatikana."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

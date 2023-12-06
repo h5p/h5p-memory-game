@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Themenfarbe",
-          "description": "Wähle eine Farbe, um das Spiel zu individualisieren."
+          "description": "Wähle eine Farbe, um das Spiel zu individualisieren.",
+          "default": "#707070"
         },
         {
           "label": "Kartenrückseite",
@@ -100,20 +101,37 @@
           "default": "Memory - Finde die Kartenpaare!"
         },
         {
+          "label": "Spielanleitung",
+          "default": "Benutze die Pfeiltasten nach links und rechts, um von Karte zu Karte zu springen. Benutze Space oder Enter, um die Karte umzudrehen."
+        },
+        {
           "label": "Meldung, wenn das Spiel abgeschlossen wurde",
           "default": "Du hast alle Kartenpaare gefunden!"
         },
         {
           "label": "Beschriftung der Kartennummer",
-          "default": "Karte %num:"
+          "description": "%num und %total sind Platzhalter und werden durch die entsprechenden Werte für die Karte ersetzt.",
+          "default": "Karte %num von %total:"
         },
         {
           "label": "Text, wenn eine Karte wieder zugedeckt wurde",
-          "default": "Zugedeckt."
+          "default": "Zugedeckt. Click to turn."
+        },
+        {
+          "label": "Beschriftung für \"Karte umgedreht\"",
+          "default": "Umgedreht."
         },
         {
           "label": "Text, wenn ein Paar gefunden wurde",
           "default": "Paar gefunden."
+        },
+        {
+          "label": "Ansage für \"Kartenpaar gefunden\"",
+          "default": "Die Karten passen zueinander!"
+        },
+        {
+          "label": "Ansage für \"Karten passen nicht\"",
+          "default": "Die Karten passen nicht zueinander. Drehe andere Karten um, um es weiter zu versuchen."
         }
       ]
     }

@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "主題顏色",
-          "description": "為您的翻轉記憶牌遊戲設定一種顏色主題."
+          "description": "為您的翻轉記憶牌遊戲設定一種顏色主題.",
+          "default": "#707070"
         },
         {
           "label": "記憶牌背面圖示",
@@ -100,20 +101,37 @@
           "default": "翻轉記憶牌遊戲. 請找出相稱的記憶牌."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "遊戲完成名稱",
           "default": "所有的記憶牌皆已找出."
         },
         {
           "label": "記憶牌索引名稱",
-          "default": "記憶牌數量 %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "記憶牌數量 %num/%total:"
         },
         {
           "label": "未翻轉記憶牌名稱",
-          "default": "未翻轉."
+          "default": "未翻轉. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "相稱記憶牌名稱",
           "default": "已找到相稱的記憶牌."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

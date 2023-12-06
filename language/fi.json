@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Väriteema",
-          "description": "Valitse väri luodaksesi teeman pelille."
+          "description": "Valitse väri luodaksesi teeman pelille.",
+          "default": "#707070"
         },
         {
           "label": "Kortin kääntöpuoli",
@@ -100,20 +101,37 @@
           "default": "Muistipeli. Löydä parit."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Peli päättynyt",
           "default": "Kaikki parit löydetty."
         },
         {
           "label": "Kortin yksilöllinen järjestysnumero",
-          "default": "Kortti %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kortti %num/%total:"
         },
         {
           "label": "Kääntämätön",
-          "default": "Kääntämätön."
+          "default": "Kääntämätön. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Pari löytynyt",
           "default": "Pari löydetty."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Themakleur",
-          "description": "Kies een themakleur voor kaarten van je spel."
+          "description": "Kies een themakleur voor kaarten van je spel.",
+          "default": "#707070"
         },
         {
           "label": "Achterkant kaart",
@@ -100,20 +101,37 @@
           "default": "Geheugenspel. Vind de overeenkomende kaarten."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Label einde spel",
           "default": "Alle kaarten zijn gevonden."
         },
         {
           "label": "Label kaartenindex",
-          "default": "Kaart %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Kaart %num de %total:"
         },
         {
           "label": "Label niet gedraaide kaarten",
-          "default": "Niet gedraaid."
+          "default": "Niet gedraaid. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Label overeenkomende kaarten",
           "default": "Paar gevonden."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

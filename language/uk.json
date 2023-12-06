@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Колір теми",
-          "description": "Оберіть колір, щоб створити тему для своеї карточної гри."
+          "description": "Оберіть колір, щоб створити тему для своеї карточної гри.",
+          "default": "#707070"
         },
         {
           "label": "Зворотня сторона карточки",
@@ -100,20 +101,37 @@
           "default": "Гра на запам'ятовування. Знайди відповідні карточки."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Надпис завершення гри",
           "default": "Всі карточки були знайдені."
         },
         {
           "label": "Надпис номера карточки",
-          "default": "Карточка %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Карточка %num/%total:"
         },
         {
           "label": "Надпис неперевернутої карточки",
-          "default": "Неперевернута."
+          "default": "Неперевернута. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Надпис відповідної карточки",
           "default": "Відповідність знайдено."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

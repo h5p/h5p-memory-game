@@ -6,114 +6,132 @@
           "label": "Default"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "Kort",
+      "entity": "kort",
       "field": {
-        "label": "Card",
+        "label": "Kort",
         "fields": [
           {
             "label": "Image"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Alternativ text för bild",
+            "description": "Beskriv vad bilden föreställer. Texten används av tillgänglighetshjälpmedel."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Ljudspår",
+            "description": "Ett valfritt ljud som spelas upp när kortet vänds."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Matchande bild",
+            "description": "En valfri bild som matchar, istället för att använda två kort med samma bild."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Alternativ text för matchande bild",
+            "description": "Beskriv vad som finns i bilden. Används av tillgänglighetshjälpmedel."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Matchande ljudspår",
+            "description": "Ett valfritt ljud som spelas upp när det andra kortet vänds."
           },
           {
             "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "description": "En valfri kort text som poppar upp när två matchande kort hittas."
           }
         ]
       }
     },
     {
       "label": "Beteende-inställningar",
-      "description": "These options will let you control how the game behaves.",
+      "description": "Dessa inställningar avgör hur spelet beter sig.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Positionera korten kvadratiskt",
+          "description": "Kommer försöka matcha antalet kolumner och rader när korten placeras ut. Efteråt, så kommer korten att skalas för att passa in i behållaren."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Antal kort att använda",
+          "description": "Om du väljer ett större tal än 2, så väljs kort slumpmässigt från listan över kort."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Lägg till knapp för att försöka igen, när spelet är slut"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Utseende",
+      "description": "Ställ in hur spelet ska se ut.",
       "fields": [
         {
           "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "description": "Välj en färg för att skapa ett tema för ditt kortspel.",
+          "default": "#707070"
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Baksida på kort",
+          "description": "Använd en anpassad baksida på dina kort."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Lokalisering",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Text när kort vänds",
+          "default": "Kort du har vänt"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Text för förbrukad tid",
+          "default": "Tid förbrukad"
         },
         {
           "label": "Feedbacktext",
-          "default": "Good work!"
+          "default": "Bra jobbat!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Knapptext för Försök igen",
+          "default": "Försök igen?"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Knapptext för Stäng",
+          "default": "Stäng"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Speletikett",
+          "default": "Memory-spel. Hitta de matchande korten."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Text för Spel avslutat",
+          "default": "Alla korten har hittats."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "Text för kort-indexering",
+          "default": "Kort %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned."
+          "label": "Text för Ej vänt kort",
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Ej vänt."
+        },
+        {
+          "label": "Text för matchande kort",
+          "default": "Matchning hittad."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Card matched label",
           "default": "Match found."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

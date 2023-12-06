@@ -6,10 +6,10 @@
           "label": "Default"
         }
       ],
-      "label": "Cards",
+      "label": "ކާޑު",
       "entity": "card",
       "field": {
-        "label": "Card",
+        "label": "ކާޑު",
         "fields": [
           {
             "label": "Image"
@@ -85,7 +85,7 @@
           "default": "Time spent"
         },
         {
-          "label": "Text de feedback",
+          "label": "Feedback text",
           "default": "Good work!"
         },
         {
@@ -98,7 +98,7 @@
         },
         {
           "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "default": "ކާޑު ހޯދަމާ"
         },
         {
           "label": "Game instructions",
@@ -106,12 +106,12 @@
         },
         {
           "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "default": "ވަރަށް މޮޅު."
         },
         {
           "label": "Card indexing label",
           "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
-          "default": "Card %num of %total:"
+          "default": "Card %num of total:"
         },
         {
           "label": "Card unturned label",

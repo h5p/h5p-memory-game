@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Цвет темы",
-          "description": "Выберите цвет, чтобы создать тему для своей карточной игры."
+          "description": "Выберите цвет, чтобы создать тему для своей карточной игры.",
+          "default": "#707070"
         },
         {
           "label": "Обратная сторона карточки",
@@ -100,20 +101,37 @@
           "default": "Игра на запоминание. Найти подходящие карточки."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Надпись завершения игры",
           "default": "Все карточки были найдены."
         },
         {
           "label": "Надпись номера карточки",
-          "default": "Карточка %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Карточка %num/%total:"
         },
         {
           "label": "Надпись неперевернутой карточки",
-          "default": "Неперевернутая."
+          "default": "Неперевернутая. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Надпись подходящей карточки",
           "default": "Соответствие найдено."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

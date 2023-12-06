@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Colore del tema",
-          "description": "Scegli un colore per creare una tema per il tuo gioco di carte"
+          "description": "Scegli un colore per creare una tema per il tuo gioco di carte",
+          "default": "#707070"
         },
         {
           "label": "Dietro della carta",
@@ -100,20 +101,37 @@
           "default": "Gioco di memoria. Trova le carte corrispondenti"
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Etichetta di fine gioco",
           "default": "Tutte le carte sono state trovate"
         },
         {
           "label": "Etichetta di indicizzazione della carta",
-          "default": "Carta %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Carta %num su %total:"
         },
         {
           "label": "Etichetta della carta non voltata",
-          "default": "Non voltata"
+          "default": "Non voltata. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Etichetta della cartata abbinata",
           "default": "Trovata corrispondenza"
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

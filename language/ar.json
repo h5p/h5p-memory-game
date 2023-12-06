@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "description": "Choose a color to create a theme for your card game.",
+          "default": "#707070"
         },
         {
           "label": "Card Back",
@@ -100,20 +101,37 @@
           "default": "Memory Game. Find the matching cards."
         },
         {
+          "label": "Game instructions",
+          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+        },
+        {
           "label": "Game finished label",
           "default": "All of the cards have been found."
         },
         {
           "label": "Card indexing label",
-          "default": "Card %num:"
+          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "default": "Card %num of %total:"
         },
         {
           "label": "Card unturned label",
-          "default": "Unturned."
+          "default": "Unturned. Click to turn."
+        },
+        {
+          "label": "Card turned label",
+          "default": "Turned."
         },
         {
           "label": "Card matched label",
           "default": "Match found."
+        },
+        {
+          "label": "Card matched announcement",
+          "default": "Your cards match!"
+        },
+        {
+          "label": "Card not matched announcement",
+          "default": "Your chosen cards do not match. Turn other cards to try again."
         }
       ]
     }

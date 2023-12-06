@@ -64,7 +64,8 @@
       "fields": [
         {
           "label": "Cor do tema",
-          "description": "Escolle unha cor para crear un tema para o teu xogo de tarxetas."
+          "description": "Escolle unha cor para crear un tema para o teu xogo de tarxetas.",
+          "default": "#707070"
         },
         {
           "label": "Reverso da tarxeta",
@@ -100,20 +101,37 @@
           "default": "Xogo de memoria. Atopa as tarxetas coincidentes."
         },
         {
+          "label": "Instrucións do xogo",
+          "default": "Usa as frechas cara á esquerda e á dereita para navegar polas tarxetas. Usa espazo ou tecla Intro para virar a tarxeta."
+        },
+        {
           "label": "Etiqueta para xogo rematado",
           "default": "Atoparonse todas as tarxetas."
         },
         {
           "label": "Etiqueta para o índice das tarxetas",
-          "default": "Tarxeta %num:"
+          "description": "%num e %total son marcadores de posición e substituiranse polos valores respectivos para a tarxeta.",
+          "default": "Tarxeta %num de %total:"
         },
         {
           "label": "Etiqueta para as tarxetas non xiradas",
-          "default": "Sen xirar."
+          "default": "Sen xirar. Click to turn."
+        },
+        {
+          "label": "Etiqueta para as tarxetas xiradas",
+          "default": "Xirada."
         },
         {
           "label": "Etiqueta para coincidencia atopada",
           "default": "Coincidencia atopada."
+        },
+        {
+          "label": "Anuncio de tarxeta coincidente",
+          "default": "As túas tarxetas coinciden!"
+        },
+        {
+          "label": "Anuncio de tarxeta non coincidente",
+          "default": "As túas tarxetas escollidas non coinciden. Xira outras tarxetas para tentalo de novo."
         }
       ]
     }
