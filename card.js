@@ -13,16 +13,18 @@
    * @class H5P.MemoryGame.Card
    * @extends H5P.EventDispatcher
    * @param {Object} image
-   * @param {number} id
+   * @param {number} contentId
    * @param {number} cardsTotal Number of cards in total.
    * @param {string} alt
    * @param {Object} l10n Localization
    * @param {string} [description]
    * @param {Object} [styles]
    */
-  MemoryGame.Card = function (image, id, cardsTotal, alt, l10n, description, styles, audio) {
+  MemoryGame.Card = function (image, contentId, cardsTotal, alt, l10n, description, styles, audio, id) {
     /** @alias H5P.MemoryGame.Card# */
     var self = this;
+
+    this.id = id;
 
     // Keep track of tabbable state
     self.isTabbable = false;
@@ -47,11 +49,88 @@
       return div.textContent || div.innerText || 'Missing description';
     };
 
+    self.buildDOM = () => {
+      $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">' +
+                  '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
+                  '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
+                    (path ? '<img src="' + path + '" alt="" style="width:' + width + ';height:' + height + '"/>' + (audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : '') : '<i class="h5p-memory-audio-instead-of-image">') +
+                  '</div>' +
+                '</div></li>');
+
+      $wrapper.on('keydown', (event) => {
+        switch (event.code) {
+          case 'Enter':
+          case 'Space':
+            self.flip();
+            event.preventDefault();
+            return;
+          case 'ArrowRight':
+            // Move focus forward
+            self.trigger('next');
+            event.preventDefault();
+            return;
+          case 'ArrowDown':
+            // Move focus down
+            self.trigger('down');
+            event.preventDefault();
+            return;
+          case 'ArrowLeft':
+            // Move focus back
+            self.trigger('prev');
+            event.preventDefault();
+            return;
+          case 'ArrowUp': // Up
+            // Move focus up
+            self.trigger('up');
+            event.preventDefault();
+            return;
+          case 'End':
+            // Move to last card
+            self.trigger('last');
+            event.preventDefault();
+            return;
+          case 'Home':
+            // Move to first card
+            self.trigger('first');
+            event.preventDefault();
+            return;
+        }
+      });
+
+      $image = $wrapper.find('img');
+
+      $wrapper.attr(
+        'aria-label',
+        l10n.cardPrefix
+          .replace('%num', $wrapper.index() + 1)
+          .replace('%total', cardsTotal) + ' ' + l10n.cardUnturned
+      );
+
+      $card = $wrapper.children('.h5p-memory-card')
+        .children('.h5p-front')
+          .click(function () {
+            self.flip();
+          })
+          .end();
+
+      if (audioPlayer) {
+        $card.children('.h5p-back')
+          .click(function () {
+            if ($card.hasClass('h5p-memory-audio-playing')) {
+              self.stopAudio();
+            }
+            else {
+              audioPlayer.play();
+            }
+          })
+      }
+    }
+
     // alt = alt || 'Missing description'; // Default for old games
     alt = massageAttributeOutput(alt);
 
     if (image && image.path) {
-      path = H5P.getPath(image.path, id);
+      path = H5P.getPath(image.path, contentId);
 
       if (image.width !== undefined && image.height !== undefined) {
         if (image.width > image.height) {
@@ -76,7 +155,7 @@
         for (var i = 0; i < audio.length; i++) {
           if (audioPlayer.canPlayType(audio[i].mime)) {
             var source = document.createElement('source');
-            source.src = H5P.getPath(audio[i].path, id);
+            source.src = H5P.getPath(audio[i].path, contentId);
             source.type = audio[i].mime;
             audioPlayer.appendChild(source);
           }
@@ -107,6 +186,16 @@
         audioPlayer.addEventListener('pause', handleStopping);
       }
     }
+
+    this.buildDOM();
+
+    /**
+     * Get id of the card.
+     * @returns {string} The id of the card. (originalIndex-sideNumber)
+     */
+    this.getId = () => {
+      return self.id;
+    };
 
     /**
      * Update the cards label to make it accessible to users with a readspeaker
@@ -142,8 +231,10 @@
      * Win 11 screen reader announces image's alt tag even though it never gets
      * focus and button provides aria-label. Therefore alt tag is only set when
      * card is turned.
+     * @param {object} [params] Parameters.
+     * @param {boolean} [params.restoring] True if card is being restored from a saved state.
      */
-    self.flip = function () {
+    self.flip = function (params = {}) {
       if (flippedState) {
         $wrapper.blur().focus(); // Announce card label again
         return;
@@ -151,12 +242,13 @@
 
       $card.addClass('h5p-flipped');
       $image.attr('alt', alt);
-      self.trigger('flip');
       flippedState = true;
 
-      if (audioPlayer) {
+      if (audioPlayer && !params.restoring) {
         audioPlayer.play();
       }
+
+      this.trigger('flip', { restoring: params.restoring });
     };
 
     /**
@@ -213,80 +305,7 @@
      * @param {H5P.jQuery} $container
      */
     self.appendTo = function ($container) {
-      $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">' +
-                  '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
-                  '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
-                    (path ? '<img src="' + path + '" alt="" style="width:' + width + ';height:' + height + '"/>' + (audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : '') : '<i class="h5p-memory-audio-instead-of-image">') +
-                  '</div>' +
-                '</div></li>')
-        .appendTo($container)
-        .on('keydown', function (event) {
-          switch (event.which) {
-            case 13: // Enter
-            case 32: // Space
-              self.flip();
-              event.preventDefault();
-              return;
-            case 39: // Right
-              // Move focus forward
-              self.trigger('next');
-              event.preventDefault();
-              return;
-            case 40: // Down
-              // Move focus down
-              self.trigger('down');
-              event.preventDefault();
-              return;
-            case 37: // Left
-              // Move focus back
-              self.trigger('prev');
-              event.preventDefault();
-              return;
-            case 38: // Up
-              // Move focus up
-              self.trigger('up');
-              event.preventDefault();
-              return;
-            case 35:
-              // Move to last card
-              self.trigger('last');
-              event.preventDefault();
-              return;
-            case 36:
-              // Move to first card
-              self.trigger('first');
-              event.preventDefault();
-              return;
-          }
-        });
-
-      $image = $wrapper.find('img');
-
-      $wrapper.attr(
-        'aria-label',
-        l10n.cardPrefix
-          .replace('%num', $wrapper.index() + 1)
-          .replace('%total', cardsTotal) + ' ' + l10n.cardUnturned
-      );
-
-      $card = $wrapper.children('.h5p-memory-card')
-        .children('.h5p-front')
-          .click(function () {
-            self.flip();
-          })
-          .end();
-
-      if (audioPlayer) {
-        $card.children('.h5p-back')
-          .click(function () {
-            if ($card.hasClass('h5p-memory-audio-playing')) {
-              self.stopAudio();
-            }
-            else {
-              audioPlayer.play();
-            }
-          })
-      }
+      $wrapper.appendTo($container);
     };
 
     /**
@@ -331,9 +350,13 @@
      * Check if the card has been removed from the game, i.e. if has
      * been matched.
      */
-    self.isRemoved = function () {
-      return removedState;
+    this.isRemoved = () => {
+      return removedState ?? false;
     };
+
+    this.isFlipped = () => {
+      return flippedState ?? false;
+    }
 
     /**
      * Stop any audio track that might be playing.

@@ -6,10 +6,9 @@
    *
    * @class H5P.MemoryGame.Popup
    * @extends H5P.EventDispatcher
-   * @param {H5P.jQuery} $container
    * @param {Object.<string, string>} l10n
    */
-  MemoryGame.Popup = function ($container, l10n) {
+  MemoryGame.Popup = function (l10n) {
     // Initialize event inheritance
     EventDispatcher.call(this);
 
@@ -18,7 +17,7 @@
 
     var closed;
 
-    const $popup = $(
+    var $popup = $(
       '<div class="h5p-memory-obscure-content"><div class="h5p-memory-pop" role="dialog" aria-modal="true"><div class="h5p-memory-top"></div><div class="h5p-memory-desc h5p-programatically-focusable" tabindex="-1"></div><div class="h5p-memory-close" role="button" tabindex="0" title="' + (l10n.closeLabel || 'Close') + '" aria-label="' + (l10n.closeLabel || 'Close') + '"></div></div></div>'
       )
       .on('keydown', function (event) {
@@ -27,8 +26,7 @@
           event.preventDefault();
         }
       })
-      .hide()
-      .appendTo($container);
+      .hide();
 
     const $top = $popup.find('.h5p-memory-top');
 
@@ -57,6 +55,14 @@
           event.preventDefault();
         }
       });
+
+    /**
+     * Append the popup to a container.
+     * @param {H5P.jQuery} $container Container to append to.
+     */
+    this.appendTo = ($container) => {
+      $container.append($popup);
+    };
 
     /**
      * Show the popup.
