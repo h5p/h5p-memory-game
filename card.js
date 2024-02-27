@@ -101,13 +101,6 @@
 
       $image = $wrapper.find('img');
 
-      $wrapper.attr(
-        'aria-label',
-        l10n.cardPrefix
-          .replace('%num', $wrapper.index() + 1)
-          .replace('%total', cardsTotal) + ' ' + l10n.cardUnturned
-      );
-
       $card = $wrapper.children('.h5p-memory-card')
         .children('.h5p-front')
           .click(function () {
@@ -313,6 +306,13 @@
      */
     self.appendTo = function ($container) {
       $wrapper.appendTo($container);
+
+      $wrapper.attr(
+        'aria-label',
+        l10n.cardPrefix
+          .replace('%num', $wrapper.index() + 1)
+          .replace('%total', cardsTotal) + ' ' + l10n.cardUnturned
+      );
     };
 
     /**
