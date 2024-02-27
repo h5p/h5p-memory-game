@@ -43,11 +43,12 @@
      * @param {string} value
      * @return {string} WARNING! Do NOT use for innerHTML.
      */
-    const massageAttributeOutput = (value) => {
+    const massageAttributeOutput = (value = 'Missing description') => {
       const dparser = new DOMParser().parseFromString(value, 'text/html');
       const div = document.createElement('div');
       div.innerHTML = dparser.documentElement.textContent;;
-      return div.textContent || div.innerText || 'Missing description';
+
+      return div.textContent || div.innerText;
     };
 
     self.buildDOM = () => {
@@ -207,7 +208,12 @@
      */
     self.updateLabel = function (isMatched, announce, reset) {
       // Determine new label from input params
-      var label = (reset ? l10n.cardUnturned : l10n.cardTurned + ' ' + alt);
+      const imageAlt = alt ? ` ${alt}`: '';
+
+      let label = reset ?
+        l10n.cardUnturned :
+        `${l10n.cardTurned}${imageAlt}`;
+
       if (isMatched) {
         label = l10n.cardMatched + ' ' + label;
       }
