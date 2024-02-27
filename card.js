@@ -19,6 +19,7 @@
    * @param {Object} l10n Localization
    * @param {string} [description]
    * @param {Object} [styles]
+   * @param {string} id Unique identifier for card including original+match info.
    */
   MemoryGame.Card = function (image, contentId, cardsTotal, alt, l10n, description, styles, audio, id) {
     /** @alias H5P.MemoryGame.Card# */
@@ -354,6 +355,10 @@
       return removedState ?? false;
     };
 
+    /**
+     * Determine whether card is flipped or nor.
+     * @returns {boolean} True if card is flipped, else false.
+     */
     this.isFlipped = () => {
       return flippedState ?? false;
     }

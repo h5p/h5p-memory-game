@@ -14,6 +14,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
    * @extends H5P.EventDispatcher
    * @param {Object} parameters
    * @param {Number} id
+   * @param {Object} [extras] Saved state, metadata, etc.
    */
   function MemoryGame(parameters, id, extras) {
     /** @alias H5P.MemoryGame# */
@@ -286,13 +287,12 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @private
      * @param {H5P.MemoryGame.Card} card
      * @param {H5P.MemoryGame.Card} mate
-     * @param {boolean} restore True to skip calls irrelavant for restoring.
      */
     var addCard = function (card, mate) {
       card.on('flip', (event) => {
         self.answerGiven = true;
 
-        if (getNumFlipped() === 3 && !isRestoring) {
+        if (getNumFlipped() === 3 && event.isRestoring) {
           // Flip back all cards except the one that was just flipped
           flipBackCards({ excluded: [card], keepPairs: true });
         }
@@ -477,8 +477,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       H5P.shuffleArray(cardOrder);
     }
 
-    var isRestoring = true;
-
     // Create cards to be used in the game
     cardOrder.forEach((cardId) => {
       const card = cardsPool.find((card) => card.getId() === cardId);
@@ -498,7 +496,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       }
 
       if (cardState.flipped) {
-        card.flip({ restoring: isRestoring });
+        card.flip({ restoring: true });
       }
       if (cardState.removed) {
         card.remove();
@@ -514,8 +512,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     if (cards.every((card) => card.isRemoved())) {
       score = 1;
     }
-
-    isRestoring = false;
 
     // Build DOM elements to be attached later
     var $list = $('<ul/>', {
