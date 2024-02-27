@@ -301,12 +301,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           audioCard.stopAudio();
         }
 
-        // Always return focus to the card last flipped
-        for (var i = 0; i < cards.length; i++) {
-          cards[i].makeUntabbable();
-        }
-        card.makeTabbable();
-
         if (!event.data?.restoring) {
           popup.close();
           self.triggerXAPI('interacted');
@@ -349,6 +343,13 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         }
 
         if (!event.data?.restoring) {
+          // Always return focus to the card last flipped
+          for (var i = 0; i < cards.length; i++) {
+            cards[i].makeUntabbable();
+          }
+
+          (flipped || card).makeTabbable();
+
           // Count number of cards turned
           counter.increment();
         }
@@ -538,7 +539,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     }
 
     if (cards.length) {
-      cards[0].makeTabbable();
+      // Make first available card tabbable
+      cards.filter((card) => !card.isRemoved())[0].makeTabbable();
 
       $applicationLabel = $('<div/>', {
         id: 'h5p-intro-' + numInstances,
