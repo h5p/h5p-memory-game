@@ -51,7 +51,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     }, parameters);
 
     // Filter out invalid cards
-    parameters.cards = parameters.cards.filter((cardParams) => {
+    parameters.cards = (parameters.cards ?? []).filter((cardParams) => {
       return MemoryGame.Card.isValid(cardParams);
     });
 
@@ -612,7 +612,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       // resize to scale game size and check for finished game afterwards
       this.trigger('resize');
       window.requestAnimationFrame(() => {
-        if (cards.every((card) => card.isRemoved())) {
+        if (cards.length && cards.every((card) => card.isRemoved())) {
           finished({ restoring: true });
         }
       });
