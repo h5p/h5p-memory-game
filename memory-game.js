@@ -292,7 +292,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       card.on('flip', (event) => {
         self.answerGiven = true;
 
-        if (getNumFlipped() === 3 && event.isRestoring) {
+        if (getNumFlipped() === 3 && !event.data?.restoring) {
           // Flip back all cards except the one that was just flipped
           flipBackCards({ excluded: [card], keepPairs: true });
         }
@@ -332,8 +332,20 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           }
         }
         else {
-          // Keep track of the flipped card.
-          flipped = card;
+          /*
+           * Keep track of the flipped card. When restoring 3 flipped cards,
+           * we need to ensure that the non-matching card is set as flipped
+           */
+          if (getNumFlipped() === 3 && event.data?.restoring) {
+            flipped = cards
+              .filter((card) => {
+                return card.isFlipped() && !getCardMate(card).isFlipped();
+              })
+              .shift();
+          }
+          else {
+            flipped = card;
+          }
         }
 
         if (!event.data?.restoring) {
