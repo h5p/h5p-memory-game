@@ -311,12 +311,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           timer.play();
         }
 
-        // console.log({
-        //   card: card?.getId(),
-        //   mate: mate?.getId(),
-        //   flipped: flipped?.getId()
-        // });
-
         // Announce the card unless it's the last one and it's correct
         var isMatched = (flipped === mate);
         var isLast = cards.every((card) => card.isRemoved());
