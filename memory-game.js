@@ -451,11 +451,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     }
 
     // Determine number of cards to be used
-    let numCardsToUse =
-      parseInt(parameters.behaviour?.numCardsToUse ?? Infinity);
-
-    numCardsToUse =
-      Math.max(2, Math.min(numCardsToUse, parameters.cards.length));
+    const numCardsToUse =
+      Math.max(
+        2,
+        parseInt(parameters.behaviour?.numCardsToUse ?? parameters.cards.length)
+      );
 
     // Create cards pool
     let cardsPool = parameters.cards
