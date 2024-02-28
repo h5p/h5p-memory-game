@@ -311,6 +311,12 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           timer.play();
         }
 
+        // console.log({
+        //   card: card?.getId(),
+        //   mate: mate?.getId(),
+        //   flipped: flipped?.getId()
+        // });
+
         // Announce the card unless it's the last one and it's correct
         var isMatched = (flipped === mate);
         var isLast = cards.every((card) => card.isRemoved());
@@ -329,20 +335,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           }
         }
         else {
-          /*
-           * Keep track of the flipped card. When restoring 3 flipped cards,
-           * we need to ensure that the non-matching card is set as flipped
-           */
-          if (getNumFlipped() === 3 && event.data?.restoring) {
-            flipped = cards
-              .filter((card) => {
-                return card.isFlipped() && !getCardMate(card).isFlipped();
-              })
-              .shift();
-          }
-          else {
-            flipped = card;
-          }
+          flipped = card;
         }
 
         if (!event.data?.restoring) {
@@ -519,6 +512,18 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (cardState.removed) {
         card.remove();
       }
+
+      /*
+        * Keep track of the flipped card. When restoring 1/3 flipped cards,
+        * we need to ensure that the non-matching card is set as flipped
+        */
+      if (getNumFlipped() % 2 === 1) {
+        flipped = cards
+          .filter((card) => {
+            return card.isFlipped() && !getCardMate(card).isFlipped();
+          })
+          .shift();
+      }
     });
 
     // Ensure all cards are removed if state was stored during flip time period
@@ -543,7 +548,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     if (cards.length) {
       // Make first available card tabbable
-      cards.filter((card) => !card.isRemoved())[0].makeTabbable();
+      cards.filter((card) => !card.isRemoved())[0]?.makeTabbable();
 
       $applicationLabel = $('<div/>', {
         id: 'h5p-intro-' + numInstances,
