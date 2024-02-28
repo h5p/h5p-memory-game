@@ -57,11 +57,13 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     });
 
     /**
-     * Get number of cards that are currently flipped.
+     * Get number of cards that are currently flipped and in game.
      * @returns {number} Number of cards that are currently flipped.
      */
     var getNumFlipped = () => {
-      return cards.filter((card) => card.isFlipped()).length;
+      return cards
+        .filter((card) => card.isFlipped() && !card.isRemoved())
+        .length;
     };
 
     /**
