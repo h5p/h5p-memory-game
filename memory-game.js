@@ -478,7 +478,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     }
     else {
       while (cardsPool.length > 2 * numCardsToUse) {
-        const removeIndex = Math.floor(Math.random() * numCardsToUse);
+        const removeIndex = Math.floor(Math.random() * 2 * numCardsToUse);
         cardsPool = cardsPool.filter((card) => {
           return card.getId().split('-')[0] !== removeIndex.toString()
         });
