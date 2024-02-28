@@ -15,6 +15,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
    * @param {Object} parameters
    * @param {Number} id
    * @param {Object} [extras] Saved state, metadata, etc.
+   * @param {object} [extras.previousState] The previous state of the game
    */
   function MemoryGame(parameters, id, extras) {
     /** @alias H5P.MemoryGame# */

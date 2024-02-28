@@ -362,7 +362,7 @@
     };
 
     /**
-     * Determine whether card is flipped or nor.
+     * Determine whether card is flipped or not.
      * @returns {boolean} True if card is flipped, else false.
      */
     this.isFlipped = () => {
