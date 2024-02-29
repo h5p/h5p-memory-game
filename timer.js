@@ -7,12 +7,13 @@
    * @extends H5P.Timer
    * @param {Element} element
    */
-  MemoryGame.Timer = function (element) {
+  MemoryGame.Timer = function (element, startValue = 0) {
     /** @alias H5P.MemoryGame.Timer# */
     var self = this;
 
     // Initialize event inheritance
     Timer.call(self, 100);
+    this.setClockTime(startValue);
 
     /** @private {string} */
     var naturalState = element.innerText;
@@ -46,6 +47,8 @@
       element.innerText = naturalState;
       self.notify('every_tenth_second', update);
     });
+
+    update();
   };
 
   // Inheritance
