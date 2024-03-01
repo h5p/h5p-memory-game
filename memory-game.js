@@ -634,6 +634,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       });
 
       self.attached = true;
+
+      /*
+       * DOM is only created here in `attach`, so it cannot necessarily be reset
+       * by `resetTask` if using MemoryGame as subcontent after resuming.
+       */
+      if (this.shouldResetDOMOnAttach) {
+        removeRetryButton();
+        resetGame();
+        this.shouldResetDOMOnAttach = false;
+      }
     };
 
     /**
@@ -806,6 +816,14 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (self.attached) {
         removeRetryButton();
         resetGame(moveFocus);
+      }
+      else {
+      /*
+       * DOM is only created in `attach`, so it cannot necessarily be reset
+       * here if using MemoryGame as subcontent after resuming. Schedule for
+       * when DOM is attached.
+       */
+        this.shouldResetDOMOnAttach = true;
       }
 
       this.wasReset = true;
