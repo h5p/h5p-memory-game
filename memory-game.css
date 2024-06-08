@@ -4,7 +4,7 @@
 .h5p-memory-game .h5p-memory-hidden-read {
   position: absolute;
   top: -1px;
-  left: -1px;
+  left: -99999px;
   width: 1px;
   height: 1px;
   color: transparent;
