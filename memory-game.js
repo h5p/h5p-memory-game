@@ -472,10 +472,12 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     }
     else {
       while (cardsPool.length > 2 * numCardsToUse) {
-        const removeIndex = Math.floor(Math.random() * 2 * numCardsToUse);
-        cardsPool = cardsPool.filter((card) => {
-          return card.getId().split('-')[0] !== removeIndex.toString()
-        });
+        // Extract unique indexex from the current cardsPool
+        const uniqueCardIndexes = Array.from(new Set(cardsPool.map(card => card.getId().split('-')[0])));
+    
+        // Remove cards with randomly selected index
+        const indexToRemove = uniqueCardIndexes[Math.floor(Math.random() * uniqueCardIndexes.length)];
+        cardsPool = cardsPool.filter(card => card.getId().split('-')[0] !== indexToRemove);
       }
 
       cardOrder = cardsPool.map((card) => card.getId());
@@ -488,8 +490,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       const matchId = (cardId.split('-')[1] === '1') ?
         cardId.replace('-1', '-2') :
         cardId.replace('-2', '-1')
-      const match = cardsPool.find((card) => card.getId() === matchId);
 
+      const match = cardsPool.find((card) => card.getId() === matchId);
       addCard(card, match);
     });
 
