@@ -490,6 +490,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       const matchId = (cardId.split('-')[1] === '1') ?
         cardId.replace('-1', '-2') :
         cardId.replace('-2', '-1')
+
       const match = cardsPool.find((card) => card.getId() === matchId);
       addCard(card, match);
     });
