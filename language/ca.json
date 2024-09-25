@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Color del tema",
-          "description": "Trieu un color per crear un tema per al joc de cartes.",
-          "default": "#707070"
+          "description": "Trieu un color per crear un tema per al joc de cartes."
         },
         {
           "label": "Revers de la carta",

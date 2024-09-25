@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Themenfarbe",
-          "description": "Wähle eine Farbe, um das Spiel zu individualisieren.",
-          "default": "#707070"
+          "description": "Wähle eine Farbe, um das Spiel zu individualisieren."
         },
         {
           "label": "Kartenrückseite",

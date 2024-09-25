@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Temos spalva",
-          "description": "Pasirinkite spalvą, kad sukurtumėte savo kortelių žaidimo temą.",
-          "default": "#707070"
+          "description": "Pasirinkite spalvą, kad sukurtumėte savo kortelių žaidimo temą."
         },
         {
           "label": "Kortelės nugarėlė",

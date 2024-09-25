@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Väriteema",
-          "description": "Valitse väri luodaksesi teeman pelille.",
-          "default": "#707070"
+          "description": "Valitse väri luodaksesi teeman pelille."
         },
         {
           "label": "Kortin kääntöpuoli",

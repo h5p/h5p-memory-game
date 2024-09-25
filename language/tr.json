@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Tema rengi",
-          "description": "Kart oyunu teması için bir renk seçiniz.",
-          "default": "#707070"
+          "description": "Kart oyunu teması için bir renk seçiniz."
         },
         {
           "label": "Kart Görünümü",

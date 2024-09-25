@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Couleur du thème",
-          "description": "Choisissez une couleur pour créer un thème pour votre jeu de cartes.",
-          "default": "#707070"
+          "description": "Choisissez une couleur pour créer un thème pour votre jeu de cartes."
         },
         {
           "label": "Dos des cartes",

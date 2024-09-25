@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Boja teme",
-          "description": "Choose a color to create a theme for your card game.",
-          "default": "#707070"
+          "description": "Choose a color to create a theme for your card game."
         },
         {
           "label": "Pozadina karte",

@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Motīva krāsa",
-          "description": "Izvēlieties krāsu, lai izveidotu kartīšu spēles motīvu.",
-          "default": "#707070"
+          "description": "Izvēlieties krāsu, lai izveidotu kartīšu spēles motīvu."
         },
         {
           "label": "Kartītes aizmugure",

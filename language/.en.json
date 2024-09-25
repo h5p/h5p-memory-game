@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game.",
-          "default": "#707070"
+          "description": "Choose a color to create a theme for your card game."
         },
         {
           "label": "Card Back",
@@ -90,7 +89,7 @@
         },
         {
           "label": "Try again button text",
-          "default": "Try again?"
+          "default": "Reset"
         },
         {
           "label": "Close button label",
@@ -111,7 +110,7 @@
         {
           "label": "Card indexing label",
           "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
-          "default": "Card %num of total:"
+          "default": "Card %num of %total:"
         },
         {
           "label": "Card unturned label",

@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Rangi ya mandhari",
-          "description": "Chagua rangi ili kuunda mandhari ya mchezo wa kadi yako.",
-          "default": "#707070"
+          "description": "Chagua rangi ili kuunda mandhari ya mchezo wa kadi yako."
         },
         {
           "label": "Kadi Nyuma",

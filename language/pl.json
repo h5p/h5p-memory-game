@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Kolor motywu",
-          "description": "Wybierz kolor, aby stworzyć motyw do swojej gry w karty.",
-          "default": "#707070"
+          "description": "Wybierz kolor, aby stworzyć motyw do swojej gry w karty."
         },
         {
           "label": "Rewers karty",

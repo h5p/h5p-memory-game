@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Barva motivu",
-          "description": "Vyberte barvu pro vytvoření motivu pro vaši karetní hru.",
-          "default": "#707070"
+          "description": "Vyberte barvu pro vytvoření motivu pro vaši karetní hru."
         },
         {
           "label": "Zadní strana karty",

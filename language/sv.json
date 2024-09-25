@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Theme Color",
-          "description": "Välj en färg för att skapa ett tema för ditt kortspel.",
-          "default": "#707070"
+          "description": "Välj en färg för att skapa ett tema för ditt kortspel."
         },
         {
           "label": "Baksida på kort",

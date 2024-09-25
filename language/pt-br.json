@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Cor do tema",
-          "description": "Escolha uma cor para criar um tema para seu jogo.",
-          "default": "#707070"
+          "description": "Escolha uma cor para criar um tema para seu jogo."
         },
         {
           "label": "Verso da carta",

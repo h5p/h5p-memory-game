@@ -64,8 +64,7 @@
       "fields": [
         {
           "label": "Barvna shema",
-          "description": "Izbira barvne sheme kartic.",
-          "default": "#707070"
+          "description": "Izbira barvne sheme kartic."
         },
         {
           "label": "Slika hrbta kartic",
