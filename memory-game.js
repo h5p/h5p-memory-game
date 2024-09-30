@@ -100,8 +100,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         popup.show(desc, imgs, cardStyles ? cardStyles.back : undefined, function (refocus) {
           if (isFinished) {
             // Game done
-            card.makeUntabbable();
             finished();
+            card.makeUntabbable();
           }
           else {
             // Popup is closed, continue.
@@ -115,8 +115,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       }
       else if (isFinished) {
         // Game done
-        card.makeUntabbable();
         finished();
+        card.makeUntabbable();
       }
     };
 
@@ -130,31 +130,25 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (!params.restoring) {
         timer.stop();
       }
-      $taskComplete.show();
-      $feedback.addClass('h5p-show'); // Announce
-      setTimeout(function () {
-        $bottom.focus();
-      }, 0); // Give closing dialog modal time to free screen reader
       score = 1;
 
       if (!params.restoring) {
         self.trigger(self.createXAPICompletedEvent());
       }
 
+      $taskComplete[0].innerText = `${parameters.l10n.done} ${$status[0].innerText}`.replace(/\n/g, " ");
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
         self.retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', function () {
           self.resetTask(true);
         });
-        self.retryButton.classList.add('h5p-memory-transin');
-        setTimeout(function () {
-          // Remove class on nextTick to get transition effectupd
-          self.retryButton.classList.remove('h5p-memory-transin');
-        }, 0);
 
-        $wrapper[0].appendChild(self.retryButton); // Add to DOM
-        self.trigger('resize');
+        self.retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
+        $bottom[0].appendChild(self.retryButton); // Add to DOM
       }
+      $feedback.addClass('h5p-show'); // Announce
+      $taskComplete.show(); 
+      $bottom.blur().focus();
     };
 
     /**
@@ -162,14 +156,14 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @private
      */
     const removeRetryButton = function () {
-      if (!self.retryButton || self.retryButton.parentNode !== $wrapper[0]) {
+      if (!self.retryButton || self.retryButton.parentNode !== $bottom[0]) {
         return; // Button not defined or attached to wrapper
       }
 
       self.retryButton.classList.add('h5p-memory-transout');
       setTimeout(function () {
         // Remove button on nextTick to get transition effect
-        $wrapper[0].removeChild(self.retryButton);
+        $bottom[0].removeChild(self.retryButton);
       }, 300);
     };
 
@@ -220,11 +214,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @private
      */
     var createButton = function (name, label, action) {
-      var buttonElement = document.createElement('div');
+      var buttonElement = document.createElement('button');
       buttonElement.classList.add('h5p-memory-' + name);
       buttonElement.innerHTML = label;
-      buttonElement.setAttribute('role', 'button');
-      buttonElement.tabIndex = 0;
       buttonElement.addEventListener('click', function () {
         action.apply(buttonElement);
       }, false);
@@ -323,9 +315,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           flipped = undefined;
 
           if (!event.data?.restoring) {
-            setTimeout(() => {
-              check(card, matie, mate);
-            }, 800);
+            check(card, matie, mate);
           }
         }
         else {
@@ -556,6 +546,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         'class': 'h5p-programatically-focusable',
         tabindex: '-1',
       });
+      $bottom.attr('role', 'alertdialog');
+      $bottom.attr('aria-modal', 'true');
       $taskComplete = $('<div/>', {
         'class': 'h5p-memory-complete h5p-memory-hidden-read',
         html: parameters.l10n.done,
@@ -565,11 +557,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       $feedback = $('<div class="h5p-feedback">' + parameters.l10n.feedback + '</div>').appendTo($bottom);
 
       // Add status bar
-      var $status = $('<dl class="h5p-status">' +
+      var $status = $('<dl class="h5p-status" aria-hidden="true">' +
                       '<dt>' + parameters.l10n.timeSpent + ':</dt>' +
-                      '<dd class="h5p-time-spent"><time role="timer" datetime="PT0M0S">0:00</time><span class="h5p-memory-hidden-read">.</span></dd>' +
+                      '<dd class="h5p-time-spent"><time role="timer" datetime="PT0M0S">0:00</time></dd>' +
                       '<dt>' + parameters.l10n.cardTurns + ':</dt>' +
-                      '<dd class="h5p-card-turns">0<span class="h5p-memory-hidden-read">.</span></dd>' +
+                      '<dd class="h5p-card-turns">0</dd>' +
                       '</dl>').appendTo($bottom);
 
       timer = new MemoryGame.Timer(
