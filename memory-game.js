@@ -142,13 +142,12 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         self.retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', function () {
           self.resetTask(true);
         });
-
         self.retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
         $bottom[0].appendChild(self.retryButton); // Add to DOM
       }
       $feedback.addClass('h5p-show'); // Announce
-      $taskComplete.show(); 
-      $bottom.blur().focus();
+      $taskComplete.show();
+      $bottom.focus();
     };
 
     /**
