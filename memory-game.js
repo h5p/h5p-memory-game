@@ -219,12 +219,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       buttonElement.addEventListener('click', function () {
         action.apply(buttonElement);
       }, false);
-      buttonElement.addEventListener('keypress', function (event) {
-        if (event.which === 13 || event.which === 32) { // Enter or Space key
-          event.preventDefault();
-          action.apply(buttonElement);
-        }
-      }, false);
       return buttonElement;
     };
 
