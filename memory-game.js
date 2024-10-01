@@ -144,7 +144,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         retryModal.setAttribute('aria-modal', 'true');
         retryModal.setAttribute('aria-describedby', 'modalDescription');
         retryModal.setAttribute('tabindex', -1);
-        retryModal.style.display = 'none';
         const status = document.createElement('div');
         status.style.width = '1px';
         status.style.height = '1px';
@@ -154,7 +153,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         retryModal.appendChild(self.retryButton);
         
         $bottom[0].appendChild(retryModal); // Add to DOM
-        retryModal.style.display = 'block';
         retryModal.focus();
       }
       $feedback.addClass('h5p-show'); // Announce
@@ -174,10 +172,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       }
 
       self.retryButton.classList.add('h5p-memory-transout');
-      //setTimeout(function () {
+      setTimeout(function () {
         // Remove button on nextTick to get transition effect
         $bottom[0].removeChild(self.retryButton.parentNode);
-      //}, 300);
+      }, 300);
     };
 
     /**
@@ -555,7 +553,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       $feedback = $('<div class="h5p-feedback">' + parameters.l10n.feedback + '</div>').appendTo($bottom);
 
       // Add status bar
-      var $status = $('<dl class="h5p-status" aria-hidden="true">' +
+      var $status = $('<dl class="h5p-status">' +
                       '<dt>' + parameters.l10n.timeSpent + ':</dt>' +
                       '<dd class="h5p-time-spent"><time role="timer" datetime="PT0M0S">0:00</time></dd>' +
                       '<dt>' + parameters.l10n.cardTurns + ':</dt>' +
