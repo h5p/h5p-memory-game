@@ -26,7 +26,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var flipped, timer, counter, popup, $bottom, $taskComplete, $feedback, $wrapper, maxWidth, numCols, audioCard;
+    var flipped, timer, counter, popup, $bottom, $feedback, $wrapper, maxWidth, numCols, audioCard;
     var cards = [];
     var score = 0;
     numInstances++;
@@ -132,22 +132,36 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       }
       score = 1;
 
-      if (!params.restoring) {
-        self.trigger(self.createXAPICompletedEvent());
-      }
-
-      $taskComplete[0].innerText = `${parameters.l10n.done} ${$status[0].innerText}`.replace(/\n/g, " ");
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
-        self.retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', function () {
+        self.retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', () => {
           self.resetTask(true);
         });
         self.retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
-        $bottom[0].appendChild(self.retryButton); // Add to DOM
+        
+        const retryModal = document.createElement('div');
+        retryModal.setAttribute('role', 'dialog');
+        retryModal.setAttribute('aria-modal', 'true');
+        retryModal.setAttribute('aria-describedby', 'modalDescription');
+        retryModal.setAttribute('tabindex', -1);
+        retryModal.style.display = 'none';
+        const status = document.createElement('div');
+        status.style.width = '1px';
+        status.style.height = '1px';
+        status.setAttribute('id', 'modalDescription');
+        status.innerText = `${parameters.l10n.done} ${$status[0].innerText}`.replace(/\n/g, " ");
+        retryModal.appendChild(status);
+        retryModal.appendChild(self.retryButton);
+        
+        $bottom[0].appendChild(retryModal); // Add to DOM
+        retryModal.style.display = 'block';
+        retryModal.focus();
       }
       $feedback.addClass('h5p-show'); // Announce
-      $taskComplete.show();
-      $bottom.focus();
+      
+      if (!params.restoring) {
+        self.trigger(self.createXAPICompletedEvent());
+      }
     };
 
     /**
@@ -155,15 +169,15 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @private
      */
     const removeRetryButton = function () {
-      if (!self.retryButton || self.retryButton.parentNode !== $bottom[0]) {
+      if (!self.retryButton || self.retryButton.parentNode.parentNode !== $bottom[0]) {
         return; // Button not defined or attached to wrapper
       }
 
       self.retryButton.classList.add('h5p-memory-transout');
-      setTimeout(function () {
+      //setTimeout(function () {
         // Remove button on nextTick to get transition effect
-        $bottom[0].removeChild(self.retryButton);
-      }, 300);
+        $bottom[0].removeChild(self.retryButton.parentNode);
+      //}, 300);
     };
 
     /**
@@ -177,7 +191,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       // Remove feedback
       $feedback[0].classList.remove('h5p-show');
-      $taskComplete.hide();
 
       popup.close();
 
@@ -190,7 +203,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       // Randomize cards
       H5P.shuffleArray(cards);
-
+      
       setTimeout(function () {
         // Re-append to DOM after flipping back
         for (var i = 0; i < cards.length; i++) {
@@ -216,9 +229,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       var buttonElement = document.createElement('button');
       buttonElement.classList.add('h5p-memory-' + name);
       buttonElement.innerHTML = label;
-      buttonElement.addEventListener('click', function () {
-        action.apply(buttonElement);
-      }, false);
+      buttonElement.addEventListener('click', action, false);
+      buttonElement.addEventListener('keyup', action, false);
       return buttonElement;
     };
 
@@ -537,14 +549,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       $bottom = $('<div/>', {
         'class': 'h5p-programatically-focusable',
-        tabindex: '-1',
-      });
-      $bottom.attr('role', 'alertdialog');
-      $bottom.attr('aria-modal', 'true');
-      $taskComplete = $('<div/>', {
-        'class': 'h5p-memory-complete h5p-memory-hidden-read',
-        html: parameters.l10n.done,
-        appendTo: $bottom
+        tabindex: '-1'
       });
 
       $feedback = $('<div class="h5p-feedback">' + parameters.l10n.feedback + '</div>').appendTo($bottom);
