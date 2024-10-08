@@ -148,7 +148,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         status.style.width = '1px';
         status.style.height = '1px';
         status.setAttribute('id', 'modalDescription');
-        status.innerText = `${parameters.l10n.done} ${$status[0].innerText}`.replace(/\n/g, " ");
+        status.innerText = `${$feedback[0].innerHTML} ${parameters.l10n.done} ${$status[0].innerText}`.replace(/\n/g, " ");
         retryModal.appendChild(status);
         retryModal.appendChild(self.retryButton);
         
@@ -311,13 +311,15 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         card.updateLabel(isMatched, !(isMatched && isLast));
 
+        let okToCheck = false;
+        
         if (flipped !== undefined) {
           var matie = flipped;
           // Reset the flipped card.
           flipped = undefined;
 
           if (!event.data?.restoring) {
-            check(card, matie, mate);
+            okToCheck = true;
           }
         }
         else {
@@ -334,6 +336,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
           // Count number of cards turned
           counter.increment();
+        }
+        
+        if (okToCheck) {
+          check(card, matie, mate);
         }
       });
 
