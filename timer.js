@@ -27,18 +27,25 @@
     var update = function () {
       var time = self.getTime();
 
+      var hours = Timer.extractTimeElement(time, 'hours');
       var minutes = Timer.extractTimeElement(time, 'minutes');
       var seconds = Timer.extractTimeElement(time, 'seconds') % 60;
 
       // Update duration attribute
-      element.setAttribute('datetime', 'PT' + minutes + 'M' + seconds + 'S');
+      element.setAttribute('datetime', 'PT' + hours + 'H' + minutes + 'M' + seconds + 'S');
 
       // Add leading zero
+      if (hours < 10) {
+        hours = '0' + hours;
+      }
+      if (minutes < 10) {
+        minutes = '0' + minutes;
+      }
       if (seconds < 10) {
         seconds = '0' + seconds;
       }
 
-      element.innerText = minutes + ':' + seconds;
+      element.innerText = hours + ':' + minutes + ':' + seconds;
     };
 
     // Setup default behavior

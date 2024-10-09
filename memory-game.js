@@ -148,7 +148,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         status.style.width = '1px';
         status.style.height = '1px';
         status.setAttribute('id', 'modalDescription');
-        status.innerText = `${parameters.l10n.done} ${$status[0].innerText}`.replace(/\n/g, " ");
+        status.innerText = `${$feedback[0].innerHTML} ${parameters.l10n.done} ${$status[0].innerText}`.replace(/\n/g, " ");
         retryModal.appendChild(status);
         retryModal.appendChild(self.retryButton);
         
@@ -228,7 +228,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       buttonElement.classList.add('h5p-memory-' + name);
       buttonElement.innerHTML = label;
       buttonElement.addEventListener('click', action, false);
-      buttonElement.addEventListener('keyup', action, false);
       return buttonElement;
     };
 
@@ -312,13 +311,15 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         card.updateLabel(isMatched, !(isMatched && isLast));
 
+        let okToCheck = false;
+        
         if (flipped !== undefined) {
           var matie = flipped;
           // Reset the flipped card.
           flipped = undefined;
 
           if (!event.data?.restoring) {
-            check(card, matie, mate);
+            okToCheck = true;
           }
         }
         else {
@@ -335,6 +336,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
           // Count number of cards turned
           counter.increment();
+        }
+        
+        if (okToCheck) {
+          check(card, matie, mate);
         }
       });
 
@@ -555,9 +560,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       // Add status bar
       var $status = $('<dl class="h5p-status">' +
                       '<dt>' + parameters.l10n.timeSpent + ':</dt>' +
-                      '<dd class="h5p-time-spent"><time role="timer" datetime="PT0M0S">0:00</time></dd>' +
+                      '<dd class="h5p-time-spent"><time role="timer" datetime="PT0M0S">0:00</time><span class="h5p-memory-hidden-read">.</span></dd>' +
                       '<dt>' + parameters.l10n.cardTurns + ':</dt>' +
-                      '<dd class="h5p-card-turns">0</dd>' +
+                      '<dd class="h5p-card-turns">0<span class="h5p-memory-hidden-read">.</span></dd>' +
                       '</dl>').appendTo($bottom);
 
       timer = new MemoryGame.Timer(
