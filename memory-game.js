@@ -202,21 +202,19 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       // Randomize cards
       H5P.shuffleArray(cards);
       
-      setTimeout(function () {
-        // Re-append to DOM after flipping back
-        for (var i = 0; i < cards.length; i++) {
-          cards[i].reAppend();
-        }
-        for (var j = 0; j < cards.length; j++) {
-          cards[j].reset();
-        }
+      // Re-append to DOM after flipping back
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].reAppend();
+      }
+      for (var j = 0; j < cards.length; j++) {
+        cards[j].reset();
+      }
 
-        // Scale new layout
-        $wrapper.children('ul').children('.h5p-row-break').removeClass('h5p-row-break');
-        maxWidth = -1;
-        self.trigger('resize');
-        moveFocus && cards[0].setFocus();
-      }, 600);
+      // Scale new layout
+      $wrapper.children('ul').children('.h5p-row-break').removeClass('h5p-row-break');
+      maxWidth = -1;
+      self.trigger('resize');
+      moveFocus && cards[0].setFocus();
     };
 
     /**
