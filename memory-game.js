@@ -806,7 +806,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     self.resetTask = function (moveFocus = false) {
       if (self.attached) {
         resetGame(moveFocus);
-        //removeRetryButton();
       }
       else {
       /*
