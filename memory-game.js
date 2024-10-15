@@ -135,6 +135,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
         self.retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', () => {
+          removeRetryButton();
           self.resetTask(true);
         });
         self.retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
@@ -170,12 +171,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (!self.retryButton || self.retryButton.parentNode.parentNode !== $bottom[0]) {
         return; // Button not defined or attached to wrapper
       }
-
       self.retryButton.classList.add('h5p-memory-transout');
-      setTimeout(function () {
-        // Remove button on nextTick to get transition effect
-        $bottom[0].removeChild(self.retryButton.parentNode);
-      }, 300);
     };
 
     /**
@@ -202,7 +198,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       // Randomize cards
       H5P.shuffleArray(cards);
       
-      setTimeout(function () {
+      setTimeout(() => {
         // Re-append to DOM after flipping back
         for (var i = 0; i < cards.length; i++) {
           cards[i].reAppend();
@@ -216,6 +212,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         maxWidth = -1;
         self.trigger('resize');
         moveFocus && cards[0].setFocus();
+        if (self.retryButton) {
+          $bottom[0].removeChild(self.retryButton.parentNode);
+        }
       }, 600);
     };
 
@@ -551,8 +550,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       });
 
       $bottom = $('<div/>', {
-        'class': 'h5p-programatically-focusable',
-        tabindex: '-1'
+        'class': 'h5p-programatically-focusable'
       });
 
       $feedback = $('<div class="h5p-feedback">' + parameters.l10n.feedback + '</div>').appendTo($bottom);
@@ -809,7 +807,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      */
     self.resetTask = function (moveFocus = false) {
       if (self.attached) {
-        removeRetryButton();
         resetGame(moveFocus);
       }
       else {
