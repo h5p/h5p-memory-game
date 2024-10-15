@@ -212,7 +212,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         maxWidth = -1;
         self.trigger('resize');
         moveFocus && cards[0].setFocus();
-        $bottom[0].removeChild(self.retryButton.parentNode);
+        if (self.retryButton) {
+          $bottom[0].removeChild(self.retryButton.parentNode);
+        }
       }, 600);
     };
 
