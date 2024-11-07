@@ -100,8 +100,8 @@
           "default": "Παιχνίδι μνήμης. Αντιστοίχισε τις κάρτες που ταιριάζουν μεταξύ τους."
         },
         {
-          "label": "Game instructions",
-          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+          "label": "Οδηγίες παιχνιδιού",
+          "default": "Χρησιμοποιήστε τα βελάκια αριστερά και δεξιά για να πλοηγηθείτε στις κάρτες. Χρησιμοποιήστε το πλήκτρο space ή enter για να γυρίσετε την κάρτα."
         },
         {
           "label": "Ετικέτα ολοκλήρωσης παιχνιδιού",
@@ -109,28 +109,28 @@
         },
         {
           "label": "Ετικέτα ταξινόμησης κάρτας",
-          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
+          "description": "%num και %total είναι μεταβλητές και θα αντικατασταθούν από τις πραγματικές τιμές της κάρτας.",
           "default": "Κάρτα %num από %total:"
         },
         {
           "label": "Ετικέτα κλειστής κάρτας",
-          "default": "Κλειστή. Click to turn."
+          "default": "Κλειστή. Κάντε κλίκ για να γυρίσει."
         },
         {
-          "label": "Card turned label",
-          "default": "Turned."
+          "label": "Ετικέτα κάρτας που έχει γυρίσει",
+          "default": "Έχει γυρίσει."
         },
         {
           "label": "Ετικέτα κάρτας που έχει αντιστοιχιστεί",
           "default": "Έχει αντιστοιχιστεί."
         },
         {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
+          "label": "Ανακοίνωση κάρτας που έχει αντιστοιχιστεί",
+          "default": "Οι κάρτες ταιρίαζουν!"
         },
         {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "Ανακοίνωση για κάρτες που δεν αντιστοιχούν",
+          "default": "Οι κάρτες που επλέξατε δε ταριάζουν. Γυρίστε άλλες κάρτες για να δοκιμάσετε ξανά."
         }
       ]
     }
