@@ -117,20 +117,20 @@
           "default": "לא הפוך. Click to turn."
         },
         {
-          "label": "Card turned label",
-          "default": "Turned."
+          "label": "תווית היפוך כרטיס",
+          "default": "התהפך."
         },
         {
           "label": "תווית קלף מותאם",
           "default": "נמצאה התאמה."
         },
         {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
+          "label": "הודעה כאשר כרטיס זהה",
+          "default": "התאמה נכונה בין הכרטיסים!"
         },
         {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "הודעה כאשר יש חוסר התאמה בין הכרטיסים",
+          "default": "יש חוסר התאמה בין הכרטיסים. יש לנסות כרטיס נוסף."
         }
       ]
     }
