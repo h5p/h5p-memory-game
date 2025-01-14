@@ -197,7 +197,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       // Randomize cards
       H5P.shuffleArray(cards);
-      
+
       setTimeout(() => {
         // Re-append to DOM after flipping back
         for (var i = 0; i < cards.length; i++) {
@@ -599,7 +599,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       this.triggerXAPI('attempted');
 
       // TODO: Only create on first attach!
-      $wrapper = $container.addClass('h5p-memory-game').html('');
+      $wrapper = $container.addClass('h5p-memory-game h5p-theme').html('');
       if (invertShades === -1) {
         $container.addClass('h5p-invert-shades');
       }
