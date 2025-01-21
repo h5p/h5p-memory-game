@@ -89,7 +89,7 @@
         },
         {
           "label": "Texto para o botón reintentar",
-          "default": "Probar outra vez?"
+          "default": "Restablecer"
         },
         {
           "label": "Etiqueta para o botón pechar",
