@@ -17,7 +17,7 @@
 
     var closed;
 
-    const $popup = $(
+    const $popupContainer = $(
       '<div class="h5p-memory-obscure-content"><div class="h5p-memory-pop" role="dialog" aria-modal="true"><div class="h5p-memory-top"></div><div class="h5p-memory-desc h5p-programatically-focusable" tabindex="-1"></div><div class="h5p-memory-close" role="button" tabindex="0" title="' + (l10n.closeLabel || 'Close') + '" aria-label="' + (l10n.closeLabel || 'Close') + '"></div></div></div>'
       )
       .on('keydown', function (event) {
@@ -28,10 +28,11 @@
       })
       .hide();
 
-    const $top = $popup.find('.h5p-memory-top');
+    const $popup = $popupContainer.find('.h5p-memory-pop');
+    const $top = $popupContainer.find('.h5p-memory-top');
 
     // Hook up the close button
-    const $closeButton = $popup
+    const $closeButton = $popupContainer
       .find('.h5p-memory-close')
       .on('click', function () {
         self.close(true);
@@ -46,7 +47,7 @@
         }
     });
 
-    const $desc = $popup
+    const $desc = $popupContainer
       .find('.h5p-memory-desc')
       .on('keydown', function (event) {
         if (event.code === 'Tab') {
@@ -61,7 +62,7 @@
      * @param {H5P.jQuery} $container Container to append to.
      */
     this.appendTo = ($container) => {
-      $container.append($popup);
+      $container.append($popupContainer);
     };
 
     /**
@@ -80,7 +81,7 @@
       for (var i = 0; i < imgs.length; i++) {
         $('<div class="h5p-memory-image"' + (styles ? styles : '') + '></div>').append(imgs[i]).appendTo($top);
       }
-      $popup.show();
+      $popupContainer.show();
       $desc.focus();
       closed = done;
     };
@@ -92,7 +93,7 @@
      */
     self.close = function (refocus) {
       if (closed !== undefined) {
-        $popup.hide();
+        $popupContainer.hide();
         closed(refocus);
         closed = undefined;
 
@@ -113,9 +114,13 @@
       var cardSize = fontSize * 6.25; // From CSS
 
       // Set popup size
-      $popup[0].style.minWidth = (cardSize * 2.5) + 'px';
-      $popup[0].style.minHeight = cardSize + 'px';
+      $popupContainer[0].style.minWidth = (cardSize * 2.5) + 'px';
+      $popupContainer[0].style.minHeight = cardSize + 'px';
     };
+
+    this.getElement = () => {
+      return $popup[0];
+    }
   };
 
 })(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery);
