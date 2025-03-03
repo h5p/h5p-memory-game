@@ -610,8 +610,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         $bottom.appendTo($wrapper);
         popup.appendTo($wrapper);
         $wrapper.append(ariaLiveRegion.getDOM());
-        $wrapper.click(function () {
-          popup.close();
+        $wrapper.click(function (e) {
+          if (!popup.getElement()?.contains(e.target)) {
+            popup.close();
+          }
         });
       }
       else {
