@@ -139,6 +139,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           self.resetTask(true);
         });
         self.retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
+        self.retryButton.classList.add('h5p-theme-primary-cta');
         
         const retryModal = document.createElement('div');
         retryModal.setAttribute('role', 'dialog');
@@ -553,13 +554,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         'class': 'h5p-programatically-focusable'
       });
 
-      $feedback = $('<div class="h5p-feedback">' + parameters.l10n.feedback + '</div>').appendTo($bottom);
+      $feedback = $('<div class="h5p-feedback h5p-question-feedback-content-text">' + parameters.l10n.feedback + '</div>').appendTo($bottom);
 
       // Add status bar
       var $status = $('<dl class="h5p-status">' +
-                      '<dt>' + parameters.l10n.timeSpent + ':</dt>' +
                       '<dd class="h5p-time-spent"><time role="timer" datetime="PT0M0S">0:00</time><span class="h5p-memory-hidden-read">.</span></dd>' +
-                      '<dt>' + parameters.l10n.cardTurns + ':</dt>' +
                       '<dd class="h5p-card-turns">0<span class="h5p-memory-hidden-read">.</span></dd>' +
                       '</dl>').appendTo($bottom);
 

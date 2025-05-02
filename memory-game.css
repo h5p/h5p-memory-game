@@ -1,5 +1,6 @@
 .h5p-memory-game {
   overflow: hidden;
+  background-color: var(--h5p-theme-ui-base);
 }
 .h5p-memory-game .h5p-memory-hidden-read {
   position: absolute;
@@ -14,7 +15,7 @@
   padding: 0.25em 0.5em !important;
   margin: 0 !important;
   overflow: hidden !important;
-  font-size: 16px;
+  font-size: calc(var(--h5p-theme-spacing-s)*1.25);
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
@@ -27,6 +28,11 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  /* TODO these color should be the default but still be able to override in "look and feel" section */
+  background-color: var(--h5p-theme-alternative-base) !important;
+  border-color: var(--h5p-theme-alternative-dark) !important;
+  color: var(--h5p-theme-text-secondary) !important;
+  border-radius: var(--h5p-theme-border-radius-large);
 }
 .h5p-memory-game img {
   -webkit-user-drag: none;
@@ -63,9 +69,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #cfcfcf;
+  background: var(--h5p-theme-alternative-base);
   background-size: cover;
-  border: 2px solid #d0d0d0;
+  border: 2px solid var(--h5p-theme-alternative-dark);
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   border-radius: 4px;
@@ -108,10 +114,19 @@
   opacity: 0.4;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front > span:before {
-  position: relative;
-  content: "?";
-  font-size: 3.75em;
-  line-height: 1.67em;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--h5p-theme-alternative-dark);
+  -webkit-mask-image: url(images/pattern.svg);
+  mask-image: url(images/pattern.svg);
+  mask-size: 200%;
+  background-repeat: repeat;
+  opacity: 40%;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front:after {
   content: "";
@@ -160,13 +175,14 @@
 .h5p-memory-game .h5p-memory-card.h5p-matched img {
   filter: grayscale(100%);
 }
-
+.h5p-memory-game .h5p-question-feedback-content-text{
+  color: var(--h5p-theme-text-primary);
+  font-size: var(--h5p-theme-font-size-l);
+}
 .h5p-memory-game .h5p-feedback {
   clear: both;
   float: right;
-  line-height: 1.5em;
-  margin-right: 1em;
-  font-size: 2em;
+  font-weight: 600;
   visibility: hidden;
   -webkit-transform: scale(0,0) rotate(90deg);
   -moz-transform: scale(0,0) rotate(90deg);
@@ -175,8 +191,13 @@
   -webkit-transition: -webkit-transform 0.2s;
   -moz-transition: -webkit-transform 0.2s;
   transition: -webkit-transform 0.2s;
+  display: none;
+  width: 100%;
+  padding: var(--h5p-theme-spacing-s);
+  box-sizing: border-box;
 }
 .h5p-memory-game .h5p-feedback.h5p-show {
+  display: block;
   visibility: visible;
   -webkit-transform: scale(1,1) rotate(0deg);
   -moz-transform: scale(1,1) rotate(0deg);
@@ -186,16 +207,38 @@
 
 .h5p-memory-game .h5p-status {
   clear: left;
-  padding: 0 1em;
-  margin: 0.25em 0 1em 0;
+  padding: var(--h5p-theme-spacing-m);
+  margin: var(--h5p-theme-spacing-s);
+  background-color: var(--h5p-theme-alternative-light);
+  color: var(--h5p-theme-text-primary);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--h5p-theme-border-radius-large);
 }
-.h5p-memory-game .h5p-status > dt {
-  float: left;
-  margin: 0 1em 0 0;
-  font-weight: bold;
-}
+
 .h5p-memory-game .h5p-status > dd {
   margin: 0;
+  font-size: var(--h5p-theme-font-size-l);
+  font-weight: bold;
+}
+.h5p-memory-game dl{
+  margin-bottom:   0px;
+}
+.h5p-memory-game .h5p-status .h5p-time-spent:before,
+.h5p-memory-game .h5p-status .h5p-card-turns:before{
+  font-family: 'h5p-theme';
+  display: inline-block;
+  margin-right: var(--h5p-theme-spacing-xs);
+  font-size: var(--h5p-theme-font-size-xl);
+}
+.h5p-memory-game .h5p-status .h5p-time-spent:before{
+  content: "\e934";
+}
+.h5p-memory-game .h5p-status .h5p-card-turns{
+  text-align: right;
+}
+.h5p-memory-game .h5p-status .h5p-card-turns:before{
+  content: "\e907";
 }
 
 .h5p-memory-game .h5p-memory-obscure-content {
@@ -306,7 +349,7 @@
   border-radius: 2em;
   background: #1a73d9;
   color: #ffffff;
-  box-shadow: 0 0.5em 1em #999;
+  box-shadow: 0 0.5em 1em color-mix(in srgb, var(--h5p-theme-text-primary), transparent 70%);
   opacity: 1;
   transition: box-shadow 200ms linear, margin 200ms linear, transform 300ms ease-out, opacity 300ms ease-out;
 }
@@ -317,9 +360,7 @@
 }
 .h5p-memory-reset:hover,
 .h5p-memory-reset:focus {
-  background: #1356a3;
-  box-shadow: 0 1em 1.5em #999;
-  margin-top: -0.2em;
+
 }
 .h5p-memory-reset:focus {
   outline: 2px solid #a5c7fe;
@@ -348,18 +389,28 @@
 }
 .h5p-memory-audio-button {
   position: absolute;
-  top: 0;
-  right: 0;
-  font-family: 'H5PFontAwesome4';
-  width: 1em;
-  height: 1em;
-  line-height: 1;
+  right: 0.1em;
+  top: 0.1em;
+  font-family: 'h5p-theme';
+  font-size: 12px;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  background-color: color-mix(in srgb, var(--h5p-theme-main-cta-base), transparent 10%);
+  color: var(--h5p-theme-ui-base);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  border: solid 2px var(--h5p-theme-ui-base);
+  box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.05);
 }
 .h5p-memory-audio-instead-of-image:before,
 .h5p-memory-audio-button:before {
-  content: "\f026";
+  content: "\e937";
 }
 .h5p-memory-audio-playing .h5p-memory-audio-instead-of-image:before,
 .h5p-memory-audio-playing .h5p-memory-audio-button:before {
-  content: "\f028";
+  content: "\e91b";
 }
