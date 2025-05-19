@@ -11,10 +11,10 @@
   color: transparent;
 }
 .h5p-memory-game > ul {
-  list-style: none !important;
-  padding: 0.25em 0.5em !important;
-  margin: 0 !important;
-  overflow: hidden !important;
+  list-style: none;
+  padding: 0.25em 0.5em;
+  margin: 0;
+  overflow: hidden;
   font-size: calc(var(--h5p-theme-spacing-s)*1.25);
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -36,17 +36,17 @@
 }
 .h5p-memory-game img {
   -webkit-user-drag: none;
-  display: inline-block !important;
-  margin: auto !important;
+  display: inline-block;
+  margin: auto;
   vertical-align: middle;
   position: relative;
 }
 .h5p-memory-game .h5p-memory-wrap {
   float: left;
   text-align: center;
-  background-image: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  background-image: none;
+  margin: 0;
+  padding: 0;
 }
 .h5p-memory-game .h5p-memory-card {
   display: inline-block;
