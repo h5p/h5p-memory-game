@@ -495,11 +495,13 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         const baseRef = hexToHSL('#EEEFFA');
         const darkRef = hexToHSL('#DCDFFA');
         const lightRef = hexToHSL('#F8F9FE');
+        const darkerRef = hexToHSL('#CED1EE');
 
         // Set h from user, s and l from ref colors
         const baseCustom = hslToHex(userHSL.h, baseRef.s, baseRef.l);
         const darkCustom = hslToHex(userHSL.h, darkRef.s, darkRef.l);
         const lightCustom = hslToHex(userHSL.h, lightRef.s, lightRef.l);
+        const darkerCustom = hslToHex(userHSL.h, darkerRef.s, darkerRef.l);
 
         const styleTag = document.createElement('style');
         styleTag.innerHTML = `
@@ -507,6 +509,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
             --h5p-theme-alternative-base: ${baseCustom} !important;
             --h5p-theme-alternative-dark: ${darkCustom} !important;
             --h5p-theme-alternative-light: ${lightCustom}!important;
+            --h5p-theme-alternative-darker: ${darkerCustom}!important;
           }
         `;
         document.head.appendChild(styleTag);
