@@ -278,6 +278,62 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       });
     }
 
+    const hexToHSL = (hex) => {
+      let r = 0, g = 0, b = 0;
+      if (hex.length === 4) {
+        r = parseInt(hex[1] + hex[1], 16);
+        g = parseInt(hex[2] + hex[2], 16);
+        b = parseInt(hex[3] + hex[3], 16);
+      } else if (hex.length === 7) {
+        r = parseInt(hex.slice(1, 3), 16);
+        g = parseInt(hex.slice(3, 5), 16);
+        b = parseInt(hex.slice(5, 7), 16);
+      }
+    
+      r /= 255;
+      g /= 255;
+      b /= 255;
+    
+      const max = Math.max(r, g, b), min = Math.min(r, g, b);
+      let h = 0, s = 0, l = (max + min) / 2;
+    
+      if(max !== min){
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch(max){
+          case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+          case g: h = (b - r) / d + 2; break;
+          case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+      }
+    
+      return { h: Math.round(h * 360), s: +(s * 100).toFixed(1), l: +(l * 100).toFixed(1) };
+    }
+    
+    const hslToHex = (h, s, l) => {
+      s /= 100;
+      l /= 100;
+    
+      const c = (1 - Math.abs(2 * l - 1)) * s;
+      const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+      const m = l - c/2;
+      let r=0, g=0, b=0;
+    
+      if (0 <= h && h < 60) [r, g, b] = [c, x, 0];
+      else if (60 <= h && h < 120) [r, g, b] = [x, c, 0];
+      else if (120 <= h && h < 180) [r, g, b] = [0, c, x];
+      else if (180 <= h && h < 240) [r, g, b] = [0, x, c];
+      else if (240 <= h && h < 300) [r, g, b] = [x, 0, c];
+      else if (300 <= h && h < 360) [r, g, b] = [c, 0, x];
+    
+      r = Math.round((r + m) * 255);
+      g = Math.round((g + m) * 255);
+      b = Math.round((b + m) * 255);
+    
+      return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+    }    
+
     /**
      * Adds card to card list and set up a flip listener.
      *
@@ -430,11 +486,40 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     var cardStyles, invertShades;
     if (parameters.lookNFeel) {
+      const userThemeColor = parameters.lookNFeel.themeColor;
+
+      if (userThemeColor !== '#707070') {
+        const userHSL = hexToHSL(userThemeColor);
+
+        // Base and dark ref colors
+        const baseRef = hexToHSL('#EEEFFA');
+        const darkRef = hexToHSL('#DCDFFA');
+        const lightRef = hexToHSL('#F8F9FE');
+        const darkerRef = hexToHSL('#CED1EE');
+
+        // Set h from user, s and l from ref colors
+        const baseCustom = hslToHex(userHSL.h, baseRef.s, baseRef.l);
+        const darkCustom = hslToHex(userHSL.h, darkRef.s, darkRef.l);
+        const lightCustom = hslToHex(userHSL.h, lightRef.s, lightRef.l);
+        const darkerCustom = hslToHex(userHSL.h, darkerRef.s, darkerRef.l);
+
+        const styleTag = document.createElement('style');
+        styleTag.innerHTML = `
+          .h5p-memory-game {
+            --h5p-theme-alternative-base: ${baseCustom} !important;
+            --h5p-theme-alternative-dark: ${darkCustom} !important;
+            --h5p-theme-alternative-light: ${lightCustom}!important;
+            --h5p-theme-alternative-darker: ${darkerCustom}!important;
+          }
+        `;
+        document.head.appendChild(styleTag);
+      }
+
       // If the contrast between the chosen color and white is too low we invert the shades to create good contrast
-      invertShades = (parameters.lookNFeel.themeColor &&
+      invertShades = (userThemeColor &&
                       getContrast(parameters.lookNFeel.themeColor) < 1.7 ? -1 : 1);
       var backImage = (parameters.lookNFeel.cardBack ? H5P.getPath(parameters.lookNFeel.cardBack.path, id) : null);
-      cardStyles = MemoryGame.Card.determineStyles(parameters.lookNFeel.themeColor, invertShades, backImage);
+      cardStyles = MemoryGame.Card.determineStyles(userThemeColor, invertShades, backImage);
     }
 
     // Determine number of cards to be used
