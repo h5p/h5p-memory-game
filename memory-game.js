@@ -133,14 +133,18 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       score = 1;
 
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
-        // Create retry button
-        self.retryButton = createButton('reset', parameters.l10n.tryAgain || 'Reset', () => {
-          removeRetryButton();
-          self.resetTask(true);
+        // Create retry button        
+        self.retryButton = H5P.Components.Button({
+          label: parameters.l10n.tryAgain || 'Reset',
+          styleType: 'secondary',
+          classes: 'h5p-memory-reset',
+          onClick: () => {
+            removeRetryButton();
+            self.resetTask(true);
+          }
         });
         self.retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
-        self.retryButton.classList.add('h5p-theme-primary-cta');
-        
+
         const retryModal = document.createElement('div');
         retryModal.setAttribute('role', 'dialog');
         retryModal.setAttribute('aria-modal', 'true');
@@ -219,17 +223,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       }, 600);
     };
 
-    /**
-     * Game has finished!
-     * @private
-     */
-    var createButton = function (name, label, action) {
-      var buttonElement = document.createElement('button');
-      buttonElement.classList.add('h5p-memory-' + name);
-      buttonElement.innerHTML = label;
-      buttonElement.addEventListener('click', action, false);
-      return buttonElement;
-    };
 
     /**
      * Flip back all cards unless pair found or excluded.
