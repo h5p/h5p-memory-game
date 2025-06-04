@@ -350,11 +350,6 @@
   opacity: 1;
   transition: box-shadow 200ms linear, margin 200ms linear, transform 300ms ease-out, opacity 300ms ease-out;
 }
-.h5p-memory-reset:before {
-  font-family: 'H5PFontAwesome4';
-  content: "\f01e";
-  margin-right: 0.5em;
-}
 .h5p-memory-reset:focus {
   outline: 2px solid #a5c7fe;
 }

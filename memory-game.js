@@ -136,6 +136,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         // Create retry button        
         self.retryButton = H5P.Components.Button({
           label: parameters.l10n.tryAgain || 'Reset',
+          icon: 'retry',
           styleType: 'secondary',
           classes: 'h5p-memory-reset',
           onClick: () => {
