@@ -3,7 +3,11 @@
   "description": "See how many cards you can remember!",
   "majorVersion": 1,
   "minorVersion": 3,
+<<<<<<< HEAD
   "patchVersion": 29,
+=======
+  "patchVersion": 34,
+>>>>>>> feature/redesign
   "runnable": 1,
   "author": "Joubel",
   "license": "MIT",
@@ -43,6 +47,11 @@
       "machineName": "FontAwesome",
       "majorVersion": 4,
       "minorVersion": 5
+    },
+    {
+      "machineName": "H5P.Components",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ],
   "editorDependencies": [

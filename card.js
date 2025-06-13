@@ -103,8 +103,13 @@
 
       $card = $wrapper.children('.h5p-memory-card')
         .children('.h5p-front')
+<<<<<<< HEAD
           .click(function (e) {
             e.stopPropagation();
+=======
+          .click(function (event) {
+            event.stopPropagation();
+>>>>>>> feature/redesign
             self.flip();
           })
           .end();
