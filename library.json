@@ -3,11 +3,7 @@
   "description": "See how many cards you can remember!",
   "majorVersion": 1,
   "minorVersion": 3,
-<<<<<<< HEAD
-  "patchVersion": 29,
-=======
-  "patchVersion": 34,
->>>>>>> feature/redesign
+  "patchVersion": 35,
   "runnable": 1,
   "author": "Joubel",
   "license": "MIT",
