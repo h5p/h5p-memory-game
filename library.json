@@ -11,6 +11,9 @@
   "preloadedCss": [
     {
       "path": "memory-game.css"
+    },
+    {
+      "path": "@legacy/memory-game.css"
     }
   ],
   "preloadedJs": [
@@ -31,6 +34,24 @@
     },
     {
       "path": "aria-live-region.js"
+    },
+    {
+      "path": "@legacy/memory-game.js"
+    },
+    {
+      "path": "@legacy/card.js"
+    },
+    {
+      "path": "@legacy/counter.js"
+    },
+    {
+      "path": "@legacy/popup.js"
+    },
+    {
+      "path": "@legacy/timer.js"
+    },
+    {
+      "path": "@legacy/aria-live-region.js"
     }
   ],
   "preloadedDependencies": [
