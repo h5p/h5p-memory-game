@@ -40,9 +40,6 @@
   margin: auto;
   vertical-align: middle;
   position: relative;
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
 }
 .h5p-memory-game .h5p-memory-wrap {
   float: left;
