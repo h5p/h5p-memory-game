@@ -33,7 +33,7 @@
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    let path, width, height, $card, $wrapper, $image, removedState,
+    let path, $card, $wrapper, $image, removedState,
       flippedState, audioPlayer;
 
     /**
@@ -55,7 +55,7 @@
       $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">' +
                   '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
                   '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
-                    (path ? '<img src="' + path + '" alt="" style="width:' + width + ';height:' + height + '"/>' + (audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : '') : '<i class="h5p-memory-audio-instead-of-image">') +
+                    (path ? '<img src="' + path + '" alt=""/>' + (audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : '') : '<i class="h5p-memory-audio-instead-of-image">') +
                   '</div>' +
                 '</div></li>');
 
@@ -127,20 +127,6 @@
 
     if (image && image.path) {
       path = H5P.getPath(image.path, contentId);
-
-      if (image.width !== undefined && image.height !== undefined) {
-        if (image.width > image.height) {
-          width = '100%';
-          height = 'auto';
-        }
-        else {
-          height = '100%';
-          width = 'auto';
-        }
-      }
-      else {
-        width = height = '100%';
-      }
     }
 
     if (audio) {
