@@ -3,134 +3,134 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Implicit"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "Cartonașe",
+      "entity": "cartonaș",
       "field": {
-        "label": "Card",
+        "label": "Cartonaș",
         "fields": [
           {
-            "label": "Image"
+            "label": "Imagine"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Text alternativ pentru Imagine",
+            "description": "Descrieți ce se poate vedea în fotografie. Textul este citit de unelte text-în-vorbire necesare utilizatorilor cu deficiențe de vedere."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Pistă audio",
+            "description": "Un sunet opțional care se redă când cartonașul este întors."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Imagine potrivită",
+            "description": "O imagine opțională pentru potrivire, în loc de a folosi două cartonașe cu aceeași imagine."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Text alternativ pentru Imaginea potrivită",
+            "description": "Descrieți ce se poate vedea în fotografie. Textul este citit de unelte text-în-vorbire necesare utilizatorilor cu deficiențe de vedere."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Pistă audio potrivită",
+            "description": "Un sunet opțional care se redă când al doilea cartonaș este întors."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Descriere",
+            "description": "Un text scurt opțional care va apărea odată ce cele două cartonașe potrivite sunt găsite."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Setări de comportament",
+      "description": "Aceste opțiuni vă vor permite să controlați cum se comportă jocul.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Poziționează cartonașele într-un pătrat",
+          "description": "Va încerca să potrivească numărul de coloane și rânduri la aranjarea cartonașelor. Apoi, cartonașele vor fi scalate pentru a se potrivi în container."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Numărul de cartonașe de folosit",
+          "description": "Setarea acestui număr la o valoare mai mare de 2 va face ca jocul să aleagă cartonașe aleatorii din lista de cartonașe."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Adaugă buton pentru reîncercare când jocul s-a terminat"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Aspect și stil",
+      "description": "Controlați aspectul vizual al jocului.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "label": "Culoare temă",
+          "description": "Alegeți o culoare pentru a crea o temă pentru jocul dumneavoastră de cărți."
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Spatele cartonașului",
+          "description": "Folosiți un spate personalizat pentru cartonașele dumneavoastră."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Localizare",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "Text întoarceri cartonaș",
+          "default": "Întoarceri cartonaș"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Text timp petrecut",
+          "default": "Timp petrecut"
         },
         {
-          "label": "Text de feedback",
-          "default": "Good work!"
+          "label": "Text feedback",
+          "default": "Bravo!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Text buton Încearcă din nou",
+          "default": "Resetează"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Etichetă buton Închide",
+          "default": "Închide"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Etichetă joc",
+          "default": "Joc de Memorie. Găsește cartonașele potrivite."
         },
         {
-          "label": "Game instructions",
-          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+          "label": "Instrucțiuni joc",
+          "default": "Folosește tastele săgeată stânga și dreapta pentru a naviga printre cartonașe. Folosește tasta spațiu sau enter pentru a întoarce cartonașul."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Etichetă joc terminat",
+          "default": "Toate cartonașele au fost găsite."
         },
         {
-          "label": "Card indexing label",
-          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
-          "default": "Card %num of %total:"
+          "label": "Etichetă indexare cartonaș",
+          "description": "%num și %total sunt substituenți și vor fi înlocuiți cu valorile respective pentru cartonaș.",
+          "default": "Cartonașul %num din %total:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned. Click to turn."
+          "label": "Etichetă cartonaș neîntors",
+          "default": "Neîntors. Apasă pentru a întoarce."
         },
         {
-          "label": "Card turned label",
-          "default": "Turned."
+          "label": "Etichetă cartonaș întors",
+          "default": "Întors."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Etichetă cartonaș potrivit",
+          "default": "Potrivire găsită."
         },
         {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
+          "label": "Anunț cartonașe potrivite",
+          "default": "Cartonașele tale se potrivesc!"
         },
         {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "Anunț cartonașe nepotrivite",
+          "default": "Cartonașele alese de tine nu se potrivesc. Întoarce alte cartonașe pentru a încerca din nou."
         }
       ]
     }
