@@ -1,136 +1,136 @@
 {
   "semantics": [
     {
-      "label": "كارتها",
+      "label": "کارت‌ها",
       "field": {
-        "label": "كارت",
+        "label": "کارت",
         "fields": [
           {
-            "label": "تصوير"
+            "label": "تصویر"
           },
           {
-            "label": "متن جايگزين براي تصوير",
-            "description": "آنچه را که در عکس دیده می شود توضیح دهید. متن توسط ابزارهای تبدیل متن به گفتار مورد نیاز کاربران کم بینا خوانده می شود."
+            "label": "متن جایگزین برای تصویر",
+            "description": "آنچه در تصویر مشاهده می‌شود را توصیف کنید. این متن توسط ابزارهای تبدیل متن به گفتار برای کاربران کم‌بینا خوانده می‌شود."
           },
           {
             "label": "صدا",
-            "description": "صدای اختیاری که هنگام چرخاندن کارت پخش می شود."
+            "description": "صدای اختیاری که هنگام برگرداندن کارت پخش می‌شود."
           },
           {
-            "label": "تصوير منطبق",
-            "description": "یک تصویر اختیاری برای مطابقت به جای استفاده از دو کارت با یک تصویر."
+            "label": "تصویر منطبق",
+            "description": "یک تصویر اختیاری برای تطابق، به جای استفاده از دو کارت با یک تصویر."
           },
           {
             "label": "متن جایگزین برای تصویر منطبق",
-            "description": "آنچه را که در عکس دیده می شود توضیح دهید. متن توسط ابزارهای تبدیل متن به گفتار مورد نیاز کاربران کم بینا خوانده می شود."
+            "description": "آنچه در تصویر مشاهده می‌شود را توصیف کنید. این متن توسط ابزارهای تبدیل متن به گفتار برای کاربران کم‌بینا خوانده می‌شود."
           },
           {
-            "label": "صداي تطبيق",
-            "description": "صدای اختیاری که با چرخاندن کارت دوم پخش می شود."
+            "label": "صدای تطابق",
+            "description": "صدای اختیاری که با برگرداندن کارت دوم پخش می‌شود."
           },
           {
-            "label": "توصيف",
-            "description": "یک متن کوتاه اختیاری که پس از یافتن دو کارت منطبق ظاهر می شود."
+            "label": "توضیحات",
+            "description": "یک متن کوتاه اختیاری که پس از یافتن دو کارت منطبق نمایش داده می‌شود."
           }
         ]
       },
       "entity": "card",
       "widgets": [
         {
-          "label": "Default"
+          "label": "پیش‌فرض"
         }
       ]
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "تنظیمات رفتاری",
+      "description": "این گزینه‌ها به شما امکان کنترل رفتار بازی را می‌دهند.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "چیدمان کارت‌ها به صورت مربعی",
+          "description": "سعی می‌کند تعداد ستون‌ها و ردیف‌ها را هنگام چیدمان کارت‌ها مطابقت دهد. سپس کارت‌ها برای تناسب با ظرفیت مقیاس می‌شوند."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "تعداد کارت‌های مورد استفاده",
+          "description": "تنظیم این مقدار به عددی بزرگتر از 2 باعث می‌شود بازی کارت‌ها را به صورت تصادفی از لیست کارت‌ها انتخاب کند."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "افزودن دکمه تلاش مجدد پس از پایان بازی"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "ظاهر و احساس",
+      "description": "ویژگی‌های بصری بازی را کنترل کنید.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "label": "رنگ تم",
+          "description": "رنگی را برای ایجاد تم بازی کارتی خود انتخاب کنید."
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "پشت کارت",
+          "description": "از یک طرح سفارشی برای پشت کارت‌های خود استفاده کنید."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "بومی‌سازی",
       "fields": [
         {
-          "default": "Card turns",
-          "label": "Card turns text"
+          "default": "تعداد برگرداندن کارت‌ها",
+          "label": "متن تعداد برگرداندن کارت‌ها"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "متن زمان سپری شده",
+          "default": "زمان سپری شده"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "متن بازخورد",
+          "default": "کار خوبی بود!"
         },
         {
-          "default": "Try again?",
-          "label": "Try again button text"
+          "default": "دوباره امتحان کنید؟",
+          "label": "متن دکمه تلاش مجدد"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "برچسب دکمه بستن",
+          "default": "بستن"
         },
         {
-          "default": "Memory Game. Find the matching cards.",
-          "label": "Game label"
+          "default": "بازی حافظه. کارت‌های منطبق را پیدا کنید.",
+          "label": "برچسب بازی"
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "برچسب پایان بازی",
+          "default": "همه کارت‌ها پیدا شده‌اند."
         },
         {
-          "label": "Card indexing label",
-          "default": "Card %num:"
+          "label": "برچسب شماره کارت",
+          "default": "کارت شماره %num:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned.",
-          "description": "%num and %total are placeholders and will be replaced with the respective values for the card."
+          "label": "برچسب کارت برگردانده نشده",
+          "default": "برگردانده نشده.",
+          "description": "%num و %total جای‌گیر هستند و با مقادیر مربوط به کارت جایگزین می‌شوند."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "برچسب کارت منطبق",
+          "default": "تطابق یافت."
         },
         {
-          "label": "Card turned label",
-          "default": "Turned."
+          "label": "برچسب کارت برگردانده شده",
+          "default": "برگردانده شد."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "برچسب کارت منطبق",
+          "default": "تطابق یافت."
         },
         {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
+          "label": "اعلام تطابق کارت",
+          "default": "کارت‌های شما منطبق هستند!"
         },
         {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "اعلام عدم تطابق کارت",
+          "default": "کارت‌های انتخاب شده شما منطبق نیستند. کارت‌های دیگر را برگردانید تا دوباره امتحان کنید."
         }
       ]
     }
