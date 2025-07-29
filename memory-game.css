@@ -345,8 +345,6 @@
   line-height: 1.2;
   white-space: nowrap;
   padding: 0.5em 1.25em;
-  border: none;
-  border-radius: 2em;
   background: #1a73d9;
   color: #ffffff;
   box-shadow: 0 0.5em 1em color-mix(in srgb, var(--h5p-theme-text-primary), transparent 70%);
