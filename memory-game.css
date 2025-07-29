@@ -356,14 +356,6 @@
 .h5p-memory-reset:focus {
   outline: 2px solid #a5c7fe;
 }
-.h5p-memory-transin {
-  transform: translate(-50%,-50%) scale(0) rotate(180deg);
-  opacity: 0;
-}
-.h5p-memory-transout {
-  transform: translate(-50%,-450%) scale(0) rotate(360deg);
-  opacity: 0;
-}
 .h5p-memory-complete {
   display: none;
 }
