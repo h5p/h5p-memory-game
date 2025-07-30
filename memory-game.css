@@ -340,7 +340,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%) scale(1) rotate(0);
+  transform: translate(-50%,-50%);
   cursor: pointer;
   line-height: 1.2;
   white-space: nowrap;
