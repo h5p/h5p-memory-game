@@ -177,7 +177,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (!self.retryButton || self.retryButton.parentNode.parentNode !== $bottom[0]) {
         return; // Button not defined or attached to wrapper
       }
-      self.retryButton.classList.add('h5p-memory-transout');
     };
 
     /**
@@ -204,6 +203,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       // Randomize cards
       H5P.shuffleArray(cards);
 
+      if (self.retryButton) {
+        $bottom[0].removeChild(self.retryButton.parentNode);
+      }
+
       setTimeout(() => {
         // Re-append to DOM after flipping back
         for (var i = 0; i < cards.length; i++) {
@@ -218,9 +221,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         maxWidth = -1;
         self.trigger('resize');
         moveFocus && cards[0].setFocus();
-        if (self.retryButton) {
-          $bottom[0].removeChild(self.retryButton.parentNode);
-        }
       }, 600);
     };
 

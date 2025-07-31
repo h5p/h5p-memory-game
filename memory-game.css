@@ -340,29 +340,17 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%) scale(1) rotate(0);
+  transform: translate(-50%,-50%);
   cursor: pointer;
   line-height: 1.2;
   white-space: nowrap;
   padding: 0.5em 1.25em;
-  border: none;
-  border-radius: 2em;
-  background: #1a73d9;
-  color: #ffffff;
   box-shadow: 0 0.5em 1em color-mix(in srgb, var(--h5p-theme-text-primary), transparent 70%);
   opacity: 1;
   transition: box-shadow 200ms linear, margin 200ms linear, transform 300ms ease-out, opacity 300ms ease-out;
 }
 .h5p-memory-reset:focus {
   outline: 2px solid #a5c7fe;
-}
-.h5p-memory-transin {
-  transform: translate(-50%,-50%) scale(0) rotate(180deg);
-  opacity: 0;
-}
-.h5p-memory-transout {
-  transform: translate(-50%,-450%) scale(0) rotate(360deg);
-  opacity: 0;
 }
 .h5p-memory-complete {
   display: none;
