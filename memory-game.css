@@ -345,8 +345,6 @@
   line-height: 1.2;
   white-space: nowrap;
   padding: 0.5em 1.25em;
-  background: #1a73d9;
-  color: #ffffff;
   box-shadow: 0 0.5em 1em color-mix(in srgb, var(--h5p-theme-text-primary), transparent 70%);
   opacity: 1;
   transition: box-shadow 200ms linear, margin 200ms linear, transform 300ms ease-out, opacity 300ms ease-out;
