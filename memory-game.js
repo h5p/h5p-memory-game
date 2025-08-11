@@ -144,7 +144,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
             self.resetTask(true);
           }
         });
-        self.retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
 
         const retryModal = document.createElement('div');
         retryModal.setAttribute('role', 'dialog');
@@ -820,9 +819,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     if (parameters.behaviour && parameters.behaviour.useGrid && numCardsToUse) {
       self.on('resize', () => {
         scaleGameSize();
-        if (self.retryButton) {
-          self.retryButton.style.fontSize = (parseFloat($wrapper.children('ul')[0].style.fontSize) * 0.75) + 'px';
-        }
       });
     }
 
