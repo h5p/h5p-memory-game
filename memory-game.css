@@ -333,7 +333,7 @@
 .h5p-memory-game .h5p-memory-close:hover {
   color: #666;
 }
-.h5p-memory-game .h5p-memory-close:focus {
+.h5p-memory-game .h5p-memory-close:focus-visible {
   outline: 2px solid #a5c7fe;
 }
 .h5p-memory-reset {
@@ -349,7 +349,7 @@
   opacity: 1;
   transition: box-shadow 200ms linear, margin 200ms linear, transform 300ms ease-out, opacity 300ms ease-out;
 }
-.h5p-memory-reset:focus {
+.h5p-memory-reset:focus-visible {
   outline: 2px solid #a5c7fe;
 }
 .h5p-memory-complete {
