@@ -1,138 +1,138 @@
 {
-  "semantics": [
-    {
-      "widgets": [
-        {
-          "label": "Default"
-        }
-      ],
-      "label": "Cards",
-      "entity": "card",
-      "field": {
-        "label": "Card",
-        "fields": [
-          {
-            "label": "Image"
-          },
-          {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
-          },
-          {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
-          },
-          {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
-          },
-          {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
-          },
-          {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
-          },
-          {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
-          }
-        ]
+"semantics": [
+  {
+    "widgets": [
+      {
+        "label": "Standard"
       }
-    },
-    {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+    ],
+    "label": "Kort",
+    "entity": "kort",
+    "field": {
+      "label": "Kort",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Bilete"
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Alternativ tekst for bilete",
+          "description": "Beskriv biletet. Teksten blir brukt av skjermlesar."
         },
         {
-          "label": "Add button for retrying when the game is over"
-        }
-      ]
-    },
-    {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
-      "fields": [
-        {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "label": "Lydspor",
+          "description": "Valfri lyd som blir spelt når kortet blir snudd."
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
-        }
-      ]
-    },
-    {
-      "label": "Localization",
-      "fields": [
-        {
-          "label": "Card turns text",
-          "default": "Kort snur"
+          "label": "Tilhøyrande bilete",
+          "description": "Eit valfritt bilete som blir brukt som kort nummer to (i staden for å bruke to kort med same bilete)."
         },
         {
-          "label": "Time spent text",
-          "default": "Tid brukt"
+          "label": "Alternativ tekst for tilhøyrande bilete",
+          "description": "Beskriv biletet. Teksten blir brukt av skjermlesar."
         },
         {
-          "label": "Feedback text",
-          "default": "Bra jobba!"
+          "label": "Lydspor til tilhøyrande bilete",
+          "description": "Valfri lyd som blir spelt når tilhøyrande bilete blir snudd."
         },
         {
-          "label": "Try again button text",
-          "default": "prøv igjen?"
-        },
-        {
-          "label": "Close button label",
-          "default": "Lukk"
-        },
-        {
-          "label": "Game label",
-          "default": "Memory-spel. Finn dei matchande korta."
-        },
-        {
-          "label": "Game instructions",
-          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
-        },
-        {
-          "label": "Game finished label",
-          "default": "Alle korta har blitt funne."
-        },
-        {
-          "label": "Card indexing label",
-          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
-          "default": "Kort %num av %total:"
-        },
-        {
-          "label": "Card unturned label",
-          "default": "Ikkje snudd. Click to turn."
-        },
-        {
-          "label": "Card turned label",
-          "default": "Turned."
-        },
-        {
-          "label": "Card matched label",
-          "default": "Match funne."
-        },
-        {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
-        },
-        {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "Tilbakemelding",
+          "description": "Valfri kort tekst som dukkar opp når kortparet er funne."
         }
       ]
     }
-  ]
+  },
+  {
+    "label": "Oppgåveinnstillingar",
+    "description": "Desse innstillingane lar deg bestemme ulike funksjonar i spelet.",
+    "fields": [
+      {
+        "label": "Plasser korta i ein firkant",
+        "description": "Prøver å ordne korta i like mange kolonnar og rader. Storleiken på korta blir òg tilpassa."
+      },
+      {
+        "label": "Antal kort som skal brukast",
+        "description": "Ved å setje talet høgare enn 2 vil spelet plukke tilfeldige kort frå lista over kort."
+      },
+      {
+        "label": "Legg til knapp for å prøve på nytt når spelet er over"
+      }
+    ]
+  },
+  {
+    "label": "Tilpass utsjånad",
+    "description": "Vel korleis spelet skal sjå ut.",
+    "fields": [
+      {
+        "label": "Temafarge",
+        "description": "Vel ein farge for å skape ein stil eller ei stemning for spelet."
+      },
+      {
+        "label": "Kortbaksida",
+        "description": "Bruk ei tilpassa bakside for korta."
+      }
+    ]
+  },
+  {
+    "label": "Språktilpassing",
+    "fields": [
+      {
+        "label": "Tekst for snudde kort",
+        "default": "Snudde kort"
+      },
+      {
+        "label": "Tekst for brukt tid",
+        "default": "Tid brukt"
+      },
+      {
+        "label": "Tilbakemeldingstekst",
+        "default": "Bra jobba!"
+      },
+      {
+        "label": "Tekst på knapp som lar brukar starte på nytt",
+        "default": "Ein gong til?"
+      },
+      {
+        "label": "Namn på “Lukk”-knapp",
+        "default": "Lukk"
+      },
+      {
+        "label": "Beskrivelse av spel",
+        "default": "Memory-spel. Finn kortpara!"
+      },
+      {
+        "label": "Speleinstruksjonar",
+        "default": "Bruk venstre og høgre piltast for å gå frå kort til kort. Bruk mellomromstasten eller Enter-tasten for å snu korta."
+      },
+      {
+        "label": "Melding når spelet er avslutta",
+        "default": "Du har funne alle kortpara."
+      },
+      {
+        "label": "Etikett for kortnummer",
+        "description": "%num og %total er variablar som blir erstatta med tala for det aktuelle kortet.",
+        "default": "Kort %num av %total:"
+      },
+      {
+        "label": "Etikett for kort som ikkje er snudd",
+        "default": "Ikkje snudd. Vel for å snu."
+      },
+      {
+        "label": "Etikett for snudd kort",
+        "default": "Snudd."
+      },
+      {
+        "label": "Etikett når eit par er funne",
+        "default": "Du har funne eit par."
+      },
+      {
+        "label": "Melding når par er funne",
+        "default": "Du har funne eit par."
+      },
+      {
+        "label": "Melding når korta ikkje høyrer saman",
+        "default": "Korta høyrer ikkje saman. Snu andre kort for å prøve igjen."
+      }
+    ]
+  }
+]
 }

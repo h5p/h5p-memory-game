@@ -3,7 +3,7 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Standard"
         }
       ],
       "label": "Kort",
@@ -15,39 +15,39 @@
             "label": "Bilde"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Alternativ tekst for bilde",
+            "description": "Beskriv bildet. Teksten brukes av skjermleser."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Lydspor",
+            "description": "Valgfri lyd som spilles når kortet snus."
           },
           {
             "label": "Tilhørende bilde",
-            "description": "Et valgfritt bilde som brukes av kort nummer to istedenfor å bruke to kort med samme bilde."
+            "description": "Valgfritt bilde som brukes som kort nummer to (i stedet for å bruke to kort med samme bilde)."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Alternativ tekst for tilhørende bilde",
+            "description": "Beskriv bildet. Teksten brukes av skjermleser."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Lydspor til tilhørende bilde",
+            "description": "Valgfri lyd som spilles når tilhørende bilde snus."
           },
           {
-            "label": "Beskrivelse",
-            "description": "En valgfri kort tekst som spretter opp når kort-paret er funnet."
+            "label": "Tilbakemelding",
+            "description": "Valgfri kort tekst som spretter opp når kort-paret er funnet."
           }
         ]
       }
     },
     {
-      "label": "Innstillinger for oppførsel",
-      "description": "Disse instillingene lar deg bestemme hvordan spillet skal oppføre seg.",
+      "label": "Oppgaveinnstillinger",
+      "description": "Disse innstillingene lar deg bestemme ulike funksjoner i spillet.",
       "fields": [
         {
           "label": "Plasser kortene i en firkant",
-          "description": "Vil forsøk å samsvare antall kolonner og rader når kortene legges ut. Etterpå vil kortene bli skalert til å passe beholderen."
+          "description": "Prøver å ordne kortene i likt antall kolonner og rader. Størrelsen på kortene blir også tilpasset."
         },
         {
           "label": "Antall kort som skal brukes",
@@ -60,27 +60,27 @@
     },
     {
       "label": "Tilpass utseende",
-      "description": "Kontroller de visuelle aspektene ved spillet.",
+      "description": "Velg hvordan spillet skal se ut.",
       "fields": [
         {
           "label": "Temafarge",
-          "description": "Velg en farge for å skape et tema over kortspillet ditt."
+          "description": "Velg en farge for å skape en stil eller en stemning for spillet."
         },
         {
           "label": "Kortbaksiden",
-          "description": "Bruk en tilpasset kortbakside for kortene dine."
+          "description": "Bruk en tilpasset bakside for kortene."
         }
       ]
     },
     {
-      "label": "Oversettelser",
+      "label": "Språktilpassing",
       "fields": [
         {
-          "label": "Etikett for antall vendte kort",
-          "default": "Kort vendt"
+          "label": "Tekst for snudd kort",
+          "default": "Snudde kort"
         },
         {
-          "label": "Etikett for tid brukt",
+          "label": "Tekst for brukt tid",
           "default": "Tid brukt"
         },
         {
@@ -88,49 +88,49 @@
           "default": "Godt jobbet!"
         },
         {
-          "label": "Prøv på nytt-tekst",
-          "default": "Prøv på nytt?"
+          "label": "Tekst på knapp som lar bruker starte på nytt",
+          "default": "En gang til?"
         },
         {
-          "label": "Lukk knapp-merkelapp",
+          "label": "Navn på “Lukk”-knapp",
           "default": "Lukk"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Beskrivelse av spill",
+          "default": "Memory Game. Finn kortparene!"
         },
         {
-          "label": "Game instructions",
-          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+          "label": "Spillinstruksjoner",
+          "default": "Bruk venstre og høyre piltast for å gå fra kort til kort. Bruk mellomromstast eller Enter-tast for å snu kort."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Melding når spillet er avsluttet",
+          "default": "Du har funnet alle kortparene."
         },
         {
-          "label": "Card indexing label",
-          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
-          "default": "Card %num of %total:"
+          "label": "Etikett for kortnummer",
+          "description": "%num og %total er variabler som blir erstattet med tallene for det aktuelle kortet.",
+          "default": "Kort %num av %total:"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned. Click to turn."
+          "label": "Etikett for kort som ikke er snudd",
+          "default": "Ikke snudd. Velg for å snu."
         },
         {
-          "label": "Card turned label",
-          "default": "Turned."
+          "label": "Etikett for snudd kort",
+          "default": "Snudd."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Etikett når et par er funnet",
+          "default": "Par funnet."
         },
         {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
+          "label": "Melding når par er funnet",
+          "default": "Du har funnet et par."
         },
         {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "Melding når kortene ikke hører sammen",
+          "default": "Kortene hører ikke sammen. Snu andre kort for å prøve igjen."
         }
       ]
     }
