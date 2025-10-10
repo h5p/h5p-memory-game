@@ -3,134 +3,134 @@
     {
       "widgets": [
         {
-          "label": "Default"
+          "label": "Alapértelmezett"
         }
       ],
-      "label": "Cards",
-      "entity": "card",
+      "label": "Kártyák",
+      "entity": "kártya",
       "field": {
-        "label": "Card",
+        "label": "Kártya",
         "fields": [
           {
-            "label": "Image"
+            "label": "Kép"
           },
           {
-            "label": "Alternative text for Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Helyettesítő szöveg a képhez",
+            "description": "Írja le, mi látható a képen. A szöveget a látássérült felhasználók számára szükséges szövegfelolvasó eszközök használják."
           },
           {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
+            "label": "Hangsáv",
+            "description": "Opcionális hang, amely a kártya megfordításakor szólal meg."
           },
           {
-            "label": "Matching Image",
-            "description": "An optional image to match against instead of using two cards with the same image."
+            "label": "Képpár",
+            "description": "Megadható egy második kép, ami a fenti párja, és amit ahhoz kell társítani, ahelyett, hogy két azonos képet kelljen megtalálni."
           },
           {
-            "label": "Alternative text for Matching Image",
-            "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
+            "label": "Helyettesítő szöveg a képpárhoz",
+            "description": "Írja le, mi látható a képen. A szöveget a látássérült felhasználók számára szükséges szövegfelolvasó eszközök használják."
           },
           {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
+            "label": "Képpár hangsávja",
+            "description": "Opcionális hang, amely a második kártya megfordításakor szólal meg."
           },
           {
-            "label": "Description",
-            "description": "An optional short text that will pop up once the two matching cards are found."
+            "label": "Leírás",
+            "description": "Opcionális rövid szöveg, amely akkor jelenik meg, ha megtaláltuk a két megfelelő kártyát."
           }
         ]
       }
     },
     {
-      "label": "Behavioural settings",
-      "description": "These options will let you control how the game behaves.",
+      "label": "Viselkedési beállítások",
+      "description": "Ezekkel a beállításokkal szabályozható a feladat viselkedése.",
       "fields": [
         {
-          "label": "Position the cards in a square",
-          "description": "Will try to match the number of columns and rows when laying out the cards. Afterward, the cards will be scaled to fit the container."
+          "label": "Kártyákat négyzetes elhelyezése",
+          "description": "Megpróbálja azonos számú oszlopokba és sorokba sorolni a kártyákat azok elhelyezésekor. Ezután a kártyák úgy méretezi át, hogy illeszkedjenek a befoglaló elemhez."
         },
         {
-          "label": "Number of cards to use",
-          "description": "Setting this to a number greater than 2 will make the game pick random cards from the list of cards."
+          "label": "Használandó kártyák száma",
+          "description": "Ha ezt 2-nél nagyobb számra állítja, a játék véletlenszerű kártyákat választ a kártyalistából."
         },
         {
-          "label": "Add button for retrying when the game is over"
+          "label": "Gomb hozzáadása az újrapróbálkozáshoz a játék végén"
         }
       ]
     },
     {
-      "label": "Look and feel",
-      "description": "Control the visuals of the game.",
+      "label": "Kinézet",
+      "description": "A játék kinézetének megadása.",
       "fields": [
         {
-          "label": "Theme Color",
-          "description": "Choose a color to create a theme for your card game."
+          "label": "Fő témaszín",
+          "description": "Válasszon egy színt a kártyajáték stílusának kialakításához."
         },
         {
-          "label": "Card Back",
-          "description": "Use a custom back for your cards."
+          "label": "Kártya hátoldala",
+          "description": "Egyedi hátlapot hozzáadása a kártyákhoz."
         }
       ]
     },
     {
-      "label": "Localization",
+      "label": "Lokalizáció",
       "fields": [
         {
-          "label": "Card turns text",
-          "default": "Card turns"
+          "label": "A kártya megfordul szövege",
+          "default": "A kártya megfordul"
         },
         {
-          "label": "Time spent text",
-          "default": "Time spent"
+          "label": "Eltelt idő szövege",
+          "default": "Eltelt idő"
         },
         {
-          "label": "Feedback text",
-          "default": "Good work!"
+          "label": "Visszajelzés szövege",
+          "default": "Szép munka!"
         },
         {
-          "label": "Try again button text",
-          "default": "Try again?"
+          "label": "Újrapróbálkozás gomb szövege",
+          "default": "Visszaállítás"
         },
         {
-          "label": "Close button label",
-          "default": "Close"
+          "label": "Bezárás gomb felirata",
+          "default": "Bezárás"
         },
         {
-          "label": "Game label",
-          "default": "Memory Game. Find the matching cards."
+          "label": "Játék felirata",
+          "default": "Memóriajáték.Találja meg az összeillő kártyákat!"
         },
         {
-          "label": "Game instructions",
-          "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
+          "label": "Játékleírás",
+          "default": "Használja a jobbra és balra nyílbillentyűket a kártyák közti navigálásához. Használja a szóközt vagy az enter billentyűt a kártya megfordításához."
         },
         {
-          "label": "Game finished label",
-          "default": "All of the cards have been found."
+          "label": "Játék vége felirat",
+          "default": "Az összes kártyát megtalálta!"
         },
         {
-          "label": "Card indexing label",
-          "description": "%num and %total are placeholders and will be replaced with the respective values for the card.",
-          "default": "Card %num of %total:"
+          "label": "Kártya számozási felirat",
+          "description": "A (z) %num és a (z) %total helyőrzők, és a kártyához tartozó megfelelő értékekkel lesznek helyettesítve.",
+          "default": "%NUM. a(z) %total kártyából"
         },
         {
-          "label": "Card unturned label",
-          "default": "Unturned. Click to turn."
+          "label": "Felfordítatlan kártya felirata",
+          "default": "Felfordítatlan. Kattintson a forgatáshoz."
         },
         {
-          "label": "Card turned label",
-          "default": "Turned."
+          "label": "Kártya megfordítva felirat",
+          "default": "Felfordítva."
         },
         {
-          "label": "Card matched label",
-          "default": "Match found."
+          "label": "Egyező kártyák felirat",
+          "default": "Párt talált!"
         },
         {
-          "label": "Card matched announcement",
-          "default": "Your cards match!"
+          "label": "Egyező kártyák bejelentése",
+          "default": "A kártyái egyeznek!"
         },
         {
-          "label": "Card not matched announcement",
-          "default": "Your chosen cards do not match. Turn other cards to try again."
+          "label": "Nem egyező kártya bejelentése",
+          "default": "A kiválasztott kártyák nem egyeznek. Fordítson fel más kártyákat az újbóli próbálkozáshoz."
         }
       ]
     }
