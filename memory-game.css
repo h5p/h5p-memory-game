@@ -386,8 +386,6 @@
   line-height: 2em;
   background-color: color-mix(in srgb, var(--h5p-theme-main-cta-base), transparent 10%);
   color: var(--h5p-theme-contrast-cta);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   cursor: pointer;
   text-align: center;
