@@ -368,9 +368,7 @@
   height: 2em;
   line-height: 2em;
   background-color: color-mix(in srgb, var(--h5p-theme-main-cta-base), transparent 10%);
-  color: var(--h5p-theme-ui-base);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+  color: var(--h5p-theme-contrast-cta);
   border-radius: 50%;
   cursor: pointer;
   text-align: center;
@@ -387,9 +385,7 @@
   height: 2em;
   line-height: 2em;
   background-color: color-mix(in srgb, var(--h5p-theme-main-cta-base), transparent 10%);
-  color: var(--h5p-theme-ui-base);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+  color: var(--h5p-theme-contrast-cta);
   border-radius: 50%;
   cursor: pointer;
   text-align: center;
@@ -398,11 +394,20 @@
 }
 .h5p-memory-audio-instead-of-image:before,
 .h5p-memory-audio-button:before {
-  content: "\e937";
-  font-family: 'h5p-theme';
+  content: "\e941";
+  display: inline-flex;
+  width: 1em;
+  transform: translateX(-0.1em);
 }
 .h5p-memory-audio-playing .h5p-memory-audio-instead-of-image:before,
 .h5p-memory-audio-playing .h5p-memory-audio-button:before {
-  content: "\e91b";
+  content: "\e942";
   font-family: 'h5p-theme';
+}
+.h5p-memory-audio-instead-of-image:before {
+  transform: translateX(-0.12em);
+}
+
+.h5p-memory-audio-playing .h5p-memory-audio-instead-of-image:before {
+  transform: translateX(-0.1em);
 }
