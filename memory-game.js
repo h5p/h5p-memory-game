@@ -863,7 +863,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     self.createXAPICompletedEvent = function () {
       var completedEvent = self.createXAPIEventTemplate('completed');
       completedEvent.setScoredResult(self.getScore(), self.getMaxScore(), self, true, true);
-      completedEvent.data.statement.result.duration = 'PT' + (Math.round(timer.getTime() / 10) / 100) + 'S';
+      completedEvent.data.statement.result.duration = 'PT' + (Math.round((timer?.getTime() ?? 0) / 10) / 100) + 'S';
       return completedEvent;
     }
 
