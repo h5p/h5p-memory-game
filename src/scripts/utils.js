@@ -1,8 +1,8 @@
-// Create H5P.MemoryGame namespace if it doesn't exist
-H5P.MemoryGame = H5P.MemoryGame || {};
+// Create H5P namespace if it doesn't exist
+H5P = H5P || {};
 
-// Add utility functions to the namespace
-H5P.MemoryGame.hexToHSL = (hex) => {
+// Add utility functions directly to H5P namespace for now
+H5P.hexToHSL = (hex) => {
   let r = 0; let g = 0; let b = 0;
 
   if (hex.length === 4) {
@@ -38,7 +38,7 @@ H5P.MemoryGame.hexToHSL = (hex) => {
   return { h: Math.round(h * 360), s: +(s * 100).toFixed(1), l: +(l * 100).toFixed(1) };
 };
 
-H5P.MemoryGame.hslToHex = (h, s, l) => {
+H5P.hslToHex = (h, s, l) => {
   s /= 100;
   l /= 100;
 

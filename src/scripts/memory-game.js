@@ -420,19 +420,19 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       const userThemeColor = parameters.lookNFeel.themeColor;
 
       if (userThemeColor !== '#707070') {
-        const userHSL = H5P.MemoryGame.hexToHSL(userThemeColor);
+        const userHSL = H5P.hexToHSL(userThemeColor);
 
         // Base and dark ref colors
-        const baseRef = H5P.MemoryGame.hexToHSL('#F1F5FB');
-        const darkRef = H5P.MemoryGame.hexToHSL('#DBE5F5');
-        const lightRef = H5P.MemoryGame.hexToHSL('#F7F9FD');
-        const darkerRef = H5P.MemoryGame.hexToHSL('#C7D7EF');
+        const baseRef = H5P.hexToHSL('#F1F5FB');
+        const darkRef = H5P.hexToHSL('#DBE5F5');
+        const lightRef = H5P.hexToHSL('#F7F9FD');
+        const darkerRef = H5P.hexToHSL('#C7D7EF');
 
         // Set h from user, s and l from ref colors
-        const baseCustom = H5P.MemoryGame.hslToHex(userHSL.h, userHSL.s, baseRef.l);
-        const darkCustom = H5P.MemoryGame.hslToHex(userHSL.h, userHSL.s, darkRef.l);
-        const lightCustom = H5P.MemoryGame.hslToHex(userHSL.h, userHSL.s, lightRef.l);
-        const darkerCustom = H5P.MemoryGame.hslToHex(userHSL.h, userHSL.s, darkerRef.l);
+        const baseCustom = H5P.hslToHex(userHSL.h, userHSL.s, baseRef.l);
+        const darkCustom = H5P.hslToHex(userHSL.h, userHSL.s, darkRef.l);
+        const lightCustom = H5P.hslToHex(userHSL.h, userHSL.s, lightRef.l);
+        const darkerCustom = H5P.hslToHex(userHSL.h, userHSL.s, darkerRef.l);
 
         const styleTag = document.createElement('style');
         styleTag.innerHTML = `
