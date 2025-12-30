@@ -25,8 +25,9 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    let flipped; let timer; let counter; let popup; let $bottom; let $feedback; let $wrapper; let maxWidth; let numCols; let
-      audioCard;
+    let flipped; let timer; let counter; let popup;
+    let $bottom; let $feedback; let $wrapper; let maxWidth; let numCols;
+    let audioCard;
     const cards = [];
     let score = 0;
     numInstances++;
@@ -122,7 +123,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @param {boolean} [params.restoring] True if restoring state.
      * @private
      */
-    var finished = function (params = {}) {
+    const finished = function (params = {}) {
       if (!params.restoring) {
         timer.stop();
       }
@@ -225,7 +226,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @param {H5P.MemoryGame.Card[]} [params.excluded] Cards to exclude from flip back.
      * @param {boolean} [params.keepPairs] True to keep pairs that were found.
      */
-    var flipBackCards = (params = {}) => {
+    const flipBackCards = (params = {}) => {
       cards.forEach((card) => {
         params.excluded = params.excluded ?? [];
         params.keepPairs = params.keepPairs ?? false;
@@ -254,7 +255,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @returns {H5P.MemoryGame.Card} Mate of the card.
      * @private
      */
-    var getCardMate = (card) => {
+    const getCardMate = (card) => {
       const idSegments = card.getId().split('-');
 
       return cards.find((mate) => {
@@ -296,6 +297,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           case r: h = (g - b) / d + (g < b ? 6 : 0); break;
           case g: h = (b - r) / d + 2; break;
           case b: h = (r - g) / d + 4; break;
+          default: break;
         }
         h /= 6;
       }
@@ -506,7 +508,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         document.head.appendChild(styleTag);
       }
 
-      // If the contrast between the chosen color and white is too low we invert the shades to create good contrast
+      // If the contrast between the chosen color and white is too low,
+      // we invert the shades to create good contrast
       invertShades = (userThemeColor
                       && getContrast(parameters.lookNFeel.themeColor) < 1.7 ? -1 : 1);
       const backImage = (parameters.lookNFeel.cardBack ? H5P.getPath(parameters.lookNFeel.cardBack.path, id) : null);
@@ -943,7 +946,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
    * @param {string} color hex code
    * @return {number} From 1 to Infinity.
    */
-  var getContrast = function (color) {
+  const getContrast = function (color) {
     return 255 / ((parseInt(color.substring(1, 3), 16) * 299
                    + parseInt(color.substring(3, 5), 16) * 587
                    + parseInt(color.substring(5, 7), 16) * 144) / 1000);
