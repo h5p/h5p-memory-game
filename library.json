@@ -15,6 +15,9 @@
   ],
   "preloadedJs": [
     {
+      "path": "utils.js"
+    },
+    {
       "path": "memory-game.js"
     },
     {
