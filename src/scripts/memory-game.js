@@ -428,7 +428,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         const lightRef = H5P.hexToHSL('#F7F9FD');
         const darkerRef = H5P.hexToHSL('#C7D7EF');
 
-        // Set h from user, s and l from ref colors
+        // Set h and s from user, and l from ref colors
         const baseCustom = H5P.hslToHex(userHSL.h, userHSL.s, baseRef.l);
         const darkCustom = H5P.hslToHex(userHSL.h, userHSL.s, darkRef.l);
         const lightCustom = H5P.hslToHex(userHSL.h, userHSL.s, lightRef.l);
