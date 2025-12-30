@@ -1,7 +1,7 @@
-// Create H5P namespace if it doesn't exist
+// eslint-disable-next-line no-global-assign
 H5P = H5P || {};
 
-// Add utility functions directly to H5P namespace for now
+// Add utility functions directly to H5P namespace
 H5P.hexToHSL = (hex) => {
   let r = 0; let g = 0; let b = 0;
 

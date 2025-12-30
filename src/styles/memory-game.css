@@ -125,8 +125,8 @@
   top: 0;
   left: 0;
   background-color: var(--h5p-theme-alternative-dark);
-  -webkit-mask-image: url(images/pattern.svg);
-  mask-image: url(images/pattern.svg);
+  -webkit-mask-image: url(../images/pattern.svg);
+  mask-image: url(../images/pattern.svg);
   mask-size: 200%;
   background-repeat: repeat;
   opacity: 40%;
