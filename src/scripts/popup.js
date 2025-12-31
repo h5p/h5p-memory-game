@@ -1,5 +1,4 @@
 (function (MemoryGame, EventDispatcher, $) {
-
   /**
    * A dialog for reading the description of a card.
    * @see https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/
@@ -13,14 +12,14 @@
     EventDispatcher.call(this);
 
     /** @alias H5P.MemoryGame.Popup# */
-    var self = this;
+    const self = this;
 
-    var closed;
+    let closed;
 
     const $popup = $(
-      '<div class="h5p-memory-obscure-content"><div class="h5p-memory-pop" role="dialog" aria-modal="true"><div class="h5p-memory-top"></div><div class="h5p-memory-desc h5p-programatically-focusable" tabindex="-1"></div><div class="h5p-memory-close" role="button" tabindex="0" title="' + (l10n.closeLabel || 'Close') + '" aria-label="' + (l10n.closeLabel || 'Close') + '"></div></div></div>'
-      )
-      .on('keydown', function (event) {
+      `<div class="h5p-memory-obscure-content"><div class="h5p-memory-pop" role="dialog" aria-modal="true"><div class="h5p-memory-top"></div><div class="h5p-memory-desc h5p-programatically-focusable" tabindex="-1"></div><div class="h5p-memory-close" role="button" tabindex="0" title="${l10n.closeLabel || 'Close'}" aria-label="${l10n.closeLabel || 'Close'}"></div></div></div>`,
+    )
+      .on('keydown', (event) => {
         if (event.code === 'Escape') {
           self.close(true);
           event.preventDefault();
@@ -33,10 +32,10 @@
     // Hook up the close button
     const $closeButton = $popup
       .find('.h5p-memory-close')
-      .on('click', function () {
+      .on('click', () => {
         self.close(true);
       })
-      .on('keydown', function (event) {
+      .on('keydown', (event) => {
         if (event.code === 'Enter' || event.code === 'Space') {
           self.close(true);
           event.preventDefault();
@@ -44,11 +43,11 @@
         else if (event.code === 'Tab') {
           event.preventDefault(); // Lock focus
         }
-    });
+      });
 
     const $desc = $popup
       .find('.h5p-memory-desc')
-      .on('keydown', function (event) {
+      .on('keydown', (event) => {
         if (event.code === 'Tab') {
           // Keep focus inside dialog
           $closeButton.focus();
@@ -72,13 +71,13 @@
      * @param {function} done
      */
     self.show = function (desc, imgs, styles, done) {
-      const announcement = '<span class="h5p-memory-screen-reader">' +
-        l10n.cardMatchedA11y + '</span>' + desc;
+      const announcement = `<span class="h5p-memory-screen-reader">${
+        l10n.cardMatchedA11y}</span>${desc}`;
       $desc.html(announcement);
 
       $top.html('').toggleClass('h5p-memory-two-images', imgs.length > 1);
-      for (var i = 0; i < imgs.length; i++) {
-        $('<div class="h5p-memory-image"' + (styles ? styles : '') + '></div>').append(imgs[i]).appendTo($top);
+      for (let i = 0; i < imgs.length; i++) {
+        $(`<div class="h5p-memory-image"${styles || ''}></div>`).append(imgs[i]).appendTo($top);
       }
       $popup.show();
       $desc.focus();
@@ -107,15 +106,14 @@
      */
     self.setSize = function (fontSize) {
       // Set image size
-      $top[0].style.fontSize = fontSize + 'px';
+      $top[0].style.fontSize = `${fontSize}px`;
 
       // Determine card size
-      var cardSize = fontSize * 6.25; // From CSS
+      const cardSize = fontSize * 6.25; // From CSS
 
       // Set popup size
-      $popup[0].style.minWidth = (cardSize * 2.5) + 'px';
-      $popup[0].style.minHeight = cardSize + 'px';
+      $popup[0].style.minWidth = `${cardSize * 2.5}px`;
+      $popup[0].style.minHeight = `${cardSize}px`;
     };
   };
-
-})(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery);
+}(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery));
