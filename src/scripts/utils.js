@@ -3,7 +3,9 @@ H5P = H5P || {};
 
 // Add utility functions directly to H5P namespace
 H5P.hexToHSL = (hex) => {
-  let r = 0; let g = 0; let b = 0;
+  let r = 0;
+  let g = 0;
+  let b = 0;
 
   if (hex.length === 4) {
     r = parseInt(hex[1] + hex[1], 16);
