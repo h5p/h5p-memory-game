@@ -1,5 +1,4 @@
 (function (MemoryGame) {
-
   /**
    * Keeps track of the number of cards that has been turned
    *
@@ -8,9 +7,9 @@
    */
   MemoryGame.Counter = function ($container, startValue = 0) {
     /** @alias H5P.MemoryGame.Counter# */
-    var self = this;
+    const self = this;
 
-    var current = startValue;
+    let current = startValue;
 
     /**
      * @private
@@ -23,9 +22,7 @@
      * Get current count.
      * @returns {number} Current count.
      */
-    self.getCount = () => {
-      return current;
-    }
+    self.getCount = () => current;
 
     /**
      * Increment the counter.
@@ -45,5 +42,4 @@
 
     self.update();
   };
-
-})(H5P.MemoryGame);
+}(H5P.MemoryGame));
