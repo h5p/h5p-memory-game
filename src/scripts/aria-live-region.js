@@ -5,8 +5,8 @@
    * @class H5P.MemoryGame.Popup
    */
   MemoryGame.AriaLiveRegion = function () {
-    let readText; let
-      timeout = null;
+    let readText;
+    let timeout = null;
 
     // Build dom with defaults
     const dom = document.createElement('div');

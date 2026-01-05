@@ -375,10 +375,7 @@
    * @returns {boolean}
    */
   MemoryGame.Card.isValid = function (params) {
-    return (params !== undefined
-             && (params.image !== undefined
-             && params.image.path !== undefined)
-           || params.audio);
+    return !!(params?.image?.path || params?.audio);
   };
 
   /**
@@ -389,10 +386,7 @@
    * @returns {boolean}
    */
   MemoryGame.Card.hasTwoImages = function (params) {
-    return (params !== undefined
-             && (params.match !== undefined
-              && params.match.path !== undefined)
-           || params.matchAudio);
+    return !!(params?.match?.path || params?.matchAudio);
   };
 
   /**
