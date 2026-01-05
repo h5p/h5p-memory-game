@@ -32,8 +32,13 @@
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    let path; let $card; let $wrapper; let $image; let removedState;
-    let flippedState; let audioPlayer;
+    let path;
+    let $card;
+    let $wrapper;
+    let $image;
+    let removedState;
+    let flippedState;
+    let audioPlayer;
 
     /**
      * Process HTML escaped string for use as attribute value,
