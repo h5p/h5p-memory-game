@@ -294,7 +294,7 @@
   color: #666;
 }
 .h5p-memory-game .h5p-memory-close:focus-visible {
-  outline: 2px solid #a5c7fe;
+  outline: 2px solid var(--h5p-theme-contrast-cta-white);
 }
 .h5p-memory-reset {
   position: absolute;
@@ -310,7 +310,7 @@
   transition: box-shadow 200ms linear, margin 200ms linear, transform 300ms ease-out, opacity 300ms ease-out;
 }
 .h5p-memory-reset:focus-visible {
-  outline: 2px solid #a5c7fe;
+  outline: 2px solid var(--h5p-theme-contrast-cta-white);
 }
 .h5p-memory-complete {
   display: none;
