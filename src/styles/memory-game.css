@@ -46,6 +46,9 @@
   margin: 0;
   padding: 0;
 }
+.h5p-memory-game .h5p-memory-wrap:focus-visible {
+  outline: 2px solid var(--h5p-theme-contrast-cta-white)
+}
 .h5p-memory-game .h5p-memory-card {
   display: inline-block;
   outline: none;
