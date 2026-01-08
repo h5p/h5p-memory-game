@@ -43,7 +43,7 @@
   padding: 0;
 }
 .h5p-memory-game .h5p-memory-wrap:focus-visible {
-  outline: 2px solid var(--h5p-theme-contrast-cta-white);
+  outline: 2px ridge var(--h5p-theme-contrast-cta-white);
   border-radius: var(--h5p-theme-border-radius-small, 4px);
 }
 .h5p-memory-game .h5p-memory-card {
@@ -289,7 +289,7 @@
   color: #666;
 }
 .h5p-memory-game .h5p-memory-close:focus-visible {
-  outline: 2px solid var(--h5p-theme-contrast-cta-white);
+  outline: 2px ridge var(--h5p-theme-contrast-cta-white);
 }
 .h5p-memory-reset {
   position: absolute;
@@ -305,7 +305,7 @@
   transition: box-shadow 200ms linear, margin 200ms linear, transform 300ms ease-out, opacity 300ms ease-out;
 }
 .h5p-memory-reset:focus-visible {
-  outline: 2px solid var(--h5p-theme-contrast-cta-white);
+  outline: 2px ridge var(--h5p-theme-contrast-cta-white);
 }
 .h5p-memory-complete {
   display: none;
