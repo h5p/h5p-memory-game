@@ -8,7 +8,7 @@
   left: -1px;
   width: 1px;
   height: 1px;
-  color: transparent;
+  overflow: hidden;
 }
 .h5p-memory-game > ul {
   list-style: none;
@@ -24,10 +24,6 @@
   width: 6.25em;
   height: 6.25em;
   user-select: none;
-  background-color: var(--h5p-theme-alternative-base) !important;
-  border-color: var(--h5p-theme-alternative-dark) !important;
-  color: var(--h5p-theme-text-secondary) !important;
-  border-radius: var(--h5p-theme-border-radius-large);
 }
 .h5p-memory-game img {
   -webkit-user-drag: none;
@@ -47,7 +43,7 @@
   padding: 0;
 }
 .h5p-memory-game .h5p-memory-wrap:focus-visible {
-  outline: 2px solid var(--h5p-theme-contrast-cta-white);
+  outline: 2px ridge var(--h5p-theme-contrast-cta-white);
   border-radius: var(--h5p-theme-border-radius-small, 4px);
 }
 .h5p-memory-game .h5p-memory-card {
@@ -80,7 +76,6 @@
 .h5p-memory-game .h5p-memory-card .h5p-front {
   cursor: pointer;
   text-align: center;
-  color: #707070;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front:before,
 .h5p-memory-game .h5p-memory-card .h5p-back:before,
@@ -294,7 +289,7 @@
   color: #666;
 }
 .h5p-memory-game .h5p-memory-close:focus-visible {
-  outline: 2px solid var(--h5p-theme-contrast-cta-white);
+  outline: 2px ridge var(--h5p-theme-contrast-cta-white);
 }
 .h5p-memory-reset {
   position: absolute;
@@ -310,7 +305,7 @@
   transition: box-shadow 200ms linear, margin 200ms linear, transform 300ms ease-out, opacity 300ms ease-out;
 }
 .h5p-memory-reset:focus-visible {
-  outline: 2px solid var(--h5p-theme-contrast-cta-white);
+  outline: 2px ridge var(--h5p-theme-contrast-cta-white);
 }
 .h5p-memory-complete {
   display: none;

@@ -414,8 +414,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       cards.push(card);
     };
 
-    let cardStyles; let
-      invertShades;
+    let cardStyles;
     if (parameters.lookNFeel) {
       const userThemeColor = parameters.lookNFeel.themeColor;
 
@@ -437,21 +436,17 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         const styleTag = document.createElement('style');
         styleTag.innerHTML = `
           .h5p-memory-game {
-            --h5p-theme-alternative-base: ${baseCustom} !important;
-            --h5p-theme-alternative-dark: ${darkCustom} !important;
-            --h5p-theme-alternative-light: ${lightCustom}!important;
-            --h5p-theme-alternative-darker: ${darkerCustom}!important;
+            --h5p-theme-alternative-base: ${baseCustom};
+            --h5p-theme-alternative-dark: ${darkCustom};
+            --h5p-theme-alternative-light: ${lightCustom};
+            --h5p-theme-alternative-darker: ${darkerCustom};
           }
         `;
         document.head.appendChild(styleTag);
       }
 
-      // If the contrast between the chosen color and white is too low,
-      // we invert the shades to create good contrast
-      invertShades = (userThemeColor
-                      && getContrast(parameters.lookNFeel.themeColor) < 1.7 ? -1 : 1);
       const backImage = (parameters.lookNFeel.cardBack ? H5P.getPath(parameters.lookNFeel.cardBack.path, id) : null);
-      cardStyles = MemoryGame.Card.determineStyles(userThemeColor, invertShades, backImage);
+      cardStyles = MemoryGame.Card.determineStyles(backImage);
     }
 
     // Determine number of cards to be used
@@ -613,9 +608,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       // TODO: Only create on first attach!
       $wrapper = $container.addClass('h5p-memory-game h5p-theme').html('');
-      if (invertShades === -1) {
-        $container.addClass('h5p-invert-shades');
-      }
 
       if (cards.length) {
         $applicationLabel.appendTo($wrapper);
