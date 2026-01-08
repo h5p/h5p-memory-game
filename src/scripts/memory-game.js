@@ -436,10 +436,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         const styleTag = document.createElement('style');
         styleTag.innerHTML = `
           .h5p-memory-game {
-            --h5p-theme-alternative-base: ${baseCustom} !important;
-            --h5p-theme-alternative-dark: ${darkCustom} !important;
-            --h5p-theme-alternative-light: ${lightCustom}!important;
-            --h5p-theme-alternative-darker: ${darkerCustom}!important;
+            --h5p-theme-alternative-base: ${baseCustom};
+            --h5p-theme-alternative-dark: ${darkCustom};
+            --h5p-theme-alternative-light: ${lightCustom};
+            --h5p-theme-alternative-darker: ${darkerCustom};
           }
         `;
         document.head.appendChild(styleTag);
