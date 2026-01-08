@@ -27,10 +27,11 @@
       })
       .hide();
 
-    const $top = $popup.find('.h5p-memory-top');
+    const $popup = $popupContainer.find('.h5p-memory-pop');
+    const $top = $popupContainer.find('.h5p-memory-top');
 
     // Hook up the close button
-    const $closeButton = $popup
+    const $closeButton = $popupContainer
       .find('.h5p-memory-close')
       .on('click', () => {
         self.close(true);
@@ -45,7 +46,7 @@
         }
       });
 
-    const $desc = $popup
+    const $desc = $popupContainer
       .find('.h5p-memory-desc')
       .on('keydown', (event) => {
         if (event.code === 'Tab') {
@@ -60,7 +61,7 @@
      * @param {H5P.jQuery} $container Container to append to.
      */
     this.appendTo = ($container) => {
-      $container.append($popup);
+      $container.append($popupContainer);
     };
 
     /**
@@ -79,7 +80,7 @@
       for (let i = 0; i < imgs.length; i++) {
         $(`<div class="h5p-memory-image"${styles || ''}></div>`).append(imgs[i]).appendTo($top);
       }
-      $popup.show();
+      $popupContainer.show();
       $desc.focus();
       closed = done;
     };
@@ -91,7 +92,7 @@
      */
     self.close = function (refocus) {
       if (closed !== undefined) {
-        $popup.hide();
+        $popupContainer.hide();
         closed(refocus);
         closed = undefined;
 
@@ -115,5 +116,9 @@
       $popup[0].style.minWidth = `${cardSize * 2.5}px`;
       $popup[0].style.minHeight = `${cardSize}px`;
     };
+
+    this.getElement = () => {
+      return $popup[0];
+    }
   };
 }(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery));
