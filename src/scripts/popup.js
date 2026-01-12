@@ -115,5 +115,9 @@
       $popup[0].style.minWidth = `${cardSize * 2.5}px`;
       $popup[0].style.minHeight = `${cardSize}px`;
     };
+
+    this.getElement = () => {
+      return $popup[0];
+    }
   };
 }(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery));

@@ -89,7 +89,7 @@
         },
         {
           "label": "Texto del botón Intente de nuevo",
-          "default": "¿Volver a intentarlo?"
+          "default": "Reiniciar"
         },
         {
           "label": "Texto del botón Cerrar",
