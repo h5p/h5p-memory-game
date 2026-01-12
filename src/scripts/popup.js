@@ -27,11 +27,10 @@
       })
       .hide();
 
-    const $popup = $popupContainer.find('.h5p-memory-pop');
-    const $top = $popupContainer.find('.h5p-memory-top');
+    const $top = $popup.find('.h5p-memory-top');
 
     // Hook up the close button
-    const $closeButton = $popupContainer
+    const $closeButton = $popup
       .find('.h5p-memory-close')
       .on('click', () => {
         self.close(true);
@@ -46,7 +45,7 @@
         }
       });
 
-    const $desc = $popupContainer
+    const $desc = $popup
       .find('.h5p-memory-desc')
       .on('keydown', (event) => {
         if (event.code === 'Tab') {
@@ -61,7 +60,7 @@
      * @param {H5P.jQuery} $container Container to append to.
      */
     this.appendTo = ($container) => {
-      $container.append($popupContainer);
+      $container.append($popup);
     };
 
     /**
@@ -80,7 +79,7 @@
       for (let i = 0; i < imgs.length; i++) {
         $(`<div class="h5p-memory-image"${styles || ''}></div>`).append(imgs[i]).appendTo($top);
       }
-      $popupContainer.show();
+      $popup.show();
       $desc.focus();
       closed = done;
     };
@@ -92,7 +91,7 @@
      */
     self.close = function (refocus) {
       if (closed !== undefined) {
-        $popupContainer.hide();
+        $popup.hide();
         closed(refocus);
         closed = undefined;
 
