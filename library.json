@@ -8,6 +8,10 @@
   "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.MemoryGame",
+  "coreApi": {
+    "majorVersion": 1,
+    "minorVersion": 28
+  },
   "preloadedCss": [
     {
       "path": "src/styles/memory-game.css"
