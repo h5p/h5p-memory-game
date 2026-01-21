@@ -202,7 +202,7 @@
       {
         "label": "Game instructions",
         "importance": "low",
-        "name": "label",
+        "name": "labelInstructions",
         "type": "text",
         "default": "Use arrow keys left and right to navigate cards. Use space or enter key to turn card."
       },
