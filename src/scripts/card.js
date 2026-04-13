@@ -1,5 +1,4 @@
 (function (MemoryGame, EventDispatcher, $) {
-
   /**
    * @private
    * @constant {number} WCAG_MIN_CONTRAST_AA_LARGE Minimum contrast ratio.
@@ -23,7 +22,7 @@
    */
   MemoryGame.Card = function (image, contentId, cardsTotal, alt, l10n, description, styles, audio, id) {
     /** @alias H5P.MemoryGame.Card# */
-    var self = this;
+    const self = this;
 
     this.id = id;
 
@@ -33,8 +32,13 @@
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    let path, width, height, $card, $wrapper, $image, removedState,
-      flippedState, audioPlayer;
+    let path;
+    let $card;
+    let $wrapper;
+    let $image;
+    let removedState;
+    let flippedState;
+    let audioPlayer;
 
     /**
      * Process HTML escaped string for use as attribute value,
@@ -46,18 +50,18 @@
     const massageAttributeOutput = (value = 'Missing description') => {
       const dparser = new DOMParser().parseFromString(value, 'text/html');
       const div = document.createElement('div');
-      div.innerHTML = dparser.documentElement.textContent;;
+      div.innerHTML = dparser.documentElement.textContent;
 
       return div.textContent || div.innerText;
     };
 
     self.buildDOM = () => {
-      $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">' +
-                  '<div class="h5p-front"' + (styles && styles.front ? styles.front : '') + '>' + (styles && styles.backImage ? '' : '<span></span>') + '</div>' +
-                  '<div class="h5p-back"' + (styles && styles.back ? styles.back : '') + '>' +
-                    (path ? '<img src="' + path + '" alt="" style="width:' + width + ';height:' + height + '"/>' + (audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : '') : '<i class="h5p-memory-audio-instead-of-image">') +
-                  '</div>' +
-                '</div></li>');
+      $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">'
+                  + `<div class="h5p-front"${styles && styles.front ? styles.front : ''}>${styles && styles.backImage ? '' : '<span></span>'}</div>`
+                  + `<div class="h5p-back"${styles && styles.back ? styles.back : ''}>${
+                    path ? `<img src="${path}" alt=""/>${audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : ''}` : '<i class="h5p-memory-audio-instead-of-image">'
+                  }</div>`
+                + '</div></li>');
 
       $wrapper.on('keydown', (event) => {
         switch (event.code) {
@@ -95,7 +99,9 @@
             // Move to first card
             self.trigger('first');
             event.preventDefault();
-            return;
+            break;
+          default:
+            break;
         }
       });
 
@@ -103,43 +109,30 @@
 
       $card = $wrapper.children('.h5p-memory-card')
         .children('.h5p-front')
-          .click(function () {
-            self.flip();
-          })
-          .end();
+        .click((event) => {
+          event.stopPropagation();
+          self.flip();
+        })
+        .end();
 
       if (audioPlayer) {
         $card.children('.h5p-back')
-          .click(function () {
+          .click(() => {
             if ($card.hasClass('h5p-memory-audio-playing')) {
               self.stopAudio();
             }
             else {
               audioPlayer.play();
             }
-          })
+          });
       }
-    }
+    };
 
     // alt = alt || 'Missing description'; // Default for old games
     alt = massageAttributeOutput(alt);
 
     if (image && image.path) {
       path = H5P.getPath(image.path, contentId);
-
-      if (image.width !== undefined && image.height !== undefined) {
-        if (image.width > image.height) {
-          width = '100%';
-          height = 'auto';
-        }
-        else {
-          height = '100%';
-          width = 'auto';
-        }
-      }
-      else {
-        width = height = '100%';
-      }
     }
 
     if (audio) {
@@ -147,9 +140,9 @@
       audioPlayer = document.createElement('audio');
       if (audioPlayer.canPlayType !== undefined) {
         // Add supported source files.
-        for (var i = 0; i < audio.length; i++) {
+        for (let i = 0; i < audio.length; i++) {
           if (audioPlayer.canPlayType(audio[i].mime)) {
-            var source = document.createElement('source');
+            const source = document.createElement('source');
             source.src = H5P.getPath(audio[i].path, contentId);
             source.type = audio[i].mime;
             audioPlayer.appendChild(source);
@@ -164,13 +157,13 @@
         audioPlayer.controls = false;
         audioPlayer.preload = 'auto';
 
-        var handlePlaying = function () {
+        const handlePlaying = function () {
           if ($card) {
             $card.addClass('h5p-memory-audio-playing');
             self.trigger('audioplay');
           }
         };
-        var handleStopping = function () {
+        const handleStopping = function () {
           if ($card) {
             $card.removeClass('h5p-memory-audio-playing');
             self.trigger('audiostop');
@@ -188,9 +181,7 @@
      * Get id of the card.
      * @returns {string} The id of the card. (originalIndex-sideNumber)
      */
-    this.getId = () => {
-      return self.id;
-    };
+    this.getId = () => self.id;
 
     /**
      * Update the cards label to make it accessible to users with a readspeaker
@@ -201,20 +192,20 @@
      */
     self.updateLabel = function (isMatched, announce, reset) {
       // Determine new label from input params
-      const imageAlt = alt ? ` ${alt}`: '';
+      const imageAlt = alt ? ` ${alt}` : '';
 
-      let label = reset ?
-        l10n.cardUnturned :
-        `${l10n.cardTurned}${imageAlt}`;
+      let label = reset
+        ? l10n.cardUnturned
+        : `${l10n.cardTurned}${imageAlt}`;
 
       if (isMatched) {
-        label = l10n.cardMatched + ' ' + label;
+        label = `${l10n.cardMatched} ${label}`;
       }
 
       // Update the card's label
-      $wrapper.attr('aria-label', l10n.cardPrefix
+      $wrapper.attr('aria-label', `${l10n.cardPrefix
         .replace('%num', $wrapper.index() + 1)
-        .replace('%total', cardsTotal) + ' ' + label);
+        .replace('%total', cardsTotal)} ${label}`);
 
       // Update disabled property
       $wrapper.attr('aria-disabled', reset ? null : 'true');
@@ -309,9 +300,9 @@
 
       $wrapper.attr(
         'aria-label',
-        l10n.cardPrefix
+        `${l10n.cardPrefix
           .replace('%num', $wrapper.index() + 1)
-          .replace('%total', cardsTotal) + ' ' + l10n.cardUnturned
+          .replace('%total', cardsTotal)} ${l10n.cardUnturned}`,
       );
     };
 
@@ -319,7 +310,7 @@
      * Re-append to parent container.
      */
     self.reAppend = function () {
-      var parent = $wrapper[0].parentElement;
+      const parent = $wrapper[0].parentElement;
       parent.appendChild($wrapper[0]);
     };
 
@@ -357,17 +348,13 @@
      * Check if the card has been removed from the game, i.e. if has
      * been matched.
      */
-    this.isRemoved = () => {
-      return removedState ?? false;
-    };
+    this.isRemoved = () => removedState ?? false;
 
     /**
      * Determine whether card is flipped or not.
      * @returns {boolean} True if card is flipped, else false.
      */
-    this.isFlipped = () => {
-      return flippedState ?? false;
-    }
+    this.isFlipped = () => flippedState ?? false;
 
     /**
      * Stop any audio track that might be playing.
@@ -392,10 +379,7 @@
    * @returns {boolean}
    */
   MemoryGame.Card.isValid = function (params) {
-    return (params !== undefined &&
-             (params.image !== undefined &&
-             params.image.path !== undefined) ||
-           params.audio);
+    return !!(params?.image?.path || params?.audio);
   };
 
   /**
@@ -406,172 +390,30 @@
    * @returns {boolean}
    */
   MemoryGame.Card.hasTwoImages = function (params) {
-    return (params !== undefined &&
-             (params.match !== undefined &&
-              params.match.path !== undefined) ||
-           params.matchAudio);
+    return !!(params?.match?.path || params?.matchAudio);
   };
 
   /**
    * Determines the theme for how the cards should look
    *
-   * @param {string} color The base color selected
-   * @param {number} invertShades Factor used to invert shades in case of bad contrast
+   * @param {string} backImage The url of the image to put on the back of the cards
    */
-  MemoryGame.Card.determineStyles = function (color, invertShades, backImage) {
-    var styles =  {
+  MemoryGame.Card.determineStyles = function (backImage) {
+    const styles = {
       front: '',
       back: '',
-      backImage: !!backImage
+      backImage: !!backImage,
     };
-
-    // Create color theme
-    if (color) {
-      const frontColor = shadeEnforceContrast(color, 43.75 * invertShades);
-      const backColor = shade(frontColor, 12.75 * invertShades);
-
-      styles.front += 'color:' + color + ';' +
-                      'background-color:' + frontColor + ';' +
-                      'border-color:' + frontColor +';';
-      styles.back += 'color:' + color + ';' +
-                     'background-color:' + backColor + ';' +
-                     'border-color:' + frontColor +';';
-    }
 
     // Add back image for card
     if (backImage) {
-      var backgroundImage = "background-image:url('" + backImage + "')";
+      const backgroundImage = `background-image:url('${backImage}')`;
 
-      styles.front += backgroundImage;
-      styles.back += backgroundImage;
-    }
-
-    // Prep style attribute
-    if (styles.front) {
-      styles.front = ' style="' + styles.front + '"';
-    }
-    if (styles.back) {
-      styles.back = ' style="' + styles.back + '"';
+      styles.front = ` style="${backgroundImage}"`;
+      styles.back = ` style="${backgroundImage}"`;
     }
 
     return styles;
   };
 
-  /**
-   * Get RGB color components from color hex value.
-   *
-   * @private
-   * @param {string} color Color as hex value, e.g. '#123456`.
-   * @returns {number[]} Red, green, blue color component as integer from 0-255.
-   */
-  const getRGB = function (color) {
-    return [
-      parseInt(color.substring(1, 3), 16),
-      parseInt(color.substring(3, 5), 16),
-      parseInt(color.substring(5, 7), 16)
-    ];
-  }
-
-
-  /**
-   * Compute luminance for color.
-   *
-   * @private
-   * @see http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
-   * @param {string} color Color as hex value, e.g. '#123456`.
-   * @returns {number} Luminance, [0-1], 0 = lightest, 1 = darkest.
-   */
-  const computeLuminance = function (color) {
-    const rgba = getRGB(color)
-      .map(function (v) {
-        v = v / 255;
-
-        return v < 0.03928 ?
-          v / 12.92 :
-          Math.pow((v + 0.055) / 1.055, 2.4);
-      });
-
-    return rgba[0] * 0.2126 + rgba[1] * 0.7152 + rgba[2] * 0.0722;
-  }
-
-  /**
-   * Compute relative contrast between two colors.
-   *
-   * @private
-   * @see https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
-   * @param {string} color1 Color as hex value, e.g. '#123456`.
-   * @param {string} color2 Color as hex value, e.g. '#123456`.
-   * @returns {number} Contrast, [1-21], 1 = no contrast, 21 = max contrast.
-   */
-  const computeContrast = function (color1, color2) {
-    const luminance1 = computeLuminance(color1);
-    const luminance2 = computeLuminance(color2);
-
-    return (
-      (Math.max(luminance1, luminance2) + 0.05) /
-      (Math.min(luminance1, luminance2) + 0.05)
-    )
-  }
-
-  /**
-   * Use shade function, but enforce minimum contrast
-   *
-   * @param {string} color Color as hex value, e.g. '#123456`.
-   * @param {number} percent Shading percentage.
-   * @returns {string} Color as hex value, e.g. '#123456`.
-   */
-  const shadeEnforceContrast = function (color, percent) {
-    let shadedColor;
-
-    do {
-      shadedColor = shade(color, percent);
-
-      if (shadedColor === '#ffffff' || shadedColor === '#000000') {
-        // Cannot brighten/darken, make original color 5% points darker/brighter
-        color = shade(color, -5 * Math.sign(percent));
-      }
-      else {
-        // Increase shading by 5 percent
-        percent = percent * 1.05;
-      }
-    }
-    while (computeContrast(color, shadedColor) < WCAG_MIN_CONTRAST_AA_LARGE);
-
-    return shadedColor;
-  }
-
-  /**
-   * Convert hex color into shade depending on given percent
-   *
-   * @private
-   * @param {string} color
-   * @param {number} percent
-   * @return {string} new color
-   */
-  var shade = function (color, percent) {
-    var newColor = '#';
-
-    // Determine if we should lighten or darken
-    var max = (percent < 0 ? 0 : 255);
-
-    // Always stay positive
-    if (percent < 0) {
-      percent *= -1;
-    }
-    percent /= 100;
-
-    for (var i = 1; i < 6; i += 2) {
-      // Grab channel and convert from hex to dec
-      var channel = parseInt(color.substring(i, i + 2), 16);
-
-      // Calculate new shade and convert back to hex
-      channel = (Math.round((max - channel) * percent) + channel).toString(16);
-
-      // Make sure to always use two digits
-      newColor += (channel.length < 2 ? '0' + channel : channel);
-    }
-
-    return newColor;
-  };
-
-})(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery);
+}(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery));

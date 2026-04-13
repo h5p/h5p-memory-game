@@ -1,13 +1,12 @@
 (function (MemoryGame) {
-
   /**
    * Aria live region for reading to screen reader.
    *
    * @class H5P.MemoryGame.Popup
    */
   MemoryGame.AriaLiveRegion = function () {
-
-    let readText, timeout = null;
+    let readText;
+    let timeout = null;
 
     // Build dom with defaults
     const dom = document.createElement('div');
@@ -27,14 +26,14 @@
      */
     this.getDOM = function () {
       return dom;
-    }
+    };
 
     /**
      * Set class if default CSS values do not suffice.
      *
      * @param {string} className Class name to set. Add CSS elsewhere.
      */
-    this.setClass = function(className) {
+    this.setClass = function (className) {
       if (typeof className !== 'string') {
         return;
       }
@@ -48,7 +47,7 @@
       dom.style.width = '';
 
       dom.classList = className;
-    }
+    };
 
     /**
      * Read text via aria live region.
@@ -60,8 +59,7 @@
         const lastChar = readText
           .substring(readText.length - 1);
 
-        readText =
-          [`${readText}${lastChar === '.' ? '' : '.'}`, text]
+        readText = [`${readText}${lastChar === '.' ? '' : '.'}`, text]
           .join(' ');
       }
       else {
@@ -71,11 +69,10 @@
       dom.innerText = readText;
 
       window.clearTimeout(timeout);
-      timeout = window.setTimeout(function () {
+      timeout = window.setTimeout(() => {
         readText = null;
         dom.innerText = '';
       }, 100);
-    }
-  }
-
-})(H5P.MemoryGame);
+    };
+  };
+}(H5P.MemoryGame));

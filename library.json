@@ -3,34 +3,41 @@
   "description": "See how many cards you can remember!",
   "majorVersion": 1,
   "minorVersion": 3,
-  "patchVersion": 28,
+  "patchVersion": 48,
   "runnable": 1,
   "author": "Joubel",
   "license": "MIT",
   "machineName": "H5P.MemoryGame",
+  "coreApi": {
+    "majorVersion": 1,
+    "minorVersion": 28
+  },
   "preloadedCss": [
     {
-      "path": "memory-game.css"
+      "path": "src/styles/memory-game.css"
     }
   ],
   "preloadedJs": [
     {
-      "path": "memory-game.js"
+      "path": "src/scripts/utils.js"
     },
     {
-      "path": "card.js"
+      "path": "src/scripts/memory-game.js"
     },
     {
-      "path": "counter.js"
+      "path": "src/scripts/card.js"
     },
     {
-      "path": "popup.js"
+      "path": "src/scripts/counter.js"
     },
     {
-      "path": "timer.js"
+      "path": "src/scripts/popup.js"
     },
     {
-      "path": "aria-live-region.js"
+      "path": "src/scripts/timer.js"
+    },
+    {
+      "path": "src/scripts/aria-live-region.js"
     }
   ],
   "preloadedDependencies": [
@@ -43,6 +50,11 @@
       "machineName": "FontAwesome",
       "majorVersion": 4,
       "minorVersion": 5
+    },
+    {
+      "machineName": "H5P.Components",
+      "majorVersion": 1,
+      "minorVersion": 0
     }
   ],
   "editorDependencies": [
