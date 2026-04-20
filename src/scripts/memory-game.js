@@ -180,6 +180,10 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
      * @private
      */
     const resetGame = function (moveFocus = false) {
+      if (!cards.length) {
+        return; // Nothing to reset
+      }
+
       // Reset cards
       score = 0;
       flipped = undefined;
