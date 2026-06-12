@@ -47,8 +47,6 @@
   outline: 2px ridge var(--h5p-theme-contrast-cta-white);
   border-radius: var(--h5p-theme-border-radius-small, 4px);
 }
-/* Matched cards are removed from play (untabbable and not clickable/keyable),
-   so the interactive pointer would be misleading. */
 .h5p-memory-game .h5p-memory-wrap:has(.h5p-memory-card.h5p-matched) {
   cursor: default;
 }
@@ -81,7 +79,6 @@
   transform-style: preserve-3d;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front {
-  /* cursor: pointer; */
   text-align: center;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front:before,
@@ -237,11 +234,9 @@
   .h5p-memory-media {
     flex: 0 0 50%;
   }
-  /* Audio container on top: audio element pinned to its bottom edge. */
   .h5p-memory-media {
     align-items: flex-end;
   }
-  /* Text container at the bottom: text pinned to its top edge. */
   .h5p-memory-text {
     align-items: flex-start;
   }
@@ -259,17 +254,8 @@
     line-height: calc(1.5 * var(--h5p-theme-font-size-s));
   }
 }
-/* Enlarged single-card view: a modal dialog (with a backdrop, not the Popover
-   API; see card-popup.js) that wraps a card mirroring a regular board card (an
-   h5p-memory-wrap button around an h5p-memory-card with a decorative
-   indicator). The dialog is sized and positioned; the inner card carries the
-   look. Scoped to .h5p-memory-enlarge / .h5p-memory-enlarge-dialog so on-board
-   cards keep their own size. */
 .h5p-memory-game .h5p-memory-enlarge-dialog {
-  /* Grid layout; non-grid games use a larger popup (see below). */
   --h5p-memory-enlarge-size: min(10.4em, 200px, calc(100% - 2 * 0.5em));
-  /* Minimum distance from the viewport edge when the popup cannot be centered
-     over a card near the border (see card-popup.js). */
   --h5p-memory-enlarge-margin: max(3px, calc(0.1875 * var(--h5p-theme-spacing-s)));
 
   background: none;
@@ -287,11 +273,6 @@
   &.h5p-open {
     display: block;
   }
-
-  /* The wrap is the card's only button and fills the dialog (overriding the
-     board's float-based layout). As a native <button>, reset the user-agent
-     styling so it matches the board's wrap; font: inherit is what keeps the
-     em-based card scaling (see setSize in card-popup.js) working. */
   .h5p-memory-wrap {
     appearance: none;
     background: none;
@@ -306,9 +287,6 @@
     width: 100%;
   }
 }
-/* Modal layer behind the enlarge dialog: covers the board and catches
-   outside clicks to close, replacing the Popover API's top-layer light
-   dismiss (see card-popup.js). Transparent, like the popover had no backdrop. */
 .h5p-memory-game .h5p-memory-enlarge-backdrop {
   display: none;
   inset: 0;
@@ -336,29 +314,13 @@
     height: 100%;
     width: 100%;
   }
-
-  /* Cap the image at half the usable area so the text always keeps at least the
-     other half. The media box shrinks to the (capped) image, so smaller images
-     still take less than half. Measured in cqi (the card is a square query
-     container); --h5p-memory-enlarge-size cannot be reused here because the
-     100%/em inside it would re-resolve against the image's containing block,
-     not the card. The usable area excludes the container's padding (spacing-m,
-     top and bottom) and the gap between media and text (0.75 * spacing-s), so
-     half of each (spacing-m and 0.375 * spacing-s) is subtracted from 50cqi. */
   .h5p-memory-with-text img {
     max-height: calc(50cqi - var(--h5p-theme-spacing-m) - 0.375 * var(--h5p-theme-spacing-s));
   }
-
-  /* The flex container holds/centers the text but does not scroll itself:
-     Firefox ignores scrollbar-gutter on flex containers, so the block-level
-     span scrolls instead and its stable gutter keeps the scrollbar off it. */
   .h5p-memory-text {
     align-items: flex-start;
     outline: none;
     overflow: hidden;
-
-    /* Text-only cards center the text vertically; 'safe' keeps long text
-       aligned to the top so it stays fully scrollable instead of clipped. */
     &:only-child {
       align-items: safe center;
     }
@@ -370,9 +332,6 @@
       scrollbar-gutter: stable;
     }
   }
-
-  /* The audio uses its intrinsic size only; the text fills the rest (and
-     scrolls if needed) rather than sharing half the card. */
   .h5p-memory-audio-text {
     .h5p-memory-media {
       flex: 0 0 auto;
@@ -382,10 +341,6 @@
       flex: 1;
     }
   }
-
-  /* The decorative shrink indicator: the same circular look as the board's
-     enlarge indicator (see its base rule), but always shown here and with the
-     shrink glyph. It is never a button — the wrap is. */
   .h5p-memory-enlarge-indicator {
     display: flex;
 
@@ -394,7 +349,6 @@
     }
   }
 }
-/* Non-grid games render larger cards, so the enlarged popup is larger too. */
 .h5p-memory-game:not(.h5p-memory-use-grid) .h5p-memory-enlarge-dialog {
   --h5p-memory-enlarge-size: min(16.64em, 320px, calc(100% - 2 * 0.5em));
   --h5p-memory-enlarge-margin: var(--h5p-theme-spacing-s);
@@ -500,9 +454,6 @@
   border-top-right-radius: var(--h5p-theme-border-radius-large);
   border-bottom: 1px solid var(--h5p-theme-alternative-dark);
 }
-/* Two matched cards in the popup overlap, with the second drawn on top of the
-   first (later in the DOM, both positioned). They touch in normal flow, then
-   shift toward each other so they overlap slightly, the second a touch lower. */
 .h5p-memory-game .h5p-memory-two-images .h5p-memory-card {
   margin: 0;
 }
@@ -586,7 +537,6 @@
   background-color: color-mix(in srgb, var(--h5p-theme-main-cta-base), transparent 10%);
   color: var(--h5p-theme-contrast-cta);
   border-radius: 50%;
-  /* cursor: pointer; */
   text-align: center;
   border: solid 2px var(--h5p-theme-ui-base);
   box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.05);
