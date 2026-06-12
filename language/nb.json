@@ -1,45 +1,114 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Standard"
-        }
-      ],
-      "label": "Kort",
-      "entity": "kort",
-      "field": {
-        "label": "Kort",
-        "fields": [
-          {
-            "label": "Bilde"
-          },
-          {
-            "label": "Alternativ tekst for bilde",
-            "description": "Beskriv bildet. Teksten brukes av skjermleser."
-          },
-          {
-            "label": "Lydspor",
-            "description": "Valgfri lyd som spilles når kortet snus."
-          },
-          {
-            "label": "Tilhørende bilde",
-            "description": "Valgfritt bilde som brukes som kort nummer to (i stedet for å bruke to kort med samme bilde)."
-          },
-          {
-            "label": "Alternativ tekst for tilhørende bilde",
-            "description": "Beskriv bildet. Teksten brukes av skjermleser."
-          },
-          {
-            "label": "Lydspor til tilhørende bilde",
-            "description": "Valgfri lyd som spilles når tilhørende bilde snus."
-          },
-          {
-            "label": "Tilbakemelding",
-            "description": "Valgfri kort tekst som spretter opp når kort-paret er funnet."
+          "widgets": [
+            {
+              "label": "Standard"
+            }
+          ],
+          "label": "Kort",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Bilde"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Bilde"
+                    },
+                    {
+                      "label": "Alternativ tekst for bilde",
+                      "description": "Beskriv bildet. Teksten brukes av skjermleser."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Bilde"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Bilde"
+                    },
+                    {
+                      "label": "Alternativ tekst for bilde",
+                      "description": "Beskriv bildet. Teksten brukes av skjermleser."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Tilbakemelding",
+                "description": "Valgfri kort tekst som spretter opp når kort-paret er funnet."
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Oppgaveinnstillinger",
@@ -131,6 +200,18 @@
         {
           "label": "Melding når kortene ikke hører sammen",
           "default": "Kortene hører ikke sammen. Snu andre kort for å prøve igjen."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

@@ -1,45 +1,114 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Výchozí"
-        }
-      ],
-      "label": "Karty",
-      "entity": "karta",
-      "field": {
-        "label": "Karta",
-        "fields": [
-          {
-            "label": "Obrázek"
-          },
-          {
-            "label": "Alternativní text pro obrázek",
-            "description": "Popište, co lze na fotografii vidět. Text je čten pomocí nástrojů převodu textu na řeč, které potřebují zrakově hendikepovaní uživatelé."
-          },
-          {
-            "label": "Zvuková stopa",
-            "description": "Volitelný zvuk, který se přehraje při otočení karty."
-          },
-          {
-            "label": "Odpovídající obrázek",
-            "description": "Volitelný obrázek, který bude odpovídat namísto použití dvou karet se stejným obrázkem."
-          },
-          {
-            "label": "Alternativní text pro odpovídající obrázek",
-            "description": "Popište, co lze na fotografii vidět. Text je čten pomocí nástrojů převodu textu na řeč, které potřebují zrakově hendikepovaní uživatelé."
-          },
-          {
-            "label": "Odpovídající zvuková stopa",
-            "description": "Volitelný zvuk, který se přehraje při otočení druhé karty."
-          },
-          {
-            "label": "Popis",
-            "description": "Volitelný krátký text, který se objeví, jakmile jsou nalezeny dvě odpovídající karty."
+          "widgets": [
+            {
+              "label": "Výchozí"
+            }
+          ],
+          "label": "Karty",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Obrázek"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Obrázek"
+                    },
+                    {
+                      "label": "Alternativní text pro obrázek",
+                      "description": "Popište, co lze na fotografii vidět. Text je čten pomocí nástrojů převodu textu na řeč, které potřebují zrakově hendikepovaní uživatelé."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Obrázek"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Obrázek"
+                    },
+                    {
+                      "label": "Alternativní text pro obrázek",
+                      "description": "Popište, co lze na fotografii vidět. Text je čten pomocí nástrojů převodu textu na řeč, které potřebují zrakově hendikepovaní uživatelé."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Popis",
+                "description": "Volitelný krátký text, který se objeví, jakmile jsou nalezeny dvě odpovídající karty."
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Nastavení chování",
@@ -131,6 +200,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

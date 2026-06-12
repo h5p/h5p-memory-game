@@ -1,45 +1,114 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Privzeto"
-        }
-      ],
-      "label": "Kartice",
-      "entity": "kartica",
-      "field": {
-        "label": "Kartica",
-        "fields": [
-          {
-            "label": "Slika"
-          },
-          {
-            "label": "Nadomestno besedilo za prvo kartico v paru",
-            "description": "Besedilo opisuje videno na sliki in služi bralnikom zaslona."
-          },
-          {
-            "label": "Avdiozapis",
-            "description": "Neobvezen avdiozapis za spremljavo slike na prvi kartici para."
-          },
-          {
-            "label": "Ujemajoča slika",
-            "description": "Neobvezna slika za drugo kartico v paru. V nasprotnem primeru bosta par sestavljali kartici z enako sliko."
-          },
-          {
-            "label": "Nadomestno besedilo za drugo kartico v paru",
-            "description": "Besedilo opisuje videno na sliki in služi bralnikom zaslona."
-          },
-          {
-            "label": "Avdiozapis za drugo kartico v paru",
-            "description": "Neobvezen avdiozapis za spremljavo slike na drugi kartici para."
-          },
-          {
-            "label": "Opis rešitve",
-            "description": "Neobvezno besedilo ob uspešni povezavi kartic para."
+          "widgets": [
+            {
+              "label": "Privzeto"
+            }
+          ],
+          "label": "Kartice",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Slika"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Slika"
+                    },
+                    {
+                      "label": "Nadomestno besedilo za prvo kartico v paru",
+                      "description": "Besedilo opisuje videno na sliki in služi bralnikom zaslona."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Slika"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Slika"
+                    },
+                    {
+                      "label": "Nadomestno besedilo za prvo kartico v paru",
+                      "description": "Besedilo opisuje videno na sliki in služi bralnikom zaslona."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Opis rešitve",
+                "description": "Neobvezno besedilo ob uspešni povezavi kartic para."
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Nastavitve interakcije",
@@ -131,6 +200,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

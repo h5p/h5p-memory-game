@@ -1,45 +1,114 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "ค่าเริ่มต้น"
-        }
-      ],
-      "label": "การ์ด",
-      "entity": "card",
-      "field": {
-        "label": "การ์ด",
-        "fields": [
-          {
-            "label": "รูปภาพ"
-          },
-          {
-            "label": "ข้อความสำหรับรูปภาพทางเลือก",
-            "description": "อธิบายสิ่งที่เห็นในรูปภาพ เป็นข้อความที่อ่านโดยเครื่องมือ Text-to-Speech ที่ใช้โดยผู้ใช้ที่มีปัญหาทางสายตา"
-          },
-          {
-            "label": "เสียงติดตาม",
-            "description": "เสียงที่เล่นเมื่อเปิดการ์ด"
-          },
-          {
-            "label": "รูปภาพที่ใช้ในการจับคู่",
-            "description": "รูปภาพทางเลือกที่ใช้ในการจับคู่แทนการใช้การ์ดสองใบที่มีรูปภาพเดียวกัน"
-          },
-          {
-            "label": "ข้อความสำหรับรูปภาพที่ใช้ในการจับคู่",
-            "description": "อธิบายสิ่งที่เห็นในรูปภาพ เป็นข้อความที่อ่านโดยเครื่องมือ Text-to-Speech ที่ใช้โดยผู้ใช้ที่มีปัญหาทางสายตา"
-          },
-          {
-            "label": "เสียงติดตามที่ใช้ในการจับคู่",
-            "description": "เสียงที่เล่นเมื่อเปิดการ์ดคู่ที่สอง"
-          },
-          {
-            "label": "คำอธิบาย",
-            "description": "ข้อความสั้นที่จะปรากฏขึ้นเมื่อค้นพบการ์ดที่จับคู่"
+          "widgets": [
+            {
+              "label": "ค่าเริ่มต้น"
+            }
+          ],
+          "label": "การ์ด",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "รูปภาพ"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "รูปภาพ"
+                    },
+                    {
+                      "label": "ข้อความสำหรับรูปภาพทางเลือก",
+                      "description": "อธิบายสิ่งที่เห็นในรูปภาพ เป็นข้อความที่อ่านโดยเครื่องมือ Text-to-Speech ที่ใช้โดยผู้ใช้ที่มีปัญหาทางสายตา"
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "รูปภาพ"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "รูปภาพ"
+                    },
+                    {
+                      "label": "ข้อความสำหรับรูปภาพทางเลือก",
+                      "description": "อธิบายสิ่งที่เห็นในรูปภาพ เป็นข้อความที่อ่านโดยเครื่องมือ Text-to-Speech ที่ใช้โดยผู้ใช้ที่มีปัญหาทางสายตา"
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "คำอธิบาย",
+                "description": "ข้อความสั้นที่จะปรากฏขึ้นเมื่อค้นพบการ์ดที่จับคู่"
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "การตั้งค่าพฤติกรรม",
@@ -131,6 +200,18 @@
         {
           "label": "ประกาศการ์ดที่ไม่ตรงกัน",
           "default": "การ์ดที่คุณเลือกไม่ตรงกัน ลองเปิดการ์ดอื่นเพื่อลองอีกครั้ง"
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

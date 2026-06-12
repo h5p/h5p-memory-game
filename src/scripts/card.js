@@ -18,9 +18,11 @@
    * @param {Object} l10n Localization
    * @param {string} [description]
    * @param {Object} [styles]
+   * @param {Object} [audio]
+   * @param {string} [text] Optional text to show on the card.
    * @param {string} id Unique identifier for card including original+match info.
    */
-  MemoryGame.Card = function (image, contentId, cardsTotal, alt, l10n, description, styles, audio, id) {
+  MemoryGame.Card = function (image, contentId, cardsTotal, alt, l10n, description, styles, audio, text, id) {
     /** @alias H5P.MemoryGame.Card# */
     const self = this;
 
@@ -47,7 +49,7 @@
      * @param {string} value
      * @return {string} WARNING! Do NOT use for innerHTML.
      */
-    const massageAttributeOutput = (value = 'Missing description') => {
+    const massageAttributeOutput = (value = l10n.missingDescription) => {
       const dparser = new DOMParser().parseFromString(value, 'text/html');
       const div = document.createElement('div');
       div.innerHTML = dparser.documentElement.textContent;
@@ -56,18 +58,61 @@
     };
 
     self.buildDOM = () => {
+      let backContent = '';
+
+      if (text) {
+        let media = '';
+
+        if (path) {
+          media += `<img src="${path}" alt=""/>`;
+        }
+
+        if (audioPlayer) {
+          // Button overlapping the image, else a standalone audio button.
+          media += path
+            ? '<div class="h5p-memory-audio-button"></div>'
+            : '<i class="h5p-memory-audio-instead-of-image"></i>';
+        }
+
+        const audioText = !path && !!audioPlayer;
+
+        backContent = `<div class="h5p-memory-with-text${audioText ? ' h5p-memory-audio-text' : ''}">`
+          + (media ? `<div class="h5p-memory-media">${media}</div>` : '')
+          + '<div class="h5p-memory-text"><span></span></div>'
+          + '</div>'
+          + '<div class="h5p-memory-enlarge-indicator" inert aria-hidden="true"></div>';
+      }
+      else if (path) {
+        backContent = `<img src="${path}" alt=""/>${audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : ''}`;
+      }
+      else {
+        backContent = '<i class="h5p-memory-audio-instead-of-image">';
+      }
+
       $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">'
                   + `<div class="h5p-front"${styles && styles.front ? styles.front : ''}>${styles && styles.backImage ? '' : '<span></span>'}</div>`
-                  + `<div class="h5p-back"${styles && styles.back ? styles.back : ''}>${
-                    path ? `<img src="${path}" alt=""/>${audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : ''}` : '<i class="h5p-memory-audio-instead-of-image">'
-                  }</div>`
+                  + `<div class="h5p-back"${styles && styles.back ? styles.back : ''}>${backContent}</div>`
                 + '</div></li>');
 
+      // Set via DOM API to avoid HTML injection. Fitting number of lines computed in self.resize() once card has size.
+      if (text) {
+        $wrapper.find('.h5p-memory-text > span').text(text);
+      }
+
       $wrapper.on('keydown', (event) => {
+        if (event.target !== event.currentTarget) {
+          return;
+        }
+
         switch (event.code) {
           case 'Enter':
           case 'Space':
-            self.flip();
+            if (canEnlarge()) {
+              self.trigger('enlarge', { element: $card[0] });
+            }
+            else {
+              self.flip();
+            }
             event.preventDefault();
             return;
           case 'ArrowRight':
@@ -115,14 +160,19 @@
         })
         .end();
 
-      if (audioPlayer) {
+      if (text || audioPlayer) {
         $card.children('.h5p-back')
           .click(() => {
-            if ($card.hasClass('h5p-memory-audio-playing')) {
-              self.stopAudio();
+            if (canEnlarge()) {
+              self.trigger('enlarge', { element: $card[0] });
             }
-            else {
-              audioPlayer.play();
+            else if (audioPlayer) {
+              if ($card.hasClass('h5p-memory-audio-playing')) {
+                self.stopAudio();
+              }
+              else {
+                audioPlayer.play();
+              }
             }
           });
       }
@@ -130,6 +180,9 @@
 
     // alt = alt || 'Missing description'; // Default for old games
     alt = massageAttributeOutput(alt);
+
+    // The card's accessible description (used for its aria-label): card's text => image's alt text => generic fallback
+    const cardDescription = (text ? massageAttributeOutput(text) : alt) || l10n.missingDescription;
 
     if (image && image.path) {
       path = H5P.getPath(image.path, contentId);
@@ -192,20 +245,14 @@
      */
     self.updateLabel = function (isMatched, announce, reset) {
       // Determine new label from input params
-      const imageAlt = alt ? ` ${alt}` : '';
-
-      let label = reset
-        ? l10n.cardUnturned
-        : `${l10n.cardTurned}${imageAlt}`;
-
+      const description = ` ${cardDescription}`;
+      let label = reset ? l10n.cardUnturned : `${l10n.cardTurned}${description}`;
       if (isMatched) {
         label = `${l10n.cardMatched} ${label}`;
       }
 
       // Update the card's label
-      $wrapper.attr('aria-label', `${l10n.cardPrefix
-        .replace('%num', $wrapper.index() + 1)
-        .replace('%total', cardsTotal)} ${label}`);
+      $wrapper.attr('aria-label', `${labelPrefix()} ${label}`);
 
       // Update disabled property
       $wrapper.attr('aria-disabled', reset ? null : 'true');
@@ -214,6 +261,30 @@
       if (announce) {
         $wrapper.blur().focus(); // Announce card label
       }
+    };
+
+    /**
+     * Build "Card X of Y:" prefix shared by the on-board card label and the enlarged dialog label.
+     * @returns {string} "Card X of Y:" prefix.
+     */
+    const labelPrefix = () => l10n.cardPrefix
+      .replace('%num', $wrapper.index() + 1)
+      .replace('%total', cardsTotal);
+
+    /**
+     * Build aria-label for the enlarged dialog.
+     * @returns {string} Label for enlarged card.
+     */
+    self.getEnlargedLabel = () => `${labelPrefix()} ${l10n.cardEnlarged} ${cardDescription}`;
+
+    /**
+     * Determine whether card can currently be enlarged.
+     * @returns {boolean} True if card can be enlarged, else false.
+     */
+    const canEnlarge = () => {
+      return !!$card
+        && $card.hasClass('h5p-memory-text-overflow')
+        && !!flippedState && !removedState;
     };
 
     /**
@@ -240,6 +311,19 @@
       }
 
       this.trigger('flip', { restoring: params.restoring });
+
+      // Reveal full text when it does not fit on the card
+      if (!params.restoring && !removedState && $card.hasClass('h5p-memory-text-overflow')) {
+        const back = $card.children('.h5p-back')[0];
+        const openEnlarge = (event) => {
+          if (event.target !== back || event.propertyName !== 'transform') {
+            return;
+          }
+          back.removeEventListener('transitionend', openEnlarge);
+          self.trigger('enlarge', { element: $card[0] });
+        };
+        back.addEventListener('transitionend', openEnlarge);
+      }
     };
 
     /**
@@ -282,12 +366,82 @@
     };
 
     /**
-     * Get image clone.
-     *
-     * @returns {H5P.jQuery}
+     * Determine whether card has image or text to display
+     * @returns {boolean}
      */
-    self.getImage = function () {
-      return $card.find('img').clone();
+    this.hasImageOrText = () => !!path || !!text;
+
+    /**
+     * Get clone of card's face as rendered on board, for matched pair popup
+     * @returns {HTMLElement} Cloned card element.
+     */
+    self.getContent = function () {
+      const clone = $card[0].cloneNode(true);
+
+      clone.className = 'h5p-memory-card h5p-flipped';
+      clone.querySelector('.h5p-front')?.remove();
+      clone.querySelector('.h5p-memory-enlarge-indicator')?.remove();
+
+      clone.querySelectorAll('.h5p-memory-audio-button, .h5p-memory-audio-instead-of-image')
+        .forEach((icon) => {
+          icon.style.visibility = 'hidden';
+        });
+
+      return clone;
+    };
+
+    /**
+     * Get clone of card's text/media content for enlarged popup.
+     * @returns {HTMLElement|null} Cloned content, or null if the card has none.
+     */
+    self.getEnlargedContent = function () {
+      const source = $wrapper.find('.h5p-memory-with-text')[0];
+      if (!source) {
+        return null;
+      }
+
+      const clone = source.cloneNode(true);
+      clone.querySelectorAll('.h5p-memory-media, .h5p-memory-text').forEach((el) => {
+        el.style.flexBasis = '';
+      });
+
+      const span = clone.querySelector('.h5p-memory-text > span');
+      if (span) {
+        span.style.webkitLineClamp = '';
+      }
+
+      return clone;
+    };
+
+    /**
+     * Resize the card's contents.
+     */
+    self.resize = function () {
+      if (!text || !$wrapper) {
+        return;
+      }
+
+      const box = $wrapper.find('.h5p-memory-text')[0];
+      const span = box?.querySelector('span');
+      if (!box || !span) {
+        return;
+      }
+
+      const style = window.getComputedStyle(box);
+      const lineHeight = parseFloat(style.lineHeight);
+      const paddingTop = parseFloat(style.paddingTop);
+      const paddingBottom = parseFloat(style.paddingBottom);
+
+      MemoryGame.Card.distributeAudioText(box.parentElement);
+
+      const available = box.clientHeight - paddingTop - paddingBottom;
+      if (!lineHeight || available <= 0) {
+        return;
+      }
+
+      span.style.webkitLineClamp = `${Math.max(1, Math.floor(available / lineHeight))}`;
+
+      $card.toggleClass('h5p-memory-text-overflow', span.scrollHeight - span.clientHeight > 1);
     };
 
     /**
@@ -365,11 +519,119 @@
         audioPlayer.currentTime = 0;
       }
     };
+
+    /**
+     * Determine whether card has playable audio track.
+     * @returns {boolean} True, it card has playable audio track, else false.
+     */
+    this.hasAudio = () => {
+      return !!audioPlayer;
+    };
+
+    /**
+     * Play the card's audio track, if any.
+     */
+    this.playAudio = () => {
+      if (!audioPlayer) {
+        return;
+      }
+
+      if (audioPlayer.paused) {
+        audioPlayer.currentTime = 0;
+      }
+      audioPlayer.play();
+    };
   };
 
   // Extends the event dispatcher
   MemoryGame.Card.prototype = Object.create(EventDispatcher.prototype);
   MemoryGame.Card.prototype.constructor = MemoryGame.Card;
+
+  /**
+   * Distribute available height of audio+text card between its audio and text containers.
+   * @param {HTMLElement} layout The `.h5p-memory-with-text` element.
+   */
+  MemoryGame.Card.distributeAudioText = function (layout) {
+    if (!layout || !layout.classList.contains('h5p-memory-audio-text')) {
+      return;
+    }
+
+    const media = layout.querySelector('.h5p-memory-media');
+    const box = layout.querySelector('.h5p-memory-text');
+    const span = box?.querySelector('span');
+    const audioButton = media?.firstElementChild;
+    if (!media || !box || !span || !audioButton) {
+      return;
+    }
+
+    const layoutStyle = window.getComputedStyle(layout);
+    const total = layout.clientHeight - parseFloat(layoutStyle.paddingTop) - parseFloat(layoutStyle.paddingBottom);
+    if (total <= 0) {
+      return;
+    }
+
+    const boxStyle = window.getComputedStyle(box);
+    const audioMin = audioButton.offsetHeight;
+    const half = total / 2;
+
+    // Height text would need without any line clamping.
+    const previousClamp = span.style.webkitLineClamp;
+    span.style.webkitLineClamp = 'unset';
+    const neededText = span.scrollHeight + parseFloat(boxStyle.paddingTop) + parseFloat(boxStyle.paddingBottom);
+    span.style.webkitLineClamp = previousClamp;
+
+    // Keep default split unless text needs more than its half.
+    let audioRegion = half;
+    if (neededText > half) {
+      audioRegion = Math.max(audioMin, total - neededText);
+    }
+
+    box.style.flexBasis = `${total - audioRegion}px`;
+    media.style.flexBasis = `${audioRegion}px`;
+  };
+
+  /**
+   * Get the first media of the given type from a card's media list.
+   * @param {object[]} media Media list.
+   * @param {string} type Media type ('image', 'audio' or 'text').
+   * @returns {object|undefined} Matching media entry.
+   */
+  const getMedia = function (media, type) {
+    return (media ?? []).find((entry) => entry?.mediaType === type);
+  };
+
+  /**
+   * Parse card pair parameters.
+   * @param {object} params Card pair parameters.
+   * @returns {object} Flattened card parameters.
+   */
+  MemoryGame.Card.parseParameters = function (params) {
+    const image = getMedia(params?.card1Media, 'image');
+    const audio = getMedia(params?.card1Media, 'audio');
+    const text = getMedia(params?.card1Media, 'text');
+
+    const parsed = {
+      image: image?.image,
+      imageAlt: image?.alt,
+      audio: audio?.audio,
+      text: text?.text,
+      description: params?.description
+    };
+
+    // Second card is only used when it holds its own media.
+    if ((params?.card2Media ?? []).length) {
+      const matchImage = getMedia(params.card2Media, 'image');
+      const matchAudio = getMedia(params.card2Media, 'audio');
+      const matchText = getMedia(params.card2Media, 'text');
+
+      parsed.match = matchImage?.image;
+      parsed.matchAlt = matchImage?.alt;
+      parsed.matchAudio = matchAudio?.audio;
+      parsed.matchText = matchText?.text;
+    }
+
+    return parsed;
+  };
 
   /**
    * Check to see if the given object corresponds with the semantics for
@@ -379,7 +641,7 @@
    * @returns {boolean}
    */
   MemoryGame.Card.isValid = function (params) {
-    return !!(params?.image?.path || params?.audio);
+    return !!(params?.image?.path || params?.audio || params?.text);
   };
 
   /**
@@ -390,7 +652,7 @@
    * @returns {boolean}
    */
   MemoryGame.Card.hasTwoImages = function (params) {
-    return !!(params?.match?.path || params?.matchAudio);
+    return !!(params?.match?.path || params?.matchAudio || params?.matchText);
   };
 
   /**

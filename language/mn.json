@@ -1,45 +1,114 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Өгөгдмөл"
-        }
-      ],
-      "label": "Картууд",
-      "entity": "карт",
-      "field": {
-        "label": "Карт",
-        "fields": [
-          {
-            "label": "Зураг"
-          },
-          {
-            "label": "Зургийн өөр текст",
-            "description": "Зураг дээр юу харж болохыг тайлбарлана уу. Текстийг харааны бэрхшээлтэй хэрэглэгчдэд шаардлагатай текстээс ярианы хэрэгслээр уншдаг."
-          },
-          {
-            "label": "Аудио зам",
-            "description": "Картыг эргүүлэхэд тоглох нэмэлт дуу."
-          },
-          {
-            "label": "Тохирох зураг",
-            "description": "Нэг зурагтай хоёр карт ашиглахын оронд тохирох нэмэлт зураг."
-          },
-          {
-            "label": "Зургийг тааруулах өөр текст",
-            "description": "Зураг дээр юу харж болохыг тайлбарлана уу. Текстийг харааны бэрхшээлтэй хэрэглэгчдэд шаардлагатай текстээс ярианы хэрэгслээр уншдаг."
-          },
-          {
-            "label": "Тохирох аудио зам",
-            "description": "Хоёрдахь картыг эргүүлэхэд тоглох нэмэлт дуу."
-          },
-          {
-            "label": "Тодорхойлолт",
-            "description": "Тохирох хоёр карт олсны дараа гарч ирэх нэмэлт богино текст."
+          "widgets": [
+            {
+              "label": "Өгөгдмөл"
+            }
+          ],
+          "label": "Картууд",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Зураг"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Зураг"
+                    },
+                    {
+                      "label": "Зургийн өөр текст",
+                      "description": "Зураг дээр юу харж болохыг тайлбарлана уу. Текстийг харааны бэрхшээлтэй хэрэглэгчдэд шаардлагатай текстээс ярианы хэрэгслээр уншдаг."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Зураг"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Зураг"
+                    },
+                    {
+                      "label": "Зургийн өөр текст",
+                      "description": "Зураг дээр юу харж болохыг тайлбарлана уу. Текстийг харааны бэрхшээлтэй хэрэглэгчдэд шаардлагатай текстээс ярианы хэрэгслээр уншдаг."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Тодорхойлолт",
+                "description": "Тохирох хоёр карт олсны дараа гарч ирэх нэмэлт богино текст."
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Зан үйлийн тохиргоо",
@@ -131,6 +200,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

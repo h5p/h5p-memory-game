@@ -66,19 +66,22 @@
     /**
      * Show the popup.
      *
-     * @param {string} desc
-     * @param {H5P.jQuery[]} imgs
-     * @param {function} done
+     * @param {string} desc Description text.
+     * @param {HTMLElement[]} contents Cloned card faces to display (as rendered on board).
+     * @param {function} done Callback invoked when the dialog is closed.
      */
-    self.show = function (desc, imgs, styles, done) {
+    self.show = function (desc, contents, done) {
       const announcement = `<span class="h5p-memory-screen-reader">${
         l10n.cardMatchedA11y}</span>${desc}`;
       $desc.html(announcement);
 
-      $top.html('').toggleClass('h5p-memory-two-images', imgs.length > 1);
-      for (let i = 0; i < imgs.length; i++) {
-        $(`<div class="h5p-memory-image"${styles || ''}></div>`).append(imgs[i]).appendTo($top);
-      }
+      $top.html('').toggleClass('h5p-memory-two-images', contents.length > 1);
+      contents.forEach((content) => {
+        if (content) {
+          $top[0].appendChild(content);
+        }
+      });
+
       $popup.show();
       $desc.focus();
       closed = done;

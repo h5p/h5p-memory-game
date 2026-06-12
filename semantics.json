@@ -1,88 +1,282 @@
 [
   {
-    "name": "cards",
-    "type": "list",
-    "widgets": [
-      {
-        "name": "VerticalTabs",
-        "label": "Default"
-      }
-    ],
-    "label": "Cards",
+    "name": "memorygame",
+    "type": "group",
+    "label": "Memory Game",
     "importance": "high",
-    "entity": "card",
-    "min": 2,
-    "max": 100,
-    "field": {
-      "type": "group",
-      "name": "card",
-      "label": "Card",
-      "importance": "high",
-      "fields": [
-        {
-          "name": "image",
-          "type": "image",
-          "label": "Image",
+    "widget": "memorygame",
+    "expanded": true,
+    "fields": [
+      {
+        "name": "cards",
+        "type": "list",
+        "widgets": [
+          {
+            "name": "VerticalTabs",
+            "label": "Default"
+          }
+        ],
+        "label": "Cards",
+        "importance": "high",
+        "entity": "Card Pair",
+        "min": 2,
+        "max": 100,
+        "field": {
+          "type": "group",
+          "name": "cardPair",
+          "label": "Card pair",
           "importance": "high",
-          "ratio": 1
-        },
-        {
-          "name": "imageAlt",
-          "type": "text",
-          "label": "Alternative text for Image",
-          "importance": "high",
-          "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
-        },
-        {
-          "name": "audio",
-          "type": "audio",
-          "importance": "high",
-          "label": "Audio Track",
-          "description": "An optional sound that plays when the card is turned.",
-          "optional": true,
-          "widgetExtensions": [
-            "AudioRecorder"
+          "fields": [
+            {
+              "type": "text",
+              "name": "card1Label",
+              "label": "Card 1",
+              "description": "Select up to 2 media types per card.",
+              "optional": true,
+              "widget": "separator"
+            },
+            {
+              "type": "list",
+              "name": "card1Media",
+              "label": "Media",
+              "entity": "Media",
+              "min": 1,
+              "max": 2,
+              "field": {
+                "type": "group",
+                "name": "media1",
+                "label": "Media",
+                "fields": [
+                  {
+                    "type": "select",
+                    "name": "mediaType",
+                    "label": "Media Type",
+                    "description": "Choose what appears when the card is flipped.",
+                    "default": "image",
+                    "options": [
+                      {
+                        "value": "image",
+                        "label": "Image"
+                      },
+                      {
+                        "value": "audio",
+                        "label": "Audio"
+                      },
+                      {
+                        "value": "text",
+                        "label": "Text"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "image",
+                    "type": "image",
+                    "label": "Image",
+                    "importance": "high",
+                    "ratio": 1,
+                    "widget": "showWhen",
+                    "showWhen": {
+                      "rules": [
+                        {
+                          "field": "mediaType",
+                          "equals": "image"
+                        }
+                      ],
+                      "nullWhenHidden": true
+                    }
+                  },
+                  {
+                    "name": "alt",
+                    "type": "text",
+                    "label": "Alternative text for Image",
+                    "importance": "high",
+                    "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users.",
+                    "widget": "showWhen",
+                    "showWhen": {
+                      "rules": [
+                        {
+                          "field": "mediaType",
+                          "equals": "image"
+                        }
+                      ],
+                      "nullWhenHidden": true
+                    }
+                  },
+                  {
+                    "name": "audio",
+                    "type": "audio",
+                    "importance": "high",
+                    "label": "Audio",
+                    "description": "An sound that plays when the card is turned.",
+                    "optional": true,
+                    "widgetExtensions": [
+                      "AudioRecorder"
+                    ],
+                    "widget": "showWhen",
+                    "showWhen": {
+                      "rules": [
+                        {
+                          "field": "mediaType",
+                          "equals": "audio"
+                        }
+                      ],
+                      "nullWhenHidden": true
+                    }
+                  },
+                  {
+                    "name": "text",
+                    "type": "text",
+                    "label": "Text",
+                    "importance": "high",
+                    "widget": "showWhen",
+                    "showWhen": {
+                      "rules": [
+                        {
+                          "field": "mediaType",
+                          "equals": "text"
+                        }
+                      ],
+                      "nullWhenHidden": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "boolean",
+              "name": "card2Label",
+              "label": "Card 2",
+              "description": "Only configure it this card should differ from Card 1.",
+              "optional": true,
+              "widget": "separator"
+            },
+            {
+              "type": "list",
+              "name": "card2Media",
+              "label": "Media",
+              "entity": "Media",
+              "min": 0,
+              "max": 2,
+              "field": {
+                "type": "group",
+                "name": "media1",
+                "label": "Media",
+                "fields": [
+                  {
+                    "type": "select",
+                    "name": "mediaType",
+                    "label": "Media Type",
+                    "description": "Choose what appears when the card is flipped.",
+                    "default": "image",
+                    "options": [
+                      {
+                        "value": "image",
+                        "label": "Image"
+                      },
+                      {
+                        "value": "audio",
+                        "label": "Audio"
+                      },
+                      {
+                        "value": "text",
+                        "label": "Text"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "image",
+                    "type": "image",
+                    "label": "Image",
+                    "importance": "high",
+                    "ratio": 1,
+                    "widget": "showWhen",
+                    "showWhen": {
+                      "rules": [
+                        {
+                          "field": "mediaType",
+                          "equals": "image"
+                        }
+                      ],
+                      "nullWhenHidden": true
+                    }
+                  },
+                  {
+                    "name": "alt",
+                    "type": "text",
+                    "label": "Alternative text for Image",
+                    "importance": "high",
+                    "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users.",
+                    "widget": "showWhen",
+                    "showWhen": {
+                      "rules": [
+                        {
+                          "field": "mediaType",
+                          "equals": "image"
+                        }
+                      ],
+                      "nullWhenHidden": true
+                    }
+                  },
+                  {
+                    "name": "audio",
+                    "type": "audio",
+                    "importance": "high",
+                    "label": "Audio",
+                    "description": "An sound that plays when the card is turned.",
+                    "optional": true,
+                    "widgetExtensions": [
+                      "AudioRecorder"
+                    ],
+                    "widget": "showWhen",
+                    "showWhen": {
+                      "rules": [
+                        {
+                          "field": "mediaType",
+                          "equals": "audio"
+                        }
+                      ],
+                      "nullWhenHidden": true
+                    }
+                  },
+                  {
+                    "name": "text",
+                    "type": "text",
+                    "label": "Text",
+                    "importance": "high",
+                    "widget": "showWhen",
+                    "showWhen": {
+                      "rules": [
+                        {
+                          "field": "mediaType",
+                          "equals": "text"
+                        }
+                      ],
+                      "nullWhenHidden": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "description",
+              "type": "text",
+              "label": "Description",
+              "importance": "low",
+              "maxLength": 150,
+              "optional": true,
+              "description": "An optional short text that will pop up once the two matching cards are found."
+            }
           ]
-        },
-        {
-          "name": "match",
-          "type": "image",
-          "label": "Matching Image",
-          "importance": "low",
-          "optional": true,
-          "description": "An optional image to match against instead of using two cards with the same image.",
-          "ratio": 1
-        },
-        {
-          "name": "matchAlt",
-          "type": "text",
-          "label": "Alternative text for Matching Image",
-          "importance": "low",
-          "optional": true,
-          "description": "Describe what can be seen in the photo. The text is read by text-to-speech tools needed by visually impaired users."
-        },
-        {
-          "name": "matchAudio",
-          "type": "audio",
-          "importance": "low",
-          "label": "Matching Audio Track",
-          "description": "An optional sound that plays when the second card is turned.",
-          "optional": true,
-          "widgetExtensions": [
-            "AudioRecorder"
-          ]
-        },
-        {
-          "name": "description",
-          "type": "text",
-          "label": "Description",
-          "importance": "low",
-          "maxLength": 150,
-          "optional": true,
-          "description": "An optional short text that will pop up once the two matching cards are found."
         }
-      ]
-    }
+      },
+      {
+        "name": "dummy",
+        "type": "boolean",
+        "label": "Dummy",
+        "optional": true,
+        "widget": "none"
+      }
+    ]
   },
   {
     "name": "behaviour",
@@ -197,7 +391,7 @@
         "importance": "low",
         "name": "label",
         "type": "text",
-        "default": "Memory Game. Find the matching cards."
+        "default": "Memory Game. Find the matching cards."
       },
       {
         "label": "Game instructions",
@@ -255,6 +449,27 @@
         "name": "cardNotMatchedA11y",
         "type": "text",
         "default": "Your chosen cards do not match. Turn other cards to try again."
+      },
+      {
+        "label": "Card enlarged label",
+        "importance": "low",
+        "name": "cardEnlarged",
+        "type": "text",
+        "default": "Enlarged."
+      },
+      {
+        "label": "Shrink card button label",
+        "importance": "low",
+        "name": "shrinkCard",
+        "type": "text",
+        "default": "Shrink"
+      },
+      {
+        "label": "Missing description label",
+        "importance": "low",
+        "name": "missingDescription",
+        "type": "text",
+        "default": "Missing description"
       }
     ]
   }

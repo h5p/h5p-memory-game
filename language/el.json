@@ -1,45 +1,114 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Βασικό"
-        }
-      ],
-      "label": "Κάρτες",
-      "entity": "καρτας",
-      "field": {
-        "label": "Κάρτα",
-        "fields": [
-          {
-            "label": "Εικόνα"
-          },
-          {
-            "label": "Εναλλακτικό κείμενο εικόνας",
-            "description": "Δώστε μια περιγραφή της εικόνας. Το κείμενο διαβάζεται από εργαλεία ανάγνωσης κειμένου (text-to-speech) που χρησιμοποιούνται από χρήστες με προβλήματα όρασης."
-          },
-          {
-            "label": "Ήχος ανοίγματος",
-            "description": "Ήχος που ακούγεται κάθε φορά που μια κάρτα ανοίγει (προαιρετικά)."
-          },
-          {
-            "label": "Αντίστοιχη εικόνα",
-            "description": "Αντίστοιχη εικόνα που μπορεί να χρησιμοποιηθεί προαιρετικά αντί της χρήσης της ίδιας εικόνας σε δύο κάρτες (προαιρετικά)."
-          },
-          {
-            "label": "Εναλλακτικό κείμενο αντίστοιχης εικόνας",
-            "description": "Δώστε μια περιγραφή της εικόνας. Το κείμενο διαβάζεται από εργαλεία ανάγνωσης κειμένου (text-to-speech) που χρησιμοποιούνται από χρήστες με προβλήματα όρασης."
-          },
-          {
-            "label": "Ήχος αντιστοίχισης",
-            "description": "Ήχος που ακούγεται κάθε φορά που δύο κάρτες αντιστοιχίζονται μεταξύ τους (προαιρετικά)."
-          },
-          {
-            "label": "Κείμενο αντιστοίχισης",
-            "description": "Σύντομο κείμενο που εμφανίζεται κάθε φορά που δύο κάρτες αντιστοιχίζονται μεταξύ τους (προαιρετικά)."
+          "widgets": [
+            {
+              "label": "Βασικό"
+            }
+          ],
+          "label": "Κάρτες",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Εικόνα"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Εικόνα"
+                    },
+                    {
+                      "label": "Εναλλακτικό κείμενο εικόνας",
+                      "description": "Δώστε μια περιγραφή της εικόνας. Το κείμενο διαβάζεται από εργαλεία ανάγνωσης κειμένου (text-to-speech) που χρησιμοποιούνται από χρήστες με προβλήματα όρασης."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Εικόνα"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Εικόνα"
+                    },
+                    {
+                      "label": "Εναλλακτικό κείμενο εικόνας",
+                      "description": "Δώστε μια περιγραφή της εικόνας. Το κείμενο διαβάζεται από εργαλεία ανάγνωσης κειμένου (text-to-speech) που χρησιμοποιούνται από χρήστες με προβλήματα όρασης."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Κείμενο αντιστοίχισης",
+                "description": "Σύντομο κείμενο που εμφανίζεται κάθε φορά που δύο κάρτες αντιστοιχίζονται μεταξύ τους (προαιρετικά)."
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Ρυθμίσεις παιχνιδιού",
@@ -131,6 +200,18 @@
         {
           "label": "Ανακοίνωση για κάρτες που δεν αντιστοιχούν",
           "default": "Οι κάρτες που επλέξατε δε ταριάζουν. Γυρίστε άλλες κάρτες για να δοκιμάσετε ξανά."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

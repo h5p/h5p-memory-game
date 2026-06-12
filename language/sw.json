@@ -1,45 +1,114 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Chaguo-msingi"
-        }
-      ],
-      "label": "Kadi",
-      "entity": "kadi",
-      "field": {
-        "label": "Kadi",
-        "fields": [
-          {
-            "label": "Picha"
-          },
-          {
-            "label": "Maandishi mbadala ya picha",
-            "description": "Eleza kinachoweza kuonekana kwenye picha. Maandishi yanasomwa kutumia zana za kubadilisha maandishi-hadi-hotuba zinazohitajika na watumiaji wenye matatizo ya kuona."
-          },
-          {
-            "label": "Wimbo wa Sauti",
-            "description": "Sauti ya hiari inayocheza kadi inapowashwa."
-          },
-          {
-            "label": "Picha inayolingana",
-            "description": "Picha ya hiari ya kulinganisha dhidi yake badala ya kutumia kadi mbili zilizo na picha sawa."
-          },
-          {
-            "label": "Maandishi mbadala ya picha inayolingana",
-            "description": "Eleza kinachoweza kuonekana kwenye picha. Maandishi yanasomwa kutumia zana za kubadilisha maandishi-hadi-hotuba zinazohitajika na watumiaji wenye matatizo ya kuona."
-          },
-          {
-            "label": "Wimbo wa sauti inayolingana",
-            "description": "Sauti ya hiari inayocheza kadi ya pili inapowashwa."
-          },
-          {
-            "label": "Maelezo",
-            "description": "Maandishi mafupi ya hiari yatakayotokea wakati kadi mbili zinazolingana zitakapopatikana."
+          "widgets": [
+            {
+              "label": "Chaguo-msingi"
+            }
+          ],
+          "label": "Kadi",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Picha"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Picha"
+                    },
+                    {
+                      "label": "Maandishi mbadala ya picha",
+                      "description": "Eleza kinachoweza kuonekana kwenye picha. Maandishi yanasomwa kutumia zana za kubadilisha maandishi-hadi-hotuba zinazohitajika na watumiaji wenye matatizo ya kuona."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Picha"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Picha"
+                    },
+                    {
+                      "label": "Maandishi mbadala ya picha",
+                      "description": "Eleza kinachoweza kuonekana kwenye picha. Maandishi yanasomwa kutumia zana za kubadilisha maandishi-hadi-hotuba zinazohitajika na watumiaji wenye matatizo ya kuona."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Maelezo",
+                "description": "Maandishi mafupi ya hiari yatakayotokea wakati kadi mbili zinazolingana zitakapopatikana."
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Mipangilio ya tabia",
@@ -131,6 +200,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

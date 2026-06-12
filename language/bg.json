@@ -1,45 +1,114 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "По подразбиране"
-        }
-      ],
-      "label": "Карти",
-      "entity": "карта",
-      "field": {
-        "label": "Карта",
-        "fields": [
-          {
-            "label": "Изображение"
-          },
-          {
-            "label": "Алтернативен текст за изображението",
-            "description": "Опишете какво може да се види на снимката. Текстът се чете от инструментите за преобразуване на текст в реч, необходими на потребители с увредено зрение."
-          },
-          {
-            "label": "Аудиозапис",
-            "description": "Допълнителен звук, който се възпроизвежда при завъртане на картата."
-          },
-          {
-            "label": "Съответстващо изображение",
-            "description": "Незадължително изображение, с което да се сравнява, вместо да се използват две карти със същото изображение."
-          },
-          {
-            "label": "Алтернативен текст за съответстващо изображение",
-            "description": "Опишете какво може да се види на снимката. Текстът се чете от инструментите за преобразуване на текст в реч, необходими на потребители с увредено зрение."
-          },
-          {
-            "label": "Съответстващ аудио запис",
-            "description": "Допълнителен звук, който се възпроизвежда, когато втората карта е обърната."
-          },
-          {
-            "label": "Description",
-            "description": "Незадължителен кратък текст, който ще се появи след като бъдат намерени двете съвпадащи карти."
+          "widgets": [
+            {
+              "label": "По подразбиране"
+            }
+          ],
+          "label": "Карти",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Изображение"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Изображение"
+                    },
+                    {
+                      "label": "Алтернативен текст за изображението",
+                      "description": "Опишете какво може да се види на снимката. Текстът се чете от инструментите за преобразуване на текст в реч, необходими на потребители с увредено зрение."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Изображение"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Изображение"
+                    },
+                    {
+                      "label": "Алтернативен текст за изображението",
+                      "description": "Опишете какво може да се види на снимката. Текстът се чете от инструментите за преобразуване на текст в реч, необходими на потребители с увредено зрение."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Description",
+                "description": "Незадължителен кратък текст, който ще се появи след като бъдат намерени двете съвпадащи карти."
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Настройки за поведение",
@@ -131,6 +200,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

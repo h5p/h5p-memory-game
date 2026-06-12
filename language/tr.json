@@ -1,45 +1,114 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Varsayılan"
-        }
-      ],
-      "label": "Kartlar",
-      "entity": "kart",
-      "field": {
-        "label": "kart",
-        "fields": [
-          {
-            "label": "Resim"
-          },
-          {
-            "label": "Resim için alt metin",
-            "description": "Resimde neler göründüğünü açıklayın. Alt  metin, görme engelli kullanıcıların resim için ihtiyaç duyduğu açıklamadır. Yardımcı teknolojiler ile okunur."
-          },
-          {
-            "label": "Müzik Parçası",
-            "description": "Kart döndürüldüğünde çalınması istenen ses (isteğe bağlı)."
-          },
-          {
-            "label": "Eşleştirilen Resim",
-            "description": "Aynı görüntüye sahip iki kart kullanmak yerine eşleştirilecek farklı bir resim seçebilirsiniz (isteğe bağlı)."
-          },
-          {
-            "label": "Eşleştirilen resim için alt metin",
-            "description": "Resimde neler göründüğünü açıklayın. Alt  metin, görme engelli kullanıcıların resim için ihtiyaç duyduğu açıklamadır. Yardımcı teknolojiler ile okunur."
-          },
-          {
-            "label": "Eşleştirilen için müzik parçası",
-            "description": "İkinci kart döndürüldüğünde çalınması istenen ses (isteğe bağlı)."
-          },
-          {
-            "label": "Açıklama",
-            "description": "Kartlar eşleştiğinde açılır kutuda kısa metin (isteğe bağlı)."
+          "widgets": [
+            {
+              "label": "Varsayılan"
+            }
+          ],
+          "label": "Kartlar",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Resim"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Resim"
+                    },
+                    {
+                      "label": "Resim için alt metin",
+                      "description": "Resimde neler göründüğünü açıklayın. Alt  metin, görme engelli kullanıcıların resim için ihtiyaç duyduğu açıklamadır. Yardımcı teknolojiler ile okunur."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Resim"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Resim"
+                    },
+                    {
+                      "label": "Resim için alt metin",
+                      "description": "Resimde neler göründüğünü açıklayın. Alt  metin, görme engelli kullanıcıların resim için ihtiyaç duyduğu açıklamadır. Yardımcı teknolojiler ile okunur."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Açıklama",
+                "description": "Kartlar eşleştiğinde açılır kutuda kısa metin (isteğe bağlı)."
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Etkinlik ayarları",
@@ -131,6 +200,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

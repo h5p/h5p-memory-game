@@ -1,45 +1,114 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Numatytasis"
-        }
-      ],
-      "label": "Kortelės",
-      "entity": "kortelė",
-      "field": {
-        "label": "Kortelė",
-        "fields": [
-          {
-            "label": "Paveikslėlis"
-          },
-          {
-            "label": "Alternatyvus paveikslėlio tekstas",
-            "description": "Apibūdinkite, ką galite pamatyti nuotraukoje. Tekstas skaitomas naudojant teksto į kalbą priemones, kurių reikia regėjimo negalią turintiems naudotojams."
-          },
-          {
-            "label": "Garso takelis",
-            "description": "Pasirenkamas garsas, skambantis, kai kortelė pasukama."
-          },
-          {
-            "label": "Atitinkantis paveikslėlis",
-            "description": "Pasirenkamas vaizdas, su kuriuo galima suderinti, o ne naudoti dvi korteles su tuo pačiu vaizdu."
-          },
-          {
-            "label": "Alternatyvus atitinkančio paveikslėlio tekstas",
-            "description": "Apibūdinkite, ką galite pamatyti nuotraukoje. Tekstas skaitomas naudojant teksto į kalbą priemones, kurių reikia regėjimo negalią turintiems naudotojams."
-          },
-          {
-            "label": "Atitinkantis garso takelis",
-            "description": "Pasirenkamas garsas, skambantis, kai pasukama antra kortelė."
-          },
-          {
-            "label": "Aprašymas",
-            "description": "Pasirenkamas trumpas tekstas, kuris pasirodys, kai bus rastos dvi atitinkančios kortelės."
+          "widgets": [
+            {
+              "label": "Numatytasis"
+            }
+          ],
+          "label": "Kortelės",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Paveikslėlis"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Paveikslėlis"
+                    },
+                    {
+                      "label": "Alternatyvus paveikslėlio tekstas",
+                      "description": "Apibūdinkite, ką galite pamatyti nuotraukoje. Tekstas skaitomas naudojant teksto į kalbą priemones, kurių reikia regėjimo negalią turintiems naudotojams."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "entity": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Paveikslėlis"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Paveikslėlis"
+                    },
+                    {
+                      "label": "Alternatyvus paveikslėlio tekstas",
+                      "description": "Apibūdinkite, ką galite pamatyti nuotraukoje. Tekstas skaitomas naudojant teksto į kalbą priemones, kurių reikia regėjimo negalią turintiems naudotojams."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Aprašymas",
+                "description": "Pasirenkamas trumpas tekstas, kuris pasirodys, kai bus rastos dvi atitinkančios kortelės."
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "label": "Dummy"
+        }
+      ]
     },
     {
       "label": "Veikimo nustatymai",
@@ -131,6 +200,18 @@
         {
           "label": "Kortelė neatitinka skelbimo",
           "default": "Jūsų pasirinktos kortelės nesutampa. Atverskite kitas kortas ir bandykite dar kartą."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }
