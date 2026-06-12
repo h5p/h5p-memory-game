@@ -1,45 +1,109 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Implicit"
-        }
-      ],
-      "label": "Cartonașe",
-      "entity": "cartonaș",
-      "field": {
-        "label": "Cartonaș",
-        "fields": [
-          {
-            "label": "Imagine"
-          },
-          {
-            "label": "Text alternativ pentru Imagine",
-            "description": "Descrieți ce se poate vedea în fotografie. Textul este citit de unelte text-în-vorbire necesare utilizatorilor cu deficiențe de vedere."
-          },
-          {
-            "label": "Pistă audio",
-            "description": "Un sunet opțional care se redă când cartonașul este întors."
-          },
-          {
-            "label": "Imagine potrivită",
-            "description": "O imagine opțională pentru potrivire, în loc de a folosi două cartonașe cu aceeași imagine."
-          },
-          {
-            "label": "Text alternativ pentru Imaginea potrivită",
-            "description": "Descrieți ce se poate vedea în fotografie. Textul este citit de unelte text-în-vorbire necesare utilizatorilor cu deficiențe de vedere."
-          },
-          {
-            "label": "Pistă audio potrivită",
-            "description": "Un sunet opțional care se redă când al doilea cartonaș este întors."
-          },
-          {
-            "label": "Descriere",
-            "description": "Un text scurt opțional care va apărea odată ce cele două cartonașe potrivite sunt găsite."
+          "widgets": [
+            {
+              "label": "Implicit"
+            }
+          ],
+          "label": "Cartonașe",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Imagine"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Imagine"
+                    },
+                    {
+                      "label": "Text alternativ pentru Imagine",
+                      "description": "Descrieți ce se poate vedea în fotografie. Textul este citit de unelte text-în-vorbire necesare utilizatorilor cu deficiențe de vedere."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Imagine"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Imagine"
+                    },
+                    {
+                      "label": "Text alternativ pentru Imagine",
+                      "description": "Descrieți ce se poate vedea în fotografie. Textul este citit de unelte text-în-vorbire necesare utilizatorilor cu deficiențe de vedere."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Descriere",
+                "description": "Un text scurt opțional care va apărea odată ce cele două cartonașe potrivite sunt găsite."
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "label": "Setări de comportament",
@@ -131,6 +195,18 @@
         {
           "label": "Anunț cartonașe nepotrivite",
           "default": "Cartonașele alese de tine nu se potrivesc. Întoarce alte cartonașe pentru a încerca din nou."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

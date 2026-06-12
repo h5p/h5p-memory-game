@@ -1,45 +1,109 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "기본값"
-        }
-      ],
-      "label": "카드",
-      "entity": "카드",
-      "field": {
-        "label": "카드",
-        "fields": [
-          {
-            "label": "이미지"
-          },
-          {
-            "label": "이미지의 대체 텍스트",
-            "description": "사진에서 볼 수 있는 것을 묘사하세요. 이 텍스트는 시각 장애 사용자가 필요로 하는 텍스트 음성 변환 도구로 읽힌다."
-          },
-          {
-            "label": "오디오 트랙",
-            "description": "카드를 돌렸을 때 재생되는 선택적 사운드."
-          },
-          {
-            "label": "매칭 이미지",
-            "description": "(선택사항) 같은 이미지의 두 카드를 사용하는 대신에 매칭할 수 있는 선택적 이미지."
-          },
-          {
-            "label": "매칭 이미지에 대한 대체 텍스트",
-            "description": "사진에서 볼 수 있는 것을 묘사하세요. 이 텍스트는 시각 장애 사용자가 필요로 하는 텍스트 음성 변환 도구로 읽힌다.."
-          },
-          {
-            "label": "매칭 오디오 트랙",
-            "description": "(선택사항)두 번째 카드를 돌릴 때 재생되는 사운드"
-          },
-          {
-            "label": "설명",
-            "description": "(선택사항) 일치되는 두 장의 카드가 발견되면 팝업될 짧은 텍스트."
+          "widgets": [
+            {
+              "label": "기본값"
+            }
+          ],
+          "label": "카드",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "이미지"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "이미지"
+                    },
+                    {
+                      "label": "이미지의 대체 텍스트",
+                      "description": "사진에서 볼 수 있는 것을 묘사하세요. 이 텍스트는 시각 장애 사용자가 필요로 하는 텍스트 음성 변환 도구로 읽힌다."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "이미지"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "이미지"
+                    },
+                    {
+                      "label": "이미지의 대체 텍스트",
+                      "description": "사진에서 볼 수 있는 것을 묘사하세요. 이 텍스트는 시각 장애 사용자가 필요로 하는 텍스트 음성 변환 도구로 읽힌다."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "설명",
+                "description": "(선택사항) 일치되는 두 장의 카드가 발견되면 팝업될 짧은 텍스트."
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "label": "과제가 수행되는 방법 설정.",
@@ -131,6 +195,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

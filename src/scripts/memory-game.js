@@ -25,7 +25,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    let flipped; let timer; let counter; let popup;
+    let flipped; let timer; let counter; let popup; let cardPopup;
     let $bottom; let $feedback; let $wrapper; let maxWidth; let numCols;
     let audioCard;
     const cards = [];
@@ -49,11 +49,16 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         cardMatched: 'Match found.',
         cardMatchedA11y: 'Your cards match!',
         cardNotMatchedA11y: 'Your chosen cards do not match. Turn other cards to try again.',
+        cardEnlarged: 'Enlarged.',
+        shrinkCard: 'Shrink',
+        missingDescription: 'Missing description',
       },
     }, parameters);
 
-    // Filter out invalid cards
-    parameters.cards = (parameters.cards ?? []).filter((cardParams) => MemoryGame.Card.isValid(cardParams));
+    // Flatten the card pair structure and filter out invalid cards.
+    parameters.cards = (parameters.memorygame?.cards ?? [])
+      .map((cardParams) => MemoryGame.Card.parseParameters(cardParams))
+      .filter((cardParams) => MemoryGame.Card.isValid(cardParams));
 
     /**
      * Get number of cards that are currently flipped and in game.
@@ -83,18 +88,20 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       const isFinished = cards.every((card) => card.isRemoved());
 
       const desc = card.getDescription();
-      if (desc !== undefined) {
-        // Pause timer and show desciption.
+      if (desc !== undefined && card.hasImageOrText() && mate.hasImageOrText()) {
+        // Pause timer and show description with both cards as shown on the board.
         timer.pause();
-        const imgs = [card.getImage()];
-        if (card.hasTwoImages) {
-          imgs.push(mate.getImage());
-        }
 
         // Keep message for dialog modal shorter without instructions
         $applicationLabel.html(parameters.l10n.label);
 
-        popup.show(desc, imgs, cardStyles ? cardStyles.back : undefined, (refocus) => {
+        // Identical pairs (card 2 duplicates card 1) show a single card.
+        const contents = [card.getContent()];
+        if (card.hasTwoImages) {
+          contents.push(mate.getContent());
+        }
+
+        popup.show(desc, contents, (refocus) => {
           if (isFinished) {
             // Game done
             finished();
@@ -132,7 +139,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (parameters.behaviour && parameters.behaviour.allowRetry) {
         // Create retry button
         self.retryButton = H5P.Components.Button({
-          label: parameters.l10n.tryAgain || 'Reset',
+          label: parameters.l10n.tryAgain,
           icon: 'retry',
           styleType: 'secondary',
           classes: 'h5p-memory-reset',
@@ -192,6 +199,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       $feedback[0].classList.remove('h5p-show');
 
       popup.close();
+      cardPopup.close();
 
       // Reset timer and counter
       timer.stop();
@@ -336,15 +344,37 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         }
       });
 
+      card.on('enlarge', (event) => {
+        cardPopup.show(
+          card.getEnlargedContent(),
+          (refocus) => {
+            if (refocus) {
+              card.setFocus();
+            }
+          },
+          cardStyles ? cardStyles.back : undefined,
+          event.data?.element,
+          card.getEnlargedLabel(),
+        );
+
+        // Play card's audio while enlarged and mirror its state on popup to copy behavior.
+        if (card.hasAudio()) {
+          card.playAudio();
+          cardPopup.setAudioPlaying(true);
+        }
+      });
+
       card.on('audioplay', () => {
         if (audioCard) {
           audioCard.stopAudio();
         }
         audioCard = card;
+        cardPopup.setAudioPlaying(true);
       });
 
       card.on('audiostop', () => {
         audioCard = undefined;
+        cardPopup.setAudioPlaying(false);
       });
 
       /**
@@ -463,17 +493,50 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     let cardsPool = parameters.cards
       .reduce((result, cardParams, index) => {
         // Create first card
-        const cardOne = new MemoryGame.Card(cardParams.image, id, 2 * numCardsToUse, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio, `${index}-1`);
+        const cardOne = new MemoryGame.Card(
+          cardParams.image,
+          id,
+          2 * numCardsToUse,
+          cardParams.imageAlt,
+          parameters.l10n,
+          cardParams.description,
+          cardStyles,
+          cardParams.audio,
+          cardParams.text,
+          `${index}-1`
+        );
         let cardTwo;
 
         if (MemoryGame.Card.hasTwoImages(cardParams)) {
-          // Use matching image for card two
-          cardTwo = new MemoryGame.Card(cardParams.match, id, 2 * numCardsToUse, cardParams.matchAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.matchAudio, `${index}-2`);
+          // Use matching media for card two
+          cardTwo = new MemoryGame.Card(
+            cardParams.match,
+            id,
+            2 * numCardsToUse,
+            cardParams.matchAlt,
+            parameters.l10n,
+            cardParams.description,
+            cardStyles,
+            cardParams.matchAudio,
+            cardParams.matchText,
+            `${index}-2`
+          );
           cardOne.hasTwoImages = cardTwo.hasTwoImages = true;
         }
         else {
-          // Add two cards with the same image
-          cardTwo = new MemoryGame.Card(cardParams.image, id, 2 * numCardsToUse, cardParams.imageAlt, parameters.l10n, cardParams.description, cardStyles, cardParams.audio, `${index}-2`);
+          // Add two cards with the same media
+          cardTwo = new MemoryGame.Card(
+            cardParams.image,
+            id,
+            2 * numCardsToUse,
+            cardParams.imageAlt,
+            parameters.l10n,
+            cardParams.description,
+            cardStyles,
+            cardParams.audio,
+            cardParams.text,
+            `${index}-2`
+          );
         }
 
         return [...result, cardOne, cardTwo];
@@ -585,6 +648,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         this.previousState.counter ?? 0,
       );
       popup = new MemoryGame.Popup(parameters.l10n);
+      cardPopup = new MemoryGame.CardPopup(parameters.l10n);
 
       popup.on('closed', () => {
         // Add instructions back
@@ -612,12 +676,14 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
       // TODO: Only create on first attach!
       $wrapper = $container.addClass('h5p-memory-game h5p-theme').html('');
+      $wrapper.toggleClass('h5p-memory-use-grid', !(parameters.behaviour?.useGrid));
 
       if (cards.length) {
         $applicationLabel.appendTo($wrapper);
         $list.appendTo($wrapper);
         $bottom.appendTo($wrapper);
         popup.appendTo($wrapper);
+        cardPopup.appendTo($wrapper);
         $wrapper.append(ariaLiveRegion.getDOM());
         $wrapper.click(() => {
           popup.close();
@@ -702,6 +768,8 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       // We use font size to evenly scale all parts of the cards.
       $list.css('font-size', `${fontSize}px`);
       popup.setSize(fontSize);
+      cardPopup.setSize(fontSize);
+
       // due to rounding errors in browsers the margins may vary a bit…
     };
 
@@ -747,11 +815,14 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         : null; // Out of bounds
     };
 
-    if (parameters.behaviour && parameters.behaviour.useGrid && numCardsToUse) {
-      self.on('resize', () => {
+    self.on('resize', () => {
+      if (parameters?.behaviour?.useGrid && numCardsToUse) {
         scaleGameSize();
-      });
-    }
+      }
+
+      // Card size may have changed, so re-clamp any card text.
+      cards.forEach((card) => card.resize());
+    });
 
     /**
      * Determine whether the task was answered already.

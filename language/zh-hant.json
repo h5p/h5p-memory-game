@@ -1,45 +1,109 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "預設"
-        }
-      ],
-      "label": "所有卡片",
-      "entity": "卡片",
-      "field": {
-        "label": "卡片",
-        "fields": [
-          {
-            "label": "圖像"
-          },
-          {
-            "label": "配對圖像（非必要項）",
-            "description": "如果遊戲中要配對的不是同一張圖像，那麼可以在這裡添加要配對的另一張圖像。"
-          },
-          {
-            "label": "Audio Track",
-            "description": "An optional sound that plays when the card is turned."
-          },
-          {
-            "label": "配對成功文字（非必要項）",
-            "description": "在找到配對時會跳出的文字訊息。"
-          },
-          {
-            "label": "配對圖像的替代文字",
-            "description": "在報讀器上用、或是配對圖像無法正常輸出時顯示的文字。"
-          },
-          {
-            "label": "Matching Audio Track",
-            "description": "An optional sound that plays when the second card is turned."
-          },
-          {
-            "label": "配對成功文字（非必要項）",
-            "description": "在找到配對時會跳出的文字訊息。"
+          "widgets": [
+            {
+              "label": "預設"
+            }
+          ],
+          "label": "所有卡片",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "圖像"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "圖像"
+                    },
+                    {
+                      "label": "配對圖像（非必要項）",
+                      "description": "如果遊戲中要配對的不是同一張圖像，那麼可以在這裡添加要配對的另一張圖像。"
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "圖像"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "圖像"
+                    },
+                    {
+                      "label": "配對圖像（非必要項）",
+                      "description": "如果遊戲中要配對的不是同一張圖像，那麼可以在這裡添加要配對的另一張圖像。"
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "配對成功文字（非必要項）",
+                "description": "在找到配對時會跳出的文字訊息。"
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "label": "行為設置",
@@ -131,6 +195,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

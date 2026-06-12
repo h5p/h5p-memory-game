@@ -1,45 +1,109 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Vaikimisi"
-        }
-      ],
-      "label": "Kaardid",
-      "entity": "kaart",
-      "field": {
-        "label": "Kaart",
-        "fields": [
-          {
-            "label": "Pilt"
-          },
-          {
-            "label": "Pildi alternatiivtekst",
-            "description": "Kirjelda, mis pildil näha on. Tekst on mõeldud vaegnägijaile tekstilugeriga kuulamiseks."
-          },
-          {
-            "label": "Heliriba",
-            "description": "Valikheli, mida mängitakse kaardi pööramisel."
-          },
-          {
-            "label": "Sobituv pilt",
-            "description": "Valikuline pilt võrdlemiseks, selmet kasutada kahte kaarti sama pildiga."
-          },
-          {
-            "label": "Sobituva pildi alternatiivtekst",
-            "description": "Kirjelda, mis pildil näha on. Tekst on mõeldud vaegnägijaile tekstilugeriga kuulamiseks."
-          },
-          {
-            "label": "Sobituv heliriba",
-            "description": "Valikheli, mida mängitakse teise kaardi pööramisel."
-          },
-          {
-            "label": "Kirjeldus",
-            "description": "Valikuline lühitekst, mida näidatakse hüpikaknas peale kahe sobituva kaardi leidmist."
+          "widgets": [
+            {
+              "label": "Vaikimisi"
+            }
+          ],
+          "label": "Kaardid",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Pilt"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Pilt"
+                    },
+                    {
+                      "label": "Pildi alternatiivtekst",
+                      "description": "Kirjelda, mis pildil näha on. Tekst on mõeldud vaegnägijaile tekstilugeriga kuulamiseks."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Pilt"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Pilt"
+                    },
+                    {
+                      "label": "Pildi alternatiivtekst",
+                      "description": "Kirjelda, mis pildil näha on. Tekst on mõeldud vaegnägijaile tekstilugeriga kuulamiseks."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Kirjeldus",
+                "description": "Valikuline lühitekst, mida näidatakse hüpikaknas peale kahe sobituva kaardi leidmist."
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "label": "Käitumisseaded",
@@ -131,6 +195,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

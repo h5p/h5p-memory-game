@@ -1,45 +1,109 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "ნაგულისხმევი"
-        }
-      ],
-      "label": "ბარათები",
-      "entity": "ბარათი",
-      "field": {
-        "label": "ბარათი",
-        "fields": [
-          {
-            "label": "გამოსახულება"
-          },
-          {
-            "label": "გამოსახულების ალტერნატიული ტექსტი",
-            "description": "აღწერეთ, რა ჩანს ფოტოზე. ტექსტი იკითხება ტექსტის გამხმოვანებელი ინსტრუმენტების დახმარებით, რომლებსაც მხედველობის შეზღუდვის მქონე მომხმარებლები იყენებენ."
-          },
-          {
-            "label": "გახმოვანება",
-            "description": "გახმოვანება, რომელიც ირთვება ბარათის შემობრუნებისას."
-          },
-          {
-            "label": "შესაბამისი გამოსახულება",
-            "description": "არასავალდებულო გამოსახულება შედარებისთვის, რომელიც წარმოადგენს ორი ერთნაირი გამოსახულების ბარათის გამოყენების ალტერნატივას."
-          },
-          {
-            "label": "ალტერნატიული ტექსტი გამოსახულების მისადაგებისთვის",
-            "description": "აღწერეთ, რა ჩანს ფოტოზე. ტექსტს წაიკითხავს ტექსტის გამხმოვანებლი. მას მხედველობის შეზღუდვების მქონე მომხმარებლები იყენებენ."
-          },
-          {
-            "label": "აუდიოს მისადაგება",
-            "description": "დამატებითი გახმოვანება, რომელიც ირთვება მეორე ბარათის შემობრუნებისას."
-          },
-          {
-            "label": "აღწერა",
-            "description": "დამატებითი მოკლე ტექსტი, რომელიც გამოჩნდება ორი შესაბამისი ბარათის პოვნის შემდეგ."
+          "widgets": [
+            {
+              "label": "ნაგულისხმევი"
+            }
+          ],
+          "label": "ბარათები",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "გამოსახულება"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "გამოსახულება"
+                    },
+                    {
+                      "label": "გამოსახულების ალტერნატიული ტექსტი",
+                      "description": "აღწერეთ, რა ჩანს ფოტოზე. ტექსტი იკითხება ტექსტის გამხმოვანებელი ინსტრუმენტების დახმარებით, რომლებსაც მხედველობის შეზღუდვის მქონე მომხმარებლები იყენებენ."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "გამოსახულება"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "გამოსახულება"
+                    },
+                    {
+                      "label": "გამოსახულების ალტერნატიული ტექსტი",
+                      "description": "აღწერეთ, რა ჩანს ფოტოზე. ტექსტი იკითხება ტექსტის გამხმოვანებელი ინსტრუმენტების დახმარებით, რომლებსაც მხედველობის შეზღუდვის მქონე მომხმარებლები იყენებენ."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "აღწერა",
+                "description": "დამატებითი მოკლე ტექსტი, რომელიც გამოჩნდება ორი შესაბამისი ბარათის პოვნის შემდეგ."
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "label": "ქცევის პარამეტრები",
@@ -131,6 +195,18 @@
         {
           "label": "ბარათი არ ემთხვევა განცხადება",
           "default": "თქვენი არჩეული ბარათები არ ემთხვევა. გადაატრიალეთ სხვა ბარათები ხელახლა საცდელად."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

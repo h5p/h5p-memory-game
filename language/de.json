@@ -1,45 +1,109 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Eingabemaske"
-        }
-      ],
-      "label": "Karten",
-      "entity": "Karte",
-      "field": {
-        "label": "Karte",
-        "fields": [
-          {
-            "label": "Bild"
-          },
-          {
-            "label": "Alternativtext für das Bild",
-            "description": "Beschreibt, was im Bild zu sehen ist. Dieser Text wird von Vorlesewerkzeugen für Sehbehinderte genutzt."
-          },
-          {
-            "label": "Ton",
-            "description": "Optionaler Ton, der abgespielt wird, wenn die Karte umgedreht wird."
-          },
-          {
-            "label": "Zugehöriges Bild",
-            "description": "Ein optionales zweites Bild, das mit dem ersten ein Paar bildet, anstatt zweimal das selbe Bild zu verwenden."
-          },
-          {
-            "label": "Alternativtext für das zweite Bild",
-            "description": "Beschreibt, was im Bild zu sehen ist. Dieser Text wird von Vorlesewerkzeugen für Sehbehinderte genutzt."
-          },
-          {
-            "label": "Ton zum zweiten Bild",
-            "description": "Optionaler Ton, der abgespielt wird, wenn die zweite Karte umgedreht wird."
-          },
-          {
-            "label": "Beschreibung",
-            "description": "Ein kurzer optionaler Text, der angezeigt wird, wenn das Kartenpaar gefunden wurde."
+          "widgets": [
+            {
+              "label": "Eingabemaske"
+            }
+          ],
+          "label": "Karten",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Bild"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Bild"
+                    },
+                    {
+                      "label": "Alternativtext für das Bild",
+                      "description": "Beschreibt, was im Bild zu sehen ist. Dieser Text wird von Vorlesewerkzeugen für Sehbehinderte genutzt."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Bild"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Bild"
+                    },
+                    {
+                      "label": "Alternativtext für das Bild",
+                      "description": "Beschreibt, was im Bild zu sehen ist. Dieser Text wird von Vorlesewerkzeugen für Sehbehinderte genutzt."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Beschreibung",
+                "description": "Ein kurzer optionaler Text, der angezeigt wird, wenn das Kartenpaar gefunden wurde."
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "label": "Verhaltenseinstellungen",
@@ -131,6 +195,18 @@
         {
           "label": "Ansage für \"Karten passen nicht\"",
           "default": "Die Karten passen nicht zueinander. Drehe andere Karten um, um es weiter zu versuchen."
+        },
+        {
+          "label": "Beschriftung für \"Karte vergrößert\"",
+          "default": "Vergrößert."
+        },
+        {
+          "label": "Beschriftung des \"Verkleinern\"-Buttons",
+          "default": "Verkleinern"
+        },
+        {
+          "label": "Ansage für \"Fehlende Beschreibung\"",
+          "default": "Fehlende Beschreibung"
         }
       ]
     }

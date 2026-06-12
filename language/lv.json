@@ -1,45 +1,109 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Pēc noklusējuma"
-        }
-      ],
-      "label": "Kartītes",
-      "entity": "kartīte",
-      "field": {
-        "label": "Kartīte",
-        "fields": [
-          {
-            "label": "Attēls"
-          },
-          {
-            "label": "Alternatīvs attēla teksts",
-            "description": "Aprakstiet, kas redzams fotoattēlā. Teksts tiek lasīts ar rīkiem teksta pārvēršanai runā, kas nepieciešami lietotājiem ar redzes traucējumiem."
-          },
-          {
-            "label": "Audio celiņš",
-            "description": "Neobligāta skaņa, kas tiek atskaņota, pagriežot kartīti."
-          },
-          {
-            "label": "Atbilstošs attēls",
-            "description": "Neobligāts attēls, ar ko salīdzināt, nevis izmantot divas kartītes ar vienu un to pašu attēlu."
-          },
-          {
-            "label": "Alternatīvs teksts Atbilstošajam attēlam",
-            "description": "Aprakstiet, kas redzams fotoattēlā. Teksts tiek lasīts ar rīkiem teksta pārvēršanai runā, kas nepieciešami lietotājiem ar redzes traucējumiem."
-          },
-          {
-            "label": "Atbilstošs audio celiņš",
-            "description": "Neobligāta skaņa, kas tiek atskaņota, pagriežot otro kartīti."
-          },
-          {
-            "label": "Apraksts",
-            "description": "Neobligāts īss teksts, kas tiks parādīts, tiklīdz tiks atrastas divas atbilstošās kartītes."
+          "widgets": [
+            {
+              "label": "Pēc noklusējuma"
+            }
+          ],
+          "label": "Kartītes",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Attēls"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Attēls"
+                    },
+                    {
+                      "label": "Alternatīvs attēla teksts",
+                      "description": "Aprakstiet, kas redzams fotoattēlā. Teksts tiek lasīts ar rīkiem teksta pārvēršanai runā, kas nepieciešami lietotājiem ar redzes traucējumiem."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Attēls"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Attēls"
+                    },
+                    {
+                      "label": "Alternatīvs attēla teksts",
+                      "description": "Aprakstiet, kas redzams fotoattēlā. Teksts tiek lasīts ar rīkiem teksta pārvēršanai runā, kas nepieciešami lietotājiem ar redzes traucējumiem."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Apraksts",
+                "description": "Neobligāts īss teksts, kas tiks parādīts, tiklīdz tiks atrastas divas atbilstošās kartītes."
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "label": "Uzvedības iestatījumi",
@@ -131,6 +195,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

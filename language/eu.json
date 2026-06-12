@@ -1,45 +1,109 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Lehenetsia"
-        }
-      ],
-      "label": "Txartelak",
-      "entity": "karta",
-      "field": {
-        "label": "Karta",
-        "fields": [
-          {
-            "label": "Irudia"
-          },
-          {
-            "label": "Irudiaren ordezko testua",
-            "description": "Deskribatu irudian ikusi daitekeena. Testua irakurketa tresna automatikoek irakurriko dute ikusmen urritasunak dituztenentzat."
-          },
-          {
-            "label": "Audio Pista",
-            "description": "Karta itzultzen denean erreproduzitzeko aukerazko soinua."
-          },
-          {
-            "label": "Pareko irudia",
-            "description": "Irudi bera duten bi karta ez erabiltzeko parekatzeko aukeran eskainiko den irudia."
-          },
-          {
-            "label": "Pareko irudiaren ordezko irudia",
-            "description": "Deskribatu argazkian ikusi daitekeena. Testua irakurketa tresna automatikoek irakurriko dute ikusmen urritasunak dituztenentzat."
-          },
-          {
-            "label": "Pareko Audio Pista",
-            "description": "Bigarren karta itzultzen denean erreproduzitzeko aukerazko soinua."
-          },
-          {
-            "label": "Deskribapena",
-            "description": "Bi karta parekatzen direnean bat-batean agertu den aukerako testu laburra."
+          "widgets": [
+            {
+              "label": "Lehenetsia"
+            }
+          ],
+          "label": "Txartelak",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Irudia"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Irudia"
+                    },
+                    {
+                      "label": "Irudiaren ordezko testua",
+                      "description": "Deskribatu irudian ikusi daitekeena. Testua irakurketa tresna automatikoek irakurriko dute ikusmen urritasunak dituztenentzat."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Irudia"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Irudia"
+                    },
+                    {
+                      "label": "Irudiaren ordezko testua",
+                      "description": "Deskribatu irudian ikusi daitekeena. Testua irakurketa tresna automatikoek irakurriko dute ikusmen urritasunak dituztenentzat."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Deskribapena",
+                "description": "Bi karta parekatzen direnean bat-batean agertu den aukerako testu laburra."
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "label": "Portaeraren ezarpenak",
@@ -131,6 +195,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

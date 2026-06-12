@@ -1,43 +1,107 @@
 {
   "semantics": [
     {
-      "label": "کارت‌ها",
-      "field": {
-        "label": "کارت",
-        "fields": [
-          {
-            "label": "تصویر"
-          },
-          {
-            "label": "متن جایگزین برای تصویر",
-            "description": "آنچه در تصویر مشاهده می‌شود را توصیف کنید. این متن توسط ابزارهای تبدیل متن به گفتار برای کاربران کم‌بینا خوانده می‌شود."
-          },
-          {
-            "label": "صدا",
-            "description": "صدای اختیاری که هنگام برگرداندن کارت پخش می‌شود."
-          },
-          {
-            "label": "تصویر منطبق",
-            "description": "یک تصویر اختیاری برای تطابق، به جای استفاده از دو کارت با یک تصویر."
-          },
-          {
-            "label": "متن جایگزین برای تصویر منطبق",
-            "description": "آنچه در تصویر مشاهده می‌شود را توصیف کنید. این متن توسط ابزارهای تبدیل متن به گفتار برای کاربران کم‌بینا خوانده می‌شود."
-          },
-          {
-            "label": "صدای تطابق",
-            "description": "صدای اختیاری که با برگرداندن کارت دوم پخش می‌شود."
-          },
-          {
-            "label": "توضیحات",
-            "description": "یک متن کوتاه اختیاری که پس از یافتن دو کارت منطبق نمایش داده می‌شود."
-          }
-        ]
-      },
-      "entity": "card",
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "پیش‌فرض"
+          "widgets": [
+            {
+              "label": "پیش‌فرض"
+            }
+          ],
+          "label": "کارت‌ها",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "تصویر"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "تصویر"
+                    },
+                    {
+                      "label": "متن جایگزین برای تصویر",
+                      "description": "آنچه در تصویر مشاهده می‌شود را توصیف کنید. این متن توسط ابزارهای تبدیل متن به گفتار برای کاربران کم‌بینا خوانده می‌شود."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "تصویر"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "تصویر"
+                    },
+                    {
+                      "label": "متن جایگزین برای تصویر",
+                      "description": "آنچه در تصویر مشاهده می‌شود را توصیف کنید. این متن توسط ابزارهای تبدیل متن به گفتار برای کاربران کم‌بینا خوانده می‌شود."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "توضیحات",
+                "description": "یک متن کوتاه اختیاری که پس از یافتن دو کارت منطبق نمایش داده می‌شود."
+              }
+            ]
+          }
         }
       ]
     },
@@ -131,6 +195,18 @@
         {
           "label": "اعلام عدم تطابق کارت",
           "default": "کارت‌های انتخاب شده شما منطبق نیستند. کارت‌های دیگر را برگردانید تا دوباره امتحان کنید."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }

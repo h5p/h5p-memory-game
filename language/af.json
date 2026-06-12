@@ -1,45 +1,109 @@
 {
   "semantics": [
     {
-      "widgets": [
+      "label": "Memory Game",
+      "fields": [
         {
-          "label": "Verstek"
-        }
-      ],
-      "label": "Kaarte",
-      "entity": "kaart",
-      "field": {
-        "label": "Kaart",
-        "fields": [
-          {
-            "label": "Beeld"
-          },
-          {
-            "label": "Alternatiewe teks vir prent",
-            "description": "Beskryf wat jy in die foto kan sien. Die teks word gelees deur teks-na-spraak instrumente wat vir visueel beperkte gebruikers gebruik word."
-          },
-          {
-            "label": "Klankgreep",
-            "description": "'n Opsionele klank wat speel wanneer die kaartjie omgedraai word."
-          },
-          {
-            "label": "Passende Prent",
-            "description": "'n Opsionele prent om dit daar teenoor te laat pas in stede daarvan om twee kaartjies met dieselfde prent te gebruik."
-          },
-          {
-            "label": "Alternatiewe teks vir die passende prent",
-            "description": "Beskryf wat jy in die foto kan sien. Die teks word gelees deur teks-na-spraak instrumente wat vir visueel beperkte gebruikers gebruik word."
-          },
-          {
-            "label": "Passende klankgreep",
-            "description": "'n Opsionele klank wat speel wanneer die tweede kaartjie omgedraai word."
-          },
-          {
-            "label": "Beskrywing",
-            "description": "'n Opsionele kort teks wat opspring sodra die twee passende kaartjies gevind is."
+          "widgets": [
+            {
+              "label": "Verstek"
+            }
+          ],
+          "label": "Kaarte",
+          "entity": "Card Pair",
+          "field": {
+            "label": "Card pair",
+            "fields": [
+              {
+                "label": "Card 1",
+                "description": "Select up to 2 media types per card."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Beeld"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Beeld"
+                    },
+                    {
+                      "label": "Alternatiewe teks vir prent",
+                      "description": "Beskryf wat jy in die foto kan sien. Die teks word gelees deur teks-na-spraak instrumente wat vir visueel beperkte gebruikers gebruik word."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Card 2",
+                "description": "Only configure it this card should differ from Card 1."
+              },
+              {
+                "label": "Media",
+                "field": {
+                  "label": "Media",
+                  "fields": [
+                    {
+                      "label": "Media Type",
+                      "description": "Choose what appears when the card is flipped.",
+                      "options": [
+                        {
+                          "label": "Beeld"
+                        },
+                        {
+                          "label": "Audio"
+                        },
+                        {
+                          "label": "Text"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Beeld"
+                    },
+                    {
+                      "label": "Alternatiewe teks vir prent",
+                      "description": "Beskryf wat jy in die foto kan sien. Die teks word gelees deur teks-na-spraak instrumente wat vir visueel beperkte gebruikers gebruik word."
+                    },
+                    {
+                      "label": "Audio",
+                      "description": "An sound that plays when the card is turned."
+                    },
+                    {
+                      "label": "Text"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Beskrywing",
+                "description": "'n Opsionele kort teks wat opspring sodra die twee passende kaartjies gevind is."
+              }
+            ]
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "label": "Gedragsinstellings",
@@ -131,6 +195,18 @@
         {
           "label": "Card not matched announcement",
           "default": "Your chosen cards do not match. Turn other cards to try again."
+        },
+        {
+          "label": "Card enlarged label",
+          "default": "Enlarged."
+        },
+        {
+          "label": "Shrink card button label",
+          "default": "Shrink"
+        },
+        {
+          "label": "Missing description label",
+          "default": "Missing description"
         }
       ]
     }
