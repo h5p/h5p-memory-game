@@ -20,6 +20,7 @@
               },
               {
                 "label": "Media",
+                "entity": "Media",
                 "field": {
                   "label": "Media",
                   "fields": [
@@ -61,6 +62,7 @@
               },
               {
                 "label": "Media",
+                "entity": "Media",
                 "field": {
                   "label": "Media",
                   "fields": [
@@ -102,6 +104,9 @@
               }
             ]
           }
+        },
+        {
+          "label": "Dummy"
         }
       ]
     },
