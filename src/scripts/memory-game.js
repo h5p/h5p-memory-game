@@ -129,7 +129,11 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       }
       score = 1;
 
-      if (parameters.behaviour && parameters.behaviour.allowRetry) {
+      const isRetryAllowed = typeof parameters.behaviour?.enableRetry === 'boolean' ?
+        parameters.behaviour?.enableRetry :
+        parameters.behaviour?.allowRetry;
+
+      if (isRetryAllowed) {
         // Create retry button
         self.retryButton = H5P.Components.Button({
           label: parameters.l10n.tryAgain || 'Reset',
