@@ -59,7 +59,7 @@
       $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">'
                   + `<div class="h5p-front"${styles && styles.front ? styles.front : ''}>${styles && styles.backImage ? '' : '<span></span>'}</div>`
                   + `<div class="h5p-back"${styles && styles.back ? styles.back : ''}>${
-                    path ? `<img src="${path}" alt=""/>${audioPlayer ? '<button type=*buttom" class="h5p-memory-audio-button"></button>' : ''}` : '<i class="h5p-memory-audio-instead-of-image">'
+                    path ? `<img src="${path}" alt=""/>${audioPlayer ? '<button type="button" class="h5p-memory-audio-button"></button>' : ''}` : '<i class="h5p-memory-audio-instead-of-image">'
                   }</div>`
                 + '</div></li>');
 
