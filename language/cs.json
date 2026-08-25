@@ -96,6 +96,10 @@
           "default": "Zavřít"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Popisek hry",
           "default": "Paměťová hra. Najděte odpovídající karty. (Pexeso)."
         },

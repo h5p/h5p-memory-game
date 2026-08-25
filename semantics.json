@@ -193,6 +193,13 @@
         "default": "Close"
       },
       {
+        "label": "Play audio button label",
+        "importance": "low",
+        "name": "playAudio",
+        "type": "text",
+        "default": "Play Audio"
+      },
+      {
         "label": "Game label",
         "importance": "low",
         "name": "label",

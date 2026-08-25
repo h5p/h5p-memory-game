@@ -96,6 +96,10 @@
           "default": "Затвори"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Етикет на Играта",
           "default": "Имате ли добра памет? Намерете еднаквите карти"
         },

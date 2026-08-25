@@ -96,6 +96,10 @@
           "default": "Stäng"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Speletikett",
           "default": "Memory-spel. Hitta de matchande korten."
         },
