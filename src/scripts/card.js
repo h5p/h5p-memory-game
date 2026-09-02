@@ -117,10 +117,9 @@
 
       if (audioPlayer) {
         const audioLabel = l10n.playAudio;
-        $card.find('.h5p-memory-audio-button')
-          .attr('aria-label', audioLabel);
-
-        H5P.Tooltip($card.find('.h5p-memory-audio-button')[0], { position: 'top', text: audioLabel });
+        const $audioButton = $card.find('.h5p-memory-audio-button');
+        $audioButton.attr('aria-label', audioLabel);
+        H5P.Tooltip($audioButton[0], { position: 'top', text: audioLabel });
         $card.children('.h5p-back')
           .click(() => {
             if ($card.hasClass('h5p-memory-audio-playing')) {
