@@ -96,6 +96,10 @@
           "default": "ปิด"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "ป้ายเกม",
           "default": "เกมเมมโมรี: ค้นหาการ์ดที่จับคู่กัน"
         },

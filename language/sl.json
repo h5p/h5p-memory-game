@@ -96,6 +96,10 @@
           "default": "Zapri"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Besedilo aktivnosti spomin",
           "default": "Poveži pare kartic."
         },

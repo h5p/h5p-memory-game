@@ -96,6 +96,10 @@
           "default": "Sulje"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Pelin kuvaus",
           "default": "Muistipeli. Löydä parit."
         },

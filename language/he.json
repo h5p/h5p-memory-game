@@ -96,6 +96,10 @@
           "default": "סגור"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "תווית משחק",
           "default": "משחק זיכרון. מצא את הקלפים המתאימים."
         },

@@ -331,6 +331,9 @@
   box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.05);
 }
 .h5p-memory-audio-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   right: 0.1em;
   top: 0.1em;
@@ -347,13 +350,16 @@
   border: solid 2px var(--h5p-theme-ui-base);
   box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.05);
 }
+.h5p-memory-audio-button:focus-visible {
+  outline: 2px solid var(--h5p-theme-contrast-cta-white);
+  outline-offset: 2px;
+}
 .h5p-memory-audio-instead-of-image:before,
 .h5p-memory-audio-button:before {
   content: "\e941";
-  display: inline-flex;
-  width: 1em;
-  transform: translateX(-0.1em);
+  font-size: 10px;
 }
+
 .h5p-memory-audio-playing .h5p-memory-audio-instead-of-image:before,
 .h5p-memory-audio-playing .h5p-memory-audio-button:before {
   content: "\e942";

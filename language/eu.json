@@ -96,6 +96,10 @@
           "default": "Itxi"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Jokoaren etiketa",
           "default": "Memoria jokoa. Aurkitu pareko kartak."
         },
