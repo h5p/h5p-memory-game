@@ -96,6 +96,10 @@
           "default": "Zatvori"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Oznaka za igru",
           "default": "Memory igra. Pronađi kartu koja se podudara."
         },

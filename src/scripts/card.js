@@ -59,7 +59,7 @@
       $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">'
                   + `<div class="h5p-front"${styles && styles.front ? styles.front : ''}>${styles && styles.backImage ? '' : '<span></span>'}</div>`
                   + `<div class="h5p-back"${styles && styles.back ? styles.back : ''}>${
-                    path ? `<img src="${path}" alt=""/>${audioPlayer ? '<div class="h5p-memory-audio-button"></div>' : ''}` : '<i class="h5p-memory-audio-instead-of-image">'
+                    path ? `<img src="${path}" alt=""/>${audioPlayer ? '<button type="button" class="h5p-memory-audio-button"></button>' : ''}` : '<i class="h5p-memory-audio-instead-of-image">'
                   }</div>`
                 + '</div></li>');
 
@@ -116,6 +116,10 @@
         .end();
 
       if (audioPlayer) {
+        const audioLabel = l10n.playAudio;
+        const $audioButton = $card.find('.h5p-memory-audio-button');
+        $audioButton.attr('aria-label', audioLabel);
+        H5P.Tooltip($audioButton[0], { position: 'top', text: audioLabel });
         $card.children('.h5p-back')
           .click(() => {
             if ($card.hasClass('h5p-memory-audio-playing')) {

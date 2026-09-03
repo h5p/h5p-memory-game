@@ -40,6 +40,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         feedback: 'Good work!',
         tryAgain: 'Reset',
         closeLabel: 'Close',
+        playAudio: 'Play Audio',
         label: 'Memory Game. Find the matching cards.',
         labelInstructions: 'Use arrow keys left and right to navigate cards. Use space or enter key to turn card.',
         done: 'All of the cards have been found.',

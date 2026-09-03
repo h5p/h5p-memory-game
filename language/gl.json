@@ -96,6 +96,10 @@
           "default": "Pechar"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Etiqueta do xogo",
           "default": "Xogo de memoria. Atopa as tarxetas coincidentes."
         },

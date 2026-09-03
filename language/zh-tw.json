@@ -96,6 +96,10 @@
           "default": "關閉"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "遊戲名稱",
           "default": "翻轉記憶牌遊戲. 請找出相稱的記憶牌."
         },

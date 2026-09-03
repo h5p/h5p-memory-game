@@ -96,6 +96,10 @@
           "default": "Maak toe"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Spelletjie etiket",
           "default": "Geheue spelletjie. Vind die passend kaartjies."
         },

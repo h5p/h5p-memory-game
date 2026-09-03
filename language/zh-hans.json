@@ -96,6 +96,10 @@
           "default": "关闭"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "游戏说明的显示文字",
           "default": "卡片记忆游戏，找出配对的所有图片吧！"
         },

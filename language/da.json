@@ -96,6 +96,10 @@
           "default": "Luk"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Game label",
           "default": "Vendespil. Find de kort, der passer sammen."
         },

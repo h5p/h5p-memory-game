@@ -96,6 +96,10 @@
           "default": "Zamknij"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Etykieta gry",
           "default": "Gra Memory. Znajdź pasujące karty."
         },
