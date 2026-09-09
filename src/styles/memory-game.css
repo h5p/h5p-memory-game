@@ -366,3 +366,13 @@
 .h5p-memory-audio-playing .h5p-memory-audio-instead-of-image:before {
   transform: translateX(-0.1em);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .h5p-memory-game .h5p-memory-card .h5p-back,
+  .h5p-memory-game .h5p-memory-card .h5p-front,
+  .h5p-memory-game .h5p-memory-card,
+  .h5p-memory-game .h5p-feedback,
+  .h5p-memory-reset {
+    transition: none;
+  }
+}
