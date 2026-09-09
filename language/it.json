@@ -96,6 +96,10 @@
           "default": "Chiudi"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Etichetta del gioco",
           "default": "Gioco di memoria. Trova le carte corrispondenti"
         },

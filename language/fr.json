@@ -96,6 +96,10 @@
           "default": "Fermer"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Le nom du jeu",
           "default": "Jeu de mémoire. Trouver les cartes qui se correspondent."
         },

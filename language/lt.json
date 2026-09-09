@@ -96,6 +96,10 @@
           "default": "Uždaryti"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Žaidimo pavadinimas",
           "default": "Atminties žaidimas. Raskite atitinkančias korteles."
         },

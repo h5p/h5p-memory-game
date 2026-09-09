@@ -96,6 +96,10 @@
           "default": "بستن"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "default": "بازی حافظه. کارت‌های منطبق را پیدا کنید.",
           "label": "برچسب بازی"
         },

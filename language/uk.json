@@ -96,6 +96,10 @@
           "default": "Закрить"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Надпис гри",
           "default": "Гра на запам'ятовування. Знайди відповідні карточки."
         },

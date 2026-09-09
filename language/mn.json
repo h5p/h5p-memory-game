@@ -96,6 +96,10 @@
           "default": "Хаах"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Тоглоомын шошго",
           "default": "Санах ойн тоглоом. Тохирох картуудыг олоорой."
         },

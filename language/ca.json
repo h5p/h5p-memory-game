@@ -96,6 +96,10 @@
           "default": "Tanca"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Etiqueta del joc",
           "default": "Joc de memòria. Cerca les targetes coincidents."
         },

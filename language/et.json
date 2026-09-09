@@ -96,6 +96,10 @@
           "default": "Sulge"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Mängu pealkiri",
           "default": "Mälumäng. Leida sobituvad kaardid."
         },

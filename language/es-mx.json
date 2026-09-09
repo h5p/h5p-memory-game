@@ -96,6 +96,10 @@
           "default": "Cerrar"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Etiqueta del juego",
           "default": "Juego de Memoria. Encuentra las cartas que coinciden."
         },

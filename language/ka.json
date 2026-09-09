@@ -96,6 +96,10 @@
           "default": "დახურვა"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "თამაშის დასახელება",
           "default": "მეხსიერების გასავარჯიშებელი თამაში. მოძებნეთ შესაფერისი ბარათები."
         },

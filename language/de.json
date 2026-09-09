@@ -96,6 +96,10 @@
           "default": "Schließen"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Bezeichnung des Spiels",
           "default": "Memory - Finde die Kartenpaare!"
         },

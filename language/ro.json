@@ -96,6 +96,10 @@
           "default": "Închide"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Etichetă joc",
           "default": "Joc de Memorie. Găsește cartonașele potrivite."
         },

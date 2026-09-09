@@ -96,6 +96,10 @@
           "default": "Bezárás"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Játék felirata",
           "default": "Memóriajáték.Találja meg az összeillő kártyákat!"
         },

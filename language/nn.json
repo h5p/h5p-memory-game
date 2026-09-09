@@ -1,138 +1,142 @@
 {
-"semantics": [
-  {
-    "widgets": [
-      {
-        "label": "Standard"
-      }
-    ],
-    "label": "Kort",
-    "entity": "kort",
-    "field": {
+  "semantics": [
+    {
+      "widgets": [
+        {
+          "label": "Standard"
+        }
+      ],
       "label": "Kort",
+      "entity": "kort",
+      "field": {
+        "label": "Kort",
+        "fields": [
+          {
+            "label": "Bilete"
+          },
+          {
+            "label": "Alternativ tekst for bilete",
+            "description": "Beskriv biletet. Teksten blir brukt av skjermlesar."
+          },
+          {
+            "label": "Lydspor",
+            "description": "Valfri lyd som blir spelt når kortet blir snudd."
+          },
+          {
+            "label": "Tilhøyrande bilete",
+            "description": "Eit valfritt bilete som blir brukt som kort nummer to (i staden for å bruke to kort med same bilete)."
+          },
+          {
+            "label": "Alternativ tekst for tilhøyrande bilete",
+            "description": "Beskriv biletet. Teksten blir brukt av skjermlesar."
+          },
+          {
+            "label": "Lydspor til tilhøyrande bilete",
+            "description": "Valfri lyd som blir spelt når tilhøyrande bilete blir snudd."
+          },
+          {
+            "label": "Tilbakemelding",
+            "description": "Valfri kort tekst som dukkar opp når kortparet er funne."
+          }
+        ]
+      }
+    },
+    {
+      "label": "Oppgåveinnstillingar",
+      "description": "Desse innstillingane lar deg bestemme ulike funksjonar i spelet.",
       "fields": [
         {
-          "label": "Bilete"
+          "label": "Plasser korta i ein firkant",
+          "description": "Prøver å ordne korta i like mange kolonnar og rader. Storleiken på korta blir òg tilpassa."
         },
         {
-          "label": "Alternativ tekst for bilete",
-          "description": "Beskriv biletet. Teksten blir brukt av skjermlesar."
+          "label": "Antal kort som skal brukast",
+          "description": "Ved å setje talet høgare enn 2 vil spelet plukke tilfeldige kort frå lista over kort."
         },
         {
-          "label": "Lydspor",
-          "description": "Valfri lyd som blir spelt når kortet blir snudd."
+          "label": "Legg til knapp for å prøve på nytt når spelet er over"
+        }
+      ]
+    },
+    {
+      "label": "Tilpass utsjånad",
+      "description": "Vel korleis spelet skal sjå ut.",
+      "fields": [
+        {
+          "label": "Temafarge",
+          "description": "Vel ein farge for å skape ein stil eller ei stemning for spelet."
         },
         {
-          "label": "Tilhøyrande bilete",
-          "description": "Eit valfritt bilete som blir brukt som kort nummer to (i staden for å bruke to kort med same bilete)."
+          "label": "Kortbaksida",
+          "description": "Bruk ei tilpassa bakside for korta."
+        }
+      ]
+    },
+    {
+      "label": "Språktilpassing",
+      "fields": [
+        {
+          "label": "Tekst for snudde kort",
+          "default": "Snudde kort"
         },
         {
-          "label": "Alternativ tekst for tilhøyrande bilete",
-          "description": "Beskriv biletet. Teksten blir brukt av skjermlesar."
+          "label": "Tekst for brukt tid",
+          "default": "Tid brukt"
         },
         {
-          "label": "Lydspor til tilhøyrande bilete",
-          "description": "Valfri lyd som blir spelt når tilhøyrande bilete blir snudd."
+          "label": "Tilbakemeldingstekst",
+          "default": "Bra jobba!"
         },
         {
-          "label": "Tilbakemelding",
-          "description": "Valfri kort tekst som dukkar opp når kortparet er funne."
+          "label": "Tekst på knapp som lar brukar starte på nytt",
+          "default": "Ein gong til?"
+        },
+        {
+          "label": "Namn på “Lukk”-knapp",
+          "default": "Lukk"
+        },
+        {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
+          "label": "Beskrivelse av spel",
+          "default": "Memory-spel. Finn kortpara!"
+        },
+        {
+          "label": "Speleinstruksjonar",
+          "default": "Bruk venstre og høgre piltast for å gå frå kort til kort. Bruk mellomromstasten eller Enter-tasten for å snu korta."
+        },
+        {
+          "label": "Melding når spelet er avslutta",
+          "default": "Du har funne alle kortpara."
+        },
+        {
+          "label": "Etikett for kortnummer",
+          "description": "%num og %total er variablar som blir erstatta med tala for det aktuelle kortet.",
+          "default": "Kort %num av %total:"
+        },
+        {
+          "label": "Etikett for kort som ikkje er snudd",
+          "default": "Ikkje snudd. Vel for å snu."
+        },
+        {
+          "label": "Etikett for snudd kort",
+          "default": "Snudd."
+        },
+        {
+          "label": "Etikett når eit par er funne",
+          "default": "Du har funne eit par."
+        },
+        {
+          "label": "Melding når par er funne",
+          "default": "Du har funne eit par."
+        },
+        {
+          "label": "Melding når korta ikkje høyrer saman",
+          "default": "Korta høyrer ikkje saman. Snu andre kort for å prøve igjen."
         }
       ]
     }
-  },
-  {
-    "label": "Oppgåveinnstillingar",
-    "description": "Desse innstillingane lar deg bestemme ulike funksjonar i spelet.",
-    "fields": [
-      {
-        "label": "Plasser korta i ein firkant",
-        "description": "Prøver å ordne korta i like mange kolonnar og rader. Storleiken på korta blir òg tilpassa."
-      },
-      {
-        "label": "Antal kort som skal brukast",
-        "description": "Ved å setje talet høgare enn 2 vil spelet plukke tilfeldige kort frå lista over kort."
-      },
-      {
-        "label": "Legg til knapp for å prøve på nytt når spelet er over"
-      }
-    ]
-  },
-  {
-    "label": "Tilpass utsjånad",
-    "description": "Vel korleis spelet skal sjå ut.",
-    "fields": [
-      {
-        "label": "Temafarge",
-        "description": "Vel ein farge for å skape ein stil eller ei stemning for spelet."
-      },
-      {
-        "label": "Kortbaksida",
-        "description": "Bruk ei tilpassa bakside for korta."
-      }
-    ]
-  },
-  {
-    "label": "Språktilpassing",
-    "fields": [
-      {
-        "label": "Tekst for snudde kort",
-        "default": "Snudde kort"
-      },
-      {
-        "label": "Tekst for brukt tid",
-        "default": "Tid brukt"
-      },
-      {
-        "label": "Tilbakemeldingstekst",
-        "default": "Bra jobba!"
-      },
-      {
-        "label": "Tekst på knapp som lar brukar starte på nytt",
-        "default": "Ein gong til?"
-      },
-      {
-        "label": "Namn på “Lukk”-knapp",
-        "default": "Lukk"
-      },
-      {
-        "label": "Beskrivelse av spel",
-        "default": "Memory-spel. Finn kortpara!"
-      },
-      {
-        "label": "Speleinstruksjonar",
-        "default": "Bruk venstre og høgre piltast for å gå frå kort til kort. Bruk mellomromstasten eller Enter-tasten for å snu korta."
-      },
-      {
-        "label": "Melding når spelet er avslutta",
-        "default": "Du har funne alle kortpara."
-      },
-      {
-        "label": "Etikett for kortnummer",
-        "description": "%num og %total er variablar som blir erstatta med tala for det aktuelle kortet.",
-        "default": "Kort %num av %total:"
-      },
-      {
-        "label": "Etikett for kort som ikkje er snudd",
-        "default": "Ikkje snudd. Vel for å snu."
-      },
-      {
-        "label": "Etikett for snudd kort",
-        "default": "Snudd."
-      },
-      {
-        "label": "Etikett når eit par er funne",
-        "default": "Du har funne eit par."
-      },
-      {
-        "label": "Melding når par er funne",
-        "default": "Du har funne eit par."
-      },
-      {
-        "label": "Melding når korta ikkje høyrer saman",
-        "default": "Korta høyrer ikkje saman. Snu andre kort for å prøve igjen."
-      }
-    ]
-  }
-]
+  ]
 }

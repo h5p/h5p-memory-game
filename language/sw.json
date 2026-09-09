@@ -96,6 +96,10 @@
           "default": "Funga"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Lebo ya mchezo",
           "default": "Mchezo wa Kumbukizi. Tafuta kadi zinazolingana."
         },

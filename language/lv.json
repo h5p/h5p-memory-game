@@ -96,6 +96,10 @@
           "default": "Aizvērt"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Spēles etiķete",
           "default": "Atmiņas spēle. Atrodiet atbilstošās kartītes."
         },

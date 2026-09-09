@@ -96,6 +96,10 @@
           "default": "Afsluiten"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
           "label": "Label spel",
           "default": "Geheugenspel. Vind de overeenkomende kaarten."
         },
