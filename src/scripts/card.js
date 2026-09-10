@@ -36,6 +36,7 @@
     let $card;
     let $wrapper;
     let $image;
+    let $audioButton;
     let removedState;
     let flippedState;
     let audioPlayer;
@@ -56,11 +57,13 @@
     };
 
     self.buildDOM = () => {
+      const getButton = (className) => `<div role="button" tabIndex="-1" class="${className}"></div>`;
+      const cardContent = path
+        ? `<img src="${path}" alt=""/>${audioPlayer ? getButton('h5p-memory-audio-button') : ''}`
+        : getButton('h5p-memory-audio-instead-of-image');
       $wrapper = $('<li class="h5p-memory-wrap" tabindex="-1" role="button"><div class="h5p-memory-card">'
                   + `<div class="h5p-front"${styles && styles.front ? styles.front : ''}>${styles && styles.backImage ? '' : '<span></span>'}</div>`
-                  + `<div class="h5p-back"${styles && styles.back ? styles.back : ''}>${
-                    path ? `<img src="${path}" alt=""/>${audioPlayer ? '<button type="button" class="h5p-memory-audio-button"></button>' : ''}` : '<i class="h5p-memory-audio-instead-of-image">'
-                  }</div>`
+                  + `<div class="h5p-back"${styles && styles.back ? styles.back : ''}>${cardContent}</div>`
                 + '</div></li>');
 
       $wrapper.on('keydown', (event) => {
@@ -117,8 +120,17 @@
 
       if (audioPlayer) {
         const audioLabel = l10n.playAudio;
-        const $audioButton = $card.find('.h5p-memory-audio-button');
+        debugger;
+        $audioButton = $card.find('.h5p-memory-audio-button, .h5p-memory-audio-instead-of-image');
         $audioButton.attr('aria-label', audioLabel);
+        $audioButton
+          .on('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              event.stopPropagation();
+              $card.children('.h5p-back').trigger('click');
+            }
+          });
         H5P.Tooltip($audioButton[0], { position: 'top', text: audioLabel });
         $card.children('.h5p-back')
           .click(() => {
@@ -325,6 +337,9 @@
       if ($wrapper) {
         $wrapper.attr('tabindex', '0');
         this.isTabbable = true;
+        if (flippedState && $audioButton) {
+          $audioButton.attr('tabindex', '0');
+        }
       }
     };
 
@@ -335,6 +350,9 @@
       if ($wrapper) {
         $wrapper.attr('tabindex', '-1');
         this.isTabbable = false;
+        if ($audioButton) {
+          $audioButton.attr('tabindex', '-1');
+        }
       }
     };
 
