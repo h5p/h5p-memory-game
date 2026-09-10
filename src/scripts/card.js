@@ -22,15 +22,14 @@
    */
   MemoryGame.Card = function (image, contentId, cardsTotal, alt, l10n, description, styles, audio, id) {
     /** @alias H5P.MemoryGame.Card# */
-    const self = this;
 
     this.id = id;
 
     // Keep track of tabbable state
-    self.isTabbable = false;
+    this.isTabbable = false;
 
     // Initialize event inheritance
-    EventDispatcher.call(self);
+    EventDispatcher.call(this);
 
     let path;
     let $card;
@@ -40,6 +39,7 @@
     let removedState;
     let flippedState;
     let audioPlayer;
+    let audioTooltip;
 
     /**
      * Process HTML escaped string for use as attribute value,
@@ -56,7 +56,7 @@
       return div.textContent || div.innerText;
     };
 
-    self.buildDOM = () => {
+    this.buildDOM = () => {
       const getButton = (className) => `<div role="button" tabIndex="-1" class="${className}"></div>`;
       const cardContent = path
         ? `<img src="${path}" alt=""/>${audioPlayer ? getButton('h5p-memory-audio-button') : ''}`
@@ -70,37 +70,37 @@
         switch (event.code) {
           case 'Enter':
           case 'Space':
-            self.flip();
+            this.flip();
             event.preventDefault();
             return;
           case 'ArrowRight':
             // Move focus forward
-            self.trigger('next');
+            this.trigger('next');
             event.preventDefault();
             return;
           case 'ArrowDown':
             // Move focus down
-            self.trigger('down');
+            this.trigger('down');
             event.preventDefault();
             return;
           case 'ArrowLeft':
             // Move focus back
-            self.trigger('prev');
+            this.trigger('prev');
             event.preventDefault();
             return;
           case 'ArrowUp': // Up
             // Move focus up
-            self.trigger('up');
+            this.trigger('up');
             event.preventDefault();
             return;
           case 'End':
             // Move to last card
-            self.trigger('last');
+            this.trigger('last');
             event.preventDefault();
             return;
           case 'Home':
             // Move to first card
-            self.trigger('first');
+            this.trigger('first');
             event.preventDefault();
             break;
           default:
@@ -114,15 +114,13 @@
         .children('.h5p-front')
         .click((event) => {
           event.stopPropagation();
-          self.flip();
+          this.flip();
         })
         .end();
 
       if (audioPlayer) {
-        const audioLabel = l10n.playAudio;
-        debugger;
         $audioButton = $card.find('.h5p-memory-audio-button, .h5p-memory-audio-instead-of-image');
-        $audioButton.attr('aria-label', audioLabel);
+        this.toggleAudioButton(l10n.playAudio);
         $audioButton
           .on('keydown', (event) => {
             if (event.key === 'Enter' || event.key === ' ') {
@@ -131,11 +129,10 @@
               $card.children('.h5p-back').trigger('click');
             }
           });
-        H5P.Tooltip($audioButton[0], { position: 'top', text: audioLabel });
         $card.children('.h5p-back')
           .click(() => {
             if ($card.hasClass('h5p-memory-audio-playing')) {
-              self.stopAudio();
+              this.stopAudio();
             }
             else {
               audioPlayer.play();
@@ -173,16 +170,18 @@
         audioPlayer.controls = false;
         audioPlayer.preload = 'auto';
 
-        const handlePlaying = function () {
+        const handlePlaying = () => {
           if ($card) {
             $card.addClass('h5p-memory-audio-playing');
-            self.trigger('audioplay');
+            this.toggleAudioButton(l10n.pauseAudio);
+            this.trigger('audioplay');
           }
         };
-        const handleStopping = function () {
+        const handleStopping = () => {
           if ($card) {
             $card.removeClass('h5p-memory-audio-playing');
-            self.trigger('audiostop');
+            this.toggleAudioButton(l10n.playAudio);
+            this.trigger('audiostop');
           }
         };
         audioPlayer.addEventListener('play', handlePlaying);
@@ -191,13 +190,11 @@
       }
     }
 
-    this.buildDOM();
-
     /**
      * Get id of the card.
      * @returns {string} The id of the card. (originalIndex-sideNumber)
      */
-    this.getId = () => self.id;
+    this.getId = () => this.id;
 
     /**
      * Update the cards label to make it accessible to users with a readspeaker
@@ -206,7 +203,7 @@
      * @param {boolean} announce Announce the current state of the card
      * @param {boolean} reset Go back to the default label
      */
-    self.updateLabel = function (isMatched, announce, reset) {
+    this.updateLabel = (isMatched, announce, reset) => {
       // Determine new label from input params
       const imageAlt = alt ? ` ${alt}` : '';
 
@@ -241,7 +238,7 @@
      * @param {object} [params] Parameters.
      * @param {boolean} [params.restoring] True if card is being restored from a saved state.
      */
-    self.flip = function (params = {}) {
+    this.flip = (params = {}) => {
       if (flippedState) {
         $wrapper.blur().focus(); // Announce card label again
         return;
@@ -261,9 +258,9 @@
     /**
      * Flip card back.
      */
-    self.flipBack = function () {
-      self.stopAudio();
-      self.updateLabel(null, null, true); // Reset card label
+    this.flipBack = () => {
+      this.stopAudio();
+      this.updateLabel(null, null, true); // Reset card label
       $card.removeClass('h5p-flipped');
       $image.attr('alt', '');
       flippedState = false;
@@ -272,7 +269,7 @@
     /**
      * Remove.
      */
-    self.remove = function () {
+    this.remove = () => {
       $card.addClass('h5p-matched');
       removedState = true;
     };
@@ -280,9 +277,9 @@
     /**
      * Reset card to natural state
      */
-    self.reset = function () {
-      self.stopAudio();
-      self.updateLabel(null, null, true); // Reset card label
+    this.reset = () => {
+      this.stopAudio();
+      this.updateLabel(null, null, true); // Reset card label
       flippedState = false;
       removedState = false;
       $card[0].classList.remove('h5p-flipped', 'h5p-matched');
@@ -293,25 +290,21 @@
      *
      * @returns {string}
      */
-    self.getDescription = function () {
-      return description;
-    };
+    this.getDescription = () => description;
 
     /**
      * Get image clone.
      *
      * @returns {H5P.jQuery}
      */
-    self.getImage = function () {
-      return $card.find('img').clone();
-    };
+    this.getImage = () => $card.find('img').clone();
 
     /**
      * Append card to the given container.
      *
      * @param {H5P.jQuery} $container
      */
-    self.appendTo = function ($container) {
+    this.appendTo = ($container) => {
       $wrapper.appendTo($container);
 
       $wrapper.attr(
@@ -325,7 +318,7 @@
     /**
      * Re-append to parent container.
      */
-    self.reAppend = function () {
+    this.reAppend = () => {
       const parent = $wrapper[0].parentElement;
       parent.appendChild($wrapper[0]);
     };
@@ -333,7 +326,7 @@
     /**
      * Make the card accessible when tabbing
      */
-    self.makeTabbable = function () {
+    this.makeTabbable = () => {
       if ($wrapper) {
         $wrapper.attr('tabindex', '0');
         this.isTabbable = true;
@@ -346,7 +339,7 @@
     /**
      * Prevent tabbing to the card
      */
-    self.makeUntabbable = function () {
+    this.makeUntabbable = () => {
       if ($wrapper) {
         $wrapper.attr('tabindex', '-1');
         this.isTabbable = false;
@@ -359,8 +352,8 @@
     /**
      * Make card tabbable and move focus to it
      */
-    self.setFocus = function () {
-      self.makeTabbable();
+    this.setFocus = () => {
+      this.makeTabbable();
       if ($wrapper) {
         $wrapper.focus();
       }
@@ -381,12 +374,31 @@
     /**
      * Stop any audio track that might be playing.
      */
-    self.stopAudio = function () {
+    this.stopAudio = () => {
       if (audioPlayer) {
         audioPlayer.pause();
         audioPlayer.currentTime = 0;
       }
     };
+
+    /**
+     * @param {string} label The label to set for the audio button and the tooltip.
+     */
+    this.toggleAudioButton = (label) => {
+      if ($audioButton) {
+        $audioButton.attr('aria-label', label);
+        if (audioTooltip) {
+          audioTooltip.setText(label);
+        }
+        else {
+          audioTooltip = H5P.Tooltip($audioButton[0], {
+            position: 'top',
+            text: label,
+          });
+        }
+      }
+    };
+    this.buildDOM();
   };
 
   // Extends the event dispatcher
@@ -437,5 +449,4 @@
 
     return styles;
   };
-
 }(H5P.MemoryGame, H5P.EventDispatcher, H5P.jQuery));

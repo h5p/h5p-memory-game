@@ -100,6 +100,10 @@
           "default": "Play Audio"
         },
         {
+          "label": "Pause audio button label",
+          "default": "Pause Audio"
+        },
+        {
           "label": "Lebo ya mchezo",
           "default": "Mchezo wa Kumbukizi. Tafuta kadi zinazolingana."
         },

@@ -100,6 +100,10 @@
           "default": "Play Audio"
         },
         {
+          "label": "Pause audio button label",
+          "default": "Pause Audio"
+        },
+        {
           "label": "Ετικέτα παιχνιδιού",
           "default": "Παιχνίδι μνήμης. Αντιστοίχισε τις κάρτες που ταιριάζουν μεταξύ τους."
         },
