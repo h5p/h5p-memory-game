@@ -28,6 +28,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     let flipped; let timer; let counter; let popup;
     let $bottom; let $feedback; let $wrapper; let maxWidth; let numCols;
     let audioCard;
+    let $applicationLabel, ariaLiveRegion;
     const cards = [];
     let score = 0;
     numInstances++;
