@@ -26,7 +26,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     // Initialize event inheritance
     EventDispatcher.call(self);
 
-    var flipped, timer, counter, popup, $bottom, $feedback, $wrapper, maxWidth, numCols, audioCard;
+    var flipped, timer, counter, popup, $bottom, $feedback, $wrapper, maxWidth, numCols, audioCard, $applicationLabel, ariaLiveRegion;
     var cards = [];
     var score = 0;
     numInstances++;
