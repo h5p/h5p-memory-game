@@ -350,7 +350,7 @@
   width: 2em;
   height: 2em;
   &::before {
-  font-size: 1em;
+    font-size: 1em;
   }
 }
 
