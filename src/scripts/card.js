@@ -274,11 +274,11 @@
      */
     this.remove = () => {
       this.stopAudio();
-      $card.addClass('h5p-matched');
+      $wrapper.addClass('h5p-matched');
       removedState = true;
       if ($audioButton) {
-        $audioButton.attr('aria-disabled', 'true');
-        $audioButton.attr('tabindex', '-1');
+        $audioButton.attr('aria-disabled', 'true')
+          .attr('tabindex', '-1');
       }
     };
 
@@ -290,7 +290,8 @@
       this.updateLabel(null, null, true); // Reset card label
       flippedState = false;
       removedState = false;
-      $card[0].classList.remove('h5p-flipped', 'h5p-matched');
+      $wrapper.removeClass('h5p-matched');
+      $card[0].classList.remove('h5p-flipped');
     };
 
     /**
@@ -338,7 +339,7 @@
       if ($card) {
         $card.attr('tabindex', '0');
         this.isTabbable = true;
-        if (flippedState && $audioButton) {
+        if (flippedState && $audioButton && !removedState) {
           $audioButton.attr('tabindex', '0');
         }
       }
