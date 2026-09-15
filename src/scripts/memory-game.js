@@ -28,6 +28,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     let flipped; let timer; let counter; let popup;
     let $bottom; let $feedback; let $wrapper; let maxWidth; let numCols;
     let audioCard;
+    let $applicationLabel, ariaLiveRegion;
     const cards = [];
     let score = 0;
     numInstances++;
@@ -208,7 +209,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       if (self.retryButton) {
         $bottom[0].removeChild(self.retryButton.parentNode);
       }
-
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       setTimeout(() => {
         // Re-append to DOM after flipping back
         for (let i = 0; i < cards.length; i++) {
@@ -223,7 +224,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         maxWidth = -1;
         self.trigger('resize');
         moveFocus && cards[0].setFocus();
-      }, 600);
+      }, prefersReducedMotion ? 0 : 600);
     };
 
     /**
