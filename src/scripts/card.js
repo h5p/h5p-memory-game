@@ -57,7 +57,7 @@
     };
 
     this.buildDOM = () => {
-      const getButton = (className) => `<div role="button" tabindex="-1" class="${className}"></div>`;
+      const getButton = (className) => `<div role="button" tabindex="-1" aria-hidden="true" class="${className}"></div>`;
       const getAudioButton = () => `${audioPlayer ? getButton('h5p-memory-audio-button') : ''}`;
 
       $wrapper = $(`
@@ -340,7 +340,9 @@
         $card.attr('tabindex', '0');
         this.isTabbable = true;
         if (flippedState && $audioButton && !removedState) {
-          $audioButton.attr('tabindex', '0');
+          $audioButton.attr('aria-hidden', 'false')
+            .attr('aria-disabled', null)
+            .attr('tabindex', '0');
         }
       }
     };
@@ -353,7 +355,8 @@
         $card.attr('tabindex', '-1');
         this.isTabbable = false;
         if ($audioButton) {
-          $audioButton.attr('tabindex', '-1');
+          $audioButton.attr('aria-hidden', 'true')
+            .attr('tabindex', '-1');
         }
       }
     };
