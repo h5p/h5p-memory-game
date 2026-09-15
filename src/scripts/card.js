@@ -57,7 +57,7 @@
     };
 
     this.buildDOM = () => {
-      const getButton = (className) => `<div role="button" tabIndex="-1" class="h5p-back ${className}"></div>`;
+      const getButton = (className) => `<div role="button" tabindex="-1" class="${className}"></div>`;
       const getAudioButton = () => `${audioPlayer ? getButton('h5p-memory-audio-button') : ''}`;
 
       $wrapper = $(`
@@ -66,11 +66,14 @@
             <div class="h5p-front"${styles && styles.front ? styles.front : ''}>${styles && styles.backImage ? '' : '<span></span>'}</div>
             <div class="h5p-back"${styles && styles.back ? styles.back : ''}>${path ? `<img src="${path}" alt=""/>` : ''}</div>
           </div>
-          ${path ? getAudioButton() : getButton('h5p-memory-audio-instead-of-image')}
+          <div class="h5p-memory-audio-container">
+            ${path ? getAudioButton() : getButton('h5p-memory-audio-instead-of-image')}
+          </div>
         </li>
       `);
 
       $wrapper.on('keydown', (event) => {
+        this.stopAudio();
         switch (event.code) {
           case 'Enter':
           case 'Space':
@@ -126,16 +129,16 @@
         $audioButton = $wrapper.find('.h5p-memory-audio-button, .h5p-memory-audio-instead-of-image');
         this.toggleAudioButton(l10n.playAudio);
         $audioButton
+          .on('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            this.toggleAudio();
+          })
           .on('keydown', (event) => {
             if (event.key === 'Enter' || event.key === ' ') {
               event.preventDefault();
               event.stopPropagation();
-              if ($card.hasClass('h5p-memory-audio-playing')) {
-                this.stopAudio();
-              }
-              else {
-                audioPlayer.play();
-              }
+              this.toggleAudio();
             }
           });
       }
@@ -270,8 +273,13 @@
      * Remove.
      */
     this.remove = () => {
+      this.stopAudio();
       $card.addClass('h5p-matched');
       removedState = true;
+      if ($audioButton) {
+        $audioButton.attr('aria-disabled', 'true');
+        $audioButton.attr('tabindex', '-1');
+      }
     };
 
     /**
@@ -395,6 +403,19 @@
             position: 'top',
             text: label,
           });
+        }
+      }
+    };
+    /**
+     * Play or stop the audio for the card.
+     */
+    this.toggleAudio = () => {
+      if ($card) {
+        if ($card.hasClass('h5p-memory-audio-playing')) {
+          this.stopAudio();
+        }
+        else {
+          audioPlayer.play();
         }
       }
     };
