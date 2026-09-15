@@ -325,7 +325,7 @@
 .h5p-memory-game .h5p-memory-card.h5p-flipped + .h5p-memory-audio-container {
   transform: rotateY(0deg);
 }
-.h5p-memory-game .h5p-memory-wrap.h5p-matched + .h5p-memory-audio-container {
+.h5p-memory-game .h5p-memory-wrap.h5p-matched .h5p-memory-audio-container {
    pointer-events: none;
 }
 .h5p-memory-game .h5p-memory-audio-instead-of-image,
