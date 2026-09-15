@@ -335,8 +335,8 @@
   justify-content: center;
   position: absolute;
   font-family: 'h5p-theme';
-  width: 1em;
-  height: 1em;
+  width: 2em;
+  height: 2em;
   background-color: color-mix(in srgb, var(--h5p-theme-main-cta-base), transparent 10%);
   color: var(--h5p-theme-contrast-cta);
   border-radius: 50%;
@@ -352,21 +352,13 @@
   }
 }
 .h5p-memory-game .h5p-memory-audio-button {
-  right: calc(0.3em*var(--h5p-theme-scaling));
   top: calc(0.2em*var(--h5p-theme-scaling));
-  &::before {
-    font-size: 0.5em;
-  } 
+  right: calc(0.3em*var(--h5p-theme-scaling));
 }
 .h5p-memory-game .h5p-memory-audio-instead-of-image {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 2em;
-  height: 2em;
-  &::before {
-    font-size: 1em;
-  }
 }
 .h5p-memory-game .h5p-memory-card.h5p-memory-audio-playing + .h5p-memory-audio-container *::before {
   content: "\e942";
