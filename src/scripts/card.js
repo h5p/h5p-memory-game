@@ -297,6 +297,10 @@
       removedState = false;
       wrapper.classList.remove('h5p-matched');
       card.classList.remove('h5p-flipped');
+      if (audioButton) {
+        audioButton.setAttribute('aria-hidden', 'true');
+        audioButton.disabled = true;
+      }
     };
 
     /**
@@ -345,21 +349,21 @@
         card.setAttribute('tabindex', '0');
         this.isTabbable = true;
         if (flippedState && audioButton && !removedState) {
-          audioButton.setAttribute('aria-hidden', 'false');
+          audioButton.removeAttribute('aria-hidden');
           audioButton.disabled = false;
         }
       }
     };
-
     /**
      * Prevent tabbing to the card
-     */
+    */
     this.makeUntabbable = () => {
       if (card) {
         card.setAttribute('tabindex', '-1');
         this.isTabbable = false;
         if (audioButton) {
-          audioButton.hidden = true;
+          audioButton.setAttribute('aria-hidden', 'true');
+          audioButton.disabled = true;
         }
       }
     };
