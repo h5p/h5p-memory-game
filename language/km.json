@@ -96,6 +96,14 @@
           "default": "បិទ"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
+          "label": "Pause audio button label",
+          "default": "Pause Audio"
+        },
+        {
           "label": "Game label",
           "default": "ល្បែងចងចាំ! រកកាតដែលផ្គូផ្គង"
         },

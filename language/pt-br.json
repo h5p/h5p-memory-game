@@ -96,6 +96,14 @@
           "default": "Fechar"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
+          "label": "Pause audio button label",
+          "default": "Pause Audio"
+        },
+        {
           "label": "Rótulo do jogo",
           "default": "Jogo da memória. Forme pares de cartas."
         },

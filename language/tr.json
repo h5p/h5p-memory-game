@@ -96,6 +96,14 @@
           "default": "Kapat"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
+          "label": "Pause audio button label",
+          "default": "Pause Audio"
+        },
+        {
           "label": "Oyun Başlığı",
           "default": "Hazfıza oyunu. Kartları eşleştirin."
         },
