@@ -100,6 +100,10 @@
           "default": "Play Audio"
         },
         {
+          "label": "Pause audio button label",
+          "default": "Pause Audio"
+        },
+        {
           "label": "Etichetta del gioco",
           "default": "Gioco di memoria. Trova le carte corrispondenti"
         },

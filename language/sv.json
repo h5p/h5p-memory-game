@@ -100,6 +100,10 @@
           "default": "Play Audio"
         },
         {
+          "label": "Pause audio button label",
+          "default": "Pause Audio"
+        },
+        {
           "label": "Speletikett",
           "default": "Memory-spel. Hitta de matchande korten."
         },

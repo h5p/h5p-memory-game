@@ -100,6 +100,10 @@
           "default": "Play Audio"
         },
         {
+          "label": "Pause audio button label",
+          "default": "Pause Audio"
+        },
+        {
           "label": "Game label",
           "default": "ކާޑު ހޯދަމާ"
         },

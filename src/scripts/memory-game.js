@@ -28,6 +28,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     let flipped; let timer; let counter; let popup;
     let $bottom; let $feedback; let $wrapper; let maxWidth; let numCols;
     let audioCard;
+    let $applicationLabel, ariaLiveRegion;
     const cards = [];
     let score = 0;
     numInstances++;
@@ -41,6 +42,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         tryAgain: 'Reset',
         closeLabel: 'Close',
         playAudio: 'Play Audio',
+        pauseAudio: 'Pause Audio',
         label: 'Memory Game. Find the matching cards.',
         labelInstructions: 'Use arrow keys left and right to navigate cards. Use space or enter key to turn card.',
         done: 'All of the cards have been found.',
