@@ -73,7 +73,6 @@
       `;
 
       wrapper.addEventListener('keydown', (event) => {
-        this.stopAudio();
         switch (event.code) {
           case 'Enter':
           case 'Space':

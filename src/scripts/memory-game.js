@@ -379,6 +379,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
           }
 
           // Move focus
+          cards[currentIndex].stopAudio();
           cards[currentIndex].makeUntabbable();
           cards[adjacentIndex].setFocus();
         };
