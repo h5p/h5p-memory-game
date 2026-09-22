@@ -117,7 +117,8 @@
       cardImage = wrapper.querySelector('img');
 
       card = wrapper.querySelector('.h5p-memory-card');
-      wrapper.querySelector('.h5p-front').addEventListener('click', (event) => {
+      wrapper.addEventListener('click', (event) => {
+        event.preventDefault();
         event.stopPropagation();
         this.flip();
       });
