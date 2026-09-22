@@ -57,7 +57,7 @@
     };
 
     this.buildDOM = () => {
-      const getButton = (className) => `<button aria-hidden="true" class="${className}" disabled></button>`;
+      const getButton = (className) => `<button aria-hidden="true" tabindex="-1" class="${className}"></button>`;
       const getAudioButton = () => `${audioPlayer ? getButton('h5p-memory-audio-button') : ''}`;
 
       wrapper = document.createElement('li');
@@ -73,7 +73,6 @@
       `;
 
       wrapper.addEventListener('keydown', (event) => {
-        this.stopAudio();
         switch (event.code) {
           case 'Enter':
           case 'Space':
@@ -118,7 +117,8 @@
       cardImage = wrapper.querySelector('img');
 
       card = wrapper.querySelector('.h5p-memory-card');
-      wrapper.querySelector('.h5p-front').addEventListener('click', (event) => {
+      wrapper.addEventListener('click', (event) => {
+        event.preventDefault();
         event.stopPropagation();
         this.flip();
       });
@@ -282,9 +282,7 @@
       this.stopAudio();
       wrapper.classList.add('h5p-matched');
       removedState = true;
-      if (audioButton) {
-        audioButton.disabled = true;
-      }
+      this.updateAudioButtonState();
     };
 
     /**
@@ -297,10 +295,7 @@
       removedState = false;
       wrapper.classList.remove('h5p-matched');
       card.classList.remove('h5p-flipped');
-      if (audioButton) {
-        audioButton.setAttribute('aria-hidden', 'true');
-        audioButton.disabled = true;
-      }
+      this.updateAudioButtonState();
     };
 
     /**
@@ -348,10 +343,7 @@
       if (card) {
         card.setAttribute('tabindex', '0');
         this.isTabbable = true;
-        if (flippedState && audioButton && !removedState) {
-          audioButton.removeAttribute('aria-hidden');
-          audioButton.disabled = false;
-        }
+        this.updateAudioButtonState();
       }
     };
     /**
@@ -361,10 +353,7 @@
       if (card) {
         card.setAttribute('tabindex', '-1');
         this.isTabbable = false;
-        if (audioButton) {
-          audioButton.setAttribute('aria-hidden', 'true');
-          audioButton.disabled = true;
-        }
+        this.updateAudioButtonState();
       }
     };
 
@@ -427,6 +416,18 @@
         }
         else {
           audioPlayer.play();
+        }
+      }
+    };
+    this.updateAudioButtonState = () => {
+      if (audioButton) {
+        if (!flippedState || removedState) {
+          audioButton.setAttribute('aria-hidden', 'true');
+          audioButton.tabIndex = -1;
+        }
+        else {
+          audioButton.removeAttribute('aria-hidden');
+          audioButton.tabIndex = 0;
         }
       }
     };
