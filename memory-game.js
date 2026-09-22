@@ -836,7 +836,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         return this.wasReset ? {} : undefined;
       }
 
-      cardsState = cards.map((card) => {
+      const cardsState = cards.map((card) => {
         const flipped = card.isFlipped();
         const removed = card.isRemoved();
 
