@@ -95,6 +95,14 @@
           "default": "Close"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
+          "label": "Pause audio button label",
+          "default": "Pause Audio"
+        },
+        {
           "label": "Game label",
           "default": "Memory Game. Find the matching cards."
         },

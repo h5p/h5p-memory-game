@@ -18,13 +18,6 @@
   font-size: calc(var(--h5p-theme-spacing-s)*1.25);
   box-sizing: border-box;
 }
-.h5p-memory-game .h5p-memory-card,
-.h5p-memory-game .h5p-memory-card .h5p-back,
-.h5p-memory-game .h5p-memory-card .h5p-front {
-  width: 6.25em;
-  height: 6.25em;
-  user-select: none;
-}
 .h5p-memory-game img {
   -webkit-user-drag: none;
   display: inline-block;
@@ -36,33 +29,44 @@
   height: 100%;
 }
 .h5p-memory-game .h5p-memory-wrap {
+  position: relative;
   float: left;
   text-align: center;
   background-image: none;
   margin: 0;
   padding: 0;
-}
-.h5p-memory-game .h5p-memory-wrap:focus-visible {
-  outline: 2px ridge var(--h5p-theme-contrast-cta-white);
-  border-radius: var(--h5p-theme-border-radius-small, 4px);
+  transition: opacity 0.4s, filter 0.4s;
 }
 .h5p-memory-game .h5p-memory-card {
   display: inline-block;
   outline: none;
   position: relative;
-  margin: 0.75em 0.5em;
-  padding: 0;
+  box-sizing: border-box;
+  width: calc(7.25em*var(--h5p-theme-scaling));
+  height: calc(7.75em*var(--h5p-theme-scaling));
   background: transparent;
   perspective: 25em;
-  transition: opacity 0.4s, filter 0.4s;
+}
+.h5p-memory-game .h5p-memory-audio-container {
+  position: absolute;
+  box-sizing: border-box;
+  width:  calc(6.25em*var(--h5p-theme-scaling));
+  height: calc(6.25em*var(--h5p-theme-scaling));
+  top: calc(0.75em*var(--h5p-theme-scaling));
+  left: calc(0.5em*var(--h5p-theme-scaling));
+  perspective: 25em;
+  backface-visibility: hidden;
+  transform: rotateY(-180deg);
+  transition: transform 0.6s;
+  user-select: none;
 }
 .h5p-memory-game .h5p-memory-card .h5p-back,
 .h5p-memory-game .h5p-memory-card .h5p-front {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width:  calc(6.25em*var(--h5p-theme-scaling));
+  height: calc(6.25em*var(--h5p-theme-scaling));
+  top: calc(0.75em*var(--h5p-theme-scaling));
+  left: calc(0.5em*var(--h5p-theme-scaling));
   background: var(--h5p-theme-alternative-base);
   background-size: cover;
   border: 2px solid var(--h5p-theme-alternative-dark);
@@ -72,10 +76,15 @@
   transform: translateZ(0);
   transition: transform 0.6s;
   transform-style: preserve-3d;
+  user-select: none;
 }
 .h5p-memory-game .h5p-memory-card .h5p-front {
   cursor: pointer;
   text-align: center;
+}
+.h5p-memory-game .h5p-memory-card:focus-visible {
+  outline: 2px ridge var(--h5p-theme-contrast-cta-white);
+  border-radius: var(--h5p-theme-border-radius-small, 4px);
 }
 .h5p-memory-game .h5p-memory-card .h5p-front:before,
 .h5p-memory-game .h5p-memory-card .h5p-back:before,
@@ -134,13 +143,13 @@
 .h5p-memory-game .h5p-memory-card.h5p-flipped .h5p-front {
   transform: rotateY(180deg);
 }
-.h5p-memory-game .h5p-memory-card.h5p-matched {
+.h5p-memory-game .h5p-memory-wrap.h5p-matched {
   opacity: 0.3;
 }
-.h5p-memory-game .h5p-memory-card.h5p-matched img {
+.h5p-memory-game .h5p-memory-wrap.h5p-matched img {
   filter: grayscale(100%);
 }
-.h5p-memory-game .h5p-memory-card.h5p-matched .h5p-front{
+.h5p-memory-game .h5p-memory-wrap.h5p-matched .h5p-front{
   background-image: none;
 }
 .h5p-memory-game .h5p-question-feedback-content-text{
@@ -313,60 +322,47 @@
 .h5p-memory-game .h5p-programatically-focusable {
   outline: none;
 }
-.h5p-memory-audio-instead-of-image {
-  font-family: 'h5p-theme';
-  width: 100%;
-  height: 100%;
-  font-style: normal;
-  padding: 0.5em;
-  width: 2em;
-  height: 2em;
-  line-height: 2em;
-  background-color: color-mix(in srgb, var(--h5p-theme-main-cta-base), transparent 10%);
-  color: var(--h5p-theme-contrast-cta);
-  border-radius: 50%;
-  cursor: pointer;
-  text-align: center;
-  border: solid 2px var(--h5p-theme-ui-base);
-  box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.05);
+.h5p-memory-game .h5p-memory-card.h5p-flipped + .h5p-memory-audio-container {
+  transform: rotateY(0deg);
 }
-.h5p-memory-audio-button {
-  position: absolute;
-  right: 0.1em;
-  top: 0.1em;
-  font-family: 'h5p-theme';
-  font-size: 12px;
-  width: 2em;
-  height: 2em;
-  line-height: 2em;
-  background-color: color-mix(in srgb, var(--h5p-theme-main-cta-base), transparent 10%);
-  color: var(--h5p-theme-contrast-cta);
-  border-radius: 50%;
-  cursor: pointer;
-  text-align: center;
-  border: solid 2px var(--h5p-theme-ui-base);
-  box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.05);
+.h5p-memory-game .h5p-memory-wrap.h5p-matched .h5p-memory-audio-container {
+   pointer-events: none;
 }
-.h5p-memory-audio-instead-of-image:before,
-.h5p-memory-audio-button:before {
-  content: "\e941";
+.h5p-memory-game .h5p-memory-audio-instead-of-image,
+.h5p-memory-game .h5p-memory-audio-button {
   display: inline-flex;
-  width: 1em;
-  transform: translateX(-0.1em);
-}
-.h5p-memory-audio-playing .h5p-memory-audio-instead-of-image:before,
-.h5p-memory-audio-playing .h5p-memory-audio-button:before {
-  content: "\e942";
+  align-items: center;
+  justify-content: center;
+  position: absolute;
   font-family: 'h5p-theme';
+  width: 2em;
+  height: 2em;
+  background-color: color-mix(in srgb, var(--h5p-theme-main-cta-base), transparent 10%);
+  color: var(--h5p-theme-contrast-cta);
+  border-radius: 50%;
+  cursor: pointer;
+  border: solid 2px var(--h5p-theme-ui-base);
+  box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.05);
+  &::before {
+    content: "\e941";
+  } 
+  &:focus-visible {
+    outline: 2px solid var(--h5p-theme-contrast-cta-white);
+    outline-offset: 2px;
+  }
 }
-.h5p-memory-audio-instead-of-image:before {
-  transform: translateX(-0.12em);
+.h5p-memory-game .h5p-memory-audio-button {
+  top: calc(0.2em*var(--h5p-theme-scaling));
+  right: calc(0.3em*var(--h5p-theme-scaling));
 }
-
-.h5p-memory-audio-playing .h5p-memory-audio-instead-of-image:before {
-  transform: translateX(-0.1em);
+.h5p-memory-game .h5p-memory-audio-instead-of-image {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
+.h5p-memory-game .h5p-memory-card.h5p-memory-audio-playing + .h5p-memory-audio-container *::before {
+  content: "\e942";
+}
 @media (prefers-reduced-motion: reduce) {
   .h5p-memory-game .h5p-memory-card .h5p-back,
   .h5p-memory-game .h5p-memory-card .h5p-front,

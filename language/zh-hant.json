@@ -96,6 +96,14 @@
           "default": "關閉"
         },
         {
+          "label": "Play audio button label",
+          "default": "Play Audio"
+        },
+        {
+          "label": "Pause audio button label",
+          "default": "Pause Audio"
+        },
+        {
           "label": "遊戲說明的顯示文字",
           "default": "卡片記憶遊戲，找出配對的所有卡片吧！"
         },

@@ -193,6 +193,20 @@
         "default": "Close"
       },
       {
+        "label": "Play audio button label",
+        "importance": "low",
+        "name": "playAudio",
+        "type": "text",
+        "default": "Play Audio"
+      },
+      {
+        "label": "Pause audio button label",
+        "importance": "low",
+        "name": "pauseAudio",
+        "type": "text",
+        "default": "Pause audio"
+      },
+      {
         "label": "Game label",
         "importance": "low",
         "name": "label",
