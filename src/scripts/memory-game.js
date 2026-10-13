@@ -303,7 +303,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         // Announce the card unless it's the last one and it's correct
         const isMatched = (flipped === mate);
-        const isLast = cards.every((card) => card.isRemoved());
+        const isLast = cards.every((currentCard) => currentCard.isRemoved());
 
         card.updateLabel(isMatched, !(isMatched && isLast));
 
@@ -361,7 +361,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       const createCardChangeFocusHandler = function (direction) {
         return function () {
           // Get current card index
-          const currentIndex = cards.map((card) => card.isTabbable).indexOf(true);
+          const currentIndex = cards.map((currentCard) => currentCard.isTabbable).indexOf(true);
 
           if (currentIndex === -1) {
             return; // No tabbable card found
@@ -503,12 +503,12 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     // Create cards to be used in the game
     cardOrder.forEach((cardId) => {
-      const card = cardsPool.find((card) => card.getId() === cardId);
+      const card = cardsPool.find((currentCard) => currentCard.getId() === cardId);
       const matchId = (cardId.split('-')[1] === '1')
         ? cardId.replace('-1', '-2')
         : cardId.replace('-2', '-1');
 
-      const match = cardsPool.find((card) => card.getId() === matchId);
+      const match = cardsPool.find((currentCard) => currentCard.getId() === matchId);
       addCard(card, match);
     });
 
@@ -524,7 +524,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     // Restore state of cards
     this.previousState.cards?.forEach((cardState) => {
-      const card = cards.find((card) => card.getId() === cardState.id);
+      const card = cards.find((currentCard) => currentCard.getId() === cardState.id);
       if (!card) {
         return;
       }
@@ -542,7 +542,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         */
       if (getNumFlipped() % 2 === 1) {
         flipped = cards
-          .filter((card) => card.isFlipped() && !getCardMate(card).isFlipped())
+          .filter((currentCard) => currentCard.isFlipped() && !getCardMate(currentCard).isFlipped())
           .shift();
       }
     });
