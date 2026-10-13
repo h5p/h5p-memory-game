@@ -303,7 +303,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
         // Announce the card unless it's the last one and it's correct
         const isMatched = (flipped === mate);
-        const isLast = cards.every((card) => card.isRemoved());
+        const isLast = cards.every((currentCard) => currentCard.isRemoved());
 
         card.updateLabel(isMatched, !(isMatched && isLast));
 
@@ -361,7 +361,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       const createCardChangeFocusHandler = function (direction) {
         return function () {
           // Get current card index
-          const currentIndex = cards.map((card) => card.isTabbable).indexOf(true);
+          const currentIndex = cards.map((currentCard) => currentCard.isTabbable).indexOf(true);
 
           if (currentIndex === -1) {
             return; // No tabbable card found
@@ -503,18 +503,28 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     // Create cards to be used in the game
     cardOrder.forEach((cardId) => {
-      const card = cardsPool.find((card) => card.getId() === cardId);
+      const card = cardsPool.find((currentCard) => currentCard.getId() === cardId);
       const matchId = (cardId.split('-')[1] === '1')
         ? cardId.replace('-1', '-2')
         : cardId.replace('-2', '-1');
 
-      const match = cardsPool.find((card) => card.getId() === matchId);
+      const match = cardsPool.find((currentCard) => currentCard.getId() === matchId);
       addCard(card, match);
     });
 
+    // Build DOM elements to be attached later
+    const $list = $('<ul/>', {
+      role: 'application',
+      'aria-labelledby': `h5p-intro-${numInstances}`,
+    });
+
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].appendTo($list);
+    }
+
     // Restore state of cards
     this.previousState.cards?.forEach((cardState) => {
-      const card = cards.find((card) => card.getId() === cardState.id);
+      const card = cards.find((currentCard) => currentCard.getId() === cardState.id);
       if (!card) {
         return;
       }
@@ -532,7 +542,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
         */
       if (getNumFlipped() % 2 === 1) {
         flipped = cards
-          .filter((card) => card.isFlipped() && !getCardMate(card).isFlipped())
+          .filter((currentCard) => currentCard.isFlipped() && !getCardMate(currentCard).isFlipped())
           .shift();
       }
     });
@@ -545,16 +555,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
     // Set score before DOM is attached to page
     if (cards.every((card) => card.isRemoved())) {
       score = 1;
-    }
-
-    // Build DOM elements to be attached later
-    const $list = $('<ul/>', {
-      role: 'application',
-      'aria-labelledby': `h5p-intro-${numInstances}`,
-    });
-
-    for (let i = 0; i < cards.length; i++) {
-      cards[i].appendTo($list);
     }
 
     if (cards.length) {
@@ -599,7 +599,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       ariaLiveRegion = new MemoryGame.AriaLiveRegion();
     }
     else {
-      const $foo = $('<div/>')
+      $('<div/>')
         .text('No card was added to the memory game!')
         .appendTo($list);
 
