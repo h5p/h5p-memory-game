@@ -503,14 +503,24 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
 
     // Create cards to be used in the game
     cardOrder.forEach((cardId) => {
-      const card = cardsPool.find((card) => card.getId() === cardId);
+      const card = cardsPool.find((c) => c.getId() === cardId);
       const matchId = (cardId.split('-')[1] === '1')
         ? cardId.replace('-1', '-2')
         : cardId.replace('-2', '-1');
 
-      const match = cardsPool.find((card) => card.getId() === matchId);
+      const match = cardsPool.find((c) => c.getId() === matchId);
       addCard(card, match);
     });
+
+    // Build DOM elements to be attached later
+    const $list = $('<ul/>', {
+      role: 'application',
+      'aria-labelledby': `h5p-intro-${numInstances}`,
+    });
+
+    for (let i = 0; i < cards.length; i++) {
+      cards[i].appendTo($list);
+    }
 
     // Restore state of cards
     this.previousState.cards?.forEach((cardState) => {
@@ -547,16 +557,6 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       score = 1;
     }
 
-    // Build DOM elements to be attached later
-    const $list = $('<ul/>', {
-      role: 'application',
-      'aria-labelledby': `h5p-intro-${numInstances}`,
-    });
-
-    for (let i = 0; i < cards.length; i++) {
-      cards[i].appendTo($list);
-    }
-
     if (cards.length) {
       // Make first available card tabbable
       cards.filter((card) => !card.isRemoved())[0]?.makeTabbable();
@@ -574,7 +574,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       $feedback = $(`<div class="h5p-feedback h5p-question-feedback-content-text">${parameters.l10n.feedback}</div>`).appendTo($bottom);
 
       // Add status bar
-      var $status = $('<dl class="h5p-status">'
+      const $status = $('<dl class="h5p-status">'
                       + '<dd class="h5p-time-spent"><time role="timer" datetime="PT0M0S">0:00</time><span class="h5p-memory-hidden-read">.</span></dd>'
                       + '<dd class="h5p-card-turns">0<span class="h5p-memory-hidden-read">.</span></dd>'
                       + '</dl>').appendTo($bottom);
@@ -599,7 +599,7 @@ H5P.MemoryGame = (function (EventDispatcher, $) {
       ariaLiveRegion = new MemoryGame.AriaLiveRegion();
     }
     else {
-      const $foo = $('<div/>')
+      $('<div/>')
         .text('No card was added to the memory game!')
         .appendTo($list);
 
