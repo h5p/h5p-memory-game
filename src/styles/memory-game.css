@@ -42,18 +42,18 @@
   outline: none;
   position: relative;
   box-sizing: border-box;
-  width: calc(7.25em*var(--h5p-theme-scaling));
-  height: calc(7.75em*var(--h5p-theme-scaling));
+  width: 7.25em;
+  height: 7.25em;
   background: transparent;
   perspective: 25em;
 }
 .h5p-memory-game .h5p-memory-audio-container {
   position: absolute;
   box-sizing: border-box;
-  width:  calc(6.25em*var(--h5p-theme-scaling));
-  height: calc(6.25em*var(--h5p-theme-scaling));
-  top: calc(0.75em*var(--h5p-theme-scaling));
-  left: calc(0.5em*var(--h5p-theme-scaling));
+  width: 6.25em;
+  height: 6.25em;
+  top: 0.75em;
+  left: 0.5em;
   perspective: 25em;
   backface-visibility: hidden;
   transform: rotateY(-180deg);
@@ -63,10 +63,10 @@
 .h5p-memory-game .h5p-memory-card .h5p-back,
 .h5p-memory-game .h5p-memory-card .h5p-front {
   position: absolute;
-  width:  calc(6.25em*var(--h5p-theme-scaling));
-  height: calc(6.25em*var(--h5p-theme-scaling));
-  top: calc(0.75em*var(--h5p-theme-scaling));
-  left: calc(0.5em*var(--h5p-theme-scaling));
+  width: 6.25em;
+  height: 6.25em;
+  top: 0.75em;
+  left: 0.5em;
   background: var(--h5p-theme-alternative-base);
   background-size: cover;
   border: 2px solid var(--h5p-theme-alternative-dark);
@@ -363,6 +363,7 @@
 .h5p-memory-game .h5p-memory-card.h5p-memory-audio-playing + .h5p-memory-audio-container *::before {
   content: "\e942";
 }
+
 @media (prefers-reduced-motion: reduce) {
   .h5p-memory-game .h5p-memory-card .h5p-back,
   .h5p-memory-game .h5p-memory-card .h5p-front,
