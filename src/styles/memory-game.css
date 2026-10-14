@@ -240,7 +240,6 @@
 }
 .h5p-memory-game .h5p-memory-image {
   display: inline-block;
-  line-height: calc(5.83em*var(--h5p-theme-scaling));
   position: relative;
   top: calc(1.5em*var(--h5p-theme-scaling));
   left: calc(-0.5em*var(--h5p-theme-scaling));
