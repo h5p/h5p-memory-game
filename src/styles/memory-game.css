@@ -352,8 +352,8 @@
   }
 }
 .h5p-memory-game .h5p-memory-audio-button {
-  top: calc(0.2em*var(--h5p-theme-scaling));
-  right: calc(0.3em*var(--h5p-theme-scaling));
+  top: 0.2em;
+  right: 0.3em;
 }
 .h5p-memory-game .h5p-memory-audio-instead-of-image {
   width: 3em;
