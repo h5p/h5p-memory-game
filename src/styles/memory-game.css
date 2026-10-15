@@ -343,8 +343,7 @@
   border: solid 2px var(--h5p-theme-ui-base);
   box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.05);
   &::before {
-    content: "\e941";
-   
+    content: "\e941";   
   } 
   &:focus-visible {
     outline: 2px solid var(--h5p-theme-contrast-cta-white);
@@ -352,7 +351,6 @@
   }
 }
 .h5p-memory-game .h5p-memory-audio-button {
-  font-size: 12px;
   top: 0.2em;
   right: 0.3em;
 }
