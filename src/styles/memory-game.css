@@ -42,18 +42,18 @@
   outline: none;
   position: relative;
   box-sizing: border-box;
-  width: calc(7.25em*var(--h5p-theme-scaling));
-  height: calc(7.75em*var(--h5p-theme-scaling));
+  width: 7.25em;
+  height: 7.75em;
   background: transparent;
   perspective: 25em;
 }
 .h5p-memory-game .h5p-memory-audio-container {
   position: absolute;
   box-sizing: border-box;
-  width:  calc(6.25em*var(--h5p-theme-scaling));
-  height: calc(6.25em*var(--h5p-theme-scaling));
-  top: calc(0.75em*var(--h5p-theme-scaling));
-  left: calc(0.5em*var(--h5p-theme-scaling));
+  width: 6.25em;
+  height: 6.25em;
+  top: 0.75em;
+  left: 0.5em;
   perspective: 25em;
   backface-visibility: hidden;
   transform: rotateY(-180deg);
@@ -63,10 +63,10 @@
 .h5p-memory-game .h5p-memory-card .h5p-back,
 .h5p-memory-game .h5p-memory-card .h5p-front {
   position: absolute;
-  width:  calc(6.25em*var(--h5p-theme-scaling));
-  height: calc(6.25em*var(--h5p-theme-scaling));
-  top: calc(0.75em*var(--h5p-theme-scaling));
-  left: calc(0.5em*var(--h5p-theme-scaling));
+  width: 6.25em;
+  height: 6.25em;
+  top: 0.75em;
+  left: 0.5em;
   background: var(--h5p-theme-alternative-base);
   background-size: cover;
   border: 2px solid var(--h5p-theme-alternative-dark);
@@ -240,7 +240,6 @@
 }
 .h5p-memory-game .h5p-memory-image {
   display: inline-block;
-  line-height: calc(5.83em*var(--h5p-theme-scaling));
   position: relative;
   top: calc(1.5em*var(--h5p-theme-scaling));
   left: calc(-0.5em*var(--h5p-theme-scaling));
@@ -344,7 +343,7 @@
   border: solid 2px var(--h5p-theme-ui-base);
   box-shadow: 1px 2px 0px 0px rgba(0, 0, 0, 0.05);
   &::before {
-    content: "\e941";
+    content: "\e941";   
   } 
   &:focus-visible {
     outline: 2px solid var(--h5p-theme-contrast-cta-white);
@@ -352,10 +351,11 @@
   }
 }
 .h5p-memory-game .h5p-memory-audio-button {
-  top: calc(0.2em*var(--h5p-theme-scaling));
-  right: calc(0.3em*var(--h5p-theme-scaling));
+  top: 0.2em;
+  right: 0.3em;
 }
 .h5p-memory-game .h5p-memory-audio-instead-of-image {
+  font-size: inherit;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -363,6 +363,7 @@
 .h5p-memory-game .h5p-memory-card.h5p-memory-audio-playing + .h5p-memory-audio-container *::before {
   content: "\e942";
 }
+
 @media (prefers-reduced-motion: reduce) {
   .h5p-memory-game .h5p-memory-card .h5p-back,
   .h5p-memory-game .h5p-memory-card .h5p-front,
